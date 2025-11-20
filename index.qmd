@@ -7,14 +7,8 @@ author:
   - name: Aiswarya Puzhakkara Chennas
     #orcid: 0000-0003-1689-0557
     email: aiswarya.chennas@uni-muenster.de
-#  - Ignacio Leiva, ignacio.leiva@uni-muenster.de
-#  - Aiswarya Puzhakkara, Chennas, aiswarya.chennas@uni-muenster.de
-#- name: Ignacio Leiva, ignacio.leiva@uni-muenster.de
-#- url: mailto:email@email.edu
 ---
-`see`
-
-
+`
 ::: {.content-visible when-profile="english"}
 # Welcome
 :::
