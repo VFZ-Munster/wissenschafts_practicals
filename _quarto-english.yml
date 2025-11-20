@@ -1,0 +1,66 @@
+project:
+  type: website
+  output-dir: docs
+
+filters:
+  - timer
+
+website:
+  title: "Praktikum"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+    right: 
+      - href: /de
+        text: Deutsch
+      - icon: github
+     #   href: https://github.com/IgnaLeiva/plottingR
+
+  page-footer:
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "&copy; CC-1.0"
+
+  sidebar:
+    title: "dhdhThis is d"
+    logo: mfm-logo.svg
+    pinned: true
+    style: docked        # or "floating"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: praktikum2/praktikum2.qmd
+        text: Practical 2
+ #     - href: 
+ #       text: Practical 3
+ #     - href: 
+ #       text: Practical 4
+#      - href: 
+#        text: Practical 5
+#      - href: 
+#        text: Practical 6
+ #     - href: 
+ #       text: Practical 7
+      - href: blackboard.qmd
+        text: "Blackboard"
+        target: _blank 
+lang: en
+
+format:
+  html:
+    df-print: paged
+    theme: 
+       - cosmo
+       - style.scss
+   # css: styles.css
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+    toc-depth: 3
+
+date: last-modified
+
+metadata:
+  lang: "en"

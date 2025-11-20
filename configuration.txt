@@ -1,0 +1,46 @@
+
+# Configuration for Live server to move between lenguages
+
+docs/
+  ├── all folder for en
+  ├── de/
+
+# this following liveserver setting is in case of this structure
+docs/
+  ├── all folder for en
+  ├── de/
+
+{
+  "liveServer.settings.root": "/docs",
+  "liveServer.settings.port": 6324,
+  "folders": [
+    {
+      "path": "."
+    }
+  ]
+}
+
+Then, 
+	•	Right-click your docs folder → “Open with Live Server”
+	•	Or open any .html file inside docs and start Live Server
+
+
+# Render in this order othersise the german gets overwritten
+quarto render --profile english
+quarto render --profile german
+
+
+## Colors
+#https://quarto.org/docs/output-formats/html-themes.html
+
+# These are the color used by the university
+#ededed
+#70789a
+#7ab51d
+#006e89
+#003866
+
+## Additional codes
+# This is to use the _extensions
+:::{.timer #taks1 seconds=300 starton=interaction}
+:::

@@ -1,0 +1,270 @@
+---
+#title: "Praktikum"
+author:   
+  - name: Ignacio Leiva
+    #orcid: 0000-0003-1689-0557
+    email: ignacio.leiva@uni-muenster.de
+  - name: Aiswarya Puzhakkara Chennas
+    #orcid: 0000-0003-1689-0557
+    email: aiswarya.chennas@uni-muenster.de
+#  - Ignacio Leiva, ignacio.leiva@uni-muenster.de
+#  - Aiswarya Puzhakkara, Chennas, aiswarya.chennas@uni-muenster.de
+#- name: Ignacio Leiva, ignacio.leiva@uni-muenster.de
+#- url: mailto:email@email.edu
+---
+
+::: {.content-visible when-profile="english"}
+# Welcome
+:::
+
+::: {.content-visible when-profile="german"}
+# Willkommen
+:::
+
+::: {.content-visible when-profile="english"}
+## Introduction 
+
+We will use data from the [NHANES (National Health and Nutrition Examination Survey)](https://wwwn.cdc.gov/nchs/nhanes/) for the years 1999–2003. NHANES is a cross-sectional study based on a random sample designed to describe the health status of the U.S. population. We restrict the analysis to individuals aged 30 to 85 years.
+
+The data are stored in a file named `nhanes30.sav.`
+:::
+
+::: {.content-visible when-profile="german"}
+## Einleitung
+
+Wir werden Daten aus der [NHANES (National Health and Nutrition Examination Survey)](https://wwwn.cdc.gov/nchs/nhanes/) für die Jahre 1999–2003 verwenden.  
+NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert und darauf abzielt, den Gesundheitszustand der US-amerikanischen Bevölkerung zu beschreiben. Wir beschränken die Analyse auf Personen im Alter von 30 bis 85 Jahren.
+
+Die Daten sind in einer Datei mit dem Namen `nhanes30.sav.` gespeichert.
+:::
+
+::: {.callout-tip}
+## .sav?
+
+::: {.content-visible when-profile="english"}
+`.sav` extension indicates an SPSS file, which contains the observed data, variable descriptions, and metadata.
+:::
+
+::: {.content-visible when-profile="german"}
+Die Erweiterung `.sav` kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.
+:::
+:::
+
+::: {.content-visible when-profile="english"}
+### Variable description
+
+```{python}
+#| echo: false
+import pandas as pd
+import itables 
+import itables.options as opt
+opt.warn_on_undocumented_option = False
+itables.options.columnDefs = [{"className": "dt-left", "targets": "_all"}]
+
+
+data_dict = pd.DataFrame({
+    "Variable name": [
+        "SEQN", "nteeth", "cal_mean", "perio", "perio2", "bop", "male", "age",
+        "edu", "smk", "smk2", "alcg", "Height", "Weight", "bmi", "bmi_cat",
+        "wc", "wc_cat", "diab", "mortstat", "perm_exm"
+    ],
+    "Description": [
+        "Participant ID",
+        "Number of natural teeth",
+        "Mean clinical attachment loss",
+        "Periodontitis (CDC–AAP definition, Eke et al. 2012)",
+        "Periodontitis",
+        "Bleeding on probing (World Definition, Tonetti et al. 2018)",
+        "Sex",
+        "Age",
+        "Education level",
+        "Smoking status",
+        "Smoking status (collapsed)",
+        "Alcohol consumption",
+        "Height",
+        "Weight",
+        "Body Mass Index",
+        "BMI categories",
+        "Waist circumference",
+        "Waist circumference categories",
+        "Diabetes",
+        "Mortality status",
+        "Number of person-months between examination and death/censoring"
+    ],
+    "Values": [
+        "",                  # SEQN
+        "0–32",              # nteeth
+        "mm",                # cal_mean
+        "1=None, 2=Mild, 3=Moderate, 4=Severe",  # perio
+        "1=Yes, 2=No",       # perio2
+        "1=None, 2=>10%, 3=≥10%",  # bop
+        "1=Female, 2=Male",  # male
+        "Years",             # age
+        "1=<9th grade/missing, 2=9–11 grade/high school, 3=≥some college",  # edu
+        "1=Never, 2=Former, 3=Current",  # smk
+        "1=Never, 2=Former/Current",     # smk2
+        "Grams per day",     # alcg
+        "cm",                # Height
+        "kg",                # Weight
+        "kg/m²",             # bmi
+        "1=<18.5, 2=18.5–25, 3=25–30, 4=≥30",  # bmi_cat
+        "cm",                # wc
+        "1=M:<102,F:<88; 2=M:≥102,F:≥88",     # wc_cat
+        "Yes, No",           # diab
+        "1=Alive, 0=Deceased",  # mortstat
+        ""                   # perm_exm
+    ]
+})
+
+# Show the table
+
+itables.show(
+    data_dict,
+    dom="Brtip",
+    classes="display nowrap compact",
+    style="table-layout:auto;width:50%;float:left",
+    columnControl=["order", ["orderAsc", "orderDesc", "search"]],
+    ordering={"indicators": False, "handler": False},
+    buttons=["columnsToggle", {"extend": "csv", "text": "🔗 Download data description"}],
+    paging=False,       # no pagination
+   # scrollY=None,       # disable scrolling limit
+    scrollCollapse=False
+)
+
+```
+
+:::{.hidden}
+| **Variable name** | **Description** | **Values** |
+|:------------------|:--------------|:-----------------|
+| SEQN | Participant ID |  |
+| nteeth | Number of natural teeth | 0–32 |
+| cal_mean | Mean clinical attachment loss | mm |
+| perio | Periodontitis (CDC–AAP definition, Eke et al. 2012) | 1=None, 2=Mild, 3=Moderate, 4=Severe |
+| perio2 | Periodontitis | 1=Yes, 2=No |
+| bop | Bleeding on probing (World Definition, Tonetti et al. 2018) | 1=None, 2=>10%, 3= $\geq$ 10% |
+| male | Sex | 1=Female, 2=Male |
+| age | Age | Years |
+| edu | Education level | 1=<9th grade/missing, 2=9–11 grade/high school, 3=$\geq$ some college |
+| smk | Smoking status | 1=Never, 2=Former, 3=Current |
+| smk2 | Smoking status | 1=Never, 2=Former/Current |
+| alcg | Alcohol consumption | Grams per day |
+| Height | Height | cm |
+| Weight | Weight | kg |
+| bmi | Body Mass Index | kg/m² |
+| bmi_cat | BMI categories | 1= $<$ 18.5, 2=18.5–25, 3=25–30, 4= $\geq$ 30 |
+| wc | Waist circumference | cm |
+| wc_cat | Waist circumference categories | 1=M: $<$ 102, F: $<$ 88; 2=M: $\geq$ 102, F: $\geq$ 88 |
+| diab | Diabetes | Yes, No |
+| mortstat | Mortality status | 1=Alive, 0=Deceased |
+| perm_exm | Number of person-months between examination and death/censoring |  |
+:::
+:::
+
+::: {.content-visible when-profile="german"}
+### Datensatzbeschreibung
+
+```{python}
+#| echo: false
+import pandas as pd
+import itables 
+import itables.options as opt
+opt.warn_on_undocumented_option = False
+itables.options.columnDefs = [{"className": "dt-left", "targets": "_all"}]
+
+daten_dict = pd.DataFrame({
+    "Variablenname": [
+        "SEQN", "nteeth", "cal_mean", "perio", "perio2", "bop", "male", "age",
+        "edu", "smk", "smk2", "alcg", "Height", "Weight", "bmi", "bmi_cat",
+        "wc", "wc_cat", "diab", "mortstat", "perm_exm"
+    ],
+    "Bedeutung": [
+        "Probandennummer",
+        "Anzahl der natürlichen Zähne",
+        "Mittlerer Attachmentverlust",
+        "Parodontitis (CDC–AAP Definition, Eke et al. 2012)",
+        "Parodontitis",
+        "Bleeding on probe (World Definition, Tonetti et al. 2018)",
+        "Geschlecht",
+        "Alter",
+        "Bildungsniveau",
+        "Rauchstatus",
+        "Rauchstatus (zusammengefasst)",
+        "Alkoholkonsum",
+        "Körpergröße",
+        "Körpergewicht",
+        "Body Mass Index",
+        "BMI-Kategorien",
+        "Taillenumfang",
+        "Taillenumfang – Kategorien",
+        "Diabetes",
+        "Mortalität",
+        "Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung"
+    ],
+    "Ausprägungen": [
+        "",                   # SEQN
+        "0–32",               # nteeth
+        "mm",                 # cal_mean
+        "1=None, 2=mild, 3=moderate, 4=severe",  # perio
+        "1=Ja, 2=Nein",       # perio2
+        "1=None, 2=>10%, 3=≥10%",  # bop
+        "1=Female, 2=Male",   # male
+        "Jahre",              # age
+        "1=<9th grade/missing, 2=9–11 grade/high school, 3=≥some college",  # edu
+        "1=Never, 2=Former, 3=Current",  # smk
+        "1=Never, 2=Former/Current",     # smk2
+        "Gramm pro Tag",      # alcg
+        "cm",                 # Height
+        "kg",                 # Weight
+        "kg/m²",              # bmi
+        "1=<18.5, 2=18.5–25, 3=25–30, 4=≥30",  # bmi_cat
+        "cm",                 # wc
+        "1=m:<102,f:<88; 2=m:≥102,f:≥88",      # wc_cat
+        "Ja, Nein",           # diab
+        "1=lebend, 0=verstorben",  # mortstat
+        ""                    # perm_exm
+    ]
+})
+
+# Show the table
+
+itables.show(
+    daten_dict,
+    dom="Brtip",
+    classes="display nowrap compact",
+    style="table-layout:auto;width:50%;float:left",
+    columnControl=["order", ["orderAsc", "orderDesc", "search"]],
+    ordering={"indicators": False, "handler": False},
+    buttons=["columnsToggle", {"extend": "csv", "text": "🔗 Download data description"}],
+    paging=False,       # no pagination
+   # scrollY=None,       # disable scrolling limit
+    scrollCollapse=False
+)
+
+```
+
+:::{.hidden}
+| **Variablenname** | **Bedeutung** | **Ausprägungen** |
+|:------------------|:--------------|:-----------------|
+| SEQN | Probandennummer |  |
+| nteeth | Anzahl der natürlichen Zähne | 0–32 |
+| cal_mean | Mittlerer Attachmentverlust | mm |
+| perio | Parodontitis (CDC-AAP Definition Eke et al. 2012) | 1=None, 2=mild, 3=moderate, 4=severe |
+| perio2 | Parodontitis | 1=Ja, 2=Nein |
+| bop | Bleeding on probe (World Definition, Tonetti et al. 2018) | 1=None, 2=>10%, 3= $\geq$ 10% |
+| male | Geschlecht | 1=Female, 2=Male |
+| age | Jahre | Jahre |
+| edu | Bildungsniveau | 1=<9th grade/missing, 2=9–11 grade/high school, 3=≥some college |
+| smk | Rauchstatus | 1=Never, 2=Former, 3=Current |
+| smk2 | Rauchstatus | 1=Never, 2=Former/Current |
+| alcg | Alkoholkonsum | Gramm pro Tag |
+| Height | Körpergröße | cm |
+| Weight | Körpergewicht | kg |
+| bmi | Body Mass Index | kg/m² |
+| bmi_cat | BMI-Kategorien | 1= $<$ 18.5, 2=18.5–25, 3=25–30, 4= $\geq$ 30 |
+| wc | Taillenumfang | cm |
+| wc_cat | Taillenumfang – Kategorien | 1=m:$<$ 102,f: $<$ 88; 2=m:$\geq$ 102,f: $\geq$ 88 |
+| diab | Diabetes | Ja, Nein |
+| mortstat | Mortalität | 1=lebend, 0=verstorben |
+| perm_exm | Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung |  |
+:::
+:::

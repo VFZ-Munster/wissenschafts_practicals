@@ -1,0 +1,33 @@
+{
+  "about.qmd": {
+    "about.html": "09ee7f81"
+  },
+  "index.qmd": {
+    "index.html": "33fb83f6",
+    "index.embed.ipynb": "c05c1064"
+  },
+  "praktikum2/praktikum2.qmd": {
+    "praktikum2.html": "bd96c632"
+  },
+  "blackboard.qmd": {
+    "blackboard.html": "16c197dd"
+  },
+  "see_pub/praktikum2/praktikum2.qmd": {
+    "praktikum2.html": "4eb854ba"
+  },
+  "see_pub/index.qmd": {
+    "index.html": "ac6e4bb1"
+  },
+  "see_pub/blackboard.qmd": {
+    "blackboard.html": "57add8f9"
+  },
+  "index.embed.ipynb": {
+    "index.embed.html": "60ad2204"
+  },
+  "praktikum2/part1.qmd": {
+    "part1.html": "5c9269a8"
+  },
+  "praktikum2/part2.qmd": {
+    "part2.html": "fbaa552d"
+  }
+}

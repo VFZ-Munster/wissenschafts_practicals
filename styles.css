@@ -1,0 +1,130 @@
+/* css styles */
+/* ===== Navbar styling ===== */
+
+/* Navbar background color */
+.navbar {
+  background-color: #7ab51d !important;
+}
+
+/* Navbar site title ("Praktikum") */
+.navbar-brand {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Navbar links (e.g., Home, GitHub) */
+.navbar-nav .nav-link {
+  color: white !important;
+}
+
+/* Navbar hover color */
+.navbar-nav .nav-link:hover {
+  color: #d0e6ff !important; /* light blue hover */
+}
+
+/* Navbar icons (like GitHub) */
+.navbar .bi {
+  color: white !important;
+}
+
+/* Optional: sidebar title (if you’re using one) */
+.sidebar-title {
+  color: white !important;
+}
+
+
+/* ===== Sidebar Styling ===== */
+
+/* Sidebar background color */
+.sidebar {
+  background-color: white !important; /* same blue as navbar */
+  color: #003866;
+}
+
+/* Sidebar title */
+.sidebar-title {
+  color: red !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sidebar links */
+.sidebar .nav-link {
+  color: #649416ff !important;
+  font-size: 0.9rem;
+}
+
+.sidebar-item.active {
+  background-color: red;
+}
+
+/* Hover effect for sidebar links */
+.sidebar .nav-link:hover {
+  color: #d0e6ff !important; /* light blue hover */
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+/* Active link (current page) 
+.sidebar .nav-link.active {
+  color: red !important;
+  font-weight: bold;
+}*/
+
+.navbar #nav > .active > a {
+    color: red;
+}
+
+/* ===== Main Page Content Styling ===== */
+
+/* General body text */
+body, p {
+  color: #70789a;             /* dark gray text */
+  font-size: 1rem;            /* adjust as needed (default ~16px) */
+  line-height: 1.6;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #003866;             /* darker blue for contrast */
+  font-weight: 700;
+}
+
+/* Links inside .qmd pages */
+main a {
+  color: #7ab51d;             /* same blue as navbar */
+  text-decoration: none;
+}
+main a:hover {
+  color: #17466d;
+  text-decoration: underline;
+}
+
+/* Code blocks */
+pre code {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+}
+
+/* Inline code */
+code {
+  color: #649416ff;
+  background-color: #ededed;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+details {
+  background-color: #f4f8e8;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+details > summary {
+  background-color: #d6e8b8;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}

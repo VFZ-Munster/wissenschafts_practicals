@@ -1,0 +1,66 @@
+/*-- scss:defaults --*/
+// Base document colors
+$body-bg: white;
+$body-color: #003866;
+$link-color: #7ab51d;
+
+$navbar-bg: #7ab51d;
+$navbar-fg: white;
+$navbar-hl: white;
+
+$sidebar-bg: white;
+$sidebar-fg: #006e89;
+$sidebar-hl: red;
+
+$code-bg: #f6f8fa;
+$code-color: #4c7210ff;
+
+pre, code, pre code, div.sourceCode, pre.sourceCode {
+  background-color: $code-bg;
+  color: $code-color;
+  border-radius: 50px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #003866;             /* darker blue for contrast */
+  font-weight: 700;
+}
+
+.sidebar-item {
+    font-weight: 600;
+}
+
+
+
+details {
+  background-color: #f4f8e87f;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+
+details.another {
+  background-color: #006e891a;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.modal {
+  // padding: 1em;
+  max-width: 50ch;
+  // border: 0;
+  // box-shadow: 0 0 1em rgb(0 0 0 / .3);
+
+  & > * {
+    margin: 0 0 0.5rem 0;
+  }
+}
+
+
+// Table of Contents (ToC) styling: thi is the one on the right side
+// $toc-color: #444444;             // text color for all ToC items
+// $toc-font-size: 0.9rem;          // font size of ToC items
+// $toc-active-border: #649416;     // left border color for active section
+// $toc-inactive-border: #cccccc;   // left border color for inactive sections
+

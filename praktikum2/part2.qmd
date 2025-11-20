@@ -1,0 +1,259 @@
+If you have measured several variables in your **cross-sectional** study, you can display an (⚠️ apparent) relationship between them using various methods.
+
+## Task 3
+
+
+Create a cross-table for diabetes (diab) and periodontitis (perio2).
+
+💡 In SPSS: **ANALYSIEREN** → **DESKRIPTIVE STATISTIKEN** → **KREUZTABELLEN**
+
+::: callout-tip
+Which variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.
+:::
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+*diab × perio2 Crosstabulation*
+
+| diab         | perio2 = periodontitis | perio2 = no | **Total** |
+|--------------|------------------------|-------------|-----------|
+| **diabetes** | 199                    | 578         | **777**   |
+| **no**       | 988                    | 6,290       | **7,278** |
+| **Total**    | **1,187**              | **6,868**   | **8,055** |
+
+</details>
+
+## Task 4
+
+Calculate the **risk difference**, **relative risk**, and **odds ratio** for the association between diabetes and periodontitis.
+
+💡 In SPSS: **ANALYSIEREN** → **DESKRIPTIVE STATISTIKEN** → **KREUZTABELLEN**
+
+Then in the Crosstabs dialog, click **\[Cells...\]** and under **Percentages**, select **Row**, then click **Continue**.\
+Next, click **\[Statistics...\]**, check **Risk**, and click **Continue**.
+
+**Calculate manually:**
+
+-   **Risk difference (RD):**\
+    Subtract the percentage values $$
+    RD = p_{\text{diabetic with periodontitis}} - p_{\text{non-diabetic with periodontitis}}
+    $$
+
+-   **Relative risk (RR):**\
+    Divide the percentage values instead of subtracting them.\
+    $$
+    RR = \frac{p_{\text{diabetic with periodontitis}}}{p_{\text{non-diabetic with periodontitis}}}
+    $$
+
+-   **Odds ratio (OR):**\
+    Verify the value shown under *“Odds ratio for …”* by calculating:
+
+    -   The odds of periodontitis for diabetics:\
+        $$
+        \text{Odds}_{\text{diabetic}} = 
+        \frac{\text{number of diabetics with periodontitis}}
+             {\text{number of diabetics without periodontitis}}
+        $$
+
+    -   Divided by the odds of periodontitis for non-diabetics:\
+        $$
+        \text{Odds}_{\text{non-diabetic}} = 
+        \frac{\text{number of non-diabetics with periodontitis}}
+             {\text{number of non-diabetics without periodontitis}}
+        $$
+
+    -   Hence:\
+        $$
+        OR = \frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}}
+        = \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
+        $$
+
+where:\
+- ( a ): diabetics **with** periodontitis\
+- ( b ): diabetics **without** periodontitis\
+- ( c ): non-diabetics **with** periodontitis\
+- ( d ): non-diabetics **without** periodontitis
+
+<details open>
+
+Let the 2×2 table be:
+
+|              | Periodontitis (+) | Periodontitis (−) |
+|--------------|-------------------|-------------------|
+| Diabetic     | ( a )             | ( b )             |
+| Non-diabetic | ( c )             | ( d )             |
+
+</details>
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+*diab × perio2 Crosstabulation*
+
+| diab         |                | perio2 = periodontitis | perio2 = no | **Total** |
+|--------------|--------------|-----------------|--------------|--------------|
+| **diabetes** | Count          | 199                    | 578         | **777**   |
+|              | \% within diab | 25.6%                  | 74.4%       | 100.0%    |
+| **no**       | Count          | 988                    | 6,290       | **7,278** |
+|              | \% within diab | 13.6%                  | 86.4%       | 100.0%    |
+| **Total**    | Count          | **1,187**              | **6,868**   | **8,055** |
+|              | \% within diab | 14.7%                  | 85.3%       | 100.0%    |
+
+**Manual calculations**
+
+$$
+  RD = 25.6\% - 13.6\%  = 12\%
+  $$
+
+<details>
+
+<summary>
+{{< include ../utilities/badge-interpretation.html >}}
+</summary>
+<br>
+-   ⚠️ Remember, this may only be an apparent association
+-   The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group.
+-   This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.
+
+</details>
+
+$$
+  RR = \frac{25.6\%}{13.6\%} = 1.88
+  $$
+
+
+
+<details>
+
+<summary>
+{{< include ../utilities/badge-interpretation.html >}}
+</summary>
+<br>
+-   Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.
+
+</details>
+
+$$
+  OR = \frac{25.6/74.4}{13.6/86.4} = \frac{25.6 \times 86.4}{74.4 \times 13.6} = \frac{2211.84}{1011.84} = 2.19
+  $$
+
+<details>
+
+<summary>
+{{< include ../utilities/badge-interpretation.html >}}
+</summary>
+<br>
+-   People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes.
+
+</details>
+
+</details>
+
+## Task 5
+
+
+Create a scatterplot for the covariation of `weight` \~ `height`
+
+💡 In SPSS: **GRAFIK** → **DIAGRAMMDARSTELLUNG** – Streu/-Punktdiagramm auswählen
+
+Draw a regression line.
+
+💡 SPSS: Double-click on the created graph, then click the symbol marked below.
+
+![](p3.png)
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![](h_w.png)
+
+</details>
+
+## Task 6
+
+Calculate the covariance and the Pearson correlation coefficient for the relationship between `height` and `weight`.
+
+💡 In SPSS: **ANALYSIEREN** → **KORRELATIONEN** → **BIVARIAT** - Korrelationskoeffizienten: Pearson auswählen
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+Correlations
+
+|                     |  weight  |  height  |
+|---------------------|:--------:|:--------:|
+| **weight**          |          |          |
+| Pearson Correlation |    1     | .466\*\* |
+| Sig. (2-tailed)     |          | \< .001  |
+| N                   |  15,095  |  14,879  |
+| **height**          |          |          |
+| Pearson Correlation | .466\*\* |    1     |
+| Sig. (2-tailed)     | \< .001  |          |
+| N                   |  14,879  |  15,148  |
+
+**Note:** \*\*.Correlation is significant at the 0.01 level (2-tailed)
+
+**r** = 0.466 indicates a moderate positive linear correlation:
+
+As height increases, weight tends to increase as well.
+
+The p-value \< 0.001 shows this association is statistically significant.
+
+</details>
+
+## Additional task
+
+Calculate the Spearman correlation coefficient for the relationship between `age` and `number of teeth`.
+
+💡 In SPSS: **ANALYSIEREN** → **KORRELATIONEN** → **BIVARIAT** - Korrelationskoeffizienten: Spearman auswählen
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+Spearman's rho Correlations
+
+|                         |    age    |  nteeth   |
+|-------------------------|:---------:|:---------:|
+| **age**                 |           |           |
+| Correlation Coefficient |   1.000   | −.560\*\* |
+| Sig. (2-tailed)         |     .     |  \< .001  |
+| N                       |  16,588   |  14,394   |
+| **nteeth**              |           |           |
+| Correlation Coefficient | −.560\*\* |   1.000   |
+| Sig. (2-tailed)         |  \< .001  |     .     |
+| N                       |  14,394   |  14,394   |
+
+**Note:** \*\*.Correlation is significant at the 0.01 level (2-tailed)
+
+**ρ** = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.
+
+This means that, in general, as age increases, the number of teeth decreases.
+
+</details>
+
+# Notes
+
+<details>
+
+<summary>strength of association</summary>
+
+These are used as rule-of-thumb thresholds
+
+| Absolute value of coefficient (r or ρ) | Strength of association | Interpretation |
+|:-----------------------------:|:-------------------:|:--------------------|
+| 0.00 – 0.19 | Very weak | Practically no linear/monotonic relationship |
+| 0.20 – 0.39 | Weak | Slight relationship between variables |
+| 0.40 – 0.59 | Moderate | Noticeable relationship, but not strong |
+| 0.60 – 0.79 | Strong | Clear and substantial relationship |
+| 0.80 – 1.00 | Very strong | Very tight, almost perfect relationship |
+
+</details>
+
+
+
