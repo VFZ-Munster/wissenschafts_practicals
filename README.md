@@ -20,43 +20,13 @@ This requires:
 - and the starton argument (e.g. starton=interaction).
 
 ## Colors
-These are the color used by the university
-`#ededed` `#70789a` `#7ab51d` `#006e89` `#003866`
+These are the colors used to match the university’s official palette.
 
-| Color | Hex |
-|-------|------|
-| <span style="display:inline-block;width:20px;height:20px;background:#ededed;border:1px solid #ccc;"></span> | `#ededed` |
-| <span style="display:inline-block;width:20px;height:20px;background:#70789a;border:1px solid #ccc;"></span> | `#70789a` |
-| <span style="display:inline-block;width:20px;height:20px;background:#7ab51d;border:1px solid #ccc;"></span> | `#7ab51d` |
-| <span style="display:inline-block;width:20px;height:20px;background:#006e89;border:1px solid #ccc;"></span> | `#006e89` |
-| <span style="display:inline-block;width:20px;height:20px;background:#003866;border:1px solid #ccc;"></span> | `#003866` |
-
-<table>
-  <tr>
-    <th>Color</th>
-    <th>Hex</th>
-  </tr>
-  <tr>
-    <td><div style="width:20px;height:20px;background:#ededed;border:1px solid #ccc;"></div></td>
-    <td>#ededed</td>
-  </tr>
-  <tr>
-    <td><div style="width:20px;height:20px;background:#70789a;border:1px solid #ccc;"></div></td>
-    <td>#70789a</td>
-  </tr>
-  <tr>
-    <td><div style="width:20px;height:20px;background:#7ab51d;border:1px solid #ccc;"></div></td>
-    <td>#7ab51d</td>
-  </tr>
-  <tr>
-    <td><div style="width:20px;height:20px;background:#006e89;border:1px solid #ccc;"></div></td>
-    <td>#006e89</td>
-  </tr>
-  <tr>
-    <td><div style="width:20px;height:20px;background:#003866;border:1px solid #ccc;"></div></td>
-    <td>#003866</td>
-  </tr>
-</table>
+![#ededed](https://img.shields.io/badge/-e5e5e5-ededed?style=flat-square) 
+![#70789a](https://img.shields.io/badge/-70789a-70789a?style=flat-square)
+![#7ab51d](https://img.shields.io/badge/-7ab51d-7ab51d?style=flat-square)
+![#006e89](https://img.shields.io/badge/-006e89-006e89?style=flat-square)
+![#003866](https://img.shields.io/badge/-003866-003866?style=flat-square)
 
 
 ## Rendering the Quarto project
