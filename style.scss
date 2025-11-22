@@ -27,7 +27,7 @@ $sidebar-fg: $brand-blue-light;
 $sidebar-hl: #e2e8f0;
 
 // Code block colors
-$code-bg: #f6f8fa;
+$code-bg: #e2e8f08b;
 $code-color: #4c7210ff;
 
 /*-- scss:rules --*/
@@ -321,5 +321,58 @@ details.another {
     h3 {
       color: $brand-green;
     }
+  }
+}
+
+// Instruction Flows (Breadcrumbs)
+.instruction-flow {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: 'Nunito', sans-serif;
+  margin: 0.5rem 0;
+  
+  .step {
+    background-color: white;
+    color: $brand-blue;
+    border: 1px solid rgba($brand-blue, 0.2);
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    
+    &:hover {
+      transform: translateY(-1px);
+      border-color: $brand-green;
+      color: $brand-green;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    }
+    
+    // Modifier for selection/options
+    &.option {
+      background-color: rgba($brand-green, 0.05);
+      border: 1px dashed $brand-green;
+      color: darken($brand-green, 5%);
+      
+      &::before {
+        content: '☑';
+        margin-right: 6px;
+        font-size: 1.1em;
+        vertical-align: -1px;
+      }
+      
+      &:hover {
+        background-color: rgba($brand-green, 0.1);
+      }
+    }
+  }
+  
+  .arrow {
+    color: $brand-green;
+    font-weight: 900;
+    font-size: 1.1rem;
   }
 }
