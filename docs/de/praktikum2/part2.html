@@ -601,10 +601,11 @@ strength of association
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
-    const repoName = "/wissenschafts_practicals";
+    console.log("Language Switcher: Current path is " + path);
     
-    // Determine if we are currently in German mode
-    // This logic covers both local (/de/...) and GH Pages (/repo/de/...)
+    const repoName = "wissenschafts_practicals";
+    
+    // Check if we are in German mode
     const isGerman = path.includes("/de/") || path.endsWith("/de");
 
     const links = document.querySelectorAll('.navbar-nav .nav-link');
@@ -615,31 +616,41 @@ strength of association
       if (text === "Deutsch" && !isGerman) {
         // Switching to German
         let newPath;
-        if (path.startsWith(repoName)) {
-            // GitHub Pages deployment
-            // Insert /de after the repo name
-            // e.g. /wissenschafts_practicals/index.html -> /wissenschafts_practicals/de/index.html
-            newPath = path.replace(repoName, repoName + "/de");
+        
+        // Check if the path contains the repo name
+        if (path.indexOf("/" + repoName) !== -1) {
+            // GitHub Pages: /wissenschafts_practicals/...
+            // We want to insert /de after the repo name
+            // Replace first occurrence of /repoName with /repoName/de
+            newPath = path.replace("/" + repoName, "/" + repoName + "/de");
+            
+            // If the path was exactly /wissenschafts_practicals (no trailing slash), it becomes /wissenschafts_practicals/de
+            // If /wissenschafts_practicals/, it becomes /wissenschafts_practicals/de/
         } else {
-            // Local development or root domain
-            // Prepend /de
+            // Local or root domain
             newPath = "/de" + path;
         }
+        
+        console.log("Language Switcher: Updating Deutsch link to " + newPath);
         link.setAttribute('href', newPath);
         
       } else if (text === "English" && isGerman) {
         // Switching to English
         let newPath = path;
         
-        if (newPath.includes(repoName + "/de")) {
-             // GitHub Pages: /wissenschafts_practicals/de/... -> /wissenschafts_practicals/...
-             newPath = newPath.replace(repoName + "/de", repoName);
-        } else if (newPath.startsWith("/de")) {
-             // Local: /de/... -> /...
-             newPath = newPath.replace(/^\/de/, "");
+        if (path.indexOf("/" + repoName + "/de") !== -1) {
+             // GitHub Pages: /wissenschafts_practicals/de/...
+             // Remove /de
+             newPath = path.replace("/" + repoName + "/de", "/" + repoName);
+        } else {
+             // Local: /de/...
+             // Remove leading /de
+             newPath = path.replace(/^\/de/, "");
         }
         
         if (newPath === "") newPath = "/";
+        
+        console.log("Language Switcher: Updating English link to " + newPath);
         link.setAttribute('href', newPath);
       }
     });
