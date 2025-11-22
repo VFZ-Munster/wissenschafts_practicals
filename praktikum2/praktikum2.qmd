@@ -1,13 +1,10 @@
 
 ::: {.content-visible when-profile="english"}
 # Practical 2
-
-hello
 :::
 
 ::: {.content-visible when-profile="german"}
 # Praktikum 2
-hallo
 :::
 
 
