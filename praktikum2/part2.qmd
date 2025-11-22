@@ -97,8 +97,8 @@ The ratio of odds between the two groups:
 <span style="font-weight: 400; font-size: 16px;">The odds of periodontitis for diabetics:</span>
 $$
     \text{Odds}_{\text{diabetic}} =
-    \frac{\text{number of diabetics with periodontitis}}
-         {\text{number of diabetics without periodontitis}}
+    \frac{\text{No. diabetic w/ periodontitis}}
+         {\text{No. diabetic w/o periodontitis}}
 $$
 </div>
 
@@ -107,8 +107,8 @@ $$
 <span style="font-weight: 400; font-size: 16px;">Divided by the odds of periodontitis for non-diabetics:</span>
 $$
 \text{Odds}_{\text{non-diabetic}} =
-\frac{\text{number of non-diabetics with periodontitis}}
-         {\text{number of non-diabetics without periodontitis}}
+\frac{\text{No. non-diabetic w/ periodontitis}}
+         {\text{No. non-diabetic w/o periodontitis}}
 $$
 </div>
 
