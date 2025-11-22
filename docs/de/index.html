@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66749fce9437dbaab4c17ec252ef2ffa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4b894b8ac44bbd718a95b33a86d38782.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -196,13 +196,8 @@ window.Quarto = {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen</a>
-  <ul class="collapse">
-  <li><a href="#einleitung" id="toc-einleitung" class="nav-link" data-scroll-target="#einleitung">Einleitung</a>
-  <ul class="collapse">
+  <li><a href="#willkommen-zum-praktikum" id="toc-willkommen-zum-praktikum" class="nav-link active" data-scroll-target="#willkommen-zum-praktikum">Willkommen zum Praktikum</a></li>
   <li><a href="#datensatzbeschreibung" id="toc-datensatzbeschreibung" class="nav-link" data-scroll-target="#datensatzbeschreibung">Datensatzbeschreibung</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -240,13 +235,21 @@ window.Quarto = {
 </header>
 
 
-<section id="willkommen" class="level1">
-<h1>Willkommen</h1>
-<section id="einleitung" class="level2">
-<h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>Wir werden Daten aus der <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES (National Health and Nutrition Examination Survey)</a> für die Jahre 1999–2003 verwenden.<br>
-NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert und darauf abzielt, den Gesundheitszustand der US-amerikanischen Bevölkerung zu beschreiben. Wir beschränken die Analyse auf Personen im Alter von 30 bis 85 Jahren.</p>
-<p>Die Daten sind in einer Datei mit dem Namen <code>nhanes30.sav.</code> gespeichert.</p>
+<section id="willkommen-zum-praktikum" class="level1 hero-section">
+<h1>Willkommen zum Praktikum</h1>
+<p>Entdecken, analysieren und lernen Sie mit NHANES-Daten.</p>
+</section>
+<div class="grid">
+<section id="datenanalyse" class="level3 g-col-12 g-col-md-6 feature-card">
+<h3 class="anchored" data-anchor-id="datenanalyse">📊 Datenanalyse</h3>
+<p>Wir verwenden Daten der <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES</a> (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.</p>
+</section>
+<section id="der-datensatz" class="level3 g-col-12 g-col-md-6 feature-card">
+<h3 class="anchored" data-anchor-id="der-datensatz">📁 Der Datensatz</h3>
+<p>Die Daten sind in <code>nhanes30.sav</code> gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.</p>
+</section>
+</div>
+<p><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -262,10 +265,10 @@ NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert
 </div>
 <section id="datensatzbeschreibung" class="level3">
 <h3 class="anchored" data-anchor-id="datensatzbeschreibung">Datensatzbeschreibung</h3>
-<div id="ede6c6d2" class="cell" data-execution_count="2">
+<div id="f4a8232d" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_6caa3f66_ffc3_47b6_aefa_a6bb6dc6ab27"><tbody><tr>
+<table id="itables_357f4397_b7e0_4016_a202_8a4e05da7977"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -331,11 +334,11 @@ NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_6caa3f66_ffc3_47b6_aefa_a6bb6dc6ab27:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_357f4397_b7e0_4016_a202_8a4e05da7977:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"dom": "Brtip", "classes": ["display", "nowrap", "compact"], "style": {"table-layout": "auto", "width": "50%", "float": "left"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "\ud83d\udd17 Download data description"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "order": [], "columnDefs": [{"className": "dt-left", "targets": "_all"}], "text_in_header_can_be_selected": true, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variablenname</th>\n      <th>Bedeutung</th>\n      <th>Auspr\u00e4gungen</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Probandennummer\", \"\"], [\"nteeth\", \"Anzahl der nat\\u00fcrlichen Z\\u00e4hne\", \"0\\u201332\"], [\"cal_mean\", \"Mittlerer Attachmentverlust\", \"mm\"], [\"perio\", \"Parodontitis (CDC\\u2013AAP Definition, Eke et al. 2012)\", \"1=None, 2=mild, 3=moderate, 4=severe\"], [\"perio2\", \"Parodontitis\", \"1=Ja, 2=Nein\"], [\"bop\", \"Bleeding on probe (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Geschlecht\", \"1=Female, 2=Male\"], [\"age\", \"Alter\", \"Jahre\"], [\"edu\", \"Bildungsniveau\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Rauchstatus\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Rauchstatus (zusammengefasst)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alkoholkonsum\", \"Gramm pro Tag\"], [\"Height\", \"K\\u00f6rpergr\\u00f6\\u00dfe\", \"cm\"], [\"Weight\", \"K\\u00f6rpergewicht\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI-Kategorien\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Taillenumfang\", \"cm\"], [\"wc_cat\", \"Taillenumfang \\u2013 Kategorien\", \"1=m:&lt;102,f:&lt;88; 2=m:\\u2265102,f:\\u226588\"], [\"diab\", \"Diabetes\", \"Ja, Nein\"], [\"mortstat\", \"Mortalit\\u00e4t\", \"1=lebend, 0=verstorben\"], [\"perm_exm\", \"Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung\", \"\"]]"};
+        let dt_args = {"dom": "Brtip", "classes": ["display", "nowrap", "compact"], "style": {"table-layout": "auto", "width": "50%", "float": "left"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "\ud83d\udd17 Download data description"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "columnDefs": [{"className": "dt-left", "targets": "_all"}], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variablenname</th>\n      <th>Bedeutung</th>\n      <th>Auspr\u00e4gungen</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Probandennummer\", \"\"], [\"nteeth\", \"Anzahl der nat\\u00fcrlichen Z\\u00e4hne\", \"0\\u201332\"], [\"cal_mean\", \"Mittlerer Attachmentverlust\", \"mm\"], [\"perio\", \"Parodontitis (CDC\\u2013AAP Definition, Eke et al. 2012)\", \"1=None, 2=mild, 3=moderate, 4=severe\"], [\"perio2\", \"Parodontitis\", \"1=Ja, 2=Nein\"], [\"bop\", \"Bleeding on probe (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Geschlecht\", \"1=Female, 2=Male\"], [\"age\", \"Alter\", \"Jahre\"], [\"edu\", \"Bildungsniveau\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Rauchstatus\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Rauchstatus (zusammengefasst)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alkoholkonsum\", \"Gramm pro Tag\"], [\"Height\", \"K\\u00f6rpergr\\u00f6\\u00dfe\", \"cm\"], [\"Weight\", \"K\\u00f6rpergewicht\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI-Kategorien\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Taillenumfang\", \"cm\"], [\"wc_cat\", \"Taillenumfang \\u2013 Kategorien\", \"1=m:&lt;102,f:&lt;88; 2=m:\\u2265102,f:\\u226588\"], [\"diab\", \"Diabetes\", \"Ja, Nein\"], [\"mortstat\", \"Mortalit\\u00e4t\", \"1=lebend, 0=verstorben\"], [\"perm_exm\", \"Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung\", \"\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -466,8 +469,6 @@ NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->

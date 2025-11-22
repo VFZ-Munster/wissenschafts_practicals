@@ -51,6 +51,11 @@ lang: en
 format:
   html:
     df-print: paged
+    grid:
+      sidebar-width: 300px
+      body-width: 2000px
+      margin-width: 300px
+      gutter-width: 1.5rem
     theme: 
        - cosmo
        - style.scss
