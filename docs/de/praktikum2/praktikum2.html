@@ -812,27 +812,45 @@ strength of association
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
-    const isGerman = path.startsWith("/de/") || path === "/de";
+    const repoName = "/wissenschafts_practicals";
     
-    // Select all nav links to find the language switcher
+    // Determine if we are currently in German mode
+    // This logic covers both local (/de/...) and GH Pages (/repo/de/...)
+    const isGerman = path.includes("/de/") || path.endsWith("/de");
+
     const links = document.querySelectorAll('.navbar-nav .nav-link');
     
     links.forEach(link => {
       const text = link.textContent.trim();
       
       if (text === "Deutsch" && !isGerman) {
-        // We are on an English page, switching to German
-        // Prepend /de to the current path
-        // Handle root case carefully if needed, but usually /de + /path works
-        // If path is /, result is /de/
-        // If path is /foo.html, result is /de/foo.html
-        const newPath = "/de" + path;
+        // Switching to German
+        let newPath;
+        if (path.startsWith(repoName)) {
+            // GitHub Pages deployment
+            // Insert /de after the repo name
+            // e.g. /wissenschafts_practicals/index.html -> /wissenschafts_practicals/de/index.html
+            newPath = path.replace(repoName, repoName + "/de");
+        } else {
+            // Local development or root domain
+            // Prepend /de
+            newPath = "/de" + path;
+        }
         link.setAttribute('href', newPath);
+        
       } else if (text === "English" && isGerman) {
-        // We are on a German page, switching to English
-        // Remove /de from the start of the path
-        let newPath = path.replace(/^\/de/, "");
-        if (newPath === "") newPath = "/"; // Handle case where path was just /de
+        // Switching to English
+        let newPath = path;
+        
+        if (newPath.includes(repoName + "/de")) {
+             // GitHub Pages: /wissenschafts_practicals/de/... -> /wissenschafts_practicals/...
+             newPath = newPath.replace(repoName + "/de", repoName);
+        } else if (newPath.startsWith("/de")) {
+             // Local: /de/... -> /...
+             newPath = newPath.replace(/^\/de/, "");
+        }
+        
+        if (newPath === "") newPath = "/";
         link.setAttribute('href', newPath);
       }
     });
