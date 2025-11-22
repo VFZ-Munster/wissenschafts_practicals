@@ -10,29 +10,46 @@ author:
 ---
 
 ::: {.content-visible when-profile="english"}
-# Welcome
+::: {.hero-section}
+# Welcome to the Practical Course
+Explore, analyze, and learn with NHANES data.
+:::
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6 .feature-card}
+### 📊 Data Analysis
+We will use data from the [NHANES](https://wwwn.cdc.gov/nchs/nhanes/) (1999–2003) to describe the health status of the U.S. population (ages 30-85).
+:::
+
+::: {.g-col-12 .g-col-md-6 .feature-card}
+### 📁 The Dataset
+The data is stored in `nhanes30.sav`. This file contains observed data, variable descriptions, and metadata.
+:::
+:::
+<br>
 :::
 
 ::: {.content-visible when-profile="german"}
-# Willkommen
+::: {.hero-section}
+# Willkommen zum Praktikum
+Entdecken, analysieren und lernen Sie mit NHANES-Daten.
 :::
 
-::: {.content-visible when-profile="english"}
-## Introduction 
-
-We will use data from the [NHANES (National Health and Nutrition Examination Survey)](https://wwwn.cdc.gov/nchs/nhanes/) for the years 1999–2003. NHANES is a cross-sectional study based on a random sample designed to describe the health status of the U.S. population. We restrict the analysis to individuals aged 30 to 85 years.
-
-The data are stored in a file named `nhanes30.sav.`
+::: {.grid}
+::: {.g-col-12 .g-col-md-6 .feature-card}
+### 📊 Datenanalyse
+Wir verwenden Daten der [NHANES](https://wwwn.cdc.gov/nchs/nhanes/) (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.
 :::
 
-::: {.content-visible when-profile="german"}
-## Einleitung
-
-Wir werden Daten aus der [NHANES (National Health and Nutrition Examination Survey)](https://wwwn.cdc.gov/nchs/nhanes/) für die Jahre 1999–2003 verwenden.  
-NHANES ist eine querschnittliche Studie, die auf einer Zufallsstichprobe basiert und darauf abzielt, den Gesundheitszustand der US-amerikanischen Bevölkerung zu beschreiben. Wir beschränken die Analyse auf Personen im Alter von 30 bis 85 Jahren.
-
-Die Daten sind in einer Datei mit dem Namen `nhanes30.sav.` gespeichert.
+::: {.g-col-12 .g-col-md-6 .feature-card}
+### 📁 Der Datensatz
+Die Daten sind in `nhanes30.sav` gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.
 :::
+:::
+<br>
+:::
+
+
 
 ::: {.callout-tip}
 ## .sav?
@@ -47,7 +64,11 @@ Die Erweiterung `.sav` kennzeichnet eine SPSS-Datei, die die beobachteten Daten,
 :::
 
 ::: {.content-visible when-profile="english"}
+
+<br> 
+
 ### Variable description
+
 
 ```{python}
 #| echo: false

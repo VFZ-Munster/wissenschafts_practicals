@@ -1,19 +1,106 @@
 /*-- scss:defaults --*/
+
+// Import Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@400;600;700;800&display=swap');
+
+
 // Base document colors
-$body-bg: white;
-$body-color: #003866;
+$body-bg: #f8f9fa; // Slightly off-white for better eye comfort
+$body-color: #4a5568; // Softer dark gray for text
 $link-color: #7ab51d;
 
-$navbar-bg: #7ab51d;
+
+// Brand Colors
+$brand-green: #7ab51d;
+$brand-blue: #003866;
+$brand-blue-light: #006e89;
+$brand-accent: #d0e6ff;
+
+// Navbar colors
+$navbar-bg: $brand-green;
 $navbar-fg: white;
-$navbar-hl: white;
+$navbar-hl: #e2e8f0;
 
+// Sidebar colors
 $sidebar-bg: white;
-$sidebar-fg: #006e89;
-$sidebar-hl: red;
+$sidebar-fg: $brand-blue-light;
+$sidebar-hl: #e2e8f0;
 
+// Code block colors
 $code-bg: #f6f8fa;
 $code-color: #4c7210ff;
+
+/*-- scss:rules --*/
+
+// Typography
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  color: $brand-blue;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+// Navbar Styling
+.navbar {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(10px);
+  
+  .navbar-brand {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    font-weight: 600;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: rgba(255, 255, 255, 0.9) !important;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// Sidebar Styling
+.sidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  
+  .sidebar-title {
+    font-family: 'Nunito', sans-serif;
+    color: $brand-blue !important;
+    font-weight: 800;
+  }
+
+  .nav-link {
+    border-radius: 8px;
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: rgba($brand-green, 0.1);
+      color: $brand-green !important;
+      padding-left: 1.2rem; // Subtle slide effect
+    }
+    
+    &.active {
+      background-color: rgba($brand-green, 0.15);
+      color: $brand-blue !important;
+      font-weight: 700;
+    }
+  }
+}
 
 pre, code, pre code, div.sourceCode, pre.sourceCode {
   background-color: $code-bg;
@@ -64,3 +151,98 @@ details.another {
 // $toc-active-border: #649416;     // left border color for active section
 // $toc-inactive-border: #cccccc;   // left border color for inactive sections
 
+// Cards (for Homepage)
+.feature-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  border: 1px solid rgba(0,0,0,0.08); // Slightly stronger border
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: $brand-green; // Clearer hover state
+    
+    h3 {
+      color: $brand-green;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.5rem; // Larger title
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  p {
+    color: $body-color;
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+}
+
+// Hero Section
+.hero-section {
+  background: linear-gradient(135deg, $brand-blue-light 0%, darken($brand-blue-light, 5%) 100%);
+  color: white;
+  padding: 1.2rem 2rem; // More vertical padding
+  border-radius: 24px;
+  margin-bottom: 5rem; // More space below
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba($brand-green, 0.2), transparent 70%);
+    pointer-events: none;
+  }
+
+  h1 {
+    color: white !important; // Force white color
+    font-size: 3rem; // Larger hero title
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+  
+  p {
+    color: rgba(255,255,255,0.95);
+    font-size: 1.3rem; // Larger subtitle
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+// Callouts
+.callout {
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;            /* 10rem is very large – adjust as needed */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.callout-header {
+  padding: 1rem 1.25rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;          /* Adjust the unit here */
+}
+
+.callout-body {
+  padding: 1rem 1.25rem;
+  font-size: 1.5rem;
+}

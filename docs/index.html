@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-66749fce9437dbaab4c17ec252ef2ffa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-77f32b408bdec375ed39de8955911182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -197,13 +197,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
+  <li><a href="#welcome-to-the-practical-course" id="toc-welcome-to-the-practical-course" class="nav-link active" data-scroll-target="#welcome-to-the-practical-course">Welcome to the Practical Course</a></li>
   <li><a href="#variable-description" id="toc-variable-description" class="nav-link" data-scroll-target="#variable-description">Variable description</a></li>
-  </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -241,12 +236,21 @@ window.Quarto = {
 </header>
 
 
-<section id="welcome" class="level1">
-<h1>Welcome</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>We will use data from the <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES (National Health and Nutrition Examination Survey)</a> for the years 1999–2003. NHANES is a cross-sectional study based on a random sample designed to describe the health status of the U.S. population. We restrict the analysis to individuals aged 30 to 85 years.</p>
-<p>The data are stored in a file named <code>nhanes30.sav.</code></p>
+<section id="welcome-to-the-practical-course" class="level1 hero-section">
+<h1>Welcome to the Practical Course</h1>
+<p>Explore, analyze, and learn with NHANES data.</p>
+</section>
+<div class="grid">
+<section id="data-analysis" class="level3 g-col-12 g-col-md-6 feature-card">
+<h3 class="anchored" data-anchor-id="data-analysis">📊 Data Analysis</h3>
+<p>We will use data from the <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES</a> (1999–2003) to describe the health status of the U.S. population (ages 30-85).</p>
+</section>
+<section id="the-dataset" class="level3 g-col-12 g-col-md-6 feature-card">
+<h3 class="anchored" data-anchor-id="the-dataset">📁 The Dataset</h3>
+<p>The data is stored in <code>nhanes30.sav</code>. This file contains observed data, variable descriptions, and metadata.</p>
+</section>
+</div>
+<p><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -260,12 +264,13 @@ window.Quarto = {
 <p><code>.sav</code> extension indicates an SPSS file, which contains the observed data, variable descriptions, and metadata.</p>
 </div>
 </div>
+<p><br></p>
 <section id="variable-description" class="level3">
 <h3 class="anchored" data-anchor-id="variable-description">Variable description</h3>
-<div id="9baccd17" class="cell" data-execution_count="1">
+<div id="4a707771" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_28af2a7c_be95_4aa4_94c0_26e625a4abaa"><tbody><tr>
+<table id="itables_d60b116a_6cdf_46ba_853d_f8cdb5c9d644"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -331,11 +336,11 @@ window.Quarto = {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_28af2a7c_be95_4aa4_94c0_26e625a4abaa:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_d60b116a_6cdf_46ba_853d_f8cdb5c9d644:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
-        let dt_args = {"dom": "Brtip", "classes": ["display", "nowrap", "compact"], "style": {"table-layout": "auto", "width": "50%", "float": "left"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "\ud83d\udd17 Download data description"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "order": [], "text_in_header_can_be_selected": true, "columnDefs": [{"className": "dt-left", "targets": "_all"}], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable name</th>\n      <th>Description</th>\n      <th>Values</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Participant ID\", \"\"], [\"nteeth\", \"Number of natural teeth\", \"0\\u201332\"], [\"cal_mean\", \"Mean clinical attachment loss\", \"mm\"], [\"perio\", \"Periodontitis (CDC\\u2013AAP definition, Eke et al. 2012)\", \"1=None, 2=Mild, 3=Moderate, 4=Severe\"], [\"perio2\", \"Periodontitis\", \"1=Yes, 2=No\"], [\"bop\", \"Bleeding on probing (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Sex\", \"1=Female, 2=Male\"], [\"age\", \"Age\", \"Years\"], [\"edu\", \"Education level\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Smoking status\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Smoking status (collapsed)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alcohol consumption\", \"Grams per day\"], [\"Height\", \"Height\", \"cm\"], [\"Weight\", \"Weight\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI categories\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Waist circumference\", \"cm\"], [\"wc_cat\", \"Waist circumference categories\", \"1=M:&lt;102,F:&lt;88; 2=M:\\u2265102,F:\\u226588\"], [\"diab\", \"Diabetes\", \"Yes, No\"], [\"mortstat\", \"Mortality status\", \"1=Alive, 0=Deceased\"], [\"perm_exm\", \"Number of person-months between examination and death/censoring\", \"\"]]"};
+        let dt_args = {"dom": "Brtip", "classes": ["display", "nowrap", "compact"], "style": {"table-layout": "auto", "width": "50%", "float": "left"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "\ud83d\udd17 Download data description"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "text_in_header_can_be_selected": true, "order": [], "columnDefs": [{"className": "dt-left", "targets": "_all"}], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variable name</th>\n      <th>Description</th>\n      <th>Values</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Participant ID\", \"\"], [\"nteeth\", \"Number of natural teeth\", \"0\\u201332\"], [\"cal_mean\", \"Mean clinical attachment loss\", \"mm\"], [\"perio\", \"Periodontitis (CDC\\u2013AAP definition, Eke et al. 2012)\", \"1=None, 2=Mild, 3=Moderate, 4=Severe\"], [\"perio2\", \"Periodontitis\", \"1=Yes, 2=No\"], [\"bop\", \"Bleeding on probing (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Sex\", \"1=Female, 2=Male\"], [\"age\", \"Age\", \"Years\"], [\"edu\", \"Education level\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Smoking status\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Smoking status (collapsed)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alcohol consumption\", \"Grams per day\"], [\"Height\", \"Height\", \"cm\"], [\"Weight\", \"Weight\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI categories\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Waist circumference\", \"cm\"], [\"wc_cat\", \"Waist circumference categories\", \"1=M:&lt;102,F:&lt;88; 2=M:\\u2265102,F:\\u226588\"], [\"diab\", \"Diabetes\", \"Yes, No\"], [\"mortstat\", \"Mortality status\", \"1=Alive, 0=Deceased\"], [\"perm_exm\", \"Number of person-months between examination and death/censoring\", \"\"]]"};
         new ITable(table, dt_args);
     });
 </script>
@@ -466,8 +471,6 @@ window.Quarto = {
 </div>
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
