@@ -46,7 +46,7 @@
     "href": "praktikum2/praktikum2.html",
     "title": "Practical 2",
     "section": "",
-    "text": "hello\nIn this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables. The following methods will be applied today:\n\nGraphical representations of quantitative variables: bar charts, histograms, boxplots, and Q–Q plots\nQualitative variables: cross-tabulations, relative frequencies, risk difference, relative risk, and odds ratio\nQuantitative variables: scatterplots, covariance, and correlation coefficient\n\n\n\n📥 Download the dataset nhanes30.sav and open it in SPSS — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.",
+    "text": "In this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables. The following methods will be applied today:\n\nGraphical representations of quantitative variables: bar charts, histograms, boxplots, and Q–Q plots\nQualitative variables: cross-tabulations, relative frequencies, risk difference, relative risk, and odds ratio\nQuantitative variables: scatterplots, covariance, and correlation coefficient\n\n\n\n📥 Download the dataset nhanes30.sav and open it in SPSS — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.",
     "crumbs": [
       "Home",
       "Practical 2"
