@@ -48,7 +48,12 @@ How can the following variables be appropriately **represented in a graph**?: `G
 
 Decide, before entering the data, whether to use a bar chart, histogram, or boxplot.
 
-💡 In SPSS: **Grafik** → **Diagrammerstellung**
+💡 In SPSS:
+<div class="instruction-flow">
+  <span class="step">Grafik</span>
+  <span class="arrow">→</span>
+  <span class="step">Diagrammerstellung</span>
+</div>
 
 ![](p2.png)
 

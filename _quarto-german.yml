@@ -31,6 +31,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: praktikum1/praktikum1.qmd
+        text: "Practikum 1: SPSS installieren"
       - href: praktikum2/praktikum2.qmd
         text: Praktikum 2
   #    - href: 

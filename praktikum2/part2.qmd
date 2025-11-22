@@ -5,7 +5,15 @@ If you have measured several variables in your **cross-sectional** study, you ca
 
 Create a cross-table for diabetes (diab) and periodontitis (perio2).
 
-💡 In SPSS: **ANALYSIEREN** → **DESKRIPTIVE STATISTIKEN** → **KREUZTABELLEN**
+💡 In SPSS:
+<div class="instruction-flow">
+  <span class="step">ANALYSIEREN</span>
+  <span class="arrow">→</span>
+  <span class="step">DESKRIPTIVE STATISTIKEN</span>
+  <span class="arrow">→</span>
+  <span class="step">KREUZTABELLEN</span>
+</div>
+
 
 ::: callout-tip
 Which variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.
@@ -29,7 +37,15 @@ Which variable you assign to the rows or columns is up to you. However, it may b
 
 Calculate the **risk difference**, **relative risk**, and **odds ratio** for the association between diabetes and periodontitis.
 
-💡 In SPSS: **ANALYSIEREN** → **DESKRIPTIVE STATISTIKEN** → **KREUZTABELLEN**
+💡 In SPSS:
+<div class="instruction-flow">
+  <span class="step">ANALYSIEREN</span>
+  <span class="arrow">→</span>
+  <span class="step">DESKRIPTIVE STATISTIKEN</span>
+  <span class="arrow">→</span>
+  <span class="step">KREUZTABELLEN</span>
+</div>
+
 
 Then in the Crosstabs dialog, click **\[Cells...\]** and under **Percentages**, select **Row**, then click **Continue**.\
 Next, click **\[Statistics...\]**, check **Risk**, and click **Continue**.
@@ -196,7 +212,14 @@ $$
 
 Create a scatterplot for the covariation of `weight` \~ `height`
 
-💡 In SPSS: **GRAFIK** → **DIAGRAMMDARSTELLUNG** – Streu/-Punktdiagramm auswählen
+💡 In SPSS: 
+<div class="instruction-flow">
+  <span class="step">GRAFIK</span>
+  <span class="arrow">→</span>
+  <span class="step">DIAGRAMMDARSTELLUNG</span>
+  <span class="arrow">→</span>
+  <span class="step option">Streu/-Punktdiagramm auswählen</span>
+</div>
 
 Draw a regression line.
 
@@ -216,7 +239,17 @@ Draw a regression line.
 
 Calculate the covariance and the Pearson correlation coefficient for the relationship between `height` and `weight`.
 
-💡 In SPSS: **ANALYSIEREN** → **KORRELATIONEN** → **BIVARIAT** - Korrelationskoeffizienten: Pearson auswählen
+💡 In SPSS: 
+
+<div class="instruction-flow">
+  <span class="step">ANALYSIEREN</span>
+  <span class="arrow">→</span>
+  <span class="step">KORRELATIONEN</span>
+  <span class="arrow">→</span>
+    <span class="step">BIVARIAT</span>
+  <span class="arrow">→</span>
+  <span class="step option">Korrelationskoeffizienten: Pearson auswählen</span>
+</div>
 
 <details>
 
@@ -249,7 +282,16 @@ The p-value \< 0.001 shows this association is statistically significant.
 
 Calculate the Spearman correlation coefficient for the relationship between `age` and `number of teeth`.
 
-💡 In SPSS: **ANALYSIEREN** → **KORRELATIONEN** → **BIVARIAT** - Korrelationskoeffizienten: Spearman auswählen
+💡 In SPSS:
+<div class="instruction-flow">
+  <span class="step">ANALYSIEREN</span>
+  <span class="arrow">→</span>
+  <span class="step">KORRELATIONEN</span>
+  <span class="arrow">→</span>
+    <span class="step">BIVARIAT</span>
+  <span class="arrow">→</span>
+  <span class="step option">Korrelationskoeffizienten: Spearman auswählen</span>
+</div>
 
 <details>
 

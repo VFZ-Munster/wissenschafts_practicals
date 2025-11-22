@@ -1,0 +1,7 @@
+::: {.content-visible when-profile="english"}
+# Intalling SPSS
+:::
+
+::: {.content-visible when-profile="german"}
+# SPSS installieren
+:::
