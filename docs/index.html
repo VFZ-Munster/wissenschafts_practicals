@@ -262,10 +262,10 @@ window.Quarto = {
 </div>
 <section id="variable-description" class="level3">
 <h3 class="anchored" data-anchor-id="variable-description">Variable description</h3>
-<div id="4ced6e8b" class="cell" data-execution_count="1">
+<div id="4e418fc7" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <!--| quarto-html-table-processing: none -->
-<table id="itables_675eaf75_09a9_4afd_af3a_7757181e1d93"><tbody><tr>
+<table id="itables_d05986f2_f010_4b7e_85c5_bac0edcb4e81"><tbody><tr>
     <td style="vertical-align:middle; text-align:left">
     <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
     <g style="fill:#d9d7fc">
@@ -331,7 +331,7 @@ window.Quarto = {
 <script type="module">
     import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
 
-    document.querySelectorAll("#itables_675eaf75_09a9_4afd_af3a_7757181e1d93:not(.dataTable)").forEach(table => {
+    document.querySelectorAll("#itables_d05986f2_f010_4b7e_85c5_bac0edcb4e81:not(.dataTable)").forEach(table => {
         if (!(table instanceof HTMLTableElement))
             return;
 
@@ -474,10 +474,11 @@ window.Quarto = {
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const path = window.location.pathname;
-    const repoName = "/wissenschafts_practicals";
+    console.log("Language Switcher: Current path is " + path);
     
-    // Determine if we are currently in German mode
-    // This logic covers both local (/de/...) and GH Pages (/repo/de/...)
+    const repoName = "wissenschafts_practicals";
+    
+    // Check if we are in German mode
     const isGerman = path.includes("/de/") || path.endsWith("/de");
 
     const links = document.querySelectorAll('.navbar-nav .nav-link');
@@ -488,31 +489,41 @@ window.Quarto = {
       if (text === "Deutsch" && !isGerman) {
         // Switching to German
         let newPath;
-        if (path.startsWith(repoName)) {
-            // GitHub Pages deployment
-            // Insert /de after the repo name
-            // e.g. /wissenschafts_practicals/index.html -> /wissenschafts_practicals/de/index.html
-            newPath = path.replace(repoName, repoName + "/de");
+        
+        // Check if the path contains the repo name
+        if (path.indexOf("/" + repoName) !== -1) {
+            // GitHub Pages: /wissenschafts_practicals/...
+            // We want to insert /de after the repo name
+            // Replace first occurrence of /repoName with /repoName/de
+            newPath = path.replace("/" + repoName, "/" + repoName + "/de");
+            
+            // If the path was exactly /wissenschafts_practicals (no trailing slash), it becomes /wissenschafts_practicals/de
+            // If /wissenschafts_practicals/, it becomes /wissenschafts_practicals/de/
         } else {
-            // Local development or root domain
-            // Prepend /de
+            // Local or root domain
             newPath = "/de" + path;
         }
+        
+        console.log("Language Switcher: Updating Deutsch link to " + newPath);
         link.setAttribute('href', newPath);
         
       } else if (text === "English" && isGerman) {
         // Switching to English
         let newPath = path;
         
-        if (newPath.includes(repoName + "/de")) {
-             // GitHub Pages: /wissenschafts_practicals/de/... -> /wissenschafts_practicals/...
-             newPath = newPath.replace(repoName + "/de", repoName);
-        } else if (newPath.startsWith("/de")) {
-             // Local: /de/... -> /...
-             newPath = newPath.replace(/^\/de/, "");
+        if (path.indexOf("/" + repoName + "/de") !== -1) {
+             // GitHub Pages: /wissenschafts_practicals/de/...
+             // Remove /de
+             newPath = path.replace("/" + repoName + "/de", "/" + repoName);
+        } else {
+             // Local: /de/...
+             // Remove leading /de
+             newPath = path.replace(/^\/de/, "");
         }
         
         if (newPath === "") newPath = "/";
+        
+        console.log("Language Switcher: Updating English link to " + newPath);
         link.setAttribute('href', newPath);
       }
     });
