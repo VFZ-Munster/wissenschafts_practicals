@@ -59,6 +59,7 @@ format:
     code-overflow: wrap
     toc: true
     toc-depth: 3
+    include-after-body: utilities/language_switcher.html
 
 date: last-modified
 
