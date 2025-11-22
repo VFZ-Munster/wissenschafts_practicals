@@ -36,39 +36,78 @@ Next, click **\[Statistics...\]**, check **Risk**, and click **Continue**.
 
 **Calculate manually:**
 
--   **Risk difference (RD):**\
-    Subtract the percentage values $$
-    RD = p_{\text{diabetic with periodontitis}} - p_{\text{non-diabetic with periodontitis}}
-    $$
+<!-- Box formulas -->
+<div style="display: flex; gap: 20px; align-items: stretch;">
+<div class="formula-box" style="flex: 1;">
+Risk difference (RD)
 
--   **Relative risk (RR):**\
-    Divide the percentage values instead of subtracting them.\
-    $$
-    RR = \frac{p_{\text{diabetic with periodontitis}}}{p_{\text{non-diabetic with periodontitis}}}
-    $$
+<span style="font-weight: 400; font-size: 16px;">Subtract the percentage values:</span>
+$$
+RD = p_{\text{diabetic w/ perio}} - p_{\text{non-diabetic w/ perio}}
+$$
+</div>
 
--   **Odds ratio (OR):**\
-    Verify the value shown under *“Odds ratio for …”* by calculating:
+<div class="formula-box" style="flex: 1;">
+Relative risk (RR)
 
-    -   The odds of periodontitis for diabetics:\
-        $$
+<span style="font-weight: 400; font-size: 16px;">Divide the percentage values:</span>
+$$
+RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
+$$
+</div>
+
+</div>
+
+
+<!-- Box formula OR -->
+<div class="formula-box" style="
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+">
+
+ <div class="box" style="grid-column: 1 / 3;">
+Odds ratio (OR)
+The ratio of odds between the two groups:
+</div>
+<div style="flex: 1;">
+
+The odds of periodontitis for diabetics:
+$$
+\begin{align}
         \text{Odds}_{\text{diabetic}} = 
         \frac{\text{number of diabetics with periodontitis}}
              {\text{number of diabetics without periodontitis}}
-        $$
+\end{align}
+$$
 
-    -   Divided by the odds of periodontitis for non-diabetics:\
-        $$
+</div>
+
+<div style="flex: 1;">
+Divided by the odds of periodontitis for non-diabetics:\
+$$
+\begin{align}
         \text{Odds}_{\text{non-diabetic}} = 
         \frac{\text{number of non-diabetics with periodontitis}}
              {\text{number of non-diabetics without periodontitis}}
-        $$
+\end{align}
+$$
 
-    -   Hence:\
-        $$
-        OR = \frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}}
-        = \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
-        $$
+</div>
+
+<div class="box" style="grid-column: 1 / 3; text-align: center;">
+Final odd ratios 
+$$
+\begin{align}
+OR &= \frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}} \\
+&= \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
+\end{align}
+$$
+</div>
+</div>
+
+
 
 where:\
 - ( a ): diabetics **with** periodontitis\
