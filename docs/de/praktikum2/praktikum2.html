@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-77f32b408bdec375ed39de8955911182.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0c52ef17a6e7c8fc28a280ac1372c2fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -450,38 +450,59 @@ Tipp
 <p>Then in the Crosstabs dialog, click <strong>[Cells…]</strong> and under <strong>Percentages</strong>, select <strong>Row</strong>, then click <strong>Continue</strong>.<br>
 Next, click <strong>[Statistics…]</strong>, check <strong>Risk</strong>, and click <strong>Continue</strong>.</p>
 <p><strong>Calculate manually:</strong></p>
-<ul>
-<li><p><strong>Risk difference (RD):</strong><br>
-Subtract the percentage values <span class="math display">\[
-RD = p_{\text{diabetic with periodontitis}} - p_{\text{non-diabetic with periodontitis}}
-\]</span></p></li>
-<li><p><strong>Relative risk (RR):</strong><br>
-Divide the percentage values instead of subtracting them.<br>
+<!-- Box formulas -->
+<div style="display: flex; gap: 20px; align-items: stretch;">
+<div class="formula-box" style="flex: 1;">
+<p>Risk difference (RD)</p>
+<p><span style="font-weight: 400; font-size: 16px;">Subtract the percentage values:</span> <span class="math display">\[
+RD = p_{\text{diabetic w/ perio}} - p_{\text{non-diabetic w/ perio}}
+\]</span></p>
+</div>
+<div class="formula-box" style="flex: 1;">
+<p>Relative risk (RR)</p>
+<p><span style="font-weight: 400; font-size: 16px;">Divide the percentage values:</span> <span class="math display">\[
+RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
+\]</span></p>
+</div>
+</div>
+<!-- Box formula OR -->
+<div class="formula-box" style="
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+">
+<div class="box" style="grid-column: 1 / 3;">
+<p>Odds ratio (OR) The ratio of odds between the two groups:</p>
+</div>
+<div style="flex: 1;">
+<p>The odds of periodontitis for diabetics: <span class="math display">\[
+\begin{align}
+        \text{Odds}_{\text{diabetic}} =
+        \frac{\text{number of diabetics with periodontitis}}
+             {\text{number of diabetics without periodontitis}}
+\end{align}
+\]</span></p>
+</div>
+<div style="flex: 1;">
+<p>Divided by the odds of periodontitis for non-diabetics:<br>
 <span class="math display">\[
-RR = \frac{p_{\text{diabetic with periodontitis}}}{p_{\text{non-diabetic with periodontitis}}}
-\]</span></p></li>
-<li><p><strong>Odds ratio (OR):</strong><br>
-Verify the value shown under <em>“Odds ratio for …”</em> by calculating:</p>
-<ul>
-<li><p>The odds of periodontitis for diabetics:<br>
-<span class="math display">\[
-\text{Odds}_{\text{diabetic}} =
-\frac{\text{number of diabetics with periodontitis}}
-     {\text{number of diabetics without periodontitis}}
-\]</span></p></li>
-<li><p>Divided by the odds of periodontitis for non-diabetics:<br>
-<span class="math display">\[
-\text{Odds}_{\text{non-diabetic}} =
-\frac{\text{number of non-diabetics with periodontitis}}
-     {\text{number of non-diabetics without periodontitis}}
-\]</span></p></li>
-<li><p>Hence:<br>
-<span class="math display">\[
-OR = \frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}}
-= \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
-\]</span></p></li>
-</ul></li>
-</ul>
+\begin{align}
+        \text{Odds}_{\text{non-diabetic}} =
+        \frac{\text{number of non-diabetics with periodontitis}}
+             {\text{number of non-diabetics without periodontitis}}
+\end{align}
+\]</span></p>
+</div>
+<div class="box" style="grid-column: 1 / 3; text-align: center;">
+<p>Final odd ratios <span class="math display">\[
+\begin{align}
+OR &amp;= \frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}} \\
+&amp;= \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
+\end{align}
+\]</span></p>
+</div>
+</div>
 <p>where:<br>
 - ( a ): diabetics <strong>with</strong> periodontitis<br>
 - ( b ): diabetics <strong>without</strong> periodontitis<br>
