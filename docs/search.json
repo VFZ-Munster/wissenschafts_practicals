@@ -42,6 +42,28 @@
     "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
   },
   {
+    "objectID": "pvalue.html",
+    "href": "pvalue.html",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
+  },
+  {
+    "objectID": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "href": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
+  },
+  {
     "objectID": "praktikum2/praktikum2.html",
     "href": "praktikum2/praktikum2.html",
     "title": "Practical 2",

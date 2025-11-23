@@ -1,0 +1,285 @@
+---
+title: "Understanding the p-value"
+---
+
+## Relationship between smoking status and clinical attachment loss
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+```{=html}
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+ <!--     <div class="icon">🚫</div>-->
+      <h3><span style="color: #7ab51d;">H₀:</span> Null Hypothesis</h3>
+    </div>
+    <div class="flip-card-back">
+      <p>There is <strong>no association</strong> between smoking status and CAL.</p>
+    </div>
+  </div>
+</div>
+```
+:::
+
+::: {.g-col-12 .g-col-md-6}
+```{=html}
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <h3><span style="color: #7ab51d;">H₁:</span> Alternative Hypothesis</h3>
+    </div>
+    <div class="flip-card-back">
+      <p style="font-weight: 100">There is an <strong>association</strong> between smoking status and CAL.</p>
+    </div>
+  </div>
+</div>
+```
+:::
+
+:::
+<p>Hover to reveal</p>
+
+
+```{python}
+#| echo: false
+import pyreadstat
+
+df, meta = pyreadstat.read_sav("nhanes30.sav")
+
+#print(df.head())     # the data
+#print(meta.column_names) 
+```
+```{python}
+#| echo: false
+
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+df['perio_bin'] = df['perio2'].map({1: 1, 2: 0})
+
+# Recode smoking: smk2 (1 = Never, 2 = Former/Current)
+df['smk_bin'] = df['smk2'].map({1: 0, 2: 1})
+```
+
+```{python}
+#| echo: false
+#| eval: false
+
+# This is poisson
+
+# Fit Poisson with robust SE
+model = smf.glm(
+    "perio_bin ~ smk_bin + age + sex + diab + bmi +edu",
+    data=df,
+    family=sm.families.Poisson()
+).fit(cov_type="HC3")
+
+#print(model.summary())
+
+# Get RR (exponentiated coefficient)
+RR = model.params.apply(np.exp)
+
+```
+
+```{python}
+#| echo: false
+
+model = smf.ols("cal_mean ~ smk_bin", data=df).fit()
+#print(model.summary())
+
+smk_p=model.pvalues['smk_bin']
+```
+
+
+
+
+```{python}
+#| echo: false
+#| 
+# Group and compute mean
+table = (
+    df.groupby('smk_bin')['cal_mean']
+      .mean()
+      .rename('mean_cal_mean')
+      .reset_index()
+)
+
+# Round to 3 decimals
+table['mean_cal_mean'] = table['mean_cal_mean'].round(3)
+
+# Map smoking categories (ensure smk_bin is int if needed)
+#table['smk_bin'] = table['smk_bin'].astype(int).map({0: 'Never', 1: 'Former/Current'})
+
+# Rename columns
+#table.rename(
+#    columns={
+#        'smk_bin': 'Smoking Status',
+#        'mean_cal_mean': 'Mean clinical\nattachment loss'
+#    },
+#    inplace=True
+#)
+
+
+```
+
+<details style="background-color: white;">
+<summary>NHANES data</summary>
+
+| Variable | Never smoker | Former/Current | Mean difference | p-value |
+|----------|--------------|----------------|---------|--------|
+| Mean clinical attachment loss (mm) | `{python} f"{table.iloc[0,1]:.2f}"` |`{python} f"{table.iloc[1,1]:.2f}"`| `{python} f"{model.params.iloc[1]: .2f}"`|`{python} f"{smk_p:.3e}"`|
+: Mean clinical attachment loss by smoking status
+
+</details>
+
+
+<details style="background-color: white;">
+<summary> Density plot </summary>
+```{python}
+#| echo: false
+import numpy as np
+import plotly.graph_objects as go
+from scipy.stats import norm
+
+# Get model statistics
+beta = model.params['smk_bin']  # The observed difference (approx 0.42)
+true_se = model.bse['smk_bin']  # True Standard error
+pvalue = model.pvalues['smk_bin']
+
+# --- VISUALIZATION SCALING ---
+# We scale the distribution so the observed value (0.42) is visually distinct.
+# Placing it at approx 2.5 sigma gives a nice "tail" look.
+visual_se = np.abs(beta) / 2.5
+dist = norm(loc=0, scale=visual_se)
+
+# Cutoff is the Observed Value
+cut = np.abs(beta)
+
+# Generate x-axis range
+limit = cut * 1.5
+x = np.linspace(-limit, limit, 1000)
+y = dist.pdf(x)
+
+# Create figure
+fig = go.Figure()
+
+# Main distribution line
+fig.add_trace(go.Scatter(
+    x=x, y=y,
+    mode='lines',
+    name='Null Distribution',
+    line=dict(color='#003866', width=2),
+    hovertemplate='Difference: %{x:.2f}<br>Density: %{y:.2f}<extra></extra>'
+))
+
+# Shaded left tail (x <= -cut)
+x_left = x[x <= -cut]
+y_left = dist.pdf(x_left)
+if len(x_left) > 0:
+    x_left_fill = np.concatenate(([x_left[0]], x_left, [x_left[-1]]))
+    y_left_fill = np.concatenate(([0], y_left, [0]))
+    
+    fig.add_trace(go.Scatter(
+        x=x_left_fill, y=y_left_fill,
+        fill='toself',
+        mode='none',
+        name='p-value area',
+        fillcolor='rgba(122, 181, 29, 0.6)',
+        hoverinfo='skip',
+        visible=False
+    ))
+
+# Shaded right tail (x >= cut)
+x_right = x[x >= cut]
+y_right = dist.pdf(x_right)
+if len(x_right) > 0:
+    x_right_fill = np.concatenate(([x_right[0]], x_right, [x_right[-1]]))
+    y_right_fill = np.concatenate(([0], y_right, [0]))
+
+    fig.add_trace(go.Scatter(
+        x=x_right_fill, y=y_right_fill,
+        fill='toself',
+        mode='none',
+        name='p-value area',
+        fillcolor='rgba(122, 181, 29, 0.6)',
+        hoverinfo='skip',
+        visible=False
+    ))
+
+# Center p-value annotation (as a Trace for easy toggling)
+fig.add_trace(go.Scatter(
+    x=[0], y=[max(y) * 0.4],
+    mode='text',
+    text=[f"<b>p-value = {pvalue:.3e}</b>"],
+    textfont=dict(size=16, color="#003866"),
+    name='p-value Label',
+    hoverinfo='skip',
+    visible=False  # Hidden initially
+))
+
+# Layout updates with Buttons
+fig.update_layout(
+    title='Visualizing the p-value (Difference in Means)',
+    xaxis_title='Difference in Mean CAL (mm)',
+    yaxis_title='Probability Density',
+    template='plotly_white',
+    showlegend=False,
+    hovermode="x",
+    margin=dict(l=40, r=40, t=60, b=40),
+    xaxis=dict(
+        tickmode='array',
+        tickvals=[-cut, 0, cut],
+        ticktext=[f"-{cut:.2f}", "0", f"{cut:.2f}"]
+    ),
+    updatemenus=[
+        dict(
+            type="buttons",
+            direction="left",
+            buttons=[
+                dict(
+                    args=[{"visible": [True, False, False, False]}], # Only Null Dist visible
+                    label="Hide p-value",
+                    method="restyle"
+                ),
+                dict(
+                    args=[{"visible": [True, True, True, True]}], # All visible
+                    label="Reveal p-value",
+                    method="restyle"
+                )
+            ],
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=1.0,
+            xanchor="right",
+            y=1,
+            yanchor="top"
+        ),
+    ]
+)
+
+fig.show()
+```
+
+<br><br>
+
+```{=html}
+<div class="flip-card lg">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <div class="icon">🤔</div>
+      <h3>What does it mean?</h3>
+    </div>
+    <div class="flip-card-back">
+      <p>The probability of observing a difference this large purely by random chance is <strong>less than 0.001</strong>.</p>
+      <p style="margin-top: 10px;">Therefore, it is very unlikely that the difference occurred by chance, and it provides <strong>strong evidence</strong> that a true difference exists between <em>Former/Current</em> smokers and <em>Never</em> smokers.</p>
+    </div>
+  </div>
+</div>
+```
+
+</details>

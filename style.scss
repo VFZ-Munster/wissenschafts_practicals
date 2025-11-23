@@ -376,3 +376,95 @@ details.another {
     font-size: 1.1rem;
   }
 }
+
+// Hypothesis Card
+/*.hypothesis-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: $brand-blue;
+  margin: 1rem auto;
+  max-width: 600px;
+  
+  strong {
+    color: $brand-green;
+  }
+} */
+
+/* --- Flip Cards --- */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 150px; /* Fixed height for consistency */
+  perspective: 1000px;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  &-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+    border-radius: 15px;
+  }
+
+  &:hover &-inner {
+    transform: rotateY(180deg);
+  }
+
+  &-front, &-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  &-front {
+    background-color: white;
+    color: $brand-blue;
+    border: 1px solid $brand-green;
+  }
+
+  &-back {
+    background-color: $brand-blue-light;
+    color: white;
+    transform: rotateY(180deg);
+    border: 1px solid $brand-blue-light;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+  
+  p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: $brand-green;
+  }
+    // Modifier for larger content
+  &.lg {
+    height: 300px;
+  }
+}

@@ -35,6 +35,8 @@ website:
         text: "Practical 1: SPSS installation"
       - href: praktikum2/praktikum2.qmd
         text: Practical 2
+      - href: pvalue.qmd
+        text: "p-value"
  #     - href: 
  #       text: Practical 3
  #     - href: 
