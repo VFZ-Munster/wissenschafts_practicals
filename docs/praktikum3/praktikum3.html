@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-24">
 
-<title>part1 – Praktikum</title>
+<title>praktikum3 – Praktikum</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,53 +55,24 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Keine Treffer",
-    "search-matching-documents-text": "Treffer",
-    "search-copy-link-title": "Link in die Suche kopieren",
-    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
-    "search-more-match-text": "weitere Treffer in diesem Dokument",
-    "search-more-matches-text": "weitere Treffer in diesem Dokument",
-    "search-clear-button-title": "Zurücksetzen",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Abbrechen",
-    "search-submit-button-title": "Abschicken",
-    "search-label": "Suchen"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,21 +83,21 @@ window.Quarto = {
     <span class="navbar-title">Praktikum</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Suchen"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../"> 
-<span class="menu-text">English</span></a>
+    <a class="nav-link" href="../de"> 
+<span class="menu-text">Deutsch</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -133,18 +105,88 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../praktikum3/praktikum3.html">Practical 3</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../mfm-logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../praktikum1/praktikum1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical 1: SPSS installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../praktikum2/praktikum2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical 2</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../praktikum3/praktikum3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Practical 3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pvalue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">p-value</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../blackboard.html" class="sidebar-item-text sidebar-link" target="_blank">
+ <span class="menu-text">Blackboard</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#task-1" id="toc-task-1" class="nav-link active" data-scroll-target="#task-1">Task 1</a></li>
-  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a></li>
+  <li><a href="#practical-3" id="toc-practical-3" class="nav-link active" data-scroll-target="#practical-3">Practical 3</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1-estimating-with-confidence-intervals" id="toc-exercise-1-estimating-with-confidence-intervals" class="nav-link" data-scroll-target="#exercise-1-estimating-with-confidence-intervals">Exercise 1: Estimating with Confidence Intervals</a></li>
+  <li><a href="#exercise-2-testing-for-normality" id="toc-exercise-2-testing-for-normality" class="nav-link" data-scroll-target="#exercise-2-testing-for-normality">Exercise 2: Testing for normality</a></li>
+  <li><a href="#exercise-3-transforming-variables" id="toc-exercise-3-transforming-variables" class="nav-link" data-scroll-target="#exercise-3-transforming-variables">Exercise 3: Transforming Variables</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -161,9 +203,9 @@ window.Quarto = {
 
     
     <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22. November 2025</p>
+      <p class="date">November 24, 2025</p>
     </div>
   </div>
   
@@ -175,141 +217,161 @@ window.Quarto = {
 </header>
 
 
-<p>When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in <strong>Tasks 1</strong> and <strong>2</strong>. A graphical representation, as in the following exercises, can provide a substantive overview of the data.</p>
-<section id="task-1" class="level2">
-<h2 class="anchored" data-anchor-id="task-1">Task 1</h2>
-<p>What is the <strong>level of measurement (scale type)</strong> for <code>Gender/sex</code>, <code>Body Mass Index (BMI)</code>, and <code>BMI categories</code>?</p>
-<p>First, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.</p>
-<p>To do this, switch from the <strong>Data View</strong> to the <strong>Variable View</strong>.⚙️</p>
-<p><img src="p1.png" class="img-fluid"></p>
+<section id="practical-3" class="level1">
+<h1>Practical 3</h1>
+<p>Introduction: In this lesson, we will focus on <strong>confidence intervals</strong>, <strong>normal distribution</strong>, and <strong>transforming variables</strong>.</p>
+<section id="exercise-1-estimating-with-confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-estimating-with-confidence-intervals">Exercise 1: Estimating with Confidence Intervals</h3>
+<p><strong>Calculate the 95% confidence intervals for the mean values of the variables <code>height</code> and <code>mortstat</code>.</strong></p>
+<p>💡 SPSS:</p>
+<div class="instruction-flow">
+<p><span class="text-steps">Step 1: </span> <span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Descriptive Statistics</span> <span class="arrow">→</span> <span class="step">Explore</span></p>
+</div>
+<p><span class="text-steps">Step 2: </span> Assign <code>height</code> and <code>mortstat</code> as dependent variables.</p>
+<p><span class="text-steps">Step 3: </span> Under “Display”, select “Statistics”.</p>
+<p><span class="text-steps">Step 4: </span> In the “Statistics” menu, set the desired confidence interval limits.</p>
+<p><span class="text-steps">Step 5: </span> Under “Options”, choose “Exclude cases pairwise”.</p>
+<p><img src="CI.png" class="img-fluid"></p>
 <details>
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Show Results
 </summary>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 10%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><strong>Variable</strong></th>
-<th style="text-align: left;"><strong>(SPSS) Scale type</strong></th>
-<th style="text-align: left;"><strong>General type</strong></th>
-<th style="text-align: left;"><strong>Values</strong></th>
+<th style="text-align: left;"><strong>Mean (95% Confidence Intervals)</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Gender</td>
-<td style="text-align: left;">Nominal</td>
-<td style="text-align: left;">Unordered categorical</td>
-<td style="text-align: left;">Male, Female</td>
+<td style="text-align: left;">height</td>
+<td style="text-align: left;">167.05 (166.89 - 167.21)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">BMI</td>
-<td style="text-align: left;">Scale</td>
-<td style="text-align: left;">Continous</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BMI categories</td>
-<td style="text-align: left;">Nominal (?)</td>
-<td style="text-align: left;">Ordered categorical</td>
-<td style="text-align: left;">&lt; 18.5, 18.5-25, 25-30 - <span class="math inline">\(\geq\)</span> 30</td>
+<td style="text-align: left;">mortstat</td>
+<td style="text-align: left;">0.26 (0.25 - 0.27)</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>unordered vs ordered categorical?</li>
-<li>scale if you can, for example, meaningfully add, subtract, or average</li>
-</ul>
-</div>
-</div>
 </details>
-<p>How does the level of measurement (scale level) of the variable <code>number of teeth</code> differ from that of body height or <code>BMI index</code>?</p>
+<p><strong>Comprehension question about Confidence Intervals:</strong></p>
+<p>Which statement do you agree with:</p>
+<ol type="a">
+<li><p>For a 95% confidence interval, the true population value lies within the limits of the interval with a probability of 95%.</p></li>
+<li><p>A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.</p></li>
+</ol>
 <details>
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Show Results
+</summary>
+<p>✓ <code>b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.</code></p>
+</details>
+</section>
+<section id="exercise-2-testing-for-normality" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-testing-for-normality">Exercise 2: Testing for normality</h3>
+<p>In the lecture, you learned about different ways to test for normality. In brief, these are:</p>
+<ol type="1">
+<li><p>Assessment of skewness and kurtosis (kurtosis should be 3 – describes the steepness/peakedness of the distribution)</p></li>
+<li><p>Statistical tests for normality</p></li>
+<li><p>Graphical tests for normality</p></li>
+</ol>
+<p>Knowledge about the distribution of variables can, among other things, help in selecting the appropriate test.</p>
+<p><strong>Check the variables <code>height</code>, <code>bmi</code>, and <code>cal_mean</code> for normality.</strong></p>
+<p>💡 SPSS:</p>
+<div class="instruction-flow">
+<p><span class="text-steps">Step 1: </span> <span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Descriptive Statistics</span> <span class="arrow">→</span> <span class="step">Explore</span></p>
+</div>
+<p><span class="text-steps">Step 2: </span> Under “Display”, select “Both”.</p>
+<p><span class="text-steps">Step 3: </span> In the “Statistics” menu, set the desired confidence interval limits.</p>
+<p><span class="text-steps">Step 4: </span> Under “Plots”, choose “Normality plots with tests” and “Histogram”.</p>
+<p><span class="text-steps">Step 5: </span> Assign <code>height</code>, <code>bmi</code>, and <code>cal_mean</code> as dependent variables.</p>
+<p><strong>For <code>height</code>, <code>bmi</code>, and <code>cal_mean</code>, test for normal distribution graphically by examining their histograms and Q-Q plots.</strong></p>
+<p>Determine which of the variables can be assumed to follow a normal distribution.</p>
+<p><img src="Normality_test.png" class="img-fluid" style="width:80.0%"></p>
+<details>
+<summary>
+Assessment of skewness and kurtosis
+</summary>
+<p><img src="Skew_Kurtosis.png" class="img-fluid"></p>
+</details>
+<details>
+<summary>
+Statistical tests for normality
+</summary>
+<p><img src="Tests_Normality.png" class="img-fluid"></p>
+</details>
+<details>
+<summary>
+Graphical tests for normality
+</summary>
+<ol type="1">
+<li>Histograms</li>
+</ol>
+<p><img src="Histograms.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Q-Q plots</li>
+</ol>
+<img src="Q_Q_plots.png" class="img-fluid">
+</details>
+<details>
+<summary>
+Show Results
 </summary>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 27%">
-<col style="width: 20%">
-<col style="width: 31%">
-</colgroup>
 <thead>
 <tr class="header">
-<th><strong>Variable</strong></th>
-<th><strong>Nature</strong></th>
-<th><strong>SPSS Measure</strong></th>
-<th><strong>Comment</strong></th>
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Normal distribution</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>BMI</td>
-<td>Continuous numeric</td>
-<td>Scale</td>
-<td>Can take decimal values</td>
+<td style="text-align: left;">height</td>
+<td style="text-align: left;">Yes</td>
 </tr>
 <tr class="even">
-<td>Number of teeth</td>
-<td>Discrete numeric</td>
-<td>Scale</td>
-<td>Only integer values, but still numeric</td>
+<td style="text-align: left;">cal_mean</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bmi</td>
+<td style="text-align: left;">No</td>
 </tr>
 </tbody>
 </table>
 </details>
 </section>
-<section id="task-2" class="level2">
-<h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
-<p>How can the following variables be appropriately <strong>represented in a graph</strong>?: <code>Gender</code>, <code>mean attachment loss</code>, <code>number of teeth</code>.</p>
-<p>Decide, before entering the data, whether to use a bar chart, histogram, or boxplot.</p>
-💡 In SPSS:
+<section id="exercise-3-transforming-variables" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-transforming-variables">Exercise 3: Transforming Variables</h3>
+<p><strong>Perform a logarithmic transformation of the variable <code>cal_mean</code>.</strong></p>
+<p>💡 SPSS</p>
 <div class="instruction-flow">
-<p><span class="step">Grafik</span> <span class="arrow">→</span> <span class="step">Diagrammerstellung</span></p>
+<p><span class="text-steps">Step 1: </span> <span class="step">TRANSFORM</span> <span class="arrow">→</span> <span class="step">COMPUTE VARIABLE</span></p>
 </div>
-<p><img src="p2.png" class="img-fluid"></p>
+<p><span class="text-steps">Step 2: </span> Assign a name to the target variable</p>
+<p><span class="text-steps">Step 3: </span> ☑ Select the Function Group “Arithmetic” and double-click on <code>Ln</code></p>
+<p><span class="text-steps">Step 4: </span> Double-click the variable to be transformed</p>
+<p><img src="Log_Transformation.png" class="img-fluid" style="width:80.0%"></p>
+<p>Take a look at the histogram with the normal distribution curve for the newly created variable:</p>
+<p>💡 SPSS:</p>
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Descriptive Statistics</span>
+    <span class="arrow">→</span>
+  <span class="step">Frequencies</span>
+</div>
+<p>Under “Charts”, select ☑ “Histogram” and “Normal distribution curve”</p>
 <details>
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Show Results
 </summary>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="bar_sex.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Bar plot displaying the distribution of the sex variable by category</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="histo_attach.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Histogram displaying the distribution of mean attachemnt loss</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="histo_nteeth_sex.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Histogram showing the distribution of number of teeth by sex</figcaption>
-</figure>
-</div>
+<p><img src="cal_mean.png" class="img-fluid"></p>
 </details>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -414,12 +476,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Kopiert");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Kopiert");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

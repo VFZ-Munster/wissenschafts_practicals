@@ -1,7 +1,128 @@
 ::: {.content-visible when-profile="english"}
 # Intalling SPSS
+
+# Installing and Activating SPSS 
+
+To set up SPSS on your computer, start by visiting the  [CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html).  
+They provide everything you need to download, install, and activate the software.
+
+---
+
+## 1. Download SPSS
+
+Open the page and expand the tab **“Download, Installation & License Activation”**  
+(the yellow-highlighted section on the site).
+
+![](english_image.png){width=60%}
+
+Next, click **Download Section for SPSS Statistics**.
+
+![](english_image2.png){width=60%}
+
+When a login window appears, sign in with your **Medicampus ID**  
+— *just the username*, **without** “@uni-muenster.de”.
+
+---
+
+## 2. Choose Your Version and Operating System
+
+You can download the most recent version available:
+
+![](options.png){width=40%}
+
+Then select your operating system (Windows, macOS):
+
+![](options2.png){width=80%}
+
+**Note:** Options are available for Linux in the “Arch” folder.
+---
+
+## 3. Activate SPSS
+
+SPSS must be activated using the **Network License** option.
+
+Go to the official activation page [spss lizenzaktivierung](https://www.uni-muenster.de/IT/en/services/arbeitsplatz/software/spss-lizenzaktivierung.html)
+
+There, follow the steps under **“Activating the Network License.”**
+
+---
+
+## 4. Important Connection Requirement
+
+To use SPSS, you must be connected to one of the following:
+
+- **ms-uni WiFi**, or  
+- the **university VPN**
+
+This connection is required whenever SPSS checks the license.
+
+---
+
 :::
 
 ::: {.content-visible when-profile="german"}
-# SPSS installieren
+
+# Installation von SPSS
+
+# SPSS installieren und aktivieren 
+
+Um SPSS auf Ihrem Computer einzurichten, besuchen Sie zunächst die  
+[CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html).  
+Dort finden Sie alle notwendigen Schritte zum Herunterladen, Installieren und Aktivieren der Software.
+
+---
+
+## 1. SPSS herunterladen
+
+Öffnen Sie die Seite und klappen Sie den Reiter **„Download, Installation & Lizenzaktivierung“** auf  
+(der gelb markierte Bereich auf der Website).
+
+![](deutsch_image.png){width=60%}
+
+Klicken Sie anschließend auf **Downloadbereich für SPSS Statistics**.
+
+![](deutsch_image2.png){width=60%}
+
+Wenn ein Login-Fenster erscheint, melden Sie sich mit Ihrer **Medicampus ID** an  
+— *nur der Benutzername*, **ohne** „@uni-muenster.de“.
+
+---
+
+## 2. Version und Betriebssystem auswählen
+
+Wählen Sie die aktuellste verfügbare Version aus:
+
+![](options.png){width=40%}
+
+Danach wählen Sie Ihr Betriebssystem (Windows, macOS):
+
+![](options2.png){width=80%}
+
+**Hinweis:** Optionen für Linux finden Sie im Ordner „Arch“.
+
+---
+
+## 3. SPSS aktivieren
+
+SPSS muss über die **Netzwerklizenz** aktiviert werden.
+
+Öffnen Sie die offizielle Aktivierungsseite:  
+[spss lizenzaktivierung](https://www.uni-muenster.de/IT/en/services/arbeitsplatz/software/spss-lizenzaktivierung.html)
+
+Folgen Sie dort den Schritten unter **„Aktivieren der Netzwerklizenz“**.
+
+---
+
+## 4. Wichtige Verbindungsanforderung
+
+Um SPSS nutzen zu können, müssen Sie mit einem der folgenden Netzwerke verbunden sein:
+
+- dem **ms-uni WLAN**, oder  
+- dem **VPN der Universität**
+
+Diese Verbindung ist erforderlich, wenn SPSS die Lizenz überprüft.
+
+---
+
+
 :::
