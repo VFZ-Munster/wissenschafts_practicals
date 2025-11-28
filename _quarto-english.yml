@@ -14,8 +14,15 @@ website:
     right: 
       - href: /de
         text: Deutsch
-      - icon: github
+    #  - icon: github
      #   href: https://github.com/IgnaLeiva/plottingR
+    #  - text: <img src="/qr.png" height="50px" style="vertical-align: middle;">
+     #   href: qr.png
+  #page-footer: 
+ #   left: "Copyright 2021, Norah Jones" 
+  #  right: 
+   #   - icon: github
+   #     href: https://github.com/
 
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
