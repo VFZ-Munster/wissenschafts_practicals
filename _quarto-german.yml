@@ -16,6 +16,11 @@ website:
         text: English
       - icon: github
      #   href: https://github.com/IgnaLeiva/plottingR
+  #page-footer: 
+  #  left: "Copyright 2021, Norah Jones" 
+  #  right: 
+  #    - icon: github
+  #      href: https://github.com/
 
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
