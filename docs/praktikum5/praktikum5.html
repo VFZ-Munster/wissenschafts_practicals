@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-44f38ae9518b07eae4dee84fbf34f18a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-492eccafbe4a46e6dcd3741a9772ed7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -218,9 +218,21 @@ window.Quarto = {
   <ul>
   <li><a href="#practical-5" id="toc-practical-5" class="nav-link active" data-scroll-target="#practical-5">Practical 5</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-univariable-analysis" id="toc-exercise-1-univariable-analysis" class="nav-link" data-scroll-target="#exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</a></li>
-  <li><a href="#exercise-2-linear-regression-assumptions" id="toc-exercise-2-linear-regression-assumptions" class="nav-link" data-scroll-target="#exercise-2-linear-regression-assumptions">Exercise 2: Linear Regression Assumptions</a></li>
-  <li><a href="#exercise-3-effect-modification" id="toc-exercise-3-effect-modification" class="nav-link" data-scroll-target="#exercise-3-effect-modification">Exercise 3: Effect Modification</a></li>
+  <li><a href="#exercise-1-univariable-analysis" id="toc-exercise-1-univariable-analysis" class="nav-link" data-scroll-target="#exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1.1-dummy-variables" id="toc-exercise-1.1-dummy-variables" class="nav-link" data-scroll-target="#exercise-1.1-dummy-variables">Exercise 1.1 Dummy Variables</a></li>
+  </ul></li>
+  <li><a href="#exercise-2-linear-regression-assumptions" id="toc-exercise-2-linear-regression-assumptions" class="nav-link" data-scroll-target="#exercise-2-linear-regression-assumptions">Exercise 2: Linear Regression Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2.1-descriptive" id="toc-exercise-2.1-descriptive" class="nav-link" data-scroll-target="#exercise-2.1-descriptive">Exercise 2.1 Descriptive</a></li>
+  <li><a href="#exercise-2.2-linearity-assumption" id="toc-exercise-2.2-linearity-assumption" class="nav-link" data-scroll-target="#exercise-2.2-linearity-assumption">Exercise 2.2 Linearity assumption</a></li>
+  <li><a href="#exercise-2.3-polynomials" id="toc-exercise-2.3-polynomials" class="nav-link" data-scroll-target="#exercise-2.3-polynomials">Exercise 2.3 Polynomials</a></li>
+  <li><a href="#exercise-2.4-homoscedasticity-assumption" id="toc-exercise-2.4-homoscedasticity-assumption" class="nav-link" data-scroll-target="#exercise-2.4-homoscedasticity-assumption">Exercise 2.4 Homoscedasticity assumption</a></li>
+  </ul></li>
+  <li><a href="#exercise-3-effect-modification" id="toc-exercise-3-effect-modification" class="nav-link" data-scroll-target="#exercise-3-effect-modification">Exercise 3: Effect Modification</a>
+  <ul class="collapse">
+  <li><a href="#exercise-3.1-create-an-interaction-term" id="toc-exercise-3.1-create-an-interaction-term" class="nav-link" data-scroll-target="#exercise-3.1-create-an-interaction-term">Exercise 3.1 Create an interaction term</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -254,9 +266,10 @@ window.Quarto = {
 
 <section id="practical-5" class="level1">
 <h1>Practical 5</h1>
-<section id="exercise-1-univariable-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</h3>
-<p><strong>Exercise 1.1 Dummy Variables</strong></p>
+<section id="exercise-1-univariable-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</h2>
+<section id="exercise-1.1-dummy-variables" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1.1-dummy-variables">Exercise 1.1 Dummy Variables</h3>
 <p>Build a univariable linear regression model to study the association between smoking (<code>smk</code>; 1=Never, 2=Former, 3=Current, set the never smokers as a reference group) and attachment loss (<code>cal_mean</code>; in mm).</p>
 <p>Since the smoking variable has three levels, the first step is to create dummy variables.</p>
 <p><strong>1. Create a dummy variable for “Former” smokers:</strong></p>
@@ -291,7 +304,15 @@ window.Quarto = {
 </div>
 <p><span class="text-steps">Step 2: </span> Choose <code>cal_mean</code> as Dependent Variable.</p>
 <p><span class="text-steps">Step 3: </span> Choose <code>Former</code> and <code>Current</code> under Block 1 of 1 (Independent variables).</p>
-<p><strong>Interpretation:</strong> Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher <code>cal_mean</code> measurement than former smokers?</p>
+<details>
+<summary>
+<img alt="Static Badge" src="https://img.shields.io/badge/Formula-Time-red">
+</summary>
+<p>The linear regression model is defined as:</p>
+<p><span class="math display">\[Y_i = \beta_0 + \beta_{former} X_i + \beta_{current} X_i + \epsilon_i\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> is the intercept term and represents the value corresponding to the reference group or never smokers.</p>
+</details>
+<p>Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher <code>cal_mean</code> measurement than former smokers?: ✅ Interpret the results</p>
 <details>
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
@@ -350,9 +371,28 @@ window.Quarto = {
 <p><strong>Summarizing:</strong> Compared with never smokers, former smokers have about 0.34 higher mean clinical attachment loss, and current smokers have about 0.52 higher mean clinical attachment loss.</p>
 </details>
 </section>
-<section id="exercise-2-linear-regression-assumptions" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-2-linear-regression-assumptions">Exercise 2: Linear Regression Assumptions</h3>
-<p><strong>Exercise 2.1 Descriptive</strong></p>
+</section>
+<section id="exercise-2-linear-regression-assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-linear-regression-assumptions">Exercise 2: Linear Regression Assumptions</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Background">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Background
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By design:</p>
+<ul>
+<li>We ensure that the observations are derived from independent participants.</li>
+<li>We ensure that the target variable of our model is normally distributed.</li>
+</ul>
+</div>
+</div>
+<section id="exercise-2.1-descriptive" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2.1-descriptive">Exercise 2.1 Descriptive</h3>
 <p>Check whether <code>cal_mean</code> or <code>ln_loss</code> are normally distributed, graphically and statistically.</p>
 <p>💡 SPSS:</p>
 <div class="instruction-flow">
@@ -360,7 +400,9 @@ window.Quarto = {
 </div>
 <p><span class="text-steps">Step 2: </span> Dependent list: <code>cal_mean</code> and <code>ln_loss</code>.</p>
 <p><span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.</p>
-<p><strong>Exercise 2.2 Linearity assumption</strong></p>
+</section>
+<section id="exercise-2.2-linearity-assumption" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2.2-linearity-assumption">Exercise 2.2 Linearity assumption</h3>
 <p>Check graphically the linearity assumption between <code>ln_loss</code> and other continuous variables (e.g.&nbsp;<code>alcg</code>).</p>
 <p><strong>Create a scatter plot:</strong></p>
 <p>💡 SPSS:</p>
@@ -372,7 +414,9 @@ window.Quarto = {
 <p><span class="text-steps">Step 4: </span> X-axis: <code>alcg</code> (independent).</p>
 <p><strong>Add regression line:</strong> Double click graph &gt;&gt; Add Fit Line at Total &gt;&gt; Select Linear.</p>
 <p>Create another graph for <code>height</code> and <code>weight</code>. Compare the two. Which one shows a linear relationship?</p>
-<p><strong>Exercise 2.3 Polynomials</strong></p>
+</section>
+<section id="exercise-2.3-polynomials" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2.3-polynomials">Exercise 2.3 Polynomials</h3>
 <p>One way to deal with non-linearity is to introduce a quadratic expression. For the relationship between <code>ln_loss</code> and <code>alcg</code>, add a quadratic term.</p>
 <p><strong>Create quadratic term:</strong> Create new variable <code>alcg2</code> = <code>alcg</code> * <code>alcg</code>.</p>
 <p>💡 SPSS:</p>
@@ -380,7 +424,9 @@ window.Quarto = {
 <p><span class="step">Transform</span> <span class="arrow">→</span> <span class="step">Compute Variables</span></p>
 </div>
 <p><span class="text-steps">Step 2: </span> Target Variable: <code>alcg2</code>. Numeric Expression: <code>alcg * alcg</code>.</p>
-<p><strong>Exercise 2.4 Homoscedasticity assumption</strong></p>
+</section>
+<section id="exercise-2.4-homoscedasticity-assumption" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2.4-homoscedasticity-assumption">Exercise 2.4 Homoscedasticity assumption</h3>
 <p>Check the homoscedasticity assumption graphically and statistically.</p>
 <p><strong>Graphically:</strong> Run regression (<code>ln_loss</code> ~ <code>alcg</code>). Generic setup: - Statistics: Estimates, CI, Model fit, R squared change, Descriptives, Collinearity diagnostics. - Plots: Y: <code>*ZRESID</code>, X: <code>*ZPRED</code>. Check Histogram and Normal probability plot. - Check if residuals are randomly distributed.</p>
 <p><strong>Statistically (Breusch-Pagan test):</strong></p>
@@ -392,9 +438,11 @@ window.Quarto = {
 <p><span class="text-steps">Step 3: </span> Covariate(s): <code>alcg</code>.</p>
 <p><span class="text-steps">Step 4: </span> Options: Check <strong>Breusch-Pagan test</strong> (under Heteroskedasticity Tests) and <strong>Parameter estimates with robust standard error</strong> (HC3).</p>
 </section>
-<section id="exercise-3-effect-modification" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-3-effect-modification">Exercise 3: Effect Modification</h3>
-<p><strong>Exercise 3.1 Create an interaction term</strong></p>
+</section>
+<section id="exercise-3-effect-modification" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-effect-modification">Exercise 3: Effect Modification</h2>
+<section id="exercise-3.1-create-an-interaction-term" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3.1-create-an-interaction-term">Exercise 3.1 Create an interaction term</h3>
 <p>We hypothesize that the impact of alcohol on attachment loss differs by gender. Introduce an interaction term between gender (<code>sex</code>) and alcohol consumption (<code>alcg</code>).</p>
 <p><strong>1. Create interaction variable (<code>AlcSex</code>):</strong></p>
 <p>💡 SPSS:</p>
@@ -412,6 +460,9 @@ window.Quarto = {
 <p><span class="text-steps">Step 3: </span> Independent: <code>alcg</code>, <code>AlcSex</code>. (Note: text says <code>Yi = B0 + B1*alcg + B2*Sex + B3*alcg*Sex</code>. So include <code>sex</code> too).</p>
 <p>Equation: <span class="math inline">\(Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsilon_i\)</span></p>
 <p>:::</p>
+
+
+</section>
 </section>
 </section>
 
@@ -895,14 +946,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <div class="footer-contents">© CC-1.0</div>  
-    </div>   
+<p>© CC-1.0</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-      <div class="footer-contents">This page is built with [Quarto](https://quarto.org/).</div>  
-    </div>
+<p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
 

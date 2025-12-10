@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-44f38ae9518b07eae4dee84fbf34f18a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-492eccafbe4a46e6dcd3741a9772ed7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -215,12 +186,7 @@ window.Quarto = {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#praktikum-5" id="toc-praktikum-5" class="nav-link active" data-scroll-target="#praktikum-5">Praktikum 5</a>
-  <ul class="collapse">
-  <li><a href="#aufgabe-1-univariable-analyse" id="toc-aufgabe-1-univariable-analyse" class="nav-link" data-scroll-target="#aufgabe-1-univariable-analyse">Aufgabe 1: Univariable Analyse</a></li>
-  <li><a href="#aufgabe-2-annahmen-der-linearen-regression" id="toc-aufgabe-2-annahmen-der-linearen-regression" class="nav-link" data-scroll-target="#aufgabe-2-annahmen-der-linearen-regression">Aufgabe 2: Annahmen der linearen Regression</a></li>
-  <li><a href="#aufgabe-3-effektmodifikation" id="toc-aufgabe-3-effektmodifikation" class="nav-link" data-scroll-target="#aufgabe-3-effektmodifikation">Aufgabe 3: Effektmodifikation</a></li>
-  </ul></li>
+  <li><a href="#praktikum-5" id="toc-praktikum-5" class="nav-link active" data-scroll-target="#praktikum-5">Praktikum 5</a></li>
   </ul>
 </nav>
     </div>
@@ -253,110 +219,6 @@ window.Quarto = {
 
 <section id="praktikum-5" class="level1">
 <h1>Praktikum 5</h1>
-<section id="aufgabe-1-univariable-analyse" class="level3">
-<h3 class="anchored" data-anchor-id="aufgabe-1-univariable-analyse">Aufgabe 1: Univariable Analyse</h3>
-<p><strong>Aufgabe 1.1 Dummy Variables</strong></p>
-<p>Erstellen Sie ein univariables lineares Regressionsmodell, um den Zusammenhang zwischen Rauchen (<code>smk</code>; 1=Niemals, 2=Ehemals, 3=Aktuell, setzen Sie die Niemals-Raucher als Referenzgruppe) und Attachment Loss (<code>cal_mean</code>; in mm) zu untersuchen.</p>
-<p>Da die Variable Rauchen drei Stufen hat, ist der erste Schritt das Erstellen von Dummy-Variablen.</p>
-<p><strong>1. Erstellen Sie eine Dummy-Variable für „Ehemalige“ Raucher:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Transformieren</span> <span class="arrow">→</span> <span class="step">Umcodieren in andere Variablen</span></p>
-</div>
-<p>Wählen Sie <code>smk</code> &gt;&gt; schreiben Sie <code>Former</code> unter Name &gt;&gt; Ändern. Klicken Sie auf „Alte und neue Werte“.</p>
-<ul>
-<li><strong>Alter Wert</strong>: <code>2</code> -&gt; <strong>Neuer Wert</strong>: <code>1</code> &gt;&gt; Hinzufügen.</li>
-<li><strong>Alter Wert</strong>: <code>1</code> -&gt; <strong>Neuer Wert</strong>: <code>0</code> &gt;&gt; Hinzufügen.</li>
-<li><strong>Alter Wert</strong>: <code>3</code> -&gt; <strong>Neuer Wert</strong>: <code>0</code> &gt;&gt; Hinzufügen.</li>
-<li><strong>Alle anderen Werte</strong> -&gt; <strong>Alte Werte kopieren</strong>.</li>
-</ul>
-<p><strong>Hinweis:</strong> Stellen Sie sicher, dass das Maß in der Variablenansicht auf Nominal gesetzt ist. Ändern Sie die Werte auf 0 = “Aktuell/keine” und 1 = “Ehemals”.</p>
-<p><strong>2. Wiederholen Sie den Vorgang für „Aktuelle“ (Current) Raucher.</strong></p>
-<p><strong>3. Modell anpassen</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analysieren</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
-</div>
-<ul>
-<li>Abhängige Variable: <code>cal_mean</code>.</li>
-<li>Unabhängige Variablen (Block 1 von 1): <code>Former</code> und <code>Current</code>.</li>
-</ul>
-<p><strong>Interpretation:</strong> Basierend auf dem Output und unter Berücksichtigung der Niemals-Raucher als Referenzgruppe: Haben Personen, die aktuell rauchen, einen höheren <code>cal_mean</code>-Wert als ehemalige Raucher?</p>
-</section>
-<section id="aufgabe-2-annahmen-der-linearen-regression" class="level3">
-<h3 class="anchored" data-anchor-id="aufgabe-2-annahmen-der-linearen-regression">Aufgabe 2: Annahmen der linearen Regression</h3>
-<p><strong>Aufgabe 2.1 Deskriptive Statistik</strong></p>
-<p>Prüfen Sie graphisch und statistisch, ob <code>cal_mean</code> oder <code>ln_loss</code> normalverteilt sind.</p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analysieren</span> <span class="arrow">→</span> <span class="step">Deskriptive Statistik</span> <span class="arrow">→</span> <span class="step">Explorative Datenanalyse</span></p>
-</div>
-<ul>
-<li>Abhängige Variablen: <code>cal_mean</code> und <code>ln_loss</code>.</li>
-<li>Diagramme: Histogramm und Normalverteilungsdiagramme mit Tests.</li>
-</ul>
-<p><strong>Aufgabe 2.2 Linearitätsannahme</strong></p>
-<p>Prüfen Sie graphisch die Linearitätsannahme zwischen <code>ln_loss</code> und anderen stetigen Variablen (z.B. <code>alcg</code>).</p>
-<p><strong>Erstellen Sie ein Streudiagramm:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Grafik</span> <span class="arrow">→</span> <span class="step">Diagrammerstellung</span></p>
-</div>
-<ul>
-<li>Galerie &gt;&gt; Streu-/Punktdiagramm &gt;&gt; ‘Einfaches Streudiagramm’ in die Vorschau ziehen.</li>
-<li>Y-Achse: <code>ln_loss</code>.</li>
-<li>X-Achse: <code>alcg</code>.</li>
-</ul>
-<p><strong>Regressionsgerade hinzufügen:</strong> Doppelklick auf die Grafik &gt;&gt; Anpassungslinie hinzufügen (Gesamt) &gt;&gt; Linear.</p>
-<p>Vergleichen Sie dies mit einem Diagramm für <code>height</code> und <code>weight</code>. Welches zeigt einen linearen Zusammenhang?</p>
-<p><strong>Aufgabe 2.3 Polynome</strong></p>
-<p>Eine Möglichkeit, mit Nicht-Linearität umzugehen, ist das Einführen eines quadratischen Ausdrucks. Fügen Sie für die Beziehung zwischen <code>ln_loss</code> und <code>alcg</code> einen quadratischen Term hinzu.</p>
-<p><strong>Quadratischen Term erstellen:</strong> Neue Variable <code>alcg2</code> = <code>alcg</code> * <code>alcg</code>.</p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Transformieren</span> <span class="arrow">→</span> <span class="step">Variable berechnen</span></p>
-</div>
-<p>Zielvariable: <code>alcg2</code>. Numerischer Ausdruck: <code>alcg * alcg</code>.</p>
-<p><strong>Aufgabe 2.4 Homoskedastizität</strong></p>
-<p>Prüfen Sie die Homoskedastizitätsannahme graphisch und statistisch.</p>
-<p><strong>Graphisch:</strong> Führen Sie die Regression durch (<code>ln_loss</code> ~ <code>alcg</code>). - Statistiken: Schätzungen, Konfidenzintervalle, Modellgüte, R-Quadrat-Änderung, Deskriptive Statistik, Kollinearitätsdiagnose. - Diagramme: Y: <code>*ZRESID</code>, X: <code>*ZPRED</code>. Histogramm und Normalverteilungsdiagramm aktivieren.</p>
-<p><strong>Statistisch (Breusch-Pagan-Test):</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analysieren</span> <span class="arrow">→</span> <span class="step">Allgemeines Lineares Modell</span> <span class="arrow">→</span> <span class="step">Univariat</span></p>
-</div>
-<ul>
-<li>Abhängige Variable: <code>ln_loss</code>.</li>
-<li>Kovariate(n): <code>alcg</code>.</li>
-<li>Optionen: <strong>Breusch-Pagan-Test</strong> (unter Heteroskedastizitätstests) und <strong>Parameterschätzungen mit robusten Standardfehlern</strong> (HC3) auswählen.</li>
-</ul>
-</section>
-<section id="aufgabe-3-effektmodifikation" class="level3">
-<h3 class="anchored" data-anchor-id="aufgabe-3-effektmodifikation">Aufgabe 3: Effektmodifikation</h3>
-<p><strong>Aufgabe 3.1 Interaktionsterm erstellen</strong></p>
-<p>Wir vermuten, dass der Einfluss von Alkohol auf den Attachment Loss je nach Geschlecht unterschiedlich ist. Führen Sie einen Interaktionsterm zwischen Geschlecht (<code>sex</code>) und Alkoholkonsum (<code>alcg</code>) ein.</p>
-<p><strong>1. Interaktionsvariable erstellen (<code>AlcSex</code>):</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Transformieren</span> <span class="arrow">→</span> <span class="step">Variable berechnen</span></p>
-</div>
-<ul>
-<li>Zielvariable: <code>AlcSex</code></li>
-<li>Numerischer Ausdruck: <code>alcg * sex</code></li>
-</ul>
-<p><strong>2. Multivariables Modell anpassen:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analysieren</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
-</div>
-<ul>
-<li>Abhängige Variable: <code>attachment loss</code> (z.B. <code>cal_mean</code> oder <code>ln_loss</code>).</li>
-<li>Unabhängige Variablen: <code>alcg</code>, <code>AlcSex</code>, <code>sex</code>.</li>
-</ul>
-<p>Gleichung: <span class="math inline">\(Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsilon_i\)</span></p>
-
-
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -839,14 +701,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© CC-1.0</p>
-</div>   
+      <div class="footer-contents">© CC-1.0</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
-<p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
-</div>
+      <div class="footer-contents">This page is built with [Quarto](https://quarto.org/).</div>  
+    </div>
   </div>
 </footer>
 

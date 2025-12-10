@@ -7,9 +7,9 @@
 :::
 
 ::: {.content-visible when-profile="english"}
-### Exercise 1: Univariable Analysis
+## Exercise 1: Univariable Analysis
 
-**Exercise 1.1 Dummy Variables**
+### Exercise 1.1 Dummy Variables
 
 Build a univariable linear regression model to study the association between smoking (`smk`; 1=Never, 2=Former, 3=Current, set the never smokers as a reference group) and attachment loss (`cal_mean`; in mm).
 
@@ -69,8 +69,19 @@ Your browser does not support the video tag.
 
 <span class="text-steps">Step 3: </span> Choose `Former` and `Current` under Block 1 of 1 (Independent variables).
 
-**Interpretation:**
-Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher `cal_mean` measurement than former smokers?
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Formula-Time-red"></summary>
+
+The linear regression model is defined as:
+
+$$Y_i = \beta_0 + \beta_{former} X_i + \beta_{current} X_i + \epsilon_i$$
+
+where $\beta_0$ is the intercept term and represents the value corresponding to the reference group or never smokers.
+
+</details>
+
+Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher `cal_mean` measurement than former smokers?: ✅ Interpret the results
 
 <details>
 
@@ -87,9 +98,17 @@ Compared with never smokers, former smokers have about 0.34 higher mean clinical
 
 </details>
 
-### Exercise 2: Linear Regression Assumptions
+## Exercise 2: Linear Regression Assumptions
 
-**Exercise 2.1 Descriptive**
+:::{.callout-tip title="Background"}
+  By design:
+
+  - We ensure that the observations are derived from independent participants. 
+  - We ensure that the target variable of our model is normally distributed.
+
+:::
+
+### Exercise 2.1 Descriptive
 
 Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and statistically.
 
@@ -107,7 +126,7 @@ Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and 
 
 <span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.
 
-**Exercise 2.2 Linearity assumption**
+### Exercise 2.2 Linearity assumption
 
 Check graphically the linearity assumption between `ln_loss` and other continuous variables (e.g. `alcg`).
 
@@ -132,7 +151,7 @@ Double click graph >> Add Fit Line at Total >> Select Linear.
 
 Create another graph for `height` and `weight`. Compare the two. Which one shows a linear relationship?
 
-**Exercise 2.3 Polynomials**
+### Exercise 2.3 Polynomials
 
 One way to deal with non-linearity is to introduce a quadratic expression.
 For the relationship between `ln_loss` and `alcg`, add a quadratic term.
@@ -150,7 +169,7 @@ Create new variable `alcg2` = `alcg` * `alcg`.
 
 <span class="text-steps">Step 2: </span> Target Variable: `alcg2`. Numeric Expression: `alcg * alcg`.
 
-**Exercise 2.4 Homoscedasticity assumption**
+### Exercise 2.4 Homoscedasticity assumption
 
 Check the homoscedasticity assumption graphically and statistically.
 
@@ -179,9 +198,9 @@ Generic setup:
 
 <span class="text-steps">Step 4: </span> Options: Check **Breusch-Pagan test** (under Heteroskedasticity Tests) and **Parameter estimates with robust standard error** (HC3).
 
-### Exercise 3: Effect Modification
+## Exercise 3: Effect Modification
 
-**Exercise 3.1 Create an interaction term**
+### Exercise 3.1 Create an interaction term
 
 We hypothesize that the impact of alcohol on attachment loss differs by gender.
 Introduce an interaction term between gender (`sex`) and alcohol consumption (`alcg`).
@@ -220,197 +239,3 @@ Equation: $Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsi
 
 :::
 
-::: {.content-visible when-profile="german"}
-### Aufgabe 1: Univariable Analyse
-
-**Aufgabe 1.1 Dummy Variables**
-
-Erstellen Sie ein univariables lineares Regressionsmodell, um den Zusammenhang zwischen Rauchen (`smk`; 1=Niemals, 2=Ehemals, 3=Aktuell, setzen Sie die Niemals-Raucher als Referenzgruppe) und Attachment Loss (`cal_mean`; in mm) zu untersuchen.
-
-Da die Variable Rauchen drei Stufen hat, ist der erste Schritt das Erstellen von Dummy-Variablen.
-
-**1. Erstellen Sie eine Dummy-Variable für „Ehemalige“ Raucher:**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Transformieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Umcodieren in andere Variablen</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Wählen Sie `smk` >> schreiben Sie `Former` unter Name >> Ändern.
-
-<span class="text-steps">Schritt 3: </span> Klicken Sie auf „Alte und neue Werte“.
-
-<span class="text-steps">Schritt 4: </span> Konfigurieren Sie die Werte:
-- **Alter Wert**: `2` -> **Neuer Wert**: `1` >> Hinzufügen.
-- **Alter Wert**: `1` -> **Neuer Wert**: `0` >> Hinzufügen.
-- **Alter Wert**: `3` -> **Neuer Wert**: `0` >> Hinzufügen.
-- **Alter Wert**: „System- oder benutzerdefiniert fehlend“ auswählen >> **Neuer Wert**: „Systemdefiniert fehlend“ auswählen >> Hinzufügen.
-- **Alle anderen Werte** -> **Alte Werte kopieren**.
-
-**Hinweis:** Stellen Sie sicher, dass das Maß in der Variablenansicht auf Nominal gesetzt ist. Ändern Sie die Werte auf 0 = "Aktuell/keine" und 1 = "Ehemals".
-
-<details>
-
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
-
-<video width="640" height="480" controls style="margin-top: 20px; display: block;">
-  <source src="video1.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-</details>
-
-**2. Wiederholen Sie den Vorgang für „Aktuelle“ (Current) Raucher.**
-
-**3. Modell anpassen**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Analysieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Regression</span>
-  <span class="arrow">→</span>
-  <span class="step">Linear</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Abhängige Variable: `cal_mean`.
-
-<span class="text-steps">Schritt 3: </span> Unabhängige Variablen (Block 1 von 1): `Former` und `Current`.
-
-**Interpretation:**
-Basierend auf dem Output und unter Berücksichtigung der Niemals-Raucher als Referenzgruppe: Haben Personen, die aktuell rauchen, einen höheren `cal_mean`-Wert als ehemalige Raucher?
-
-### Aufgabe 2: Annahmen der linearen Regression
-
-**Aufgabe 2.1 Deskriptive Statistik**
-
-Prüfen Sie graphisch und statistisch, ob `cal_mean` oder `ln_loss` normalverteilt sind.
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Analysieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Deskriptive Statistik</span>
-  <span class="arrow">→</span>
-  <span class="step">Explorative Datenanalyse</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Abhängige Variablen: `cal_mean` und `ln_loss`.
-
-<span class="text-steps">Schritt 3: </span> Diagramme: Histogramm und Normalverteilungsdiagramme mit Tests.
-
-**Aufgabe 2.2 Linearitätsannahme**
-
-Prüfen Sie graphisch die Linearitätsannahme zwischen `ln_loss` und anderen stetigen Variablen (z.B. `alcg`).
-
-**Erstellen Sie ein Streudiagramm:**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Grafik</span>
-  <span class="arrow">→</span>
-  <span class="step">Diagrammerstellung</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Galerie >> Streu-/Punktdiagramm >> 'Einfaches Streudiagramm' in die Vorschau ziehen.
-
-<span class="text-steps">Schritt 3: </span> Y-Achse: `ln_loss`.
-
-<span class="text-steps">Schritt 4: </span> X-Achse: `alcg`.
-
-**Regressionsgerade hinzufügen:**
-Doppelklick auf die Grafik >> Anpassungslinie hinzufügen (Gesamt) >> Linear.
-
-Vergleichen Sie dies mit einem Diagramm für `height` und `weight`. Welches zeigt einen linearen Zusammenhang?
-
-**Aufgabe 2.3 Polynome**
-
-Eine Möglichkeit, mit Nicht-Linearität umzugehen, ist das Einführen eines quadratischen Ausdrucks.
-Fügen Sie für die Beziehung zwischen `ln_loss` und `alcg` einen quadratischen Term hinzu.
-
-**Quadratischen Term erstellen:**
-Neue Variable `alcg2` = `alcg` * `alcg`.
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Transformieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Variable berechnen</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Zielvariable: `alcg2`. Numerischer Ausdruck: `alcg * alcg`.
-
-**Aufgabe 2.4 Homoskedastizität**
-
-Prüfen Sie die Homoskedastizitätsannahme graphisch und statistisch.
-
-**Graphisch:**
-Führen Sie die Regression durch (`ln_loss` ~ `alcg`).
-- Statistiken: Schätzungen, Konfidenzintervalle, Modellgüte, R-Quadrat-Änderung, Deskriptive Statistik, Kollinearitätsdiagnose.
-- Diagramme: Y: `*ZRESID`, X: `*ZPRED`. Histogramm und Normalverteilungsdiagramm aktivieren.
-
-**Statistisch (Breusch-Pagan-Test):**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Analysieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Allgemeines Lineares Modell</span>
-  <span class="arrow">→</span>
-  <span class="step">Univariat</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Abhängige Variable: `ln_loss`.
-
-<span class="text-steps">Schritt 3: </span> Kovariate(n): `alcg`.
-
-<span class="text-steps">Schritt 4: </span> Optionen: **Breusch-Pagan-Test** (unter Heteroskedastizitätstests) und **Parameterschätzungen mit robusten Standardfehlern** (HC3) auswählen.
-
-### Aufgabe 3: Effektmodifikation
-
-**Aufgabe 3.1 Interaktionsterm erstellen**
-
-Wir vermuten, dass der Einfluss von Alkohol auf den Attachment Loss je nach Geschlecht unterschiedlich ist.
-Führen Sie einen Interaktionsterm zwischen Geschlecht (`sex`) und Alkoholkonsum (`alcg`) ein.
-
-**1. Interaktionsvariable erstellen (`AlcSex`):**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Transformieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Variable berechnen</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Zielvariable: `AlcSex`
-
-<span class="text-steps">Schritt 3: </span> Numerischer Ausdruck: `alcg * sex`
-
-**2. Multivariables Modell anpassen:**
-
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Analysieren</span>
-  <span class="arrow">→</span>
-  <span class="step">Regression</span>
-  <span class="arrow">→</span>
-  <span class="step">Linear</span>
-</div>
-
-<span class="text-steps">Schritt 2: </span> Abhängige Variable: `attachment loss` (z.B. `cal_mean` oder `ln_loss`).
-
-<span class="text-steps">Schritt 3: </span> Unabhängige Variablen: `alcg`, `AlcSex`, `sex`.
-
-Gleichung: $Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsilon_i$
-
-:::
