@@ -48,8 +48,8 @@ website:
   #      text: Praktikum 3
   #    - href: 
   #      text: Praktikum 4
-   #   - href: 
-   #     text: Praktikum 5
+      - href: praktikum5/praktikum5.qmd
+        text: Praktikum 5
   #    - href: 
   #      text: Praktikum 6
   #    - href: 

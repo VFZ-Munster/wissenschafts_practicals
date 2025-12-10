@@ -55,46 +55,58 @@
     ]
   },
   {
-    "objectID": "praktikum2/part2.html",
-    "href": "praktikum2/part2.html",
-    "title": "Notes",
+    "objectID": "praktikum5/praktikum5.html",
+    "href": "praktikum5/praktikum5.html",
+    "title": "Practical 5",
     "section": "",
-    "text": "If you have measured several variables in your cross-sectional study, you can display an (⚠️ apparent) relationship between them using various methods."
+    "text": "Practical 5\n\nExercise 1: Univariable Analysis\nExercise 1.1 Dummy Variables\nBuild a univariable linear regression model to study the association between smoking (smk; 1=Never, 2=Former, 3=Current, set the never smokers as a reference group) and attachment loss (cal_mean; in mm).\nSince the smoking variable has three levels, the first step is to create dummy variables.\n1. Create a dummy variable for “Former” smokers:\n💡 SPSS:\n\nTransform → Recode into Different Variables\n\nStep 2:  Select smk &gt;&gt; write Former under Name & Label &gt;&gt; press Change.\nStep 3:  Click “Old and New Values”.\nStep 4:  Configure values:\n\nUnder Old Value: enter 2 &gt;&gt; Under New Value: enter 1 &gt;&gt; Press Add.\nUnder Old Value: enter 1 &gt;&gt; Under New Value: enter 0 &gt;&gt; Press Add.\nUnder Old Value: enter 3 &gt;&gt; Under New Value: enter 0 &gt;&gt; Press Add.\nUnder Old Value: select System- or user-missing &gt;&gt; Under New Value: select System-missing &gt;&gt; Press Add.\nSelect All other values &gt;&gt; select Copy old value(s) &gt;&gt; Press Add. (This handles missing values)\n\nNote: Ensure Measure is Nominal in Variable View, Decimals is set to 0, and Change Values to 0 = “Current/none” and 1 = “Former”.\n\n\n\n\n\n\nYour browser does not support the video tag. \n\n2. Repeat the same procedure to create a dummy variable for “Current” smokers. (Recode smk: 3 -&gt; 1, 1 -&gt; 0, 2 -&gt; 0).\n3. Fit the model\n💡 SPSS:\n\nAnalyze → Regression → Linear\n\nStep 2:  Choose cal_mean as Dependent Variable.\nStep 3:  Choose Former and Current under Block 1 of 1 (Independent variables).\nInterpretation: Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher cal_mean measurement than former smokers?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nMeaning\nCoefficient\np-value\nLower CI\nUpper CI\nInterpretation\n\n\n\n\n(Constant)\nmean CAL for never smokers\n0.942\n&lt;0.001\n0.913\n0.971\n\n\n\nFormer\ndifference in mean CAL between former smokers and never smokers\n0.339\n&lt;0.001\n0.289\n0.388\nSo former smokers have, on average, 0.34 units higher CAL than never smokers\n\n\nCurrent\ndifference in mean CAL between current smokers and never smokers\n0.519\n&lt;0.001\n0.464\n0.573\nSo current smokers have, on average, 0.52 units higher CAL than never smokers\n\n\n\nSummarizing: Compared with never smokers, former smokers have about 0.34 higher mean clinical attachment loss, and current smokers have about 0.52 higher mean clinical attachment loss.\n\n\n\nExercise 2: Linear Regression Assumptions\nExercise 2.1 Descriptive\nCheck whether cal_mean or ln_loss are normally distributed, graphically and statistically.\n💡 SPSS:\n\nAnalyze → Descriptive statistics → Explore\n\nStep 2:  Dependent list: cal_mean and ln_loss.\nStep 3:  Plots: Check Histogram and Normality plots with tests.\nExercise 2.2 Linearity assumption\nCheck graphically the linearity assumption between ln_loss and other continuous variables (e.g. alcg).\nCreate a scatter plot:\n💡 SPSS:\n\nGraphs → Chart Builder\n\nStep 2:  Gallery &gt;&gt; Scatter/Dot &gt;&gt; Drag ‘Simple Scatter’ to preview.\nStep 3:  Y-axis: ln_loss.\nStep 4:  X-axis: alcg (independent).\nAdd regression line: Double click graph &gt;&gt; Add Fit Line at Total &gt;&gt; Select Linear.\nCreate another graph for height and weight. Compare the two. Which one shows a linear relationship?\nExercise 2.3 Polynomials\nOne way to deal with non-linearity is to introduce a quadratic expression. For the relationship between ln_loss and alcg, add a quadratic term.\nCreate quadratic term: Create new variable alcg2 = alcg * alcg.\n💡 SPSS:\n\nTransform → Compute Variables\n\nStep 2:  Target Variable: alcg2. Numeric Expression: alcg * alcg.\nExercise 2.4 Homoscedasticity assumption\nCheck the homoscedasticity assumption graphically and statistically.\nGraphically: Run regression (ln_loss ~ alcg). Generic setup: - Statistics: Estimates, CI, Model fit, R squared change, Descriptives, Collinearity diagnostics. - Plots: Y: *ZRESID, X: *ZPRED. Check Histogram and Normal probability plot. - Check if residuals are randomly distributed.\nStatistically (Breusch-Pagan test):\n💡 SPSS:\n\nAnalyze → General Linear Model → Univariate\n\nStep 2:  Dependent Variable: ln_loss.\nStep 3:  Covariate(s): alcg.\nStep 4:  Options: Check Breusch-Pagan test (under Heteroskedasticity Tests) and Parameter estimates with robust standard error (HC3).\n\n\nExercise 3: Effect Modification\nExercise 3.1 Create an interaction term\nWe hypothesize that the impact of alcohol on attachment loss differs by gender. Introduce an interaction term between gender (sex) and alcohol consumption (alcg).\n1. Create interaction variable (AlcSex):\n💡 SPSS:\n\nTransform → Compute variable\n\nStep 2:  Target Variable: AlcSex\nStep 3:  Numeric Expression: alcg * sex\n2. Fit multivariable model:\n💡 SPSS:\n\nAnalyze → Regression → Linear\n\nStep 2:  Dependent: attachment loss (assuming cal_mean or ln_loss - usually consistent with previous steps, let’s use cal_mean or as specified in your variables list).\nStep 3:  Independent: alcg, AlcSex. (Note: text says Yi = B0 + B1*alcg + B2*Sex + B3*alcg*Sex. So include sex too).\nEquation: \\(Y_i = \\beta_0 + \\beta_1 alcg + \\beta_2 Sex + \\beta_3 alcg*Sex + \\epsilon_i\\)\n:::",
+    "crumbs": [
+      "Home",
+      "Practical 5"
+    ]
   },
   {
-    "objectID": "praktikum2/part2.html#task-3",
-    "href": "praktikum2/part2.html#task-3",
-    "title": "Notes",
-    "section": "Task 3",
-    "text": "Task 3\nCreate a cross-table for diabetes (diab) and periodontitis (perio2).\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\n\n\n\n\n\n\nTip\n\n\n\nWhich variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\ndiab\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\n199\n578\n777\n\n\nno\n988\n6,290\n7,278\n\n\nTotal\n1,187\n6,868\n8,055"
+    "objectID": "praktikum2/part1.html",
+    "href": "praktikum2/part1.html",
+    "title": "Praktikum",
+    "section": "",
+    "text": "When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in Tasks 1 and 2. A graphical representation, as in the following exercises, can provide a substantive overview of the data."
   },
   {
-    "objectID": "praktikum2/part2.html#task-4",
-    "href": "praktikum2/part2.html#task-4",
-    "title": "Notes",
-    "section": "Task 4",
-    "text": "Task 4\nCalculate the risk difference, relative risk, and odds ratio for the association between diabetes and periodontitis.\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\nThen in the Crosstabs dialog, click [Cells…] and under Percentages, select Row, then click Continue.\nNext, click [Statistics…], check Risk, and click Continue.\nCalculate manually:\n\n\n\nRisk difference (RD)\nSubtract the percentage values: \\[\nRD = p_{\\text{diabetic w/ perio}} - p_{\\text{non-diabetic w/ perio}}\n\\]\n\n\nRelative risk (RR)\nDivide the percentage values: \\[\nRR = \\frac{p_{\\text{diabetic w/ perio}}}{p_{\\text{non-diabetic w/ perio}}}\n\\]\n\n\n\n\n\n\nOdds ratio (OR) The ratio of odds between the two groups:\n\n\n\nThe odds of periodontitis for diabetics: \\[\n    \\text{Odds}_{\\text{diabetic}} =\n    \\frac{\\text{No. diabetic w/ periodontitis}}\n         {\\text{No. diabetic w/o periodontitis}}\n\\]\n\n\n\nDivided by the odds of periodontitis for non-diabetics: \\[\n\\text{Odds}_{\\text{non-diabetic}} =\n\\frac{\\text{No. non-diabetic w/ periodontitis}}\n         {\\text{No. non-diabetic w/o periodontitis}}\n\\]\n\n\n\nFinal odds ratio \\[\n    OR=\\frac{\\text{Odds}_{\\text{diabetic}}}{\\text{Odds}_{\\text{non-diabetic}}}\n      = \\frac{a/b}{c/d}\n      = \\frac{a \\times d}{b \\times c}\n\\]\n\n\n```\nwhere:\n- ( a ): diabetics with periodontitis\n- ( b ): diabetics without periodontitis\n- ( c ): non-diabetics with periodontitis\n- ( d ): non-diabetics without periodontitis\n\nLet the 2×2 table be:\n\n\n\n\nPeriodontitis (+)\nPeriodontitis (−)\n\n\n\n\nDiabetic\n( a )\n( b )\n\n\nNon-diabetic\n( c )\n( d )\n\n\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\n\n\n\n\n\n\n\ndiab\n\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\nCount\n199\n578\n777\n\n\n\n% within diab\n25.6%\n74.4%\n100.0%\n\n\nno\nCount\n988\n6,290\n7,278\n\n\n\n% within diab\n13.6%\n86.4%\n100.0%\n\n\nTotal\nCount\n1,187\n6,868\n8,055\n\n\n\n% within diab\n14.7%\n85.3%\n100.0%\n\n\n\nManual calculations\n\\[\n  RD = 25.6\\% - 13.6\\%  = 12\\%\n  \\]\n\n\n\n\n - ⚠️ Remember, this may only be an apparent association - The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group. - This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.\n\n\\[\n  RR = \\frac{25.6\\%}{13.6\\%} = 1.88\n  \\]\n\n\n\n\n - Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.\n\n\\[\n  OR = \\frac{25.6/74.4}{13.6/86.4} = \\frac{25.6 \\times 86.4}{74.4 \\times 13.6} = \\frac{2211.84}{1011.84} = 2.19\n  \\]\n\n\n\n\n - People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes."
+    "objectID": "praktikum2/part1.html#task-1",
+    "href": "praktikum2/part1.html#task-1",
+    "title": "Praktikum",
+    "section": "Task 1",
+    "text": "Task 1\nWhat is the level of measurement (scale type) for Gender/sex, Body Mass Index (BMI), and BMI categories?\nFirst, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.\nTo do this, switch from the Data View to the Variable View.⚙️\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\n(SPSS) Scale type\nGeneral type\nValues\n\n\n\n\nGender\nNominal\nUnordered categorical\nMale, Female\n\n\nBMI\nScale\nContinous\n\n\n\nBMI categories\nNominal (?)\nOrdered categorical\n&lt; 18.5, 18.5-25, 25-30 - \\(\\geq\\) 30\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nunordered vs ordered categorical?\nscale if you can, for example, meaningfully add, subtract, or average\n\n\n\n\nHow does the level of measurement (scale level) of the variable number of teeth differ from that of body height or BMI index?\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nNature\nSPSS Measure\nComment\n\n\n\n\nBMI\nContinuous numeric\nScale\nCan take decimal values\n\n\nNumber of teeth\nDiscrete numeric\nScale\nOnly integer values, but still numeric"
   },
   {
-    "objectID": "praktikum2/part2.html#task-5",
-    "href": "praktikum2/part2.html#task-5",
-    "title": "Notes",
-    "section": "Task 5",
-    "text": "Task 5\nCreate a scatterplot for the covariation of weight ~ height\n💡 In SPSS:\n\nGRAFIK → DIAGRAMMDARSTELLUNG → Streu/-Punktdiagramm auswählen\n\nDraw a regression line.\n💡 SPSS: Double-click on the created graph, then click the symbol marked below."
+    "objectID": "praktikum2/part1.html#task-2",
+    "href": "praktikum2/part1.html#task-2",
+    "title": "Praktikum",
+    "section": "Task 2",
+    "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
   },
   {
-    "objectID": "praktikum2/part2.html#task-6",
-    "href": "praktikum2/part2.html#task-6",
-    "title": "Notes",
-    "section": "Task 6",
-    "text": "Task 6\nCalculate the covariance and the Pearson correlation coefficient for the relationship between height and weight.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Pearson auswählen\n\n\n\n\n\nCorrelations\n\n\n\n\nweight\nheight\n\n\n\n\nweight\n\n\n\n\nPearson Correlation\n1\n.466**\n\n\nSig. (2-tailed)\n\n&lt; .001\n\n\nN\n15,095\n14,879\n\n\nheight\n\n\n\n\nPearson Correlation\n.466**\n1\n\n\nSig. (2-tailed)\n&lt; .001\n\n\n\nN\n14,879\n15,148\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nr = 0.466 indicates a moderate positive linear correlation:\nAs height increases, weight tends to increase as well.\nThe p-value &lt; 0.001 shows this association is statistically significant."
+    "objectID": "pvalue.html",
+    "href": "pvalue.html",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
   },
   {
-    "objectID": "praktikum2/part2.html#additional-task",
-    "href": "praktikum2/part2.html#additional-task",
-    "title": "Notes",
-    "section": "Additional task",
-    "text": "Additional task\nCalculate the Spearman correlation coefficient for the relationship between age and number of teeth.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Spearman auswählen\n\n\n\n\n\nSpearman’s rho Correlations\n\n\n\n\nage\nnteeth\n\n\n\n\nage\n\n\n\n\nCorrelation Coefficient\n1.000\n−.560**\n\n\nSig. (2-tailed)\n.\n&lt; .001\n\n\nN\n16,588\n14,394\n\n\nnteeth\n\n\n\n\nCorrelation Coefficient\n−.560**\n1.000\n\n\nSig. (2-tailed)\n&lt; .001\n.\n\n\nN\n14,394\n14,394\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nρ = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.\nThis means that, in general, as age increases, the number of teeth decreases."
+    "objectID": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "href": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
   },
   {
     "objectID": "praktikum2/praktikum2.html",
@@ -185,47 +197,46 @@
     ]
   },
   {
-    "objectID": "pvalue.html",
-    "href": "pvalue.html",
-    "title": "Understanding the p-value",
+    "objectID": "praktikum2/part2.html",
+    "href": "praktikum2/part2.html",
+    "title": "Notes",
     "section": "",
-    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
-    "crumbs": [
-      "Home",
-      "p-value"
-    ]
+    "text": "If you have measured several variables in your cross-sectional study, you can display an (⚠️ apparent) relationship between them using various methods."
   },
   {
-    "objectID": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
-    "href": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
-    "title": "Understanding the p-value",
-    "section": "",
-    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
-    "crumbs": [
-      "Home",
-      "p-value"
-    ]
+    "objectID": "praktikum2/part2.html#task-3",
+    "href": "praktikum2/part2.html#task-3",
+    "title": "Notes",
+    "section": "Task 3",
+    "text": "Task 3\nCreate a cross-table for diabetes (diab) and periodontitis (perio2).\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\n\n\n\n\n\n\nTip\n\n\n\nWhich variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\ndiab\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\n199\n578\n777\n\n\nno\n988\n6,290\n7,278\n\n\nTotal\n1,187\n6,868\n8,055"
   },
   {
-    "objectID": "praktikum2/part1.html",
-    "href": "praktikum2/part1.html",
-    "title": "Praktikum",
-    "section": "",
-    "text": "When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in Tasks 1 and 2. A graphical representation, as in the following exercises, can provide a substantive overview of the data."
+    "objectID": "praktikum2/part2.html#task-4",
+    "href": "praktikum2/part2.html#task-4",
+    "title": "Notes",
+    "section": "Task 4",
+    "text": "Task 4\nCalculate the risk difference, relative risk, and odds ratio for the association between diabetes and periodontitis.\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\nThen in the Crosstabs dialog, click [Cells…] and under Percentages, select Row, then click Continue.\nNext, click [Statistics…], check Risk, and click Continue.\nCalculate manually:\n\n\n\nRisk difference (RD)\nSubtract the percentage values: \\[\nRD = p_{\\text{diabetic w/ perio}} - p_{\\text{non-diabetic w/ perio}}\n\\]\n\n\nRelative risk (RR)\nDivide the percentage values: \\[\nRR = \\frac{p_{\\text{diabetic w/ perio}}}{p_{\\text{non-diabetic w/ perio}}}\n\\]\n\n\n\n\n\n\nOdds ratio (OR) The ratio of odds between the two groups:\n\n\n\nThe odds of periodontitis for diabetics: \\[\n    \\text{Odds}_{\\text{diabetic}} =\n    \\frac{\\text{No. diabetic w/ periodontitis}}\n         {\\text{No. diabetic w/o periodontitis}}\n\\]\n\n\n\nDivided by the odds of periodontitis for non-diabetics: \\[\n\\text{Odds}_{\\text{non-diabetic}} =\n\\frac{\\text{No. non-diabetic w/ periodontitis}}\n         {\\text{No. non-diabetic w/o periodontitis}}\n\\]\n\n\n\nFinal odds ratio \\[\n    OR=\\frac{\\text{Odds}_{\\text{diabetic}}}{\\text{Odds}_{\\text{non-diabetic}}}\n      = \\frac{a/b}{c/d}\n      = \\frac{a \\times d}{b \\times c}\n\\]\n\n\n```\nwhere:\n- ( a ): diabetics with periodontitis\n- ( b ): diabetics without periodontitis\n- ( c ): non-diabetics with periodontitis\n- ( d ): non-diabetics without periodontitis\n\nLet the 2×2 table be:\n\n\n\n\nPeriodontitis (+)\nPeriodontitis (−)\n\n\n\n\nDiabetic\n( a )\n( b )\n\n\nNon-diabetic\n( c )\n( d )\n\n\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\n\n\n\n\n\n\n\ndiab\n\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\nCount\n199\n578\n777\n\n\n\n% within diab\n25.6%\n74.4%\n100.0%\n\n\nno\nCount\n988\n6,290\n7,278\n\n\n\n% within diab\n13.6%\n86.4%\n100.0%\n\n\nTotal\nCount\n1,187\n6,868\n8,055\n\n\n\n% within diab\n14.7%\n85.3%\n100.0%\n\n\n\nManual calculations\n\\[\n  RD = 25.6\\% - 13.6\\%  = 12\\%\n  \\]\n\n\n\n\n - ⚠️ Remember, this may only be an apparent association - The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group. - This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.\n\n\\[\n  RR = \\frac{25.6\\%}{13.6\\%} = 1.88\n  \\]\n\n\n\n\n - Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.\n\n\\[\n  OR = \\frac{25.6/74.4}{13.6/86.4} = \\frac{25.6 \\times 86.4}{74.4 \\times 13.6} = \\frac{2211.84}{1011.84} = 2.19\n  \\]\n\n\n\n\n - People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes."
   },
   {
-    "objectID": "praktikum2/part1.html#task-1",
-    "href": "praktikum2/part1.html#task-1",
-    "title": "Praktikum",
-    "section": "Task 1",
-    "text": "Task 1\nWhat is the level of measurement (scale type) for Gender/sex, Body Mass Index (BMI), and BMI categories?\nFirst, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.\nTo do this, switch from the Data View to the Variable View.⚙️\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\n(SPSS) Scale type\nGeneral type\nValues\n\n\n\n\nGender\nNominal\nUnordered categorical\nMale, Female\n\n\nBMI\nScale\nContinous\n\n\n\nBMI categories\nNominal (?)\nOrdered categorical\n&lt; 18.5, 18.5-25, 25-30 - \\(\\geq\\) 30\n\n\n\n\n\n\n\n\n\nTip\n\n\n\n\nunordered vs ordered categorical?\nscale if you can, for example, meaningfully add, subtract, or average\n\n\n\n\nHow does the level of measurement (scale level) of the variable number of teeth differ from that of body height or BMI index?\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nNature\nSPSS Measure\nComment\n\n\n\n\nBMI\nContinuous numeric\nScale\nCan take decimal values\n\n\nNumber of teeth\nDiscrete numeric\nScale\nOnly integer values, but still numeric"
+    "objectID": "praktikum2/part2.html#task-5",
+    "href": "praktikum2/part2.html#task-5",
+    "title": "Notes",
+    "section": "Task 5",
+    "text": "Task 5\nCreate a scatterplot for the covariation of weight ~ height\n💡 In SPSS:\n\nGRAFIK → DIAGRAMMDARSTELLUNG → Streu/-Punktdiagramm auswählen\n\nDraw a regression line.\n💡 SPSS: Double-click on the created graph, then click the symbol marked below."
   },
   {
-    "objectID": "praktikum2/part1.html#task-2",
-    "href": "praktikum2/part1.html#task-2",
-    "title": "Praktikum",
-    "section": "Task 2",
-    "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
+    "objectID": "praktikum2/part2.html#task-6",
+    "href": "praktikum2/part2.html#task-6",
+    "title": "Notes",
+    "section": "Task 6",
+    "text": "Task 6\nCalculate the covariance and the Pearson correlation coefficient for the relationship between height and weight.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Pearson auswählen\n\n\n\n\n\nCorrelations\n\n\n\n\nweight\nheight\n\n\n\n\nweight\n\n\n\n\nPearson Correlation\n1\n.466**\n\n\nSig. (2-tailed)\n\n&lt; .001\n\n\nN\n15,095\n14,879\n\n\nheight\n\n\n\n\nPearson Correlation\n.466**\n1\n\n\nSig. (2-tailed)\n&lt; .001\n\n\n\nN\n14,879\n15,148\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nr = 0.466 indicates a moderate positive linear correlation:\nAs height increases, weight tends to increase as well.\nThe p-value &lt; 0.001 shows this association is statistically significant."
+  },
+  {
+    "objectID": "praktikum2/part2.html#additional-task",
+    "href": "praktikum2/part2.html#additional-task",
+    "title": "Notes",
+    "section": "Additional task",
+    "text": "Additional task\nCalculate the Spearman correlation coefficient for the relationship between age and number of teeth.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Spearman auswählen\n\n\n\n\n\nSpearman’s rho Correlations\n\n\n\n\nage\nnteeth\n\n\n\n\nage\n\n\n\n\nCorrelation Coefficient\n1.000\n−.560**\n\n\nSig. (2-tailed)\n.\n&lt; .001\n\n\nN\n16,588\n14,394\n\n\nnteeth\n\n\n\n\nCorrelation Coefficient\n−.560**\n1.000\n\n\nSig. (2-tailed)\n&lt; .001\n.\n\n\nN\n14,394\n14,394\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nρ = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.\nThis means that, in general, as age increases, the number of teeth decreases."
   },
   {
     "objectID": "index.html",
