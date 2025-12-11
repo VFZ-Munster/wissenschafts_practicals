@@ -180,9 +180,9 @@ Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and 
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results Cal mean-green"></summary>
 
-![Histogram of the distribution of mean attachment loss](hist_cal.png){width="80%"}
+![Histogram of the distribution of mean attachment loss](hist_cal.png){width="60%"}
 
-![Q-Q plot of the distribution of mean attachment loss](qq_cal.png){width="80%"}
+![Q-Q plot of the distribution of mean attachment loss](qq_cal.png){width="60%"}
 
 </details>
 
@@ -190,9 +190,9 @@ Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and 
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results ln loss-green"></summary>
 
-![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png){width="80%"}
+![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png){width="60%"}
 
-![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png){width="80%"}
+![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png){width="60%"}
 
 </details>
 
@@ -226,11 +226,11 @@ Create another graph for `height` and `weight`. Compare the two. Which one shows
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
-![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png){width="80%"}
+![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png){width="60%"}
 
-![Scatter plot ln_loss vs height](scatter_height_ln_loss.png){width="80%"}
+![Scatter plot ln_loss vs height](scatter_height_ln_loss.png){width="60%"}
 
-![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png){width="80%"}
+![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png){width="60%"}
 
 </details>
 
@@ -274,18 +274,18 @@ Check the homoscedasticity assumption graphically and statistically.
 
 In the **Linear Regression window** choose `ln_loss` as **Dependent** variable and `alcg` as **Independent(s)** variable.
 
-![](linear_regression.png){width="50%" fig-align="center"}
+![](linear_regression.png){width="35%" fig-align="center"}
 
 Click [Statistics...]{.spss-button} and select **Estimates**, **Confidence Intervals**, **Model fit**, **R squared change**, **Part and partial correlations**,  **Collinearity diagnostics**, **Casewise diagnostics**.
 
-![](linear_regression2.png){width="50%" fig-align="center"}
+![](linear_regression2.png){width="35%" fig-align="center"}
 
 
 Then, click [Plots...]{.spss-button} and select **Histogram** and **Normal probability plot**. In the **Scatter 1 of 1** section
 add `*ZRESID` (Standardized residual) as **Y:** and `*ZARED` (Standardized predicted value) as **X:**.
 
 
-![](linear_regression3.png){width="50%" fig-align="center"}
+![](linear_regression3.png){width="35%" fig-align="center"}
 
 From the output, report the correlation Coefficient, are the two variables correlated?
 
@@ -305,24 +305,25 @@ From the output, report the correlation Coefficient, are the two variables corre
 
 In the **Univariate** window, select `ln_loss` as the **Dependent Variable** and `alcg` as the **Covariate(s)** variable.
 
-![](linear_regression4.png){width="50%" fig-align="center"}
+![](linear_regression4.png){width="35%" fig-align="center"}
 
 Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and **Parameter estimates with robust standard error**.
 
-![](linear_regression5.png){width="50%" fig-align="center"}
+![](linear_regression5.png){width="35%" fig-align="center"}
 
 <details>
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
-![](test_homoscedasticity.png){width="80%" fig-align="center"}
+![](test_homoscedasticity.png){width="40%" fig-align="center"}
 
 </details>
 
 ## Exercise 3: Effect Modification
 
+We hypothesize that the impact of alcohol on attachment loss differs by gender.
+
 ### Exercise 3.1 Create an interaction term
 
-We hypothesize that the impact of alcohol on attachment loss differs by gender.
 Introduce an interaction term between gender (`sex`) and alcohol consumption (`alcg`).
 
 **1. Create interaction variable (`AlcSex`):**
@@ -335,9 +336,13 @@ Introduce an interaction term between gender (`sex`) and alcohol consumption (`a
   <span class="step">Compute variable</span>
 </div>
 
-<span class="text-steps">Step 2: </span> Target Variable: `AlcSex`
+In the **Compute Variable** window, in the **Target Variable** field, type `AlcSex`.
 
-<span class="text-steps">Step 3: </span> Numeric Expression: `alcg * sex`
+In the **Numeric Expression** field, type `alcg * sex`.
+
+![](interaction.png){width="40%" fig-align="center"}
+
+
 
 **2. Fit multivariable model:**
 
@@ -351,11 +356,32 @@ Introduce an interaction term between gender (`sex`) and alcohol consumption (`a
   <span class="step">Linear</span>
 </div>
 
-<span class="text-steps">Step 2: </span> Dependent: `attachment loss` (assuming `cal_mean` or `ln_loss` - usually consistent with previous steps, let's use `cal_mean` or as specified in your variables list).
+<span class="text-steps">Step 2: </span> Dependent: `attachment loss` 
 
-<span class="text-steps">Step 3: </span> Independent: `alcg`, `AlcSex`. (Note: text says `Yi = B0 + B1*alcg + B2*Sex + B3*alcg*Sex`. So include `sex` too).
+<span class="text-steps">Step 3: </span> Independent: `alcg`, `AlcSex`.
+
+![](linear_multivariable.png){width="35%" fig-align="center"}
+
 
 Equation: $Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsilon_i$
 
-:::
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
+![](linear_multivariable_result.png){width="50%" fig-align="center"}
+
+
+
+
+**Interpretation:** 
+
+- **Intercept:** The expected attachment loss of an adult Female with 0g alcohol.
+
+- **alcg:** Each 1-unit increase in alcohol consumption is associated with a 0.002 increase in attachment loss.
+
+- **Sex:** Males have, on average, a 0.336 increase in attachment loss compared to females.
+
+- **alcg:Sex:** Whether alcohol consumption has an impact on attachment loss depends on gender.
+
+
+</details>
