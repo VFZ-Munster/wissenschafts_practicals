@@ -1,9 +1,48 @@
 ::: {.content-visible when-profile="english"}
-# Practical 5
+# Practical 5: Linear Regression
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### Outcome Variable
+*Also known as: response, predicted, dependent variable*
+
+-   **Type:** Continuous
+-   1 variable
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### Influencing factor(s)
+*Also known as: covariate, independent, explanatory, predictor variable*
+
+-   **Type:** Continuous or Categorical
+-   One (Univariate) or Multiple (Multivariate)
+:::
+:::
+
+::: {.g-col-12}
+::: {.feature-card}
+
+### Practicum Scenario
+In this practical, we use **univariate linear regression** to study the association between:
+
+-   **Covariate:** Smoking (`smk`)
+    -   *Levels:* 1=Never, 2=Former, 3=Current
+    -   *Reference:* Never smokers
+-   **Outcome:** Attachment loss (`cal_mean`)
+    -   *Unit:* mm
+:::
+:::
+
+:::
+
 :::
 
 ::: {.content-visible when-profile="german"}
-# Praktikum 5
+# Praktikum 5: Lineare Regression
 :::
 
 ::: {.content-visible when-profile="english"}
@@ -100,6 +139,17 @@ Compared with never smokers, former smokers have about 0.34 higher mean clinical
 
 ## Exercise 2: Linear Regression Assumptions
 
+Basically, the results from a linear regression are valid if the assumptions of linear regression are met.
+These assumptions are:
+
+- Linearity between the `outcome` and the `covariates`
+- Independence of the observations
+- Normality of the **residuals**
+- Homoscedasticity: constant variance of the **residuals**
+
+**Note:** For more details, check the lecture.
+
+
 :::{.callout-tip title="Background"}
   By design:
 
@@ -126,11 +176,32 @@ Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and 
 
 <span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.
 
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results Cal mean-green"></summary>
+
+![Histogram of the distribution of mean attachment loss](hist_cal.png){width="80%"}
+
+![Q-Q plot of the distribution of mean attachment loss](qq_cal.png){width="80%"}
+
+</details>
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results ln loss-green"></summary>
+
+![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png){width="80%"}
+
+![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png){width="80%"}
+
+</details>
+
 ### Exercise 2.2 Linearity assumption
 
-Check graphically the linearity assumption between `ln_loss` and other continuous variables (e.g. `alcg`).
+Check graphically the linearity assumption between `ln_loss` and other continuous
+variables you want to consider adding to your model (potential confounders).
 
-**Create a scatter plot:**
+For that purpose, **create a scatter plot:**
 
 💡 SPSS:
 
@@ -140,7 +211,7 @@ Check graphically the linearity assumption between `ln_loss` and other continuou
   <span class="step">Chart Builder</span>
 </div>
 
-<span class="text-steps">Step 2: </span> Gallery >> Scatter/Dot >> Drag 'Simple Scatter' to preview.
+<span class="text-steps">Step 2: </span> Gallery >> Scatter/Dot >> Drag 'Scatter plot' to preview.
 
 <span class="text-steps">Step 3: </span> Y-axis: `ln_loss`.
 
@@ -151,12 +222,25 @@ Double click graph >> Add Fit Line at Total >> Select Linear.
 
 Create another graph for `height` and `weight`. Compare the two. Which one shows a linear relationship?
 
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png){width="80%"}
+
+![Scatter plot ln_loss vs height](scatter_height_ln_loss.png){width="80%"}
+
+![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png){width="80%"}
+
+</details>
+
+
 ### Exercise 2.3 Polynomials
 
 One way to deal with non-linearity is to introduce a quadratic expression.
 For the relationship between `ln_loss` and `alcg`, add a quadratic term.
 
-**Create quadratic term:**
+Then, **create quadratic term:**
 Create new variable `alcg2` = `alcg` * `alcg`.
 
 💡 SPSS:
@@ -171,14 +255,40 @@ Create new variable `alcg2` = `alcg` * `alcg`.
 
 ### Exercise 2.4 Homoscedasticity assumption
 
+Homoscedasticity means that the **independent variable** do not affect
+the **residuals**.
+
 Check the homoscedasticity assumption graphically and statistically.
 
 **Graphically:**
-Run regression (`ln_loss` ~ `alcg`).
-Generic setup:
-- Statistics: Estimates, CI, Model fit, R squared change, Descriptives, Collinearity diagnostics.
-- Plots: Y: `*ZRESID`, X: `*ZPRED`. Check Histogram and Normal probability plot.
-- Check if residuals are randomly distributed.
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Regression</span>
+  <span class="arrow">→</span>
+  <span class="step">Linear</span>
+</div>
+
+In the **Linear Regression window** choose `ln_loss` as **Dependent** variable and `alcg` as **Independent(s)** variable.
+
+![](linear_regression.png){width="50%" fig-align="center"}
+
+Click [Statistics...]{.spss-button} and select **Estimates**, **Confidence Intervals**, **Model fit**, **R squared change**, **Part and partial correlations**,  **Collinearity diagnostics**, **Casewise diagnostics**.
+
+![](linear_regression2.png){width="50%" fig-align="center"}
+
+
+Then, click [Plots...]{.spss-button} and select **Histogram** and **Normal probability plot**. In the **Scatter 1 of 1** section
+add `*ZRESID` (Standardized residual) as **Y:** and `*ZARED` (Standardized predicted value) as **X:**.
+
+
+![](linear_regression3.png){width="50%" fig-align="center"}
+
+From the output, report the correlation Coefficient, are the two variables correlated?
+
 
 **Statistically (Breusch-Pagan test):**
 
@@ -192,11 +302,21 @@ Generic setup:
   <span class="step">Univariate</span>
 </div>
 
-<span class="text-steps">Step 2: </span> Dependent Variable: `ln_loss`.
 
-<span class="text-steps">Step 3: </span> Covariate(s): `alcg`.
+In the **Univariate** window, select `ln_loss` as the **Dependent Variable** and `alcg` as the **Covariate(s)** variable.
 
-<span class="text-steps">Step 4: </span> Options: Check **Breusch-Pagan test** (under Heteroskedasticity Tests) and **Parameter estimates with robust standard error** (HC3).
+![](linear_regression4.png){width="50%" fig-align="center"}
+
+Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and **Parameter estimates with robust standard error**.
+
+![](linear_regression5.png){width="50%" fig-align="center"}
+
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![](test_homoscedasticity.png){width="80%" fig-align="center"}
+
+</details>
 
 ## Exercise 3: Effect Modification
 

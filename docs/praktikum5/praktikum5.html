@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-12-10">
+<meta name="dcterms.date" content="2025-12-11">
 
 <title>praktikum5 – Praktikum</title>
 <style>
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-492eccafbe4a46e6dcd3741a9772ed7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-57bfbfa36eea8cca3f4f9f1dfe0594a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -216,7 +216,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#practical-5" id="toc-practical-5" class="nav-link active" data-scroll-target="#practical-5">Practical 5</a>
+  <li><a href="#practical-5-linear-regression" id="toc-practical-5-linear-regression" class="nav-link active" data-scroll-target="#practical-5-linear-regression">Practical 5: Linear Regression</a>
   <ul class="collapse">
   <li><a href="#exercise-1-univariable-analysis" id="toc-exercise-1-univariable-analysis" class="nav-link" data-scroll-target="#exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</a>
   <ul class="collapse">
@@ -252,7 +252,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 10, 2025</p>
+      <p class="date">December 11, 2025</p>
     </div>
   </div>
   
@@ -264,8 +264,47 @@ window.Quarto = {
 </header>
 
 
-<section id="practical-5" class="level1">
-<h1>Practical 5</h1>
+<section id="practical-5-linear-regression" class="level1">
+<h1>Practical 5: Linear Regression</h1>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<section id="outcome-variable" class="level3 feature-card">
+<h3 class="anchored" data-anchor-id="outcome-variable">Outcome Variable</h3>
+<p><em>Also known as: response, predicted, dependent variable</em></p>
+<ul>
+<li><strong>Type:</strong> Continuous</li>
+<li>1 variable</li>
+</ul>
+</section>
+</div>
+<div class="g-col-12 g-col-md-6">
+<section id="influencing-factors" class="level3 feature-card">
+<h3 class="anchored" data-anchor-id="influencing-factors">Influencing factor(s)</h3>
+<p><em>Also known as: covariate, independent, explanatory, predictor variable</em></p>
+<ul>
+<li><strong>Type:</strong> Continuous or Categorical</li>
+<li>One (Univariate) or Multiple (Multivariate)</li>
+</ul>
+</section>
+</div>
+<div class="g-col-12">
+<section id="practicum-scenario" class="level3 feature-card">
+<h3 class="anchored" data-anchor-id="practicum-scenario">Practicum Scenario</h3>
+<p>In this practical, we use <strong>univariate linear regression</strong> to study the association between:</p>
+<ul>
+<li><strong>Covariate:</strong> Smoking (<code>smk</code>)
+<ul>
+<li><em>Levels:</em> 1=Never, 2=Former, 3=Current</li>
+<li><em>Reference:</em> Never smokers</li>
+</ul></li>
+<li><strong>Outcome:</strong> Attachment loss (<code>cal_mean</code>)
+<ul>
+<li><em>Unit:</em> mm</li>
+</ul></li>
+</ul>
+</section>
+</div>
+</div>
 <section id="exercise-1-univariable-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</h2>
 <section id="exercise-1.1-dummy-variables" class="level3">
@@ -374,6 +413,14 @@ window.Quarto = {
 </section>
 <section id="exercise-2-linear-regression-assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-linear-regression-assumptions">Exercise 2: Linear Regression Assumptions</h2>
+<p>Basically, the results from a linear regression are valid if the assumptions of linear regression are met. These assumptions are:</p>
+<ul>
+<li>Linearity between the <code>outcome</code> and the <code>covariates</code></li>
+<li>Independence of the observations</li>
+<li>Normality of the <strong>residuals</strong></li>
+<li>Homoscedasticity: constant variance of the <strong>residuals</strong></li>
+</ul>
+<p><strong>Note:</strong> For more details, check the lecture.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Background">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -400,25 +447,82 @@ Background
 </div>
 <p><span class="text-steps">Step 2: </span> Dependent list: <code>cal_mean</code> and <code>ln_loss</code>.</p>
 <p><span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.</p>
+<details>
+<summary>
+<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results Cal mean-green">
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hist_cal.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Histogram of the distribution of mean attachment loss</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="qq_cal.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Q-Q plot of the distribution of mean attachment loss</figcaption>
+</figure>
+</div>
+</details>
+<details>
+<summary>
+<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results ln loss-green">
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hist_ln_loss.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Histogram of the distribution of the natural logarithm of attachment loss</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="qq_ln_loss.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Q-Q plot of the distribution of the natural logarithm of attachment loss</figcaption>
+</figure>
+</div>
+</details>
 </section>
 <section id="exercise-2.2-linearity-assumption" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2.2-linearity-assumption">Exercise 2.2 Linearity assumption</h3>
-<p>Check graphically the linearity assumption between <code>ln_loss</code> and other continuous variables (e.g.&nbsp;<code>alcg</code>).</p>
-<p><strong>Create a scatter plot:</strong></p>
+<p>Check graphically the linearity assumption between <code>ln_loss</code> and other continuous variables you want to consider adding to your model (potential confounders).</p>
+<p>For that purpose, <strong>create a scatter plot:</strong></p>
 <p>💡 SPSS:</p>
 <div class="instruction-flow">
 <p><span class="step">Graphs</span> <span class="arrow">→</span> <span class="step">Chart Builder</span></p>
 </div>
-<p><span class="text-steps">Step 2: </span> Gallery &gt;&gt; Scatter/Dot &gt;&gt; Drag ‘Simple Scatter’ to preview.</p>
+<p><span class="text-steps">Step 2: </span> Gallery &gt;&gt; Scatter/Dot &gt;&gt; Drag ‘Scatter plot’ to preview.</p>
 <p><span class="text-steps">Step 3: </span> Y-axis: <code>ln_loss</code>.</p>
 <p><span class="text-steps">Step 4: </span> X-axis: <code>alcg</code> (independent).</p>
 <p><strong>Add regression line:</strong> Double click graph &gt;&gt; Add Fit Line at Total &gt;&gt; Select Linear.</p>
 <p>Create another graph for <code>height</code> and <code>weight</code>. Compare the two. Which one shows a linear relationship?</p>
+<details>
+<summary>
+<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scatter_alc_ln_loss.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Scatter plot ln_loss vs alcg</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scatter_height_ln_loss.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Scatter plot ln_loss vs height</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scatter_weight_ln_loss.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Scatter plot ln_loss vs weight</figcaption>
+</figure>
+</div>
+</details>
 </section>
 <section id="exercise-2.3-polynomials" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2.3-polynomials">Exercise 2.3 Polynomials</h3>
 <p>One way to deal with non-linearity is to introduce a quadratic expression. For the relationship between <code>ln_loss</code> and <code>alcg</code>, add a quadratic term.</p>
-<p><strong>Create quadratic term:</strong> Create new variable <code>alcg2</code> = <code>alcg</code> * <code>alcg</code>.</p>
+<p>Then, <strong>create quadratic term:</strong> Create new variable <code>alcg2</code> = <code>alcg</code> * <code>alcg</code>.</p>
 <p>💡 SPSS:</p>
 <div class="instruction-flow">
 <p><span class="step">Transform</span> <span class="arrow">→</span> <span class="step">Compute Variables</span></p>
@@ -427,16 +531,59 @@ Background
 </section>
 <section id="exercise-2.4-homoscedasticity-assumption" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2.4-homoscedasticity-assumption">Exercise 2.4 Homoscedasticity assumption</h3>
+<p>Homoscedasticity means that the <strong>independent variable</strong> do not affect the <strong>residuals</strong>.</p>
 <p>Check the homoscedasticity assumption graphically and statistically.</p>
-<p><strong>Graphically:</strong> Run regression (<code>ln_loss</code> ~ <code>alcg</code>). Generic setup: - Statistics: Estimates, CI, Model fit, R squared change, Descriptives, Collinearity diagnostics. - Plots: Y: <code>*ZRESID</code>, X: <code>*ZPRED</code>. Check Histogram and Normal probability plot. - Check if residuals are randomly distributed.</p>
+<p><strong>Graphically:</strong></p>
+<p>💡 SPSS:</p>
+<div class="instruction-flow">
+<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
+</div>
+<p>In the <strong>Linear Regression window</strong> choose <code>ln_loss</code> as <strong>Dependent</strong> variable and <code>alcg</code> as <strong>Independent(s)</strong> variable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="linear_regression.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>Click <span class="spss-button">Statistics…</span> and select <strong>Estimates</strong>, <strong>Confidence Intervals</strong>, <strong>Model fit</strong>, <strong>R squared change</strong>, <strong>Part and partial correlations</strong>, <strong>Collinearity diagnostics</strong>, <strong>Casewise diagnostics</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="linear_regression2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>Then, click <span class="spss-button">Plots…</span> and select <strong>Histogram</strong> and <strong>Normal probability plot</strong>. In the <strong>Scatter 1 of 1</strong> section add <code>*ZRESID</code> (Standardized residual) as <strong>Y:</strong> and <code>*ZARED</code> (Standardized predicted value) as <strong>X:</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="linear_regression3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>From the output, report the correlation Coefficient, are the two variables correlated?</p>
 <p><strong>Statistically (Breusch-Pagan test):</strong></p>
 <p>💡 SPSS:</p>
 <div class="instruction-flow">
 <p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">General Linear Model</span> <span class="arrow">→</span> <span class="step">Univariate</span></p>
 </div>
-<p><span class="text-steps">Step 2: </span> Dependent Variable: <code>ln_loss</code>.</p>
-<p><span class="text-steps">Step 3: </span> Covariate(s): <code>alcg</code>.</p>
-<p><span class="text-steps">Step 4: </span> Options: Check <strong>Breusch-Pagan test</strong> (under Heteroskedasticity Tests) and <strong>Parameter estimates with robust standard error</strong> (HC3).</p>
+<p>In the <strong>Univariate</strong> window, select <code>ln_loss</code> as the <strong>Dependent Variable</strong> and <code>alcg</code> as the <strong>Covariate(s)</strong> variable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="linear_regression4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>Click <span class="spss-button">Options…</span> and select <strong>Modified Breusch-Pagan test</strong> and <strong>Parameter estimates with robust standard error</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="linear_regression5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<details>
+<summary>
+<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="test_homoscedasticity.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</details>
 </section>
 </section>
 <section id="exercise-3-effect-modification" class="level2">
