@@ -316,6 +316,17 @@ Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and 
 
 ![](test_homoscedasticity.png){width="40%" fig-align="center"}
 
+
+**Interpretation:**
+
+- The null hypothesis (H₀): constant variance of residuals (homoscedasticity).
+- p = 0.373 → not significant.
+
+**Conclusion:**
+
+DO NOT reject the null → No evidence of heteroskedasticity.
+Residual variance appears constant. Homoscedasticity assumption is met.
+
 </details>
 
 ## Exercise 3: Effect Modification
