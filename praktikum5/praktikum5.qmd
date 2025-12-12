@@ -114,7 +114,7 @@ Your browser does not support the video tag.
 
 The linear regression model is defined as:
 
-$$Y_i = \beta_0 + \beta_{former} X_i + \beta_{current} X_i + \epsilon_i$$
+$$Y_i = \beta_0 + \beta_1 Former_i + \beta_2 Current_i + \epsilon_i$$
 
 where $\beta_0$ is the intercept term and represents the value corresponding to the reference group or never smokers.
 
@@ -337,9 +337,28 @@ We hypothesize that the impact of alcohol on attachment loss differs by gender.
 
 Introduce an interaction term between gender (`sex`) and alcohol consumption (`alcg`).
 
-**1. Create interaction variable (`AlcSex`):**
+**1. Create a dummy variable for male using the 'sex' variable:**
 
-💡 SPSS:
+<div class="instruction-flow">
+  <span class="step">Transform</span>
+  <span class="arrow">→</span>
+  <span class="step">Recode into Different Variables</span>
+</div>
+
+Assign the value 1 to the variable `male` and the value 0 to the variable `female`.
+
+```{=html}
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+    <img src="create_male1.png" width="30%">
+    <img src="create_male2.png" width="30%">
+    <img src="create_male3.png" width="20%">
+</div>
+```
+<br>
+**2. Create interaction variable (`AlcMale`):**
+
+💡 Remember in SPSS:
 
 <div class="instruction-flow">
   <span class="step">Transform</span>
@@ -347,15 +366,17 @@ Introduce an interaction term between gender (`sex`) and alcohol consumption (`a
   <span class="step">Compute variable</span>
 </div>
 
-In the **Compute Variable** window, in the **Target Variable** field, type `AlcSex`.
+In the **Compute Variable** window, in the **Target Variable** field, type `AlcMale`.
 
-In the **Numeric Expression** field, type `alcg * sex`.
+In the **Numeric Expression** field, type `alcg * male`.
+
 
 ![](interaction.png){width="40%" fig-align="center"}
 
 
 
-**2. Fit multivariable model:**
+
+**3. Fit multivariable model:**
 
 💡 SPSS:
 
@@ -369,12 +390,12 @@ In the **Numeric Expression** field, type `alcg * sex`.
 
 <span class="text-steps">Step 2: </span> Dependent: `attachment loss` 
 
-<span class="text-steps">Step 3: </span> Independent: `alcg`, `AlcSex`.
+<span class="text-steps">Step 3: </span> Independent: `male`, `alcg`, `AlcMale`.
 
 ![](linear_multivariable.png){width="35%" fig-align="center"}
 
 
-Equation: $Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsilon_i$
+Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \epsilon_i$
 
 <details>
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
@@ -388,11 +409,30 @@ Equation: $Y_i = \beta_0 + \beta_1 alcg + \beta_2 Sex + \beta_3 alcg*Sex + \epsi
 
 - **Intercept:** The expected attachment loss of an adult Female with 0g alcohol.
 
-- **alcg:** Each 1-unit increase in alcohol consumption is associated with a 0.002 increase in attachment loss.
+- **Male:** Males have, on average, a 0.336 increase in attachment loss compared to females.
 
-- **Sex:** Males have, on average, a 0.336 increase in attachment loss compared to females.
+- **alcg:** Each 1-unit increase in alcohol consumption is associated with a 0.004 increase in attachment loss.
 
-- **alcg:Sex:** Whether alcohol consumption has an impact on attachment loss depends on gender.
+- **AlcMale:** Whether alcohol consumption has an impact on attachment loss depends on gender.
 
+
+</details>
+
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Additional Interpretation-green"></summary>
+
+Consider:
+
+- Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male$
+- the coding for `male` variable (0 = Female, 1 = Male), and 
+- the continuous variable `alcg`.
+
+The CAL for a male that consumes 1g of alcohol is:
+
+$0.851 + 0.336 * 1 + 0.004 * 10 + 0.002 * 10 * 1 = 1.187$
+
+The CAL for a female that consumes 0g of alcohol is:
+
+$0.851 + 0.336 * 0 + 0.004 * 0 + 0.002 * 0 * 0 = 0.851$
 
 </details>
