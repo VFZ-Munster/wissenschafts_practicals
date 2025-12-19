@@ -1,5 +1,6 @@
 ---
-#title: "Praktikum"
+#title: "Quantitative Methoden für die Gesundheitswissenschaften"
+jupyter: python3
 author:   
   - name: Ignacio Leiva
     #orcid: 0000-0003-1689-0557

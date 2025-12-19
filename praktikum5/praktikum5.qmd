@@ -1,0 +1,438 @@
+::: {.content-visible when-profile="english"}
+# Practical 5: Linear Regression
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### Outcome Variable
+*Also known as: response, predicted, dependent variable*
+
+-   **Type:** Continuous
+-   1 variable
+:::
+:::
+
+::: {.g-col-12 .g-col-md-6}
+::: {.feature-card}
+### Influencing factor(s)
+*Also known as: covariate, independent, explanatory, predictor variable*
+
+-   **Type:** Continuous or Categorical
+-   One (Univariate) or Multiple (Multivariate)
+:::
+:::
+
+::: {.g-col-12}
+::: {.feature-card}
+
+### Practicum Scenario
+In this practical, we use **univariate linear regression** to study the association between:
+
+-   **Covariate:** Smoking (`smk`)
+    -   *Levels:* 1=Never, 2=Former, 3=Current
+    -   *Reference:* Never smokers
+-   **Outcome:** Attachment loss (`cal_mean`)
+    -   *Unit:* mm
+:::
+:::
+
+:::
+
+:::
+
+::: {.content-visible when-profile="german"}
+# Praktikum 5: Lineare Regression
+:::
+
+::: {.content-visible when-profile="english"}
+## Exercise 1: Univariable Analysis
+
+### Exercise 1.1 Dummy Variables
+
+Build a univariable linear regression model to study the association between smoking (`smk`; 1=Never, 2=Former, 3=Current, set the never smokers as a reference group) and attachment loss (`cal_mean`; in mm).
+
+Since the smoking variable has three levels, the first step is to create dummy variables.
+
+**1. Create a dummy variable for "Former" smokers:**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Transform</span>
+  <span class="arrow">→</span>
+  <span class="step">Recode into Different Variables</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Select `smk` >> write `Former` under Name & Label >> press Change.
+
+<span class="text-steps">Step 3: </span> Click "Old and New Values".
+
+<span class="text-steps">Step 4: </span> Configure values:
+
+- Under **Old Value**: enter `2` >> Under **New Value**: enter `1` >> Press **Add**.
+- Under **Old Value**: enter `1` >> Under **New Value**: enter `0` >> Press **Add**.
+- Under **Old Value**: enter `3` >> Under **New Value**: enter `0` >> Press **Add**.
+- Under **Old Value**: select **System- or user-missing** >> Under **New Value**: select **System-missing** >> Press **Add**.
+- Select **All other values** >> select **Copy old value(s)** >> Press **Add**. (This handles missing values)
+
+**Note:** Ensure `Measure` is Nominal in Variable View, Decimals is set to 0, and Change Values to 0 = "Current/none" and 1 = "Former".
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+<video width="640" height="480" controls style="margin-top: 20px; display: block;">
+  <source src="video1.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+
+</details>
+
+**2. Repeat the same procedure to create a dummy variable for "Current" smokers.** 
+(Recode `smk`: 3 -> 1, 1 -> 0, 2 -> 0).
+
+**3. Fit the model**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Regression</span>
+  <span class="arrow">→</span>
+  <span class="step">Linear</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Choose `cal_mean` as Dependent Variable.
+
+<span class="text-steps">Step 3: </span> Choose `Former` and `Current` under Block 1 of 1 (Independent variables).
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Formula-Time-red"></summary>
+
+The linear regression model is defined as:
+
+$$Y_i = \beta_0 + \beta_1 Former_i + \beta_2 Current_i + \epsilon_i$$
+
+where $\beta_0$ is the intercept term and represents the value corresponding to the reference group or never smokers.
+
+</details>
+
+Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher `cal_mean` measurement than former smokers?: ✅ Interpret the results
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+|Model | Meaning |Coefficient|p-value|Lower CI|Upper CI|Interpretation|
+|---|-----------|---|---|---|---|--------------|
+|(Constant)|mean CAL for never smokers |0.942|<0.001|0.913|0.971||
+|Former|difference in mean CAL between former smokers and never smokers|0.339|<0.001|0.289|0.388|So former smokers have, on average, 0.34 units higher CAL than never smokers|
+|Current |difference in mean CAL between current smokers and never smokers|0.519|<0.001|0.464|0.573|So current smokers have, on average, 0.52 units higher CAL than never smokers|
+
+**Summarizing:**
+Compared with never smokers, former smokers have about 0.34 higher mean clinical attachment loss, and current smokers have about 0.52 higher mean clinical attachment loss.
+
+</details>
+
+## Exercise 2: Linear Regression Assumptions
+
+Basically, the results from a linear regression are valid if the assumptions of linear regression are met.
+These assumptions are:
+
+- Linearity between the `outcome` and the `covariates`
+- Independence of the observations
+- Normality of the **residuals**
+- Homoscedasticity: constant variance of the **residuals**
+
+**Note:** For more details, check the lecture.
+
+
+:::{.callout-tip title="Background"}
+  By design:
+
+  - We ensure that the observations are derived from independent participants. 
+  - We ensure that the target variable of our model is normally distributed.
+
+:::
+
+### Exercise 2.1 Descriptive
+
+Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and statistically.
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Descriptive statistics</span>
+  <span class="arrow">→</span>
+  <span class="step">Explore</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Dependent list: `cal_mean` and `ln_loss`.
+
+<span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results Cal mean-green"></summary>
+
+![Histogram of the distribution of mean attachment loss](hist_cal.png){width="60%"}
+
+![Q-Q plot of the distribution of mean attachment loss](qq_cal.png){width="60%"}
+
+</details>
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results ln loss-green"></summary>
+
+![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png){width="60%"}
+
+![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png){width="60%"}
+
+</details>
+
+### Exercise 2.2 Linearity assumption
+
+Check graphically the linearity assumption between `ln_loss` and other continuous
+variables you want to consider adding to your model (potential confounders).
+
+For that purpose, **create a scatter plot:**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Graphs</span>
+  <span class="arrow">→</span>
+  <span class="step">Chart Builder</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Gallery >> Scatter/Dot >> Drag 'Scatter plot' to preview.
+
+<span class="text-steps">Step 3: </span> Y-axis: `ln_loss`.
+
+<span class="text-steps">Step 4: </span> X-axis: `alcg` (independent).
+
+**Add regression line:**
+Double click graph >> Add Fit Line at Total >> Select Linear.
+
+Create another graph for `height` and `weight`. Compare the two. Which one shows a linear relationship?
+
+<details>
+
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png){width="60%"}
+
+![Scatter plot ln_loss vs height](scatter_height_ln_loss.png){width="60%"}
+
+![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png){width="60%"}
+
+</details>
+
+
+### Exercise 2.3 Polynomials
+
+One way to deal with non-linearity is to introduce a quadratic expression.
+For the relationship between `ln_loss` and `alcg`, add a quadratic term.
+
+Then, **create quadratic term:**
+Create new variable `alcg2` = `alcg` * `alcg`.
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Transform</span>
+  <span class="arrow">→</span>
+  <span class="step">Compute Variables</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Target Variable: `alcg2`. Numeric Expression: `alcg * alcg`.
+
+### Exercise 2.4 Homoscedasticity assumption
+
+Homoscedasticity means that the **independent variable** do not affect
+the **residuals**.
+
+Check the homoscedasticity assumption graphically and statistically.
+
+**Graphically:**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Regression</span>
+  <span class="arrow">→</span>
+  <span class="step">Linear</span>
+</div>
+
+In the **Linear Regression window** choose `ln_loss` as **Dependent** variable and `alcg` as **Independent(s)** variable.
+
+![](linear_regression.png){width="35%" fig-align="center"}
+
+Click [Statistics...]{.spss-button} and select **Estimates**, **Confidence Intervals**, **Model fit**, **R squared change**, **Part and partial correlations**,  **Collinearity diagnostics**, **Casewise diagnostics**.
+
+![](linear_regression2.png){width="35%" fig-align="center"}
+
+
+Then, click [Plots...]{.spss-button} and select **Histogram** and **Normal probability plot**. In the **Scatter 1 of 1** section
+add `*ZRESID` (Standardized residual) as **Y:** and `*ZARED` (Standardized predicted value) as **X:**.
+
+
+![](linear_regression3.png){width="35%" fig-align="center"}
+
+From the output, report the correlation Coefficient, are the two variables correlated?
+
+
+**Statistically (Breusch-Pagan test):**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">General Linear Model</span>
+  <span class="arrow">→</span>
+  <span class="step">Univariate</span>
+</div>
+
+
+In the **Univariate** window, select `ln_loss` as the **Dependent Variable** and `alcg` as the **Covariate(s)** variable.
+
+![](linear_regression4.png){width="35%" fig-align="center"}
+
+Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and **Parameter estimates with robust standard error**.
+
+![](linear_regression5.png){width="35%" fig-align="center"}
+
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![](test_homoscedasticity.png){width="40%" fig-align="center"}
+
+
+**Interpretation:**
+
+- The null hypothesis (H₀): constant variance of residuals (homoscedasticity).
+- p = 0.373 → not significant.
+
+**Conclusion:**
+
+DO NOT reject the null → No evidence of heteroskedasticity.
+Residual variance appears constant. Homoscedasticity assumption is met.
+
+</details>
+
+## Exercise 3: Effect Modification
+
+We hypothesize that the impact of alcohol on attachment loss differs by gender.
+
+### Exercise 3.1 Create an interaction term
+
+Introduce an interaction term between gender (`sex`) and alcohol consumption (`alcg`).
+
+**1. Create a dummy variable for male using the 'sex' variable:**
+
+<div class="instruction-flow">
+  <span class="step">Transform</span>
+  <span class="arrow">→</span>
+  <span class="step">Recode into Different Variables</span>
+</div>
+
+Assign the value 1 to the variable `male` and the value 0 to the variable `female`.
+
+```{=html}
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+    <img src="create_male1.png" width="30%">
+    <img src="create_male2.png" width="30%">
+    <img src="create_male3.png" width="20%">
+</div>
+```
+<br>
+**2. Create interaction variable (`AlcMale`):**
+
+💡 Remember in SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Transform</span>
+  <span class="arrow">→</span>
+  <span class="step">Compute variable</span>
+</div>
+
+In the **Compute Variable** window, in the **Target Variable** field, type `AlcMale`.
+
+In the **Numeric Expression** field, type `alcg * male`.
+
+
+![](interaction.png){width="40%" fig-align="center"}
+
+
+
+
+**3. Fit multivariable model:**
+
+💡 SPSS:
+
+<div class="instruction-flow">
+  <span class="step">Analyze</span>
+  <span class="arrow">→</span>
+  <span class="step">Regression</span>
+  <span class="arrow">→</span>
+  <span class="step">Linear</span>
+</div>
+
+<span class="text-steps">Step 2: </span> Dependent: `attachment loss` 
+
+<span class="text-steps">Step 3: </span> Independent: `male`, `alcg`, `AlcMale`.
+
+![](linear_multivariable.png){width="35%" fig-align="center"}
+
+
+Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \epsilon_i$
+
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+
+![](linear_multivariable_result.png){width="50%" fig-align="center"}
+
+
+
+
+**Interpretation:** 
+
+- **Intercept:** The expected attachment loss of an adult Female with 0g alcohol.
+
+- **Male:** Males have, on average, a 0.336 increase in attachment loss compared to females.
+
+- **alcg:** Each 1-unit increase in alcohol consumption is associated with a 0.004 increase in attachment loss.
+
+- **AlcMale:** Whether alcohol consumption has an impact on attachment loss depends on gender.
+
+
+</details>
+
+<details>
+<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Additional Interpretation-green"></summary>
+
+Consider:
+
+- Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male$
+- the coding for `male` variable (0 = Female, 1 = Male), and 
+- the continuous variable `alcg`.
+
+The CAL for a male that consumes 1g of alcohol is:
+
+$0.851 + 0.336 * 1 + 0.004 * 10 + 0.002 * 10 * 1 = 1.187$
+
+The CAL for a female that consumes 0g of alcohol is:
+
+$0.851 + 0.336 * 0 + 0.004 * 0 + 0.002 * 0 * 0 = 0.851$
+
+</details>
