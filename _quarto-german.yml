@@ -44,10 +44,8 @@ website:
         text: Praktikum 3
       - href: pvalue.qmd
         text: "p-value"
-  #    - href: 
-  #      text: Praktikum 3
-  #    - href: 
-  #      text: Praktikum 4
+      - href: praktikum4/praktikum4.qmd
+        text: Praktikum 4
       - href: praktikum5/praktikum5.qmd
         text: Praktikum 5
   #    - href: 
