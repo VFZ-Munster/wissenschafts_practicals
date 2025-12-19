@@ -1,92 +1,5 @@
 [
   {
-    "objectID": "praktikum1/praktikum1.html#spss-herunterladen",
-    "href": "praktikum1/praktikum1.html#spss-herunterladen",
-    "title": "Installation von SPSS",
-    "section": "1. SPSS herunterladen",
-    "text": "1. SPSS herunterladen\nÖffnen Sie die Seite und klappen Sie den Reiter „Download, Installation & Lizenzaktivierung“ auf\n(der gelb markierte Bereich auf der Website).\n\nKlicken Sie anschließend auf Downloadbereich für SPSS Statistics.\n\nWenn ein Login-Fenster erscheint, melden Sie sich mit Ihrer Medicampus ID an\n— nur der Benutzername, ohne „@uni-muenster.de“.",
-    "crumbs": [
-      "Home",
-      "Practikum 1: SPSS installieren"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#version-und-betriebssystem-auswählen",
-    "href": "praktikum1/praktikum1.html#version-und-betriebssystem-auswählen",
-    "title": "Installation von SPSS",
-    "section": "2. Version und Betriebssystem auswählen",
-    "text": "2. Version und Betriebssystem auswählen\nWählen Sie die aktuellste verfügbare Version aus:\n\nDanach wählen Sie Ihr Betriebssystem (Windows, macOS):\n\nHinweis: Optionen für Linux finden Sie im Ordner „Arch“.",
-    "crumbs": [
-      "Home",
-      "Practikum 1: SPSS installieren"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#spss-aktivieren",
-    "href": "praktikum1/praktikum1.html#spss-aktivieren",
-    "title": "Installation von SPSS",
-    "section": "3. SPSS aktivieren",
-    "text": "3. SPSS aktivieren\nSPSS muss über die Netzwerklizenz aktiviert werden.\nÖffnen Sie die offizielle Aktivierungsseite:\nspss lizenzaktivierung\nFolgen Sie dort den Schritten unter „Aktivieren der Netzwerklizenz“.",
-    "crumbs": [
-      "Home",
-      "Practikum 1: SPSS installieren"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#wichtige-verbindungsanforderung",
-    "href": "praktikum1/praktikum1.html#wichtige-verbindungsanforderung",
-    "title": "Installation von SPSS",
-    "section": "4. Wichtige Verbindungsanforderung",
-    "text": "4. Wichtige Verbindungsanforderung\nUm SPSS nutzen zu können, müssen Sie mit einem der folgenden Netzwerke verbunden sein:\n\ndem ms-uni WLAN, oder\n\ndem VPN der Universität\n\nDiese Verbindung ist erforderlich, wenn SPSS die Lizenz überprüft.",
-    "crumbs": [
-      "Home",
-      "Practikum 1: SPSS installieren"
-    ]
-  },
-  {
-    "objectID": "praktikum3/praktikum3.html",
-    "href": "praktikum3/praktikum3.html",
-    "title": "Praktikum 3",
-    "section": "",
-    "text": "Praktikum 3\nEinleitung: In dieser Stunde geht es um Konfidenzintervallen, Normalverteilung und Transformieren von Variablen.\n\nAufgabe 1: Schätzen mit Konfidenzintervallen\nLassen Sie sich 95% Konfidenzintervalle der Mittelwerte für die Variablen „height“ und „mortstat“ angeben\n💡 SPSS:\n\nANALYSE → DESKRIPTIVE STATISTIK → EXPLORATIVE DATENANALYSE\n\n„height“ und „mortstat“ als abhängige Variablen zuordnen. Unter Anzeige „Statistiken“ auswählen. Unter Statistiken können die Grenzen des Konfidenzintervalls festgelegt werden. Unter Optionen wählen Sie „paarweiser Fallausschluss“ aus.\n\n\n\nShow Results\n\n\n\n\nVariablen\nMittelwerte (95% Konfidenzintervalle)\n\n\n\n\nheight\n167.05 (166.89 - 167.21)\n\n\nmortstat\n0.26 (0.25 - 0.27)\n\n\n\n\nVerständnisfrage zum Konfidenzintervall:\nWelcher Aussage stimmen Sie zu:\n\nDer wahre Wert der Grundgesamtheit liegt bei einem 95% Konfidenzintervall mit einer Wahrscheinlichkeit von 95% innerhalb der Grenzen des Intervalls.\nEin Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.\n\n\n\nShow Results\n\n✓ b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.\n\n\n\nAufgabe 2: Prüfen der Normalverteilung\nSie haben in der Vorlesung verschiedene Möglichkeiten zum Testen auf das Vorliegen einer Normalverteilung kennengelernt. In Kürze sind dies: 1. Die Bewertung von Schiefe und Kurtosis (Wölbung, sollte 3 sein – beschreibt die Steilheit / Spitzigkeit der Verteilung)\n\nStatistische Tests auf Normalverteilung\nGraphische Tests auf Normalverteilung\n\nDas Wissen über die Verteilung der Variablen kann u.A. bei der Auswahl des richtigen Tests helfen.\nPrüfen Sie die Merkmale height, bmi und cal_mean auf Normalverteilung.\n💡SPSS:\n\nANALYSE → DESKRIPTIVE STATISTIK → EXPLORATIVE DATENANALYSE\n\nAnzeige von „Statistiken“ auf „Beides“ ändern. Unter Statistiken „Deskriptive Statistik mit Konfidenzintervall 95%“ auswählen. Unter Diagramme „Normalverteilungsdiagramme mit Tests“ und „Histogramm“ auswählen. Variablen in das Feld „abhängige Variablen“ ziehen. Zuletzt unter Optionen „paarweisen Fallausschluss“ auswählen\nTesten Sie graphisch auf Normalverteilung, indem Sie sich für height, bmi, and cal_mean jeweils das Histogramm und das Q-Q-Diagramm ansehen.\nHinweis: Im Rahmen des Praktikums müssen Sie das trendbereinigte Q-Q-Diagramm nicht beachten\nEntscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilung ausgehen möchten\n\n\n\nDie Bewertung von Schiefe und Kurtosis\n\n\n\n\n\nStatistische Tests auf Normalverteilung\n\n\n\n\n\nGraphische Tests auf Normalverteilung\n\n\nHistograms\n\n\n\nQ-Q plots\n\n\n\n\n\nShow Results\n\n\n\n\nVariable\nNormalverteilt?\n\n\n\n\nheight\nJa\n\n\ncal_mean\nNein\n\n\nbmi\nNein\n\n\n\n\n\n\nAufgabe 3: Transformieren von Variablen\nFühren Sie eine logarithmische Transformation der Variable cal_mean durch.\nHinweis: Hier wird der natürliche Logarithmus verwendet.\n💡 SPSS:\n\n\n  TRANSFORMIEREN\n  →\n  VARIABLE BERECHNEN\n\nFunktionsgruppe „Arithmetisch“ auswählen und Doppelklick auf „Ln“ Doppelklick auf die zu transformierende Variable cal_mean.\n\nSchauen Sie sich das Histogramm mit Normalverteilungskurve für die neu erstellte Variable an:\n💡 SPSS:\n\n  ANALYSIEREN\n  →\n  DESKRIPTIVE STATISTIKEN\n    →\n  HÄUFIGKEITEN\n\n☑ Unter Diagramme Histogramm und Normalverteilungskurve auswählen.\n\n\nShow Results",
-    "crumbs": [
-      "Home",
-      "Praktikum 3"
-    ]
-  },
-  {
-    "objectID": "praktikum5/praktikum5.html",
-    "href": "praktikum5/praktikum5.html",
-    "title": "Praktikum 5: Lineare Regression",
-    "section": "",
-    "text": "Praktikum 5: Lineare Regression",
-    "crumbs": [
-      "Home",
-      "Praktikum 5"
-    ]
-  },
-  {
-    "objectID": "praktikum2/part1.html",
-    "href": "praktikum2/part1.html",
-    "title": "Praktikum",
-    "section": "",
-    "text": "When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in Tasks 1 and 2. A graphical representation, as in the following exercises, can provide a substantive overview of the data."
-  },
-  {
-    "objectID": "praktikum2/part1.html#task-1",
-    "href": "praktikum2/part1.html#task-1",
-    "title": "Praktikum",
-    "section": "Task 1",
-    "text": "Task 1\nWhat is the level of measurement (scale type) for Gender/sex, Body Mass Index (BMI), and BMI categories?\nFirst, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.\nTo do this, switch from the Data View to the Variable View.⚙️\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\n(SPSS) Scale type\nGeneral type\nValues\n\n\n\n\nGender\nNominal\nUnordered categorical\nMale, Female\n\n\nBMI\nScale\nContinous\n\n\n\nBMI categories\nNominal (?)\nOrdered categorical\n&lt; 18.5, 18.5-25, 25-30 - \\(\\geq\\) 30\n\n\n\n\n\n\n\n\n\nTipp\n\n\n\n\nunordered vs ordered categorical?\nscale if you can, for example, meaningfully add, subtract, or average\n\n\n\n\nHow does the level of measurement (scale level) of the variable number of teeth differ from that of body height or BMI index?\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nNature\nSPSS Measure\nComment\n\n\n\n\nBMI\nContinuous numeric\nScale\nCan take decimal values\n\n\nNumber of teeth\nDiscrete numeric\nScale\nOnly integer values, but still numeric"
-  },
-  {
-    "objectID": "praktikum2/part1.html#task-2",
-    "href": "praktikum2/part1.html#task-2",
-    "title": "Praktikum",
-    "section": "Task 2",
-    "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
-  },
-  {
     "objectID": "pvalue.html",
     "href": "pvalue.html",
     "title": "Understanding the p-value",
@@ -106,6 +19,17 @@
     "crumbs": [
       "Home",
       "p-value"
+    ]
+  },
+  {
+    "objectID": "praktikum4/praktikum4.html",
+    "href": "praktikum4/praktikum4.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Praktikum 4\nEinleitung: In dieser Stunde geht es um t-Test für eine Stichprobe, p-Werte, U-Test von Mann und Whitney und Chi²-Vierfeldertest.\n\nAufgabe 1: t-Test bei einer Stichprobe\nDer BMI setzt Körpergröße und Gewicht in ein Verhältnis. Die WHO unterscheidet je nach Höhe des errechneten Wertes folgende aufgeführte Gewichtsklassen\n\nSie möchten nun wissen, ob sich der durchschnittliche BMI in der NHANES-Gruppe statistisch vom Normalgewicht der WHO unterscheiden.\nZur einfacheren Berechnung legen Sie als „normal” den mittleren Wert des Normalgewichtes zugrunde (= 21.7)\n1.1 Aufgabe\nFühren Sie einen t-Test bei einer Stichprobe durch\n💡SPSS:\n\nStep 1: ANALYSIEREN → Mittelwerte vergleichen → T-Test bei einer Stichprobe\n\nTestwert = 21.7; Testvariable = bmi; Optionen = Konfidenzintervall auf 95% festlegen. Entfernen Sie den Haken bei „Effektgrößen schätzen”\n\n\n\n\n\n\n\nTwo-sided p-value is less than 0.05.\nThe probability of observing a difference this large purely by random chance is less than 0.05.\nIt is very unlikely that the difference occurred by chance, and it provides strong evidence that there exists a true difference between the mean BMI in the NHANES sample and WHO reference for normal weight.\nWe reject the null hypothesis that there is no significant difference in mean BMI in the NHANES sample and WHO reference for normal weight.\n\n\n1.2 Verständnisfrage\nSie geben in Ihrer Arbeit zusätzlich zum p-Wert auch noch das Konfidenzintervall an. Warum?\nKreuzen Sie zutreffende Antworten an (Mehrfachnennungen möglich):\n\nDer p-Wert gibt Aufschluss über die statistische Signifikanz. Durch Angabe des Konfidenzintervalls ist unter anderem die Interpretation der Richtung und Größe des gemessenen Effektes beurteilbar.\nBei signifikantem p-Wert sollte das Konfidenzintervall immer berichtet werden. Bei nichtsignifikanten p-Werten liefert das Konfidenzintervall in der Regel keine weiteren Informationen.\nBei signifikantem p-Wert sind Werte oberhalb und unterhalb des Konfidenzintervalls ausgeschlossen.\nUnabhängig von der Weite des Konfidenzintervalls, ist der Punktschätzer auf der Grundlage der Stichprobe die beste Annäherung an den wahren Wert der Grundgesamtheit.\nBei signifikantem p-Wert und einem Konfidenzintervall, das den „Null – Effekt” nicht miteinschließt, kann automatisch von klinischer Relevanz ausgegangen werden.\n\n\n\n\n\n✓ a) Der p-Wert gibt Aufschluss über die statistische Signifikanz. Durch Angabe des Konfidenzintervalls ist unter anderem die Interpretation der Richtung und Größe des gemessenen Effektes beurteilbar.\n✓ d) Unabhängig von der Weite des Konfidenzintervalls, ist der Punktschätzer auf der Grundlage der Stichprobe die beste Annäherung an den wahren Wert der Grundgesamtheit.\n\n\n\nAufgabe 2: Mann-Whitney-U Test\nSie möchten wissen, ob sich der durchschnittliche Attachmentverlust von Nichtrauchern zu Rauchern (former/current) unterscheidet.\nSie haben in Aufgabe 1 die Verteilung der Variable cal_mean untersucht und festgestellt, dass keine Normalverteilung vorliegt. Bei kleinen Stichproben (n &lt; 25 z.B.) entscheiden Sie Sich daher für eine Transformation der Variable oder den Mann-Whitney-U Test. Letzterer vergleicht zwei Mediane miteinander.\nFühren Sie den Mann-Whitney-U Test durch.\n💡 SPSS:\n\nStep 1: ANALYSIEREN → NICHTPARAMETRISCHE TESTS → KLASSISCHE DIALOGFELDER → 2 unabhängige Stichproben\n\nTestvariable: cal_mean\nGruppierungsvariable: smk2 (Hinweis: Hier müssen Sie die Gruppen definieren „Gruppe 1: 1” und „Gruppe 2: 2”)\nWählen Sie den Mann-Whitney-U-Test aus.\n\nInterpretieren Sie anhand der Ausgabe „Asymp. Sig. (2-seitig)” ob Sie die Nullhypothese beibehalten oder verwerfen müssen.\n\n\n\n\n\n\nAsymp. Sig. (2-tailed) value is less than 0.05.\nThe probability of observing a difference this large purely by random chance is less than 0.05.\nIt is very unlikely that the difference occurred by chance, and it provides strong evidence that there exists a true difference between the median CAL between never smokers and former/current smokers.\nWe reject the null hypothesis that the median clinical attachment loss is the same for never smokers and former/current smokers\n\n\n\n\nAufgabe 3: Tests für Häufigkeiten\nDer CHI² - Vierfeldertest dient im einfachsten Fall dazu, die Unabhängigkeit zweier Alternativmerkmale (binär) zu untersuchen. (Daher manchmal auch CHI²-Unabhängigkeitstest genannt). Hierfür gibt es in der Epidemiologie zahlreiche Fragestellungen, wie etwa: „Gibt es einen Zusammenhang zwischen dem Vorliegen einer Parodontitis (ja/nein) und Diabetes (ja/nein)?“.\nUnter der Nullhypothese sind die relevanten Ergebnisse unabhängig voneinander, die Alternativhypothese besagt dagegen, dass eine Abhängigkeit besteht.\nFühren Sie einen CHI² Test für die oben genannte Fragestellung durch.\n💡 SPSS:\n\nStep 1: ANALYSIEREN → DESKRIPTIVE STATISTIK → KREUZTABELLEN\n\nExposition „diab” in die Zeilen, Outcome „perio2” in die Spalten. Unter Statistiken den “CHI²-Test” ankreuzen. Unter Zellen bei Häufigkeiten „Beobachtet” und „Erwartet” auswählen.\n\n\n\n\n\n\n\nThe p-value is less than 0.05.\nWe reject the null hypothesis of independence between diabetes and periodontitis.",
+    "crumbs": [
+      "Home",
+      "Praktikum 4"
     ]
   },
   {
@@ -197,6 +121,81 @@
     ]
   },
   {
+    "objectID": "praktikum2/part1.html",
+    "href": "praktikum2/part1.html",
+    "title": "Praktikum",
+    "section": "",
+    "text": "When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in Tasks 1 and 2. A graphical representation, as in the following exercises, can provide a substantive overview of the data."
+  },
+  {
+    "objectID": "praktikum2/part1.html#task-1",
+    "href": "praktikum2/part1.html#task-1",
+    "title": "Praktikum",
+    "section": "Task 1",
+    "text": "Task 1\nWhat is the level of measurement (scale type) for Gender/sex, Body Mass Index (BMI), and BMI categories?\nFirst, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.\nTo do this, switch from the Data View to the Variable View.⚙️\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\n(SPSS) Scale type\nGeneral type\nValues\n\n\n\n\nGender\nNominal\nUnordered categorical\nMale, Female\n\n\nBMI\nScale\nContinous\n\n\n\nBMI categories\nNominal (?)\nOrdered categorical\n&lt; 18.5, 18.5-25, 25-30 - \\(\\geq\\) 30\n\n\n\n\n\n\n\n\n\nTipp\n\n\n\n\nunordered vs ordered categorical?\nscale if you can, for example, meaningfully add, subtract, or average\n\n\n\n\nHow does the level of measurement (scale level) of the variable number of teeth differ from that of body height or BMI index?\n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable\nNature\nSPSS Measure\nComment\n\n\n\n\nBMI\nContinuous numeric\nScale\nCan take decimal values\n\n\nNumber of teeth\nDiscrete numeric\nScale\nOnly integer values, but still numeric"
+  },
+  {
+    "objectID": "praktikum2/part1.html#task-2",
+    "href": "praktikum2/part1.html#task-2",
+    "title": "Praktikum",
+    "section": "Task 2",
+    "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Willkommen zum Praktikum",
+    "section": "",
+    "text": "Willkommen zum Praktikum\nEntdecken, analysieren und lernen Sie mit NHANES-Daten.\n\n\n\n📊 Datenanalyse\nWir verwenden Daten der NHANES (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.\n\n\n📁 Der Datensatz\nDie Daten sind in nhanes30.sav gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.\n\n\n\n\n\n\n\n\n\n.sav?\n\n\n\nDie Erweiterung .sav kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.\n\n\n\nDatensatzbeschreibung\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the internet...\n    (need help?)\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nVariablenname\nBedeutung\nAusprägungen\n\n\n\n\nSEQN\nProbandennummer\n\n\n\nnteeth\nAnzahl der natürlichen Zähne\n0–32\n\n\ncal_mean\nMittlerer Attachmentverlust\nmm\n\n\nperio\nParodontitis (CDC-AAP Definition Eke et al. 2012)\n1=None, 2=mild, 3=moderate, 4=severe\n\n\nperio2\nParodontitis\n1=Ja, 2=Nein\n\n\nbop\nBleeding on probe (World Definition, Tonetti et al. 2018)\n1=None, 2=&gt;10%, 3= \\(\\geq\\) 10%\n\n\nmale\nGeschlecht\n1=Female, 2=Male\n\n\nage\nJahre\nJahre\n\n\nedu\nBildungsniveau\n1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=≥some college\n\n\nsmk\nRauchstatus\n1=Never, 2=Former, 3=Current\n\n\nsmk2\nRauchstatus\n1=Never, 2=Former/Current\n\n\nalcg\nAlkoholkonsum\nGramm pro Tag\n\n\nHeight\nKörpergröße\ncm\n\n\nWeight\nKörpergewicht\nkg\n\n\nbmi\nBody Mass Index\nkg/m²\n\n\nbmi_cat\nBMI-Kategorien\n1= \\(&lt;\\) 18.5, 2=18.5–25, 3=25–30, 4= \\(\\geq\\) 30\n\n\nwc\nTaillenumfang\ncm\n\n\nwc_cat\nTaillenumfang – Kategorien\n1=m:\\(&lt;\\) 102,f: \\(&lt;\\) 88; 2=m:\\(\\geq\\) 102,f: \\(\\geq\\) 88\n\n\ndiab\nDiabetes\nJa, Nein\n\n\nmortstat\nMortalität\n1=lebend, 0=verstorben\n\n\nperm_exm\nAnzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#spss-herunterladen",
+    "href": "praktikum1/praktikum1.html#spss-herunterladen",
+    "title": "Installation von SPSS",
+    "section": "1. SPSS herunterladen",
+    "text": "1. SPSS herunterladen\nÖffnen Sie die Seite und klappen Sie den Reiter „Download, Installation & Lizenzaktivierung“ auf\n(der gelb markierte Bereich auf der Website).\n\nKlicken Sie anschließend auf Downloadbereich für SPSS Statistics.\n\nWenn ein Login-Fenster erscheint, melden Sie sich mit Ihrer Medicampus ID an\n— nur der Benutzername, ohne „@uni-muenster.de“.",
+    "crumbs": [
+      "Home",
+      "Practikum 1: SPSS installieren"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#version-und-betriebssystem-auswählen",
+    "href": "praktikum1/praktikum1.html#version-und-betriebssystem-auswählen",
+    "title": "Installation von SPSS",
+    "section": "2. Version und Betriebssystem auswählen",
+    "text": "2. Version und Betriebssystem auswählen\nWählen Sie die aktuellste verfügbare Version aus:\n\nDanach wählen Sie Ihr Betriebssystem (Windows, macOS):\n\nHinweis: Optionen für Linux finden Sie im Ordner „Arch“.",
+    "crumbs": [
+      "Home",
+      "Practikum 1: SPSS installieren"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#spss-aktivieren",
+    "href": "praktikum1/praktikum1.html#spss-aktivieren",
+    "title": "Installation von SPSS",
+    "section": "3. SPSS aktivieren",
+    "text": "3. SPSS aktivieren\nSPSS muss über die Netzwerklizenz aktiviert werden.\nÖffnen Sie die offizielle Aktivierungsseite:\nspss lizenzaktivierung\nFolgen Sie dort den Schritten unter „Aktivieren der Netzwerklizenz“.",
+    "crumbs": [
+      "Home",
+      "Practikum 1: SPSS installieren"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#wichtige-verbindungsanforderung",
+    "href": "praktikum1/praktikum1.html#wichtige-verbindungsanforderung",
+    "title": "Installation von SPSS",
+    "section": "4. Wichtige Verbindungsanforderung",
+    "text": "4. Wichtige Verbindungsanforderung\nUm SPSS nutzen zu können, müssen Sie mit einem der folgenden Netzwerke verbunden sein:\n\ndem ms-uni WLAN, oder\n\ndem VPN der Universität\n\nDiese Verbindung ist erforderlich, wenn SPSS die Lizenz überprüft.",
+    "crumbs": [
+      "Home",
+      "Practikum 1: SPSS installieren"
+    ]
+  },
+  {
     "objectID": "praktikum2/part2.html",
     "href": "praktikum2/part2.html",
     "title": "Notes",
@@ -239,13 +238,25 @@
     "text": "Additional task\nCalculate the Spearman correlation coefficient for the relationship between age and number of teeth.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Spearman auswählen\n\n\n\n\n\nSpearman’s rho Correlations\n\n\n\n\nage\nnteeth\n\n\n\n\nage\n\n\n\n\nCorrelation Coefficient\n1.000\n−.560**\n\n\nSig. (2-tailed)\n.\n&lt; .001\n\n\nN\n16,588\n14,394\n\n\nnteeth\n\n\n\n\nCorrelation Coefficient\n−.560**\n1.000\n\n\nSig. (2-tailed)\n&lt; .001\n.\n\n\nN\n14,394\n14,394\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nρ = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.\nThis means that, in general, as age increases, the number of teeth decreases."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Willkommen zum Praktikum",
+    "objectID": "praktikum3/praktikum3.html",
+    "href": "praktikum3/praktikum3.html",
+    "title": "Praktikum 3",
     "section": "",
-    "text": "Willkommen zum Praktikum\nEntdecken, analysieren und lernen Sie mit NHANES-Daten.\n\n\n\n📊 Datenanalyse\nWir verwenden Daten der NHANES (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.\n\n\n📁 Der Datensatz\nDie Daten sind in nhanes30.sav gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.\n\n\n\n\n\n\n\n\n\n.sav?\n\n\n\nDie Erweiterung .sav kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.\n\n\n\nDatensatzbeschreibung\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the internet...\n    (need help?)\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nVariablenname\nBedeutung\nAusprägungen\n\n\n\n\nSEQN\nProbandennummer\n\n\n\nnteeth\nAnzahl der natürlichen Zähne\n0–32\n\n\ncal_mean\nMittlerer Attachmentverlust\nmm\n\n\nperio\nParodontitis (CDC-AAP Definition Eke et al. 2012)\n1=None, 2=mild, 3=moderate, 4=severe\n\n\nperio2\nParodontitis\n1=Ja, 2=Nein\n\n\nbop\nBleeding on probe (World Definition, Tonetti et al. 2018)\n1=None, 2=&gt;10%, 3= \\(\\geq\\) 10%\n\n\nmale\nGeschlecht\n1=Female, 2=Male\n\n\nage\nJahre\nJahre\n\n\nedu\nBildungsniveau\n1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=≥some college\n\n\nsmk\nRauchstatus\n1=Never, 2=Former, 3=Current\n\n\nsmk2\nRauchstatus\n1=Never, 2=Former/Current\n\n\nalcg\nAlkoholkonsum\nGramm pro Tag\n\n\nHeight\nKörpergröße\ncm\n\n\nWeight\nKörpergewicht\nkg\n\n\nbmi\nBody Mass Index\nkg/m²\n\n\nbmi_cat\nBMI-Kategorien\n1= \\(&lt;\\) 18.5, 2=18.5–25, 3=25–30, 4= \\(\\geq\\) 30\n\n\nwc\nTaillenumfang\ncm\n\n\nwc_cat\nTaillenumfang – Kategorien\n1=m:\\(&lt;\\) 102,f: \\(&lt;\\) 88; 2=m:\\(\\geq\\) 102,f: \\(\\geq\\) 88\n\n\ndiab\nDiabetes\nJa, Nein\n\n\nmortstat\nMortalität\n1=lebend, 0=verstorben\n\n\nperm_exm\nAnzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung",
+    "text": "Praktikum 3\nEinleitung: In dieser Stunde geht es um Konfidenzintervallen, Normalverteilung und Transformieren von Variablen.\n\nAufgabe 1: Schätzen mit Konfidenzintervallen\nLassen Sie sich 95% Konfidenzintervalle der Mittelwerte für die Variablen „height“ und „mortstat“ angeben\n💡 SPSS:\n\nANALYSE → DESKRIPTIVE STATISTIK → EXPLORATIVE DATENANALYSE\n\n„height“ und „mortstat“ als abhängige Variablen zuordnen. Unter Anzeige „Statistiken“ auswählen. Unter Statistiken können die Grenzen des Konfidenzintervalls festgelegt werden. Unter Optionen wählen Sie „paarweiser Fallausschluss“ aus.\n\n\n\nShow Results\n\n\n\n\nVariablen\nMittelwerte (95% Konfidenzintervalle)\n\n\n\n\nheight\n167.05 (166.89 - 167.21)\n\n\nmortstat\n0.26 (0.25 - 0.27)\n\n\n\n\nVerständnisfrage zum Konfidenzintervall:\nWelcher Aussage stimmen Sie zu:\n\nDer wahre Wert der Grundgesamtheit liegt bei einem 95% Konfidenzintervall mit einer Wahrscheinlichkeit von 95% innerhalb der Grenzen des Intervalls.\nEin Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.\n\n\n\nShow Results\n\n✓ b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.\n\n\n\nAufgabe 2: Prüfen der Normalverteilung\nSie haben in der Vorlesung verschiedene Möglichkeiten zum Testen auf das Vorliegen einer Normalverteilung kennengelernt. In Kürze sind dies: 1. Die Bewertung von Schiefe und Kurtosis (Wölbung, sollte 3 sein – beschreibt die Steilheit / Spitzigkeit der Verteilung)\n\nStatistische Tests auf Normalverteilung\nGraphische Tests auf Normalverteilung\n\nDas Wissen über die Verteilung der Variablen kann u.A. bei der Auswahl des richtigen Tests helfen.\nPrüfen Sie die Merkmale height, bmi und cal_mean auf Normalverteilung.\n💡SPSS:\n\nANALYSE → DESKRIPTIVE STATISTIK → EXPLORATIVE DATENANALYSE\n\nAnzeige von „Statistiken“ auf „Beides“ ändern. Unter Statistiken „Deskriptive Statistik mit Konfidenzintervall 95%“ auswählen. Unter Diagramme „Normalverteilungsdiagramme mit Tests“ und „Histogramm“ auswählen. Variablen in das Feld „abhängige Variablen“ ziehen. Zuletzt unter Optionen „paarweisen Fallausschluss“ auswählen\nTesten Sie graphisch auf Normalverteilung, indem Sie sich für height, bmi, and cal_mean jeweils das Histogramm und das Q-Q-Diagramm ansehen.\nHinweis: Im Rahmen des Praktikums müssen Sie das trendbereinigte Q-Q-Diagramm nicht beachten\nEntscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilung ausgehen möchten\n\n\n\nDie Bewertung von Schiefe und Kurtosis\n\n\n\n\n\nStatistische Tests auf Normalverteilung\n\n\n\n\n\nGraphische Tests auf Normalverteilung\n\n\nHistograms\n\n\n\nQ-Q plots\n\n\n\n\n\nShow Results\n\n\n\n\nVariable\nNormalverteilt?\n\n\n\n\nheight\nJa\n\n\ncal_mean\nNein\n\n\nbmi\nNein\n\n\n\n\n\n\nAufgabe 3: Transformieren von Variablen\nFühren Sie eine logarithmische Transformation der Variable cal_mean durch.\nHinweis: Hier wird der natürliche Logarithmus verwendet.\n💡 SPSS:\n\n\n  TRANSFORMIEREN\n  →\n  VARIABLE BERECHNEN\n\nFunktionsgruppe „Arithmetisch“ auswählen und Doppelklick auf „Ln“ Doppelklick auf die zu transformierende Variable cal_mean.\n\nSchauen Sie sich das Histogramm mit Normalverteilungskurve für die neu erstellte Variable an:\n💡 SPSS:\n\n  ANALYSIEREN\n  →\n  DESKRIPTIVE STATISTIKEN\n    →\n  HÄUFIGKEITEN\n\n☑ Unter Diagramme Histogramm und Normalverteilungskurve auswählen.\n\n\nShow Results",
     "crumbs": [
-      "Home"
+      "Home",
+      "Praktikum 3"
+    ]
+  },
+  {
+    "objectID": "praktikum5/praktikum5.html",
+    "href": "praktikum5/praktikum5.html",
+    "title": "Praktikum 5: Lineare Regression",
+    "section": "",
+    "text": "Praktikum 5: Lineare Regression",
+    "crumbs": [
+      "Home",
+      "Praktikum 5"
     ]
   }
 ]
