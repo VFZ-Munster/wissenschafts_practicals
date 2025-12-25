@@ -1,24 +1,57 @@
 [
   {
-    "objectID": "pvalue.html",
-    "href": "pvalue.html",
-    "title": "Understanding the p-value",
-    "section": "",
-    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "objectID": "praktikum1/praktikum1.html#download-spss",
+    "href": "praktikum1/praktikum1.html#download-spss",
+    "title": "Intalling SPSS",
+    "section": "1. Download SPSS",
+    "text": "1. Download SPSS\nOpen the page and expand the tab “Download, Installation & License Activation”\n(the yellow-highlighted section on the site).\n\nNext, click Download Section for SPSS Statistics.\n\nWhen a login window appears, sign in with your Medicampus ID\n— just the username, without “@uni-muenster.de”.",
     "crumbs": [
       "Home",
-      "p-value"
+      "Practical 1: SPSS installation"
     ]
   },
   {
-    "objectID": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
-    "href": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
-    "title": "Understanding the p-value",
-    "section": "",
-    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "objectID": "praktikum1/praktikum1.html#choose-your-version-and-operating-system",
+    "href": "praktikum1/praktikum1.html#choose-your-version-and-operating-system",
+    "title": "Intalling SPSS",
+    "section": "2. Choose Your Version and Operating System",
+    "text": "2. Choose Your Version and Operating System\nYou can download the most recent version available:\n\nThen select your operating system (Windows, macOS):\n\nNote: Options are available for Linux in the “Arch” folder.",
     "crumbs": [
       "Home",
-      "p-value"
+      "Practical 1: SPSS installation"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#activate-spss",
+    "href": "praktikum1/praktikum1.html#activate-spss",
+    "title": "Intalling SPSS",
+    "section": "3. Activate SPSS",
+    "text": "3. Activate SPSS\nSPSS must be activated using the Network License option.\nGo to the official activation page spss lizenzaktivierung\nThere, follow the steps under “Activating the Network License.”",
+    "crumbs": [
+      "Home",
+      "Practical 1: SPSS installation"
+    ]
+  },
+  {
+    "objectID": "praktikum1/praktikum1.html#important-connection-requirement",
+    "href": "praktikum1/praktikum1.html#important-connection-requirement",
+    "title": "Intalling SPSS",
+    "section": "4. Important Connection Requirement",
+    "text": "4. Important Connection Requirement\nTo use SPSS, you must be connected to one of the following:\n\nms-uni WiFi, or\n\nthe university VPN\n\nThis connection is required whenever SPSS checks the license.",
+    "crumbs": [
+      "Home",
+      "Practical 1: SPSS installation"
+    ]
+  },
+  {
+    "objectID": "praktikum3/praktikum3.html",
+    "href": "praktikum3/praktikum3.html",
+    "title": "Practical 3",
+    "section": "",
+    "text": "Practical 3\nIntroduction: In this lesson, we will focus on confidence intervals, normal distribution, and transforming variables.\n\nExercise 1: Estimating with Confidence Intervals\nCalculate the 95% confidence intervals for the mean values of the variables height and mortstat.\n💡 SPSS:\n\nStep 1:  Analyze → Descriptive Statistics → Explore\n\nStep 2:  Assign height and mortstat as dependent variables.\nStep 3:  Under “Display”, select “Statistics”.\nStep 4:  In the “Statistics” menu, set the desired confidence interval limits.\nStep 5:  Under “Options”, choose “Exclude cases pairwise”.\n\n\n\nShow Results\n\n\n\n\nVariable\nMean (95% Confidence Intervals)\n\n\n\n\nheight\n167.05 (166.89 - 167.21)\n\n\nmortstat\n0.26 (0.25 - 0.27)\n\n\n\n\nComprehension question about Confidence Intervals:\nWhich statement do you agree with:\n\nFor a 95% confidence interval, the true population value lies within the limits of the interval with a probability of 95%.\nA 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.\n\n\n\nShow Results\n\n✓ b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.\n\n\n\nExercise 2: Testing for normality\nIn the lecture, you learned about different ways to test for normality. In brief, these are:\n\nAssessment of skewness and kurtosis (kurtosis should be 3 – describes the steepness/peakedness of the distribution)\nStatistical tests for normality\nGraphical tests for normality\n\nKnowledge about the distribution of variables can, among other things, help in selecting the appropriate test.\nCheck the variables height, bmi, and cal_mean for normality.\n💡 SPSS:\n\nStep 1:  Analyze → Descriptive Statistics → Explore\n\nStep 2:  Under “Display”, select “Both”.\nStep 3:  In the “Statistics” menu, set the desired confidence interval limits.\nStep 4:  Under “Plots”, choose “Normality plots with tests” and “Histogram”.\nStep 5:  Assign height, bmi, and cal_mean as dependent variables.\nFor height, bmi, and cal_mean, test for normal distribution graphically by examining their histograms and Q-Q plots.\nDetermine which of the variables can be assumed to follow a normal distribution.\n\n\n\nAssessment of skewness and kurtosis\n\n\n\n\n\nStatistical tests for normality\n\n\n\n\n\nGraphical tests for normality\n\n\nHistograms\n\n\n\nQ-Q plots\n\n\n\n\n\nShow Results\n\n\n\n\nVariable\nNormal distribution\n\n\n\n\nheight\nYes\n\n\ncal_mean\nNo\n\n\nbmi\nNo\n\n\n\n\n\n\nExercise 3: Transforming Variables\nPerform a logarithmic transformation of the variable cal_mean.\n💡 SPSS\n\nStep 1:  TRANSFORM → COMPUTE VARIABLE\n\nStep 2:  Assign a name to the target variable\nStep 3:  ☑ Select the Function Group “Arithmetic” and double-click on Ln\nStep 4:  Double-click the variable to be transformed\n\nTake a look at the histogram with the normal distribution curve for the newly created variable:\n💡 SPSS:\n\n  Analyze\n  →\n  Descriptive Statistics\n    →\n  Frequencies\n\nUnder “Charts”, select ☑ “Histogram” and “Normal distribution curve”\n\n\nShow Results",
+    "crumbs": [
+      "Home",
+      "Practical 3"
     ]
   },
   {
@@ -31,6 +64,48 @@
       "Home",
       "Practical 4"
     ]
+  },
+  {
+    "objectID": "praktikum2/part2.html",
+    "href": "praktikum2/part2.html",
+    "title": "Notes",
+    "section": "",
+    "text": "If you have measured several variables in your cross-sectional study, you can display an (⚠️ apparent) relationship between them using various methods."
+  },
+  {
+    "objectID": "praktikum2/part2.html#task-3",
+    "href": "praktikum2/part2.html#task-3",
+    "title": "Notes",
+    "section": "Task 3",
+    "text": "Task 3\nCreate a cross-table for diabetes (diab) and periodontitis (perio2).\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\n\n\n\n\n\n\nTip\n\n\n\nWhich variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\ndiab\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\n199\n578\n777\n\n\nno\n988\n6,290\n7,278\n\n\nTotal\n1,187\n6,868\n8,055"
+  },
+  {
+    "objectID": "praktikum2/part2.html#task-4",
+    "href": "praktikum2/part2.html#task-4",
+    "title": "Notes",
+    "section": "Task 4",
+    "text": "Task 4\nCalculate the risk difference, relative risk, and odds ratio for the association between diabetes and periodontitis.\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\nThen in the Crosstabs dialog, click [Cells…] and under Percentages, select Row, then click Continue.\nNext, click [Statistics…], check Risk, and click Continue.\nCalculate manually:\n\n\n\nRisk difference (RD)\nSubtract the percentage values: \\[\nRD = p_{\\text{diabetic w/ perio}} - p_{\\text{non-diabetic w/ perio}}\n\\]\n\n\nRelative risk (RR)\nDivide the percentage values: \\[\nRR = \\frac{p_{\\text{diabetic w/ perio}}}{p_{\\text{non-diabetic w/ perio}}}\n\\]\n\n\n\n\n\n\nOdds ratio (OR) The ratio of odds between the two groups:\n\n\n\nThe odds of periodontitis for diabetics: \\[\n    \\text{Odds}_{\\text{diabetic}} =\n    \\frac{\\text{No. diabetic w/ periodontitis}}\n         {\\text{No. diabetic w/o periodontitis}}\n\\]\n\n\n\nDivided by the odds of periodontitis for non-diabetics: \\[\n\\text{Odds}_{\\text{non-diabetic}} =\n\\frac{\\text{No. non-diabetic w/ periodontitis}}\n         {\\text{No. non-diabetic w/o periodontitis}}\n\\]\n\n\n\nFinal odds ratio \\[\n    OR=\\frac{\\text{Odds}_{\\text{diabetic}}}{\\text{Odds}_{\\text{non-diabetic}}}\n      = \\frac{a/b}{c/d}\n      = \\frac{a \\times d}{b \\times c}\n\\]\n\n\n```\nwhere:\n- ( a ): diabetics with periodontitis\n- ( b ): diabetics without periodontitis\n- ( c ): non-diabetics with periodontitis\n- ( d ): non-diabetics without periodontitis\n\nLet the 2×2 table be:\n\n\n\n\nPeriodontitis (+)\nPeriodontitis (−)\n\n\n\n\nDiabetic\n( a )\n( b )\n\n\nNon-diabetic\n( c )\n( d )\n\n\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\n\n\n\n\n\n\n\ndiab\n\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\nCount\n199\n578\n777\n\n\n\n% within diab\n25.6%\n74.4%\n100.0%\n\n\nno\nCount\n988\n6,290\n7,278\n\n\n\n% within diab\n13.6%\n86.4%\n100.0%\n\n\nTotal\nCount\n1,187\n6,868\n8,055\n\n\n\n% within diab\n14.7%\n85.3%\n100.0%\n\n\n\nManual calculations\n\\[\n  RD = 25.6\\% - 13.6\\%  = 12\\%\n  \\]\n\n\n\n\n - ⚠️ Remember, this may only be an apparent association - The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group. - This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.\n\n\\[\n  RR = \\frac{25.6\\%}{13.6\\%} = 1.88\n  \\]\n\n\n\n\n - Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.\n\n\\[\n  OR = \\frac{25.6/74.4}{13.6/86.4} = \\frac{25.6 \\times 86.4}{74.4 \\times 13.6} = \\frac{2211.84}{1011.84} = 2.19\n  \\]\n\n\n\n\n - People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes."
+  },
+  {
+    "objectID": "praktikum2/part2.html#task-5",
+    "href": "praktikum2/part2.html#task-5",
+    "title": "Notes",
+    "section": "Task 5",
+    "text": "Task 5\nCreate a scatterplot for the covariation of weight ~ height\n💡 In SPSS:\n\nGRAFIK → DIAGRAMMDARSTELLUNG → Streu/-Punktdiagramm auswählen\n\nDraw a regression line.\n💡 SPSS: Double-click on the created graph, then click the symbol marked below."
+  },
+  {
+    "objectID": "praktikum2/part2.html#task-6",
+    "href": "praktikum2/part2.html#task-6",
+    "title": "Notes",
+    "section": "Task 6",
+    "text": "Task 6\nCalculate the covariance and the Pearson correlation coefficient for the relationship between height and weight.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Pearson auswählen\n\n\n\n\n\nCorrelations\n\n\n\n\nweight\nheight\n\n\n\n\nweight\n\n\n\n\nPearson Correlation\n1\n.466**\n\n\nSig. (2-tailed)\n\n&lt; .001\n\n\nN\n15,095\n14,879\n\n\nheight\n\n\n\n\nPearson Correlation\n.466**\n1\n\n\nSig. (2-tailed)\n&lt; .001\n\n\n\nN\n14,879\n15,148\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nr = 0.466 indicates a moderate positive linear correlation:\nAs height increases, weight tends to increase as well.\nThe p-value &lt; 0.001 shows this association is statistically significant."
+  },
+  {
+    "objectID": "praktikum2/part2.html#additional-task",
+    "href": "praktikum2/part2.html#additional-task",
+    "title": "Notes",
+    "section": "Additional task",
+    "text": "Additional task\nCalculate the Spearman correlation coefficient for the relationship between age and number of teeth.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Spearman auswählen\n\n\n\n\n\nSpearman’s rho Correlations\n\n\n\n\nage\nnteeth\n\n\n\n\nage\n\n\n\n\nCorrelation Coefficient\n1.000\n−.560**\n\n\nSig. (2-tailed)\n.\n&lt; .001\n\n\nN\n16,588\n14,394\n\n\nnteeth\n\n\n\n\nCorrelation Coefficient\n−.560**\n1.000\n\n\nSig. (2-tailed)\n&lt; .001\n.\n\n\nN\n14,394\n14,394\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nρ = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.\nThis means that, in general, as age increases, the number of teeth decreases."
   },
   {
     "objectID": "praktikum2/praktikum2.html",
@@ -121,6 +196,28 @@
     ]
   },
   {
+    "objectID": "pvalue.html",
+    "href": "pvalue.html",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
+  },
+  {
+    "objectID": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "href": "pvalue.html#relationship-between-smoking-status-and-clinical-attachment-loss",
+    "title": "Understanding the p-value",
+    "section": "",
+    "text": "There is no association between smoking status and CAL.\n    \n  \n\n\n\n\n  \n    \n      \n    \n    \n      There is an association between smoking status and CAL.\n    \n  \n\n\n\n\nHover to reveal\n\n\n\nNHANES data\n\n\nMean clinical attachment loss by smoking status\n\n\nVariable\nNever smoker\nFormer/Current\nMean difference\np-value\n\n\n\n\nMean clinical attachment loss (mm)\n0.94\n1.36\n0.42\n4.771e-83\n\n\n\n\n\n\nDensity plot\n\n\n\n        \n        \n        \n\n\n                            \n                                            \n\n\n\n\n  \n    \n      🤔\n      \n    \n    \n      The probability of observing a difference this large purely by random chance is less than 0.001.\n      Therefore, it is very unlikely that the difference occurred by chance, and it provides strong evidence that a true difference exists between Former/Current smokers and Never smokers.",
+    "crumbs": [
+      "Home",
+      "p-value"
+    ]
+  },
+  {
     "objectID": "praktikum2/part1.html",
     "href": "praktikum2/part1.html",
     "title": "Praktikum",
@@ -140,124 +237,6 @@
     "title": "Praktikum",
     "section": "Task 2",
     "text": "Task 2\nHow can the following variables be appropriately represented in a graph?: Gender, mean attachment loss, number of teeth.\nDecide, before entering the data, whether to use a bar chart, histogram, or boxplot.\n💡 In SPSS:\n\nGrafik → Diagrammerstellung\n\n\n\n\n\n\n\n\n\nBar plot displaying the distribution of the sex variable by category\n\n\n\n\n\nHistogram displaying the distribution of mean attachemnt loss\n\n\n\n\n\nHistogram showing the distribution of number of teeth by sex"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the Practical Course",
-    "section": "",
-    "text": "Welcome to the Practical Course\nExplore, analyze, and learn with NHANES data.\n\n\n\n📊 Data Analysis\nWe will use data from the NHANES (1999–2003) to describe the health status of the U.S. population (ages 30-85).\n\n\n📁 The Dataset\nThe data is stored in nhanes30.sav. This file contains observed data, variable descriptions, and metadata.\n\n\n\n\n\n\n\n\n\n.sav?\n\n\n\n.sav extension indicates an SPSS file, which contains the observed data, variable descriptions, and metadata.\n\n\n\n\nVariable description\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the internet...\n    (need help?)\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable name\nDescription\nValues\n\n\n\n\nSEQN\nParticipant ID\n\n\n\nnteeth\nNumber of natural teeth\n0–32\n\n\ncal_mean\nMean clinical attachment loss\nmm\n\n\nperio\nPeriodontitis (CDC–AAP definition, Eke et al. 2012)\n1=None, 2=Mild, 3=Moderate, 4=Severe\n\n\nperio2\nPeriodontitis\n1=Yes, 2=No\n\n\nbop\nBleeding on probing (World Definition, Tonetti et al. 2018)\n1=None, 2=&gt;10%, 3= \\(\\geq\\) 10%\n\n\nmale\nSex\n1=Female, 2=Male\n\n\nage\nAge\nYears\n\n\nedu\nEducation level\n1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=\\(\\geq\\) some college\n\n\nsmk\nSmoking status\n1=Never, 2=Former, 3=Current\n\n\nsmk2\nSmoking status\n1=Never, 2=Former/Current\n\n\nalcg\nAlcohol consumption\nGrams per day\n\n\nHeight\nHeight\ncm\n\n\nWeight\nWeight\nkg\n\n\nbmi\nBody Mass Index\nkg/m²\n\n\nbmi_cat\nBMI categories\n1= \\(&lt;\\) 18.5, 2=18.5–25, 3=25–30, 4= \\(\\geq\\) 30\n\n\nwc\nWaist circumference\ncm\n\n\nwc_cat\nWaist circumference categories\n1=M: \\(&lt;\\) 102, F: \\(&lt;\\) 88; 2=M: \\(\\geq\\) 102, F: \\(\\geq\\) 88\n\n\ndiab\nDiabetes\nYes, No\n\n\nmortstat\nMortality status\n1=Alive, 0=Deceased\n\n\nperm_exm\nNumber of person-months between examination and death/censoring",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#download-spss",
-    "href": "praktikum1/praktikum1.html#download-spss",
-    "title": "Intalling SPSS",
-    "section": "1. Download SPSS",
-    "text": "1. Download SPSS\nOpen the page and expand the tab “Download, Installation & License Activation”\n(the yellow-highlighted section on the site).\n\nNext, click Download Section for SPSS Statistics.\n\nWhen a login window appears, sign in with your Medicampus ID\n— just the username, without “@uni-muenster.de”.",
-    "crumbs": [
-      "Home",
-      "Practical 1: SPSS installation"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#choose-your-version-and-operating-system",
-    "href": "praktikum1/praktikum1.html#choose-your-version-and-operating-system",
-    "title": "Intalling SPSS",
-    "section": "2. Choose Your Version and Operating System",
-    "text": "2. Choose Your Version and Operating System\nYou can download the most recent version available:\n\nThen select your operating system (Windows, macOS):",
-    "crumbs": [
-      "Home",
-      "Practical 1: SPSS installation"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#note-options-are-available-for-linux-in-the-arch-folder.",
-    "href": "praktikum1/praktikum1.html#note-options-are-available-for-linux-in-the-arch-folder.",
-    "title": "Intalling SPSS",
-    "section": "Note: Options are available for Linux in the “Arch” folder.",
-    "text": "Note: Options are available for Linux in the “Arch” folder.",
-    "crumbs": [
-      "Home",
-      "Practical 1: SPSS installation"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#activate-spss",
-    "href": "praktikum1/praktikum1.html#activate-spss",
-    "title": "Intalling SPSS",
-    "section": "3. Activate SPSS",
-    "text": "3. Activate SPSS\nSPSS must be activated using the Network License option.\nGo to the official activation page spss lizenzaktivierung\nThere, follow the steps under “Activating the Network License.”",
-    "crumbs": [
-      "Home",
-      "Practical 1: SPSS installation"
-    ]
-  },
-  {
-    "objectID": "praktikum1/praktikum1.html#important-connection-requirement",
-    "href": "praktikum1/praktikum1.html#important-connection-requirement",
-    "title": "Intalling SPSS",
-    "section": "4. Important Connection Requirement",
-    "text": "4. Important Connection Requirement\nTo use SPSS, you must be connected to one of the following:\n\nms-uni WiFi, or\n\nthe university VPN\n\nThis connection is required whenever SPSS checks the license.",
-    "crumbs": [
-      "Home",
-      "Practical 1: SPSS installation"
-    ]
-  },
-  {
-    "objectID": "praktikum2/part2.html",
-    "href": "praktikum2/part2.html",
-    "title": "Notes",
-    "section": "",
-    "text": "If you have measured several variables in your cross-sectional study, you can display an (⚠️ apparent) relationship between them using various methods."
-  },
-  {
-    "objectID": "praktikum2/part2.html#task-3",
-    "href": "praktikum2/part2.html#task-3",
-    "title": "Notes",
-    "section": "Task 3",
-    "text": "Task 3\nCreate a cross-table for diabetes (diab) and periodontitis (perio2).\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\n\n\n\n\n\n\nTip\n\n\n\nWhich variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\ndiab\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\n199\n578\n777\n\n\nno\n988\n6,290\n7,278\n\n\nTotal\n1,187\n6,868\n8,055"
-  },
-  {
-    "objectID": "praktikum2/part2.html#task-4",
-    "href": "praktikum2/part2.html#task-4",
-    "title": "Notes",
-    "section": "Task 4",
-    "text": "Task 4\nCalculate the risk difference, relative risk, and odds ratio for the association between diabetes and periodontitis.\n💡 In SPSS:\n\nANALYSIEREN → DESKRIPTIVE STATISTIKEN → KREUZTABELLEN\n\nThen in the Crosstabs dialog, click [Cells…] and under Percentages, select Row, then click Continue.\nNext, click [Statistics…], check Risk, and click Continue.\nCalculate manually:\n\n\n\nRisk difference (RD)\nSubtract the percentage values: \\[\nRD = p_{\\text{diabetic w/ perio}} - p_{\\text{non-diabetic w/ perio}}\n\\]\n\n\nRelative risk (RR)\nDivide the percentage values: \\[\nRR = \\frac{p_{\\text{diabetic w/ perio}}}{p_{\\text{non-diabetic w/ perio}}}\n\\]\n\n\n\n\n\n\nOdds ratio (OR) The ratio of odds between the two groups:\n\n\n\nThe odds of periodontitis for diabetics: \\[\n    \\text{Odds}_{\\text{diabetic}} =\n    \\frac{\\text{No. diabetic w/ periodontitis}}\n         {\\text{No. diabetic w/o periodontitis}}\n\\]\n\n\n\nDivided by the odds of periodontitis for non-diabetics: \\[\n\\text{Odds}_{\\text{non-diabetic}} =\n\\frac{\\text{No. non-diabetic w/ periodontitis}}\n         {\\text{No. non-diabetic w/o periodontitis}}\n\\]\n\n\n\nFinal odds ratio \\[\n    OR=\\frac{\\text{Odds}_{\\text{diabetic}}}{\\text{Odds}_{\\text{non-diabetic}}}\n      = \\frac{a/b}{c/d}\n      = \\frac{a \\times d}{b \\times c}\n\\]\n\n\n```\nwhere:\n- ( a ): diabetics with periodontitis\n- ( b ): diabetics without periodontitis\n- ( c ): non-diabetics with periodontitis\n- ( d ): non-diabetics without periodontitis\n\nLet the 2×2 table be:\n\n\n\n\nPeriodontitis (+)\nPeriodontitis (−)\n\n\n\n\nDiabetic\n( a )\n( b )\n\n\nNon-diabetic\n( c )\n( d )\n\n\n\n\n\n\n\n\ndiab × perio2 Crosstabulation\n\n\n\n\n\n\n\n\n\n\ndiab\n\nperio2 = periodontitis\nperio2 = no\nTotal\n\n\n\n\ndiabetes\nCount\n199\n578\n777\n\n\n\n% within diab\n25.6%\n74.4%\n100.0%\n\n\nno\nCount\n988\n6,290\n7,278\n\n\n\n% within diab\n13.6%\n86.4%\n100.0%\n\n\nTotal\nCount\n1,187\n6,868\n8,055\n\n\n\n% within diab\n14.7%\n85.3%\n100.0%\n\n\n\nManual calculations\n\\[\n  RD = 25.6\\% - 13.6\\%  = 12\\%\n  \\]\n\n\n\n\n - ⚠️ Remember, this may only be an apparent association - The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group. - This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.\n\n\\[\n  RR = \\frac{25.6\\%}{13.6\\%} = 1.88\n  \\]\n\n\n\n\n - Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.\n\n\\[\n  OR = \\frac{25.6/74.4}{13.6/86.4} = \\frac{25.6 \\times 86.4}{74.4 \\times 13.6} = \\frac{2211.84}{1011.84} = 2.19\n  \\]\n\n\n\n\n - People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes."
-  },
-  {
-    "objectID": "praktikum2/part2.html#task-5",
-    "href": "praktikum2/part2.html#task-5",
-    "title": "Notes",
-    "section": "Task 5",
-    "text": "Task 5\nCreate a scatterplot for the covariation of weight ~ height\n💡 In SPSS:\n\nGRAFIK → DIAGRAMMDARSTELLUNG → Streu/-Punktdiagramm auswählen\n\nDraw a regression line.\n💡 SPSS: Double-click on the created graph, then click the symbol marked below."
-  },
-  {
-    "objectID": "praktikum2/part2.html#task-6",
-    "href": "praktikum2/part2.html#task-6",
-    "title": "Notes",
-    "section": "Task 6",
-    "text": "Task 6\nCalculate the covariance and the Pearson correlation coefficient for the relationship between height and weight.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Pearson auswählen\n\n\n\n\n\nCorrelations\n\n\n\n\nweight\nheight\n\n\n\n\nweight\n\n\n\n\nPearson Correlation\n1\n.466**\n\n\nSig. (2-tailed)\n\n&lt; .001\n\n\nN\n15,095\n14,879\n\n\nheight\n\n\n\n\nPearson Correlation\n.466**\n1\n\n\nSig. (2-tailed)\n&lt; .001\n\n\n\nN\n14,879\n15,148\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nr = 0.466 indicates a moderate positive linear correlation:\nAs height increases, weight tends to increase as well.\nThe p-value &lt; 0.001 shows this association is statistically significant."
-  },
-  {
-    "objectID": "praktikum2/part2.html#additional-task",
-    "href": "praktikum2/part2.html#additional-task",
-    "title": "Notes",
-    "section": "Additional task",
-    "text": "Additional task\nCalculate the Spearman correlation coefficient for the relationship between age and number of teeth.\n💡 In SPSS:\n\nANALYSIEREN → KORRELATIONEN → BIVARIAT → Korrelationskoeffizienten: Spearman auswählen\n\n\n\n\n\nSpearman’s rho Correlations\n\n\n\n\nage\nnteeth\n\n\n\n\nage\n\n\n\n\nCorrelation Coefficient\n1.000\n−.560**\n\n\nSig. (2-tailed)\n.\n&lt; .001\n\n\nN\n16,588\n14,394\n\n\nnteeth\n\n\n\n\nCorrelation Coefficient\n−.560**\n1.000\n\n\nSig. (2-tailed)\n&lt; .001\n.\n\n\nN\n14,394\n14,394\n\n\n\nNote: **.Correlation is significant at the 0.01 level (2-tailed)\nρ = −0.560 indicates a significant, moderately strong negative monotonic association between age and number of teeth.\nThis means that, in general, as age increases, the number of teeth decreases."
-  },
-  {
-    "objectID": "praktikum3/praktikum3.html",
-    "href": "praktikum3/praktikum3.html",
-    "title": "Practical 3",
-    "section": "",
-    "text": "Practical 3\nIntroduction: In this lesson, we will focus on confidence intervals, normal distribution, and transforming variables.\n\nExercise 1: Estimating with Confidence Intervals\nCalculate the 95% confidence intervals for the mean values of the variables height and mortstat.\n💡 SPSS:\n\nStep 1:  Analyze → Descriptive Statistics → Explore\n\nStep 2:  Assign height and mortstat as dependent variables.\nStep 3:  Under “Display”, select “Statistics”.\nStep 4:  In the “Statistics” menu, set the desired confidence interval limits.\nStep 5:  Under “Options”, choose “Exclude cases pairwise”.\n\n\n\nShow Results\n\n\n\n\nVariable\nMean (95% Confidence Intervals)\n\n\n\n\nheight\n167.05 (166.89 - 167.21)\n\n\nmortstat\n0.26 (0.25 - 0.27)\n\n\n\n\nComprehension question about Confidence Intervals:\nWhich statement do you agree with:\n\nFor a 95% confidence interval, the true population value lies within the limits of the interval with a probability of 95%.\nA 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.\n\n\n\nShow Results\n\n✓ b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.\n\n\n\nExercise 2: Testing for normality\nIn the lecture, you learned about different ways to test for normality. In brief, these are:\n\nAssessment of skewness and kurtosis (kurtosis should be 3 – describes the steepness/peakedness of the distribution)\nStatistical tests for normality\nGraphical tests for normality\n\nKnowledge about the distribution of variables can, among other things, help in selecting the appropriate test.\nCheck the variables height, bmi, and cal_mean for normality.\n💡 SPSS:\n\nStep 1:  Analyze → Descriptive Statistics → Explore\n\nStep 2:  Under “Display”, select “Both”.\nStep 3:  In the “Statistics” menu, set the desired confidence interval limits.\nStep 4:  Under “Plots”, choose “Normality plots with tests” and “Histogram”.\nStep 5:  Assign height, bmi, and cal_mean as dependent variables.\nFor height, bmi, and cal_mean, test for normal distribution graphically by examining their histograms and Q-Q plots.\nDetermine which of the variables can be assumed to follow a normal distribution.\n\n\n\nAssessment of skewness and kurtosis\n\n\n\n\n\nStatistical tests for normality\n\n\n\n\n\nGraphical tests for normality\n\n\nHistograms\n\n\n\nQ-Q plots\n\n\n\n\n\nShow Results\n\n\n\n\nVariable\nNormal distribution\n\n\n\n\nheight\nYes\n\n\ncal_mean\nNo\n\n\nbmi\nNo\n\n\n\n\n\n\nExercise 3: Transforming Variables\nPerform a logarithmic transformation of the variable cal_mean.\n💡 SPSS\n\nStep 1:  TRANSFORM → COMPUTE VARIABLE\n\nStep 2:  Assign a name to the target variable\nStep 3:  ☑ Select the Function Group “Arithmetic” and double-click on Ln\nStep 4:  Double-click the variable to be transformed\n\nTake a look at the histogram with the normal distribution curve for the newly created variable:\n💡 SPSS:\n\n  Analyze\n  →\n  Descriptive Statistics\n    →\n  Frequencies\n\nUnder “Charts”, select ☑ “Histogram” and “Normal distribution curve”\n\n\nShow Results",
-    "crumbs": [
-      "Home",
-      "Practical 3"
-    ]
   },
   {
     "objectID": "praktikum5/praktikum5.html",
@@ -301,6 +280,16 @@
     "crumbs": [
       "Home",
       "Practical 5"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Practical Course",
+    "section": "",
+    "text": "Welcome to the Practical Course\nExplore, analyze, and learn with NHANES data.\n\n\n\n📊 Data Analysis\nWe will use data from the NHANES (1999–2003) to describe the health status of the U.S. population (ages 30-85).\n\n\n📁 The Dataset\nThe data is stored in nhanes30.sav. This file contains observed data, variable descriptions, and metadata.\n\n\n\n\n\n\n\n\n\n.sav?\n\n\n\n.sav extension indicates an SPSS file, which contains the observed data, variable descriptions, and metadata.\n\n\n\n\nVariable description\n\n\n\n\n    \n    \n    \n        \n        \n        \n        \n        \n        \n        \n        \n    \n    \n   \n    \n      \n  \n        \n    \n    \n  \n        \n    \n    \n  \n        \n    \n      \n  \n        \n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n\n            \n                \n                \n            \n        \n    \n\n\n    Loading ITables v2.5.2 from the internet...\n    (need help?)\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\nVariable name\nDescription\nValues\n\n\n\n\nSEQN\nParticipant ID\n\n\n\nnteeth\nNumber of natural teeth\n0–32\n\n\ncal_mean\nMean clinical attachment loss\nmm\n\n\nperio\nPeriodontitis (CDC–AAP definition, Eke et al. 2012)\n1=None, 2=Mild, 3=Moderate, 4=Severe\n\n\nperio2\nPeriodontitis\n1=Yes, 2=No\n\n\nbop\nBleeding on probing (World Definition, Tonetti et al. 2018)\n1=None, 2=&gt;10%, 3= \\(\\geq\\) 10%\n\n\nmale\nSex\n1=Female, 2=Male\n\n\nage\nAge\nYears\n\n\nedu\nEducation level\n1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=\\(\\geq\\) some college\n\n\nsmk\nSmoking status\n1=Never, 2=Former, 3=Current\n\n\nsmk2\nSmoking status\n1=Never, 2=Former/Current\n\n\nalcg\nAlcohol consumption\nGrams per day\n\n\nHeight\nHeight\ncm\n\n\nWeight\nWeight\nkg\n\n\nbmi\nBody Mass Index\nkg/m²\n\n\nbmi_cat\nBMI categories\n1= \\(&lt;\\) 18.5, 2=18.5–25, 3=25–30, 4= \\(\\geq\\) 30\n\n\nwc\nWaist circumference\ncm\n\n\nwc_cat\nWaist circumference categories\n1=M: \\(&lt;\\) 102, F: \\(&lt;\\) 88; 2=M: \\(\\geq\\) 102, F: \\(\\geq\\) 88\n\n\ndiab\nDiabetes\nYes, No\n\n\nmortstat\nMortality status\n1=Alive, 0=Deceased\n\n\nperm_exm\nNumber of person-months between examination and death/censoring",
+    "crumbs": [
+      "Home"
     ]
   }
 ]
