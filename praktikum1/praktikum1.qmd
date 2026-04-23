@@ -112,6 +112,7 @@ SPSS muss über die **Netzwerklizenz** aktiviert werden.
 
 Folgen Sie dort den Schritten unter **„Aktivieren der Netzwerklizenz“**.
 
+Im nächsten Fenster werden Sie nach dem Namen des Lizenzservers oder der IP-Adresse gefragt. Geben Sie dort `spss.uni-muenster.de` ein.
 ---
 
 ## 4. Wichtige Verbindungsanforderung

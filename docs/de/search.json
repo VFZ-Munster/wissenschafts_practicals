@@ -26,7 +26,7 @@
     "href": "praktikum1/praktikum1.html#spss-aktivieren",
     "title": "Installation von SPSS",
     "section": "3. SPSS aktivieren",
-    "text": "3. SPSS aktivieren\nSPSS muss über die Netzwerklizenz aktiviert werden.\nÖffnen Sie die offizielle Aktivierungsseite:\nspss lizenzaktivierung\nFolgen Sie dort den Schritten unter „Aktivieren der Netzwerklizenz“.",
+    "text": "3. SPSS aktivieren\nSPSS muss über die Netzwerklizenz aktiviert werden.\nÖffnen Sie die offizielle Aktivierungsseite:\nspss lizenzaktivierung\nFolgen Sie dort den Schritten unter „Aktivieren der Netzwerklizenz“.\nIm nächsten Fenster werden Sie nach dem Namen des Lizenzservers oder der IP-Adresse gefragt. Geben Sie dort spss.uni-muenster.de ein.",
     "crumbs": [
       "Home",
       "Practikum 1: SPSS installieren"
