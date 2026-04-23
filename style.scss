@@ -120,6 +120,30 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
 }
 
+.sidebar-qrcode {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-qrcode .qrcode {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar-qrcode .qrcode > * {
+  width: 96px !important;
+  height: 96px !important;
+  margin: 0 auto;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar-qrcode {
+    display: none;
+  }
+}
+
 
 // Details/Summary
 details {

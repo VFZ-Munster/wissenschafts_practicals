@@ -56,3 +56,49 @@
     });
   });
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector("#quarto-margin-sidebar");
+    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"));
+
+    if (!sidebar || qrCodes.length === 0) {
+      return;
+    }
+
+    let sidebarContainer = sidebar.querySelector(".sidebar-qrcode");
+
+    if (!sidebarContainer) {
+      sidebarContainer = document.createElement("div");
+      sidebarContainer.className = "sidebar-qrcode";
+      sidebar.appendChild(sidebarContainer);
+    }
+
+    const placements = qrCodes.map((qrCode) => {
+      const placeholder = document.createElement("span");
+      placeholder.hidden = true;
+      qrCode.parentNode.insertBefore(placeholder, qrCode);
+      return { qrCode, placeholder };
+    });
+
+    const desktopQuery = window.matchMedia("(min-width: 992px)");
+
+    const placeQrCodes = () => {
+      placements.forEach(({ qrCode, placeholder }) => {
+        if (desktopQuery.matches) {
+          sidebarContainer.appendChild(qrCode);
+        } else {
+          placeholder.parentNode.insertBefore(qrCode, placeholder.nextSibling);
+        }
+      });
+    };
+
+    if (typeof desktopQuery.addEventListener === "function") {
+      desktopQuery.addEventListener("change", placeQrCodes);
+    } else if (typeof desktopQuery.addListener === "function") {
+      desktopQuery.addListener(placeQrCodes);
+    }
+
+    placeQrCodes();
+  });
+</script>
