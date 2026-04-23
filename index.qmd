@@ -10,6 +10,9 @@ author:
     email: aiswarya.chennas@uni-muenster.de
 ---
 
+{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ >}}
+
+
 ::: {.content-visible when-profile="english"}
 ::: {.hero-section}
 # Welcome to the Practical Course
