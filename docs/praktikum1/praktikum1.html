@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-11-24">
+<meta name="dcterms.date" content="2026-04-23">
 
 <title>praktikum1 – Praktikum</title>
 <style>
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-57bfbfa36eea8cca3f4f9f1dfe0594a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d44965a7dfbd656b17fb4ce7f4880574.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -219,7 +219,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 24, 2025</p>
+      <p class="date">April 23, 2026</p>
     </div>
   </div>
   
@@ -264,6 +264,7 @@ They provide everything you need to download, install, and activate the software
 <p>SPSS must be activated using the <strong>Network License</strong> option.</p>
 <p>Go to the official activation page <a href="https://www.uni-muenster.de/IT/en/services/arbeitsplatz/software/spss-lizenzaktivierung.html">spss lizenzaktivierung</a></p>
 <p>There, follow the steps under <strong>“Activating the Network License.”</strong></p>
+<p>The next window will ask you for the license server name or the IP-Address. You should enter: <code>spss.uni-muenster.de</code></p>
 <hr>
 </section>
 <section id="important-connection-requirement" class="level2">
@@ -338,6 +339,52 @@ They provide everything you need to download, install, and activate the software
         link.setAttribute('href', newPath);
       }
     });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector("#quarto-margin-sidebar");
+    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"));
+
+    if (!sidebar || qrCodes.length === 0) {
+      return;
+    }
+
+    let sidebarContainer = sidebar.querySelector(".sidebar-qrcode");
+
+    if (!sidebarContainer) {
+      sidebarContainer = document.createElement("div");
+      sidebarContainer.className = "sidebar-qrcode";
+      sidebar.appendChild(sidebarContainer);
+    }
+
+    const placements = qrCodes.map((qrCode) => {
+      const placeholder = document.createElement("span");
+      placeholder.hidden = true;
+      qrCode.parentNode.insertBefore(placeholder, qrCode);
+      return { qrCode, placeholder };
+    });
+
+    const desktopQuery = window.matchMedia("(min-width: 992px)");
+
+    const placeQrCodes = () => {
+      placements.forEach(({ qrCode, placeholder }) => {
+        if (desktopQuery.matches) {
+          sidebarContainer.appendChild(qrCode);
+        } else {
+          placeholder.parentNode.insertBefore(qrCode, placeholder.nextSibling);
+        }
+      });
+    };
+
+    if (typeof desktopQuery.addEventListener === "function") {
+      desktopQuery.addEventListener("change", placeQrCodes);
+    } else if (typeof desktopQuery.addListener === "function") {
+      desktopQuery.addListener(placeQrCodes);
+    }
+
+    placeQrCodes();
   });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
