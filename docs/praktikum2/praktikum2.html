@@ -296,94 +296,26 @@ window.Quarto = {
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Variable</strong></th>
-<th style="text-align: left;"><strong>(SPSS) Scale type</strong></th>
-<th style="text-align: left;"><strong>General type</strong></th>
-<th style="text-align: left;"><strong>Values</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Gender</td>
-<td style="text-align: left;">Nominal</td>
-<td style="text-align: left;">Unordered categorical</td>
-<td style="text-align: left;">Male, Female</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">BMI</td>
-<td style="text-align: left;">Scale</td>
-<td style="text-align: left;">Continous</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BMI categories</td>
-<td style="text-align: left;">Nominal (?)</td>
-<td style="text-align: left;">Ordered categorical</td>
-<td style="text-align: left;">&lt; 18.5, 18.5-25, 25-30 - <span class="math inline">\(\geq\)</span> 30</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>unordered vs ordered categorical?</li>
-<li>scale if you can, for example, meaningfully add, subtract, or average</li>
-</ul>
-</div>
-</div>
+<!-- | **Variable**   | **(SPSS) Scale type** | **General type**      | **Values** |
+|:---------------|:----------------------|:----------------------|:------|
+| Gender         | Nominal               | Unordered categorical | Male, Female |
+| BMI            | Scale                 | Continous             | |
+| BMI categories | Nominal (?)             | Ordered categorical   |< 18.5, 18.5-25, 25-30 - $\geq$ 30|
+
+::: callout-tip
+-   unordered vs ordered categorical?
+-   scale if you can, for example, meaningfully add, subtract, or average
+::: -->
 </details>
 <p>How does the level of measurement (scale level) of the variable <code>number of teeth</code> differ from that of body height or <code>BMI index</code>?</p>
 <details>
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 27%">
-<col style="width: 20%">
-<col style="width: 31%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Variable</strong></th>
-<th><strong>Nature</strong></th>
-<th><strong>SPSS Measure</strong></th>
-<th><strong>Comment</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>BMI</td>
-<td>Continuous numeric</td>
-<td>Scale</td>
-<td>Can take decimal values</td>
-</tr>
-<tr class="even">
-<td>Number of teeth</td>
-<td>Discrete numeric</td>
-<td>Scale</td>
-<td>Only integer values, but still numeric</td>
-</tr>
-</tbody>
-</table>
+<!-- | **Variable** | **Nature** | **SPSS Measure** | **Comment** |
+|---------------|--------------------|---------------|-----------------------|
+| BMI | Continuous numeric | Scale | Can take decimal values |
+| Number of teeth | Discrete numeric | Scale | Only integer values, but still numeric | -->
 </details>
 </section>
 <section id="task-2" class="level2">
@@ -399,24 +331,12 @@ Tip
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="bar_sex.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Bar plot displaying the distribution of the sex variable by category</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="histo_attach.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Histogram displaying the distribution of mean attachemnt loss</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="histo_nteeth_sex.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>Histogram showing the distribution of number of teeth by sex</figcaption>
-</figure>
-</div>
+<!-- 
+![Bar plot displaying the distribution of the sex variable by category](bar_sex.png){width="80%"}
+
+![Histogram displaying the distribution of mean attachemnt loss](histo_attach.png){width="80%"}
+
+![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png){width="80%"} -->
 </details>
 </section>
 </section>
@@ -447,37 +367,15 @@ Tip
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<p><em>diab × perio2 Crosstabulation</em></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>diab</th>
-<th>perio2 = periodontitis</th>
-<th>perio2 = no</th>
-<th><strong>Total</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>diabetes</strong></td>
-<td>199</td>
-<td>578</td>
-<td><strong>777</strong></td>
-</tr>
-<tr class="even">
-<td><strong>no</strong></td>
-<td>988</td>
-<td>6,290</td>
-<td><strong>7,278</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td><strong>1,187</strong></td>
-<td><strong>6,868</strong></td>
-<td><strong>8,055</strong></td>
-</tr>
-</tbody>
-</table>
+<!--
+*diab × perio2 Crosstabulation*
+
+| diab         | perio2 = periodontitis | perio2 = no | **Total** |
+|--------------|------------------------|-------------|-----------|
+| **diabetes** | 199                    | 578         | **777**   |
+| **no**       | 988                    | 6,290       | **7,278** |
+| **Total**    | **1,187**              | **6,868**   | **8,055** | 
+-->
 </details>
 </section>
 <section id="task-4" class="level2">
@@ -577,97 +475,72 @@ RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<p><em>diab × perio2 Crosstabulation</em></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 23%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>diab</th>
-<th></th>
-<th>perio2 = periodontitis</th>
-<th>perio2 = no</th>
-<th><strong>Total</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>diabetes</strong></td>
-<td>Count</td>
-<td>199</td>
-<td>578</td>
-<td><strong>777</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>% within diab</td>
-<td>25.6%</td>
-<td>74.4%</td>
-<td>100.0%</td>
-</tr>
-<tr class="odd">
-<td><strong>no</strong></td>
-<td>Count</td>
-<td>988</td>
-<td>6,290</td>
-<td><strong>7,278</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>% within diab</td>
-<td>13.6%</td>
-<td>86.4%</td>
-<td>100.0%</td>
-</tr>
-<tr class="odd">
-<td><strong>Total</strong></td>
-<td>Count</td>
-<td><strong>1,187</strong></td>
-<td><strong>6,868</strong></td>
-<td><strong>8,055</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>% within diab</td>
-<td>14.7%</td>
-<td>85.3%</td>
-<td>100.0%</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Manual calculations</strong></p>
-<p><span class="math display">\[
+<!--
+*diab × perio2 Crosstabulation*
+
+| diab         |                | perio2 = periodontitis | perio2 = no | **Total** |
+|--------------|--------------|-----------------|--------------|--------------|
+| **diabetes** | Count          | 199                    | 578         | **777**   |
+|              | \% within diab | 25.6%                  | 74.4%       | 100.0%    |
+| **no**       | Count          | 988                    | 6,290       | **7,278** |
+|              | \% within diab | 13.6%                  | 86.4%       | 100.0%    |
+| **Total**    | Count          | **1,187**              | **6,868**   | **8,055** |
+|              | \% within diab | 14.7%                  | 85.3%       | 100.0%    |
+
+**Manual calculations**
+
+$$
   RD = 25.6\% - 13.6\%  = 12\%
-  \]</span></p>
+  $$
+
 <details>
+
 <summary>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&amp;labelColor=%23006e89"></p>
+<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
+
+
 </summary>
-<p><br> - ⚠️ Remember, this may only be an apparent association - The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group. - This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.</p>
+<br>
+-   ⚠️ Remember, this may only be an apparent association
+-   The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group.
+-   This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.
+
 </details>
-<p><span class="math display">\[
+
+$$
   RR = \frac{25.6\%}{13.6\%} = 1.88
-  \]</span></p>
+  $$
+
+
+
 <details>
+
 <summary>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&amp;labelColor=%23006e89"></p>
+<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
+
+
 </summary>
-<p><br> - Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.</p>
+<br>
+-   Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.
+
 </details>
-<p><span class="math display">\[
+
+$$
   OR = \frac{25.6/74.4}{13.6/86.4} = \frac{25.6 \times 86.4}{74.4 \times 13.6} = \frac{2211.84}{1011.84} = 2.19
-  \]</span></p>
+  $$
+
 <details>
+
 <summary>
-<p><img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&amp;labelColor=%23006e89"></p>
+<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
+
+
 </summary>
-<p><br> - People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes.</p>
+<br>
+-   People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes.
+
 </details>
+-->
 </details>
 </section>
 <section id="task-5" class="level2">
@@ -684,7 +557,9 @@ RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<p><img src="h_w.png" class="img-fluid"></p>
+<!--
+![](h_w.png)
+-->
 </details>
 </section>
 <section id="task-6" class="level2">
@@ -698,62 +573,28 @@ RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
 <summary>
 <img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
 </summary>
-<p>Correlations</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">weight</th>
-<th style="text-align: center;">height</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>weight</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>Pearson Correlation</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">.466**</td>
-</tr>
-<tr class="odd">
-<td>Sig. (2-tailed)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">&lt; .001</td>
-</tr>
-<tr class="even">
-<td>N</td>
-<td style="text-align: center;">15,095</td>
-<td style="text-align: center;">14,879</td>
-</tr>
-<tr class="odd">
-<td><strong>height</strong></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>Pearson Correlation</td>
-<td style="text-align: center;">.466**</td>
-<td style="text-align: center;">1</td>
-</tr>
-<tr class="odd">
-<td>Sig. (2-tailed)</td>
-<td style="text-align: center;">&lt; .001</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>N</td>
-<td style="text-align: center;">14,879</td>
-<td style="text-align: center;">15,148</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Note:</strong> **.Correlation is significant at the 0.01 level (2-tailed)</p>
-<p><strong>r</strong> = 0.466 indicates a moderate positive linear correlation:</p>
-<p>As height increases, weight tends to increase as well.</p>
-<p>The p-value &lt; 0.001 shows this association is statistically significant.</p>
+<!--
+Correlations
+
+|                     |  weight  |  height  |
+|---------------------|:--------:|:--------:|
+| **weight**          |          |          |
+| Pearson Correlation |    1     | .466\*\* |
+| Sig. (2-tailed)     |          | \< .001  |
+| N                   |  15,095  |  14,879  |
+| **height**          |          |          |
+| Pearson Correlation | .466\*\* |    1     |
+| Sig. (2-tailed)     | \< .001  |          |
+| N                   |  14,879  |  15,148  |
+
+**Note:** \*\*.Correlation is significant at the 0.01 level (2-tailed)
+
+**r** = 0.466 indicates a moderate positive linear correlation:
+
+As height increases, weight tends to increase as well.
+
+The p-value \< 0.001 shows this association is statistically significant.
+-->
 </details>
 </section>
 <section id="additional-task" class="level2">
