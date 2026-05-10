@@ -23,13 +23,15 @@ Which variable you assign to the rows or columns is up to you. However, it may b
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
+<!--
 *diab × perio2 Crosstabulation*
 
 | diab         | perio2 = periodontitis | perio2 = no | **Total** |
 |--------------|------------------------|-------------|-----------|
 | **diabetes** | 199                    | 578         | **777**   |
 | **no**       | 988                    | 6,290       | **7,278** |
-| **Total**    | **1,187**              | **6,868**   | **8,055** |
+| **Total**    | **1,187**              | **6,868**   | **8,055** | 
+-->
 
 </details>
 
@@ -146,7 +148,7 @@ Let the 2×2 table be:
 <details>
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
-
+<!--
 *diab × perio2 Crosstabulation*
 
 | diab         |                | perio2 = periodontitis | perio2 = no | **Total** |
@@ -205,7 +207,7 @@ $$
 -   People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes.
 
 </details>
-
+-->
 </details>
 
 ## Task 5
@@ -231,9 +233,9 @@ Draw a regression line.
 <details>
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
-
+<!--
 ![](h_w.png)
-
+-->
 </details>
 
 ## Task 6
@@ -255,7 +257,7 @@ Calculate the covariance and the Pearson correlation coefficient for the relatio
 <details>
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
-
+<!--
 Correlations
 
 |                     |  weight  |  height  |
@@ -276,7 +278,7 @@ Correlations
 As height increases, weight tends to increase as well.
 
 The p-value \< 0.001 shows this association is statistically significant.
-
+-->
 </details>
 
 ## Additional task

@@ -15,7 +15,7 @@ To do this, switch from the **Data View** to the **Variable View**.⚙️
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
-| **Variable**   | **(SPSS) Scale type** | **General type**      | **Values** |
+<!-- | **Variable**   | **(SPSS) Scale type** | **General type**      | **Values** |
 |:---------------|:----------------------|:----------------------|:------|
 | Gender         | Nominal               | Unordered categorical | Male, Female |
 | BMI            | Scale                 | Continous             | |
@@ -24,7 +24,7 @@ To do this, switch from the **Data View** to the **Variable View**.⚙️
 ::: callout-tip
 -   unordered vs ordered categorical?
 -   scale if you can, for example, meaningfully add, subtract, or average
-:::
+::: -->
 
 </details>
 
@@ -34,10 +34,10 @@ How does the level of measurement (scale level) of the variable `number of teeth
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
-| **Variable** | **Nature** | **SPSS Measure** | **Comment** |
+<!-- | **Variable** | **Nature** | **SPSS Measure** | **Comment** |
 |---------------|--------------------|---------------|-----------------------|
 | BMI | Continuous numeric | Scale | Can take decimal values |
-| Number of teeth | Discrete numeric | Scale | Only integer values, but still numeric |
+| Number of teeth | Discrete numeric | Scale | Only integer values, but still numeric | -->
 
 </details>
 
@@ -61,10 +61,12 @@ Decide, before entering the data, whether to use a bar chart, histogram, or boxp
 
 <summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
 
+<!-- 
 ![Bar plot displaying the distribution of the sex variable by category](bar_sex.png){width="80%"}
 
 ![Histogram displaying the distribution of mean attachemnt loss](histo_attach.png){width="80%"}
 
-![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png){width="80%"}
+![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png){width="80%"} -->
+
 
 </details>
