@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-05-10">
+<meta name="dcterms.date" content="2026-05-14">
 
 <title>part1 – Praktikum</title>
 <style>
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d44965a7dfbd656b17fb4ce7f4880574.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7445680ec05e90e0b00fc1ef1faa4dc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -135,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2026</p>
+      <p class="date">May 14, 2026</p>
     </div>
   </div>
   
@@ -154,30 +183,99 @@ ul.task-list li input[type="checkbox"] {
 <p>First, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.</p>
 <p>To do this, switch from the <strong>Data View</strong> to the <strong>Variable View</strong>.⚙️</p>
 <p><img src="p1.png" class="img-fluid"></p>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!-- | **Variable**   | **(SPSS) Scale type** | **General type**      | **Values** |
-|:---------------|:----------------------|:----------------------|:------|
-| Gender         | Nominal               | Unordered categorical | Male, Female |
-| BMI            | Scale                 | Continous             | |
-| BMI categories | Nominal (?)             | Ordered categorical   |< 18.5, 18.5-25, 25-30 - $\geq$ 30|
-
-::: callout-tip
--   unordered vs ordered categorical?
--   scale if you can, for example, meaningfully add, subtract, or average
-::: -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>SPSS measure</strong></th>
+<th style="text-align: left;"><strong>General type</strong></th>
+<th style="text-align: left;"><strong>Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gender</td>
+<td style="text-align: left;">Nominal</td>
+<td style="text-align: left;">Unordered categorical</td>
+<td style="text-align: left;">Male, Female</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BMI</td>
+<td style="text-align: left;">Scale</td>
+<td style="text-align: left;">Continuous numeric</td>
+<td style="text-align: left;">Measured in kg/m²</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BMI categories</td>
+<td style="text-align: left;">Ordinal/Nominal in SPSS</td>
+<td style="text-align: left;">Ordered categorical</td>
+<td style="text-align: left;">&lt; 18.5, 18.5-25, 25-30, <span class="math inline">\(\geq\)</span> 30</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Use <strong>nominal</strong> for categories without a natural order.</li>
+<li>Use <strong>ordinal</strong> for categories with a meaningful order.</li>
+<li>Use <strong>scale</strong> when values can be meaningfully added, subtracted, or averaged.</li>
+</ul>
+</div>
+</div>
 </details>
 <p>How does the level of measurement (scale level) of the variable <code>number of teeth</code> differ from that of body height or <code>BMI index</code>?</p>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!-- | **Variable** | **Nature** | **SPSS Measure** | **Comment** |
-|---------------|--------------------|---------------|-----------------------|
-| BMI | Continuous numeric | Scale | Can take decimal values |
-| Number of teeth | Discrete numeric | Scale | Only integer values, but still numeric | -->
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 27%">
+<col style="width: 20%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable</strong></th>
+<th><strong>Nature</strong></th>
+<th><strong>SPSS measure</strong></th>
+<th><strong>Comment</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BMI</td>
+<td>Continuous numeric</td>
+<td>Scale</td>
+<td>Can take decimal values</td>
+</tr>
+<tr class="even">
+<td>Number of teeth</td>
+<td>Discrete numeric</td>
+<td>Scale</td>
+<td>Only integer values, but still quantitative</td>
+</tr>
+</tbody>
+</table>
 </details>
 </section>
 <section id="task-2" class="level2">
@@ -189,16 +287,49 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="step">Grafik</span> <span class="arrow">→</span> <span class="step">Diagrammerstellung</span></p>
 </div>
 <p><img src="p2.png" class="img-fluid"></p>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!-- 
-![Bar plot displaying the distribution of the sex variable by category](bar_sex.png){width="80%"}
-
-![Histogram displaying the distribution of mean attachemnt loss](histo_attach.png){width="80%"}
-
-![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png){width="80%"} -->
+<div class="result-figure-grid">
+<div class="result-figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="bar_sex.png" class="img-fluid figure-img"></p>
+<figcaption>Bar plot displaying the distribution of the sex variable by category</figcaption>
+</figure>
+</div>
+</div>
+<div class="result-figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histo_attach.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram displaying the distribution of mean attachment loss</figcaption>
+</figure>
+</div>
+</div>
+<div class="result-figure wide">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="histo_nteeth_sex.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram showing the distribution of number of teeth by sex</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use a <strong>bar chart</strong> for categorical variables such as gender. Use <strong>histograms</strong> or <strong>boxplots</strong> for quantitative variables such as mean attachment loss or number of teeth.</p>
+</div>
+</div>
 </details>
 
 
@@ -267,7 +398,8 @@ ul.task-list li input[type="checkbox"] {
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector("#quarto-margin-sidebar");
-    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"));
+    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"))
+      .filter((qrCode) => !qrCode.closest(".qr-card"));
 
     if (!sidebar || qrCodes.length === 0) {
       return;

@@ -60,7 +60,8 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector("#quarto-margin-sidebar");
-    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"));
+    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"))
+      .filter((qrCode) => !qrCode.closest(".qr-card"));
 
     if (!sidebar || qrCodes.length === 0) {
       return;

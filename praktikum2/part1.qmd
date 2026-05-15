@@ -11,33 +11,34 @@ To do this, switch from the **Data View** to the **Variable View**.⚙️
 
 ![](p1.png)
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
-<!-- | **Variable**   | **(SPSS) Scale type** | **General type**      | **Values** |
+| **Variable**   | **SPSS measure** | **General type**      | **Values** |
 |:---------------|:----------------------|:----------------------|:------|
 | Gender         | Nominal               | Unordered categorical | Male, Female |
-| BMI            | Scale                 | Continous             | |
-| BMI categories | Nominal (?)             | Ordered categorical   |< 18.5, 18.5-25, 25-30 - $\geq$ 30|
+| BMI            | Scale                 | Continuous numeric    | Measured in kg/m² |
+| BMI categories | Ordinal/Nominal in SPSS | Ordered categorical | < 18.5, 18.5-25, 25-30, $\geq$ 30 |
 
 ::: callout-tip
--   unordered vs ordered categorical?
--   scale if you can, for example, meaningfully add, subtract, or average
-::: -->
+-   Use **nominal** for categories without a natural order.
+-   Use **ordinal** for categories with a meaningful order.
+-   Use **scale** when values can be meaningfully added, subtracted, or averaged.
+:::
 
 </details>
 
 How does the level of measurement (scale level) of the variable `number of teeth` differ from that of body height or `BMI index`?
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
-<!-- | **Variable** | **Nature** | **SPSS Measure** | **Comment** |
+| **Variable** | **Nature** | **SPSS measure** | **Comment** |
 |---------------|--------------------|---------------|-----------------------|
 | BMI | Continuous numeric | Scale | Can take decimal values |
-| Number of teeth | Discrete numeric | Scale | Only integer values, but still numeric | -->
+| Number of teeth | Discrete numeric | Scale | Only integer values, but still quantitative |
 
 </details>
 
@@ -57,16 +58,26 @@ Decide, before entering the data, whether to use a bar chart, histogram, or boxp
 
 ![](p2.png)
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
-<!-- 
-![Bar plot displaying the distribution of the sex variable by category](bar_sex.png){width="80%"}
+::: {.result-figure-grid}
+::: {.result-figure}
+![Bar plot displaying the distribution of the sex variable by category](bar_sex.png)
+:::
 
-![Histogram displaying the distribution of mean attachemnt loss](histo_attach.png){width="80%"}
+::: {.result-figure}
+![Histogram displaying the distribution of mean attachment loss](histo_attach.png)
+:::
 
-![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png){width="80%"} -->
+::: {.result-figure .wide}
+![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png)
+:::
+:::
 
+::: callout-tip
+Use a **bar chart** for categorical variables such as gender. Use **histograms** or **boxplots** for quantitative variables such as mean attachment loss or number of teeth.
+:::
 
 </details>

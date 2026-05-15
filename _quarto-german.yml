@@ -27,7 +27,7 @@ website:
     left: "&copy; CC-1.0"
 
   sidebar:
-    title: "dhdhThis is d"
+    title: "Kursmaterialien"
     logo: mfm-logo.svg
     pinned: true
     style: docked        # or "floating"

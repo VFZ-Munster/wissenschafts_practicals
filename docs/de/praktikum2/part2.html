@@ -37,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d44965a7dfbd656b17fb4ce7f4880574.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7445680ec05e90e0b00fc1ef1faa4dc8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -167,7 +167,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">10. Mai 2026</p>
+      <p class="date">14. Mai 2026</p>
     </div>
   </div>
   
@@ -200,19 +200,41 @@ Tipp
 <p>Which variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.</p>
 </div>
 </div>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!--
-*diab × perio2 Crosstabulation*
-
-| diab         | perio2 = periodontitis | perio2 = no | **Total** |
-|--------------|------------------------|-------------|-----------|
-| **diabetes** | 199                    | 578         | **777**   |
-| **no**       | 988                    | 6,290       | **7,278** |
-| **Total**    | **1,187**              | **6,868**   | **8,055** | 
--->
+<p><em>diab × perio2 Crosstabulation</em></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>diab</th>
+<th>perio2 = periodontitis</th>
+<th>perio2 = no</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>diabetes</strong></td>
+<td>199</td>
+<td>578</td>
+<td><strong>777</strong></td>
+</tr>
+<tr class="even">
+<td><strong>no</strong></td>
+<td>988</td>
+<td>6,290</td>
+<td><strong>7,278</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>1,187</strong></td>
+<td><strong>6,868</strong></td>
+<td><strong>8,055</strong></td>
+</tr>
+</tbody>
+</table>
 </details>
 </section>
 <section id="task-4" class="level2">
@@ -225,65 +247,73 @@ Tipp
 <p>Then in the Crosstabs dialog, click <strong>[Cells…]</strong> and under <strong>Percentages</strong>, select <strong>Row</strong>, then click <strong>Continue</strong>.<br>
 Next, click <strong>[Statistics…]</strong>, check <strong>Risk</strong>, and click <strong>Continue</strong>.</p>
 <p><strong>Calculate manually:</strong></p>
-<!-- Box formulas -->
-<div style="display: flex; gap: 20px; align-items: stretch;">
-<div class="formula-box" style="flex: 1;">
-<p>Risk difference (RD)</p>
-<p><span style="font-weight: 400; font-size: 16px;">Subtract the percentage values:</span> <span class="math display">\[
+<div class="formula-grid">
+<div class="formula-card">
+<p><strong>Risk difference (RD)</strong></p>
+<p>Subtract the percentage values: <span class="math display">\[
 RD = p_{\text{diabetic w/ perio}} - p_{\text{non-diabetic w/ perio}}
 \]</span></p>
 </div>
-<div class="formula-box" style="flex: 1;">
-<p>Relative risk (RR)</p>
-<p><span style="font-weight: 400; font-size: 16px;">Divide the percentage values:</span> <span class="math display">\[
+<div class="formula-card">
+<p><strong>Relative risk (RR)</strong></p>
+<p>Divide the percentage values: <span class="math display">\[
 RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
 \]</span></p>
 </div>
 </div>
-<!-- Box formula OR -->
-<div class="formula-box" style="
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 20px;
-  width: 100%;
-  box-sizing: border-box;
-">
-<!-- Header box -->
-<div class="box" style="grid-column: 1 / 3;">
-<p><strong>Odds ratio (OR)</strong><br> The ratio of odds between the two groups:</p>
-</div>
-<!-- Left column -->
-<div class="box" style="min-width: 0;">
-<p><span style="font-weight: 400; font-size: 16px;">The odds of periodontitis for diabetics:</span> <span class="math display">\[
-    \text{Odds}_{\text{diabetic}} =
-    \frac{\text{No. diabetic w/ periodontitis}}
-         {\text{No. diabetic w/o periodontitis}}
+<div class="formula-card formula-card-wide">
+<p><strong>Odds ratio (OR)</strong></p>
+<p>The odds ratio compares the odds of periodontitis between people with diabetes and people without diabetes.</p>
+<div class="odds-grid">
+<div class="odds-step">
+<p><strong>Diabetic group</strong></p>
+<p><span class="math display">\[
+\text{Odds}_{\text{diabetic}} = \frac{a}{b}
 \]</span></p>
 </div>
-<!-- Right column -->
-<div class="box" style="min-width: 0;">
-<p><span style="font-weight: 400; font-size: 16px;">Divided by the odds of periodontitis for non-diabetics:</span> <span class="math display">\[
-\text{Odds}_{\text{non-diabetic}} =
-\frac{\text{No. non-diabetic w/ periodontitis}}
-         {\text{No. non-diabetic w/o periodontitis}}
-\]</span></p>
-</div>
-<!-- Final OR -->
-<div class="box" style="grid-column: 1 / 3; text-align: center;">
-<p>Final odds ratio <span class="math display">\[
-    OR=\frac{\text{Odds}_{\text{diabetic}}}{\text{Odds}_{\text{non-diabetic}}}
-      = \frac{a/b}{c/d}
-      = \frac{a \times d}{b \times c}
+<div class="odds-step">
+<p><strong>Non-diabetic group</strong></p>
+<p><span class="math display">\[
+\text{Odds}_{\text{non-diabetic}} = \frac{c}{d}
 \]</span></p>
 </div>
 </div>
-<p>```</p>
-<p>where:<br>
-- ( a ): diabetics <strong>with</strong> periodontitis<br>
-- ( b ): diabetics <strong>without</strong> periodontitis<br>
-- ( c ): non-diabetics <strong>with</strong> periodontitis<br>
-- ( d ): non-diabetics <strong>without</strong> periodontitis</p>
+<div class="odds-final">
+<p><strong>Final odds ratio</strong></p>
+<p><span class="math display">\[
+OR = \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
+\]</span></p>
+</div>
+</div>
+<div class="notation-card">
+<p><strong>Notation</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Symbol</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: left;">Diabetics <strong>with</strong> periodontitis</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(b\)</span></td>
+<td style="text-align: left;">Diabetics <strong>without</strong> periodontitis</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: left;">Non-diabetics <strong>with</strong> periodontitis</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: left;">Non-diabetics <strong>without</strong> periodontitis</td>
+</tr>
+</tbody>
+</table>
+</div>
 <details open="">
 <p>Let the 2×2 table be:</p>
 <table class="caption-top table">
@@ -308,73 +338,110 @@ RR = \frac{p_{\text{diabetic w/ perio}}}{p_{\text{non-diabetic w/ perio}}}
 </tbody>
 </table>
 </details>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!--
-*diab × perio2 Crosstabulation*
-
-| diab         |                | perio2 = periodontitis | perio2 = no | **Total** |
-|--------------|--------------|-----------------|--------------|--------------|
-| **diabetes** | Count          | 199                    | 578         | **777**   |
-|              | \% within diab | 25.6%                  | 74.4%       | 100.0%    |
-| **no**       | Count          | 988                    | 6,290       | **7,278** |
-|              | \% within diab | 13.6%                  | 86.4%       | 100.0%    |
-| **Total**    | Count          | **1,187**              | **6,868**   | **8,055** |
-|              | \% within diab | 14.7%                  | 85.3%       | 100.0%    |
-
-**Manual calculations**
-
-$$
-  RD = 25.6\% - 13.6\%  = 12\%
-  $$
-
-<details>
-
-<summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
-
-</summary>
-<br>
--   ⚠️ Remember, this may only be an apparent association
--   The risk of periodontitis is 12 percentage points higher in the exposed group than in the unexposed group.
--   This means for every 100 people, about 12 more cases of periodontitis occur among those with diabetes.
-
-</details>
-
-$$
-  RR = \frac{25.6\%}{13.6\%} = 1.88
-  $$
-
-
-
-<details>
-
-<summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
-
-</summary>
-<br>
--   Individuals with diabetes have 1.88 times the risk of periodontitis compared with those without diabetes.
-
-</details>
-
-$$
-  OR = \frac{25.6/74.4}{13.6/86.4} = \frac{25.6 \times 86.4}{74.4 \times 13.6} = \frac{2211.84}{1011.84} = 2.19
-  $$
-
-<details>
-
-<summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Interpretation-%2370789a?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBMaWNlbnNlOiBNSVQuIE1hZGUgYnkgdGVlbnlpY29uczogaHR0cHM6Ly9naXRodWIuY29tL3RlZW55aWNvbnMvdGVlbnlpY29ucyAtLT4KPHN2ZyB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQuMDc1NzIgNi40Njk4NEw0LjU3MDcgNi41NDA1NlY2LjU0MDU2TDQuMDc1NzIgNi40Njk4NFpNNC4wNjU2NyA2LjU0MDJMMy41NzA3IDYuNDY5NDlMMy41NzA3IDYuNDY5NDlMNC4wNjU2NyA2LjU0MDJaTTEwLjkyNDIgNi40Njk4NUwxMS40MTkyIDYuMzk5MTRWNi4zOTkxNEwxMC45MjQyIDYuNDY5ODVaTTEwLjkzNDMgNi41NDAyMUwxMC40MzkzIDYuNjEwOTFWNi42MTA5MkwxMC45MzQzIDYuNTQwMjFaTTkuNSAxMi41VjEzQzkuNzc2MTQgMTMgMTAgMTIuNzc2MSAxMCAxMi41SDkuNVpNNS41IDEyLjVINUM1IDEyLjc3NjEgNS4yMjM4NiAxMyA1LjUgMTNWMTIuNVpNNC43NTU0OSA5LjE1MjkxTDUuMTUwODggOC44NDY4N0w0Ljc1NTQ5IDkuMTUyOTFaTTEwLjI0NDUgOS4xNTI4OUw5Ljg0OTEgOC44NDY4NkwxMC4yNDQ1IDkuMTUyODlaTTYgMTVIOVYxNEg2VjE1Wk0zLjU4MDc1IDYuMzk5MTNMMy41NzA3IDYuNDY5NDlMNC41NjA2NCA2LjYxMDkxTDQuNTcwNyA2LjU0MDU2TDMuNTgwNzUgNi4zOTkxM1pNNy40OTk5OCAzQzUuNTI5NzcgMyAzLjg1OTM4IDQuNDQ4NzIgMy41ODA3NSA2LjM5OTEzTDQuNTcwNyA2LjU0MDU2QzQuNzc4OTUgNS4wODI3OSA2LjAyNzQyIDQgNy40OTk5OCA0VjNaTTExLjQxOTIgNi4zOTkxNEMxMS4xNDA2IDQuNDQ4NzMgOS40NzAyIDMgNy40OTk5OCAzVjRDOC45NzI1NSA0IDEwLjIyMSA1LjA4MjggMTAuNDI5MyA2LjU0MDU2TDExLjQxOTIgNi4zOTkxNFpNMTEuNDI5MyA2LjQ2OTVMMTEuNDE5MiA2LjM5OTE0TDEwLjQyOTMgNi41NDA1NkwxMC40MzkzIDYuNjEwOTFMMTEuNDI5MyA2LjQ2OTVaTTEwLjYzOTkgOS40NTg5M0MxMS4yNjk2IDguNjQ1NDEgMTEuNTg4NSA3LjU4Mzk3IDExLjQyOTMgNi40Njk0OUwxMC40MzkzIDYuNjEwOTJDMTAuNTU4NSA3LjQ0NTQzIDEwLjMyMDkgOC4yMzcyOSA5Ljg0OTEgOC44NDY4NkwxMC42Mzk5IDkuNDU4OTNaTTkgMTAuOTAxM1YxMi41SDEwVjEwLjkwMTNIOVpNOS41IDEySDUuNVYxM0g5LjVWMTJaTTYgMTIuNVYxMC45MDEzSDVWMTIuNUg2Wk0zLjU3MDcgNi40Njk0OUMzLjQxMTQ4IDcuNTgzOTggMy43MzA0MiA4LjY0NTQzIDQuMzYwMDkgOS40NTg5NUw1LjE1MDg4IDguODQ2ODdDNC42NzkwNyA4LjIzNzMgNC40NDE0MyA3LjQ0NTQ0IDQuNTYwNjQgNi42MTA5MUwzLjU3MDcgNi40Njk0OVpNNiAxMC45MDEzQzYgMTAuMDc3NSA1LjU2MjA5IDkuMzc4MTQgNS4xNTA4OCA4Ljg0Njg3TDQuMzYwMDkgOS40NTg5NUM0Ljc0MzQ1IDkuOTU0MjYgNSAxMC40MjcgNSAxMC45MDEzSDZaTTkuODQ5MSA4Ljg0Njg2QzkuNDM3OSA5LjM3ODEzIDkgMTAuMDc3NSA5IDEwLjkwMTNIMTBDMTAgMTAuNDI3IDEwLjI1NjUgOS45NTQyMyAxMC42Mzk5IDkuNDU4OTNMOS44NDkxIDguODQ2ODZaTTcgMFYySDhWMEg3Wk0wIDhIMlY3SDBWOFpNMTMgOEgxNVY3SDEzVjhaTTMuMzUzNTUgMy42NDY0NUwxLjg1MzU1IDIuMTQ2NDVMMS4xNDY0NSAyLjg1MzU1TDIuNjQ2NDUgNC4zNTM1NUwzLjM1MzU1IDMuNjQ2NDVaTTEyLjM1MzYgNC4zNTM1NUwxMy44NTM2IDIuODUzNTVMMTMuMTQ2NCAyLjE0NjQ1TDExLjY0NjQgMy42NDY0NUwxMi4zNTM2IDQuMzUzNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4%3D&labelColor=%23006e89">
-
-</summary>
-<br>
--   People with diabetes have 2.19 times higher odds of having periodontitis compared with those without diabetes.
-
-</details>
--->
+<p><em>diab × perio2 Crosstabulation</em></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 23%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>diab</th>
+<th></th>
+<th>perio2 = periodontitis</th>
+<th>perio2 = no</th>
+<th><strong>Total</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>diabetes</strong></td>
+<td>Count</td>
+<td>199</td>
+<td>578</td>
+<td><strong>777</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>% within diab</td>
+<td>25.6%</td>
+<td>74.4%</td>
+<td>100.0%</td>
+</tr>
+<tr class="odd">
+<td><strong>no</strong></td>
+<td>Count</td>
+<td>988</td>
+<td>6,290</td>
+<td><strong>7,278</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>% within diab</td>
+<td>13.6%</td>
+<td>86.4%</td>
+<td>100.0%</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td>Count</td>
+<td><strong>1,187</strong></td>
+<td><strong>6,868</strong></td>
+<td><strong>8,055</strong></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>% within diab</td>
+<td>14.7%</td>
+<td>85.3%</td>
+<td>100.0%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Manual calculations</strong></p>
+<div class="metric-grid">
+<div class="metric-card">
+<p><strong>Risk difference</strong></p>
+<p><span class="math display">\[
+RD = 25.6\% - 13.6\% = 12.0\%
+\]</span></p>
+<p><strong>Interpretation:</strong> People with diabetes have a 12 percentage-point higher observed risk of periodontitis.</p>
+</div>
+<div class="metric-card">
+<p><strong>Relative risk</strong></p>
+<p><span class="math display">\[
+RR = \frac{25.6\%}{13.6\%} = 1.88
+\]</span></p>
+<p><strong>Interpretation:</strong> Individuals with diabetes have 1.88 times the observed risk of periodontitis compared with those without diabetes.</p>
+</div>
+<div class="metric-card">
+<p><strong>Odds ratio</strong></p>
+<p><span class="math display">\[
+OR = \frac{199 \times 6290}{578 \times 988} = 2.19
+\]</span></p>
+<p><strong>Interpretation:</strong> People with diabetes have 2.19 times higher observed odds of having periodontitis.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because these are cross-sectional data, interpret the association descriptively. It may be an apparent association and does not prove causality.</p>
+</div>
+</div>
 </details>
 </section>
 <section id="task-5" class="level2">
@@ -387,13 +454,31 @@ $$
 <p>Draw a regression line.</p>
 <p>💡 SPSS: Double-click on the created graph, then click the symbol marked below.</p>
 <p><img src="p3.png" class="img-fluid"></p>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!--
-![](h_w.png)
--->
+<div class="result-figure wide">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="h_w.png" class="img-fluid figure-img"></p>
+<figcaption>Scatterplot of weight by height with regression line</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The points show a positive trend: taller participants tend to have higher weight. The regression line summarizes the average linear tendency.</p>
+</div>
+</div>
 </details>
 </section>
 <section id="task-6" class="level2">
@@ -403,32 +488,66 @@ $$
 <div class="instruction-flow">
 <p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">KORRELATIONEN</span> <span class="arrow">→</span> <span class="step">BIVARIAT</span> <span class="arrow">→</span> <span class="step option">Korrelationskoeffizienten: Pearson auswählen</span></p>
 </div>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
-<!--
-Correlations
-
-|                     |  weight  |  height  |
-|---------------------|:--------:|:--------:|
-| **weight**          |          |          |
-| Pearson Correlation |    1     | .466\*\* |
-| Sig. (2-tailed)     |          | \< .001  |
-| N                   |  15,095  |  14,879  |
-| **height**          |          |          |
-| Pearson Correlation | .466\*\* |    1     |
-| Sig. (2-tailed)     | \< .001  |          |
-| N                   |  14,879  |  15,148  |
-
-**Note:** \*\*.Correlation is significant at the 0.01 level (2-tailed)
-
-**r** = 0.466 indicates a moderate positive linear correlation:
-
-As height increases, weight tends to increase as well.
-
-The p-value \< 0.001 shows this association is statistically significant.
--->
+<p>Correlations</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;">weight</th>
+<th style="text-align: center;">height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>weight</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Pearson Correlation</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">.466**</td>
+</tr>
+<tr class="odd">
+<td>Sig. (2-tailed)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td style="text-align: center;">15,095</td>
+<td style="text-align: center;">14,879</td>
+</tr>
+<tr class="odd">
+<td><strong>height</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>Pearson Correlation</td>
+<td style="text-align: center;">.466**</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td>Sig. (2-tailed)</td>
+<td style="text-align: center;">&lt; .001</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td>N</td>
+<td style="text-align: center;">14,879</td>
+<td style="text-align: center;">15,148</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note:</strong> **.Correlation is significant at the 0.01 level (2-tailed)</p>
+<p><strong>r</strong> = 0.466 indicates a moderate positive linear correlation:</p>
+<p>As height increases, weight tends to increase as well.</p>
+<p>The p-value &lt; 0.001 shows this association is statistically significant.</p>
 </details>
 </section>
 <section id="additional-task" class="level2">
@@ -438,9 +557,9 @@ The p-value \< 0.001 shows this association is statistically significant.
 <div class="instruction-flow">
 <p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">KORRELATIONEN</span> <span class="arrow">→</span> <span class="step">BIVARIAT</span> <span class="arrow">→</span> <span class="step option">Korrelationskoeffizienten: Spearman auswählen</span></p>
 </div>
-<details>
+<details class="result-panel">
 <summary>
-<img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green">
+Task results
 </summary>
 <p>Spearman’s rho Correlations</p>
 <table class="caption-top table">
@@ -501,9 +620,9 @@ The p-value \< 0.001 shows this association is statistically significant.
 </section>
 <section id="notes" class="level1">
 <h1>Notes</h1>
-<details>
+<details class="result-panel">
 <summary>
-strength of association
+Strength of association
 </summary>
 <p>These are used as rule-of-thumb thresholds</p>
 <table class="caption-top table">
@@ -615,7 +734,8 @@ strength of association
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const sidebar = document.querySelector("#quarto-margin-sidebar");
-    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"));
+    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"))
+      .filter((qrCode) => !qrCode.closest(".qr-card"));
 
     if (!sidebar || qrCodes.length === 0) {
       return;
