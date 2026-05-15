@@ -10,44 +10,129 @@ author:
     email: aiswarya.chennas@uni-muenster.de
 ---
 
-{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ >}}
-
-
 ::: {.content-visible when-profile="english"}
-::: {.hero-section}
-# Welcome to the Practical Course
-Explore, analyze, and learn with NHANES data.
+::: {.home-hero}
+::: {.hero-copy}
+::: {.home-kicker}
+Quantitative Methods in Health Sciences
 :::
 
-::: {.grid}
+# Practical Course
+
+Explore, analyze, and interpret real NHANES data while building a reproducible workflow for applied health research.
+
+::: {.hero-actions}
+[Start with Practical 1](praktikum1/praktikum1.qmd){.hero-button .primary}
+[View Blackboard](blackboard.qmd){.hero-button}
+:::
+:::
+
+::: {.hero-panel}
+![](mfm-logo.svg){.hero-logo fig-alt="University of Münster logo"}
+
+::: {.qr-card}
+::: {.qr-label}
+Scan course link
+:::
+{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ width=144 height=144 colorDark="#003866" colorLight="#ffffff" >}}
+
+::: {.qr-url}
+vfz-munster.github.io
+:::
+:::
+:::
+:::
+
+::: {.grid .home-grid}
 ::: {.g-col-12 .g-col-md-6 .feature-card}
-### 📊 Data Analysis
+### Data Analysis
 We will use data from the [NHANES](https://wwwn.cdc.gov/nchs/nhanes/) (1999–2003) to describe the health status of the U.S. population (ages 30-85).
 :::
 
 ::: {.g-col-12 .g-col-md-6 .feature-card}
-### 📁 The Dataset
+### The Dataset
 The data is stored in `nhanes30.sav`. This file contains observed data, variable descriptions, and metadata.
+:::
+:::
+
+::: {.course-path}
+::: {.path-item}
+**01**
+Set up SPSS and prepare the working environment.
+:::
+
+::: {.path-item}
+**02**
+Inspect variables, metadata, and coding decisions.
+:::
+
+::: {.path-item}
+**03**
+Analyze, visualize, and interpret health data.
 :::
 :::
 <br>
 :::
 
 ::: {.content-visible when-profile="german"}
-::: {.hero-section}
-# Willkommen zum Praktikum
-Entdecken, analysieren und lernen Sie mit NHANES-Daten.
+::: {.home-hero}
+::: {.hero-copy}
+::: {.home-kicker}
+Quantitative Methoden in den Gesundheitswissenschaften
 :::
 
-::: {.grid}
+# Praktikum
+
+Entdecken, analysieren und interpretieren Sie reale NHANES-Daten und entwickeln Sie einen reproduzierbaren Workflow für angewandte Gesundheitsforschung.
+
+::: {.hero-actions}
+[Mit Praktikum 1 starten](praktikum1/praktikum1.qmd){.hero-button .primary}
+[Blackboard öffnen](blackboard.qmd){.hero-button}
+:::
+:::
+
+::: {.hero-panel}
+![](mfm-logo.svg){.hero-logo fig-alt="Logo der Universität Münster"}
+
+::: {.qr-card}
+::: {.qr-label}
+Kurslink scannen
+:::
+{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ width=144 height=144 colorDark="#003866" colorLight="#ffffff" >}}
+
+::: {.qr-url}
+vfz-munster.github.io
+:::
+:::
+:::
+:::
+
+::: {.grid .home-grid}
 ::: {.g-col-12 .g-col-md-6 .feature-card}
-### 📊 Datenanalyse
+### Datenanalyse
 Wir verwenden Daten der [NHANES](https://wwwn.cdc.gov/nchs/nhanes/) (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .feature-card}
-### 📁 Der Datensatz
+### Der Datensatz
 Die Daten sind in `nhanes30.sav` gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.
+:::
+:::
+
+::: {.course-path}
+::: {.path-item}
+**01**
+SPSS einrichten und die Arbeitsumgebung vorbereiten.
+:::
+
+::: {.path-item}
+**02**
+Variablen, Metadaten und Kodierungen prüfen.
+:::
+
+::: {.path-item}
+**03**
+Gesundheitsdaten analysieren, visualisieren und interpretieren.
 :::
 :::
 <br>
@@ -80,7 +165,11 @@ import pandas as pd
 import itables 
 import itables.options as opt
 opt.warn_on_undocumented_option = False
-itables.options.columnDefs = [{"className": "dt-left", "targets": "_all"}]
+itables.options.columnDefs = [
+    {"className": "dt-left variable-column", "targets": 0, "width": "18%"},
+    {"className": "dt-left description-column", "targets": 1, "width": "46%"},
+    {"className": "dt-left values-column", "targets": 2, "width": "36%"}
+]
 
 
 data_dict = pd.DataFrame({
@@ -142,11 +231,11 @@ data_dict = pd.DataFrame({
 itables.show(
     data_dict,
     dom="Brtip",
-    classes="display nowrap compact",
-    style="table-layout:auto;width:50%;float:left",
+    classes="display stripe hover course-data-table",
+    style="table-layout:fixed;width:100%",
     columnControl=["order", ["orderAsc", "orderDesc", "search"]],
     ordering={"indicators": False, "handler": False},
-    buttons=["columnsToggle", {"extend": "csv", "text": "🔗 Download data description"}],
+    buttons=["columnsToggle", {"extend": "csv", "text": "Download data description"}],
     paging=False,       # no pagination
    # scrollY=None,       # disable scrolling limit
     scrollCollapse=False
@@ -190,7 +279,11 @@ import pandas as pd
 import itables 
 import itables.options as opt
 opt.warn_on_undocumented_option = False
-itables.options.columnDefs = [{"className": "dt-left", "targets": "_all"}]
+itables.options.columnDefs = [
+    {"className": "dt-left variable-column", "targets": 0, "width": "18%"},
+    {"className": "dt-left description-column", "targets": 1, "width": "46%"},
+    {"className": "dt-left values-column", "targets": 2, "width": "36%"}
+]
 
 daten_dict = pd.DataFrame({
     "Variablenname": [
@@ -251,11 +344,11 @@ daten_dict = pd.DataFrame({
 itables.show(
     daten_dict,
     dom="Brtip",
-    classes="display nowrap compact",
-    style="table-layout:auto;width:50%;float:left",
+    classes="display stripe hover course-data-table",
+    style="table-layout:fixed;width:100%",
     columnControl=["order", ["orderAsc", "orderDesc", "search"]],
     ordering={"indicators": False, "handler": False},
-    buttons=["columnsToggle", {"extend": "csv", "text": "🔗 Download data description"}],
+    buttons=["columnsToggle", {"extend": "csv", "text": "Datensatzbeschreibung herunterladen"}],
     paging=False,       # no pagination
    # scrollY=None,       # disable scrolling limit
     scrollCollapse=False
