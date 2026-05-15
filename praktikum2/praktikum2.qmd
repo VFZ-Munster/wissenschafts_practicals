@@ -20,6 +20,10 @@ In this session, we will cover the first steps in SPSS, including the descriptiv
 ### Practice exercises
 📥 Download the dataset `nhanes30.sav` and open it in **SPSS** — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.
 
+::: {.download-card}
+[Download recap for Practical 1](recap_P1.pdf){download="recap_P1.pdf"}
+:::
+
 
 :::
 
@@ -34,6 +38,10 @@ In dieser Stunde geht es um die ersten Schritte in SPSS, die deskriptive Beschre
 ### Übungsaufgaben
 
 📥 Laden Sie den Datensatz `nhanes30.sav` herunter und öffnen Sie diesen in **SPSS** —  entweder per drag & drop 🖱️  oder über das Auswahlmenü unter „Datei“ 🗂️ 
+
+::: {.download-card}
+[Zusammenfassung aus Praktikum 1 herunterladen](recap_P1.pdf){download="recap_P1.pdf"}
+:::
 
 
 :::
