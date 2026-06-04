@@ -44,11 +44,11 @@ Einleitung: In dieser Stunde geht es um **Konfidenzintervallen**, **Normalvertei
 <details>
 
 <summary>Show Results</summary>
-
+<!-- 
 | **Variable**   | **Mean (95% Confidence Intervals)** | 
 |:---------------|:------------------------------------|
 | height         |   167.05 (166.89 - 167.21)          | 
-| mortstat       |   0.26 (0.25 - 0.27)                |
+| mortstat       |   0.26 (0.25 - 0.27)                | -->
 
 </details>
 
@@ -64,7 +64,7 @@ b) A 95% confidence interval means that if multiple samples are drawn, 95% of th
 
 <summary>Show Results</summary>
 
- ✓ `b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.`
+ <!-- ✓ `b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.` -->
 
 </details>
 
@@ -93,10 +93,10 @@ b) A 95% confidence interval means that if multiple samples are drawn, 95% of th
 
 <summary>Show Results</summary>
 
-| **Variablen**  | **Mittelwerte (95% Konfidenzintervalle)**| 
+<!-- | **Variablen**  | **Mittelwerte (95% Konfidenzintervalle)**| 
 |:---------------|:-----------------------------------------|
 | height         |   167.05 (166.89 - 167.21)               | 
-| mortstat       |   0.26 (0.25 - 0.27)                     |
+| mortstat       |   0.26 (0.25 - 0.27)                     | -->
 
 
 </details>
@@ -113,7 +113,7 @@ b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichp
 
 <summary>Show Results</summary>
 
- ✓ `b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.`
+ <!-- ✓ `b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.` -->
 
 </details>
 :::
@@ -165,7 +165,7 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 <summary>Assessment of skewness and kurtosis</summary>
 
-![](Skew_Kurtosis.png)
+<!-- ![](Skew_Kurtosis.png) -->
 
 </details>
 
@@ -174,7 +174,7 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 <summary>Statistical tests for normality</summary>
 
-![](Tests_Normality.png)
+<!-- ![](Tests_Normality.png) -->
 
 </details>
 
@@ -183,13 +183,14 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 <summary> Graphical tests for normality</summary>
 
-1. Histograms
+<!-- 1. Histograms
 
 ![](Histograms.png)
 
 2. Q-Q plots
 
-![](Q_Q_plots.png)
+![](Q_Q_plots.png) -->
+
 </details>
 
 
@@ -198,11 +199,11 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 <summary>Show Results</summary>
 
-| **Variable**   | **Normal distribution** | 
+<!-- | **Variable**   | **Normal distribution** | 
 |:---------------|:------------------------|
 | height         |   Yes                   | 
 | cal_mean       |   No                    |
-| bmi            |   No                    | 
+| bmi            |   No                    |  -->
 
 </details>
 
@@ -246,39 +247,39 @@ Entscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilu
 <details>
 <summary>Die Bewertung von Schiefe und Kurtosis</summary>
 
-![](Skew_Kurtosis.png)
+<!-- ![](Skew_Kurtosis.png) -->
 
 </details>
 
 
 <details>
 <summary>Statistische Tests auf Normalverteilung</summary>
-
-![](Tests_Normality.png)
+<!-- 
+![](Tests_Normality.png) -->
 
 </details>
 
 
 <details>
 <summary> Graphische Tests auf Normalverteilung </summary>
-
+<!-- 
 1. Histograms
 
 ![](Histograms.png)
 
 2. Q-Q plots
 
-![](Q_Q_plots.png)
+![](Q_Q_plots.png) -->
 
 </details>
 
 <details>
-<summary>Show Results</summary>
+<!-- <summary>Show Results</summary>
 | **Variable**   | **Normalverteilt?**     | 
 |:---------------|:------------------------|
 | height         |  Ja                     | 
 | cal_mean       |  Nein                   |
-| bmi            |  Nein                   | 
+| bmi            |  Nein                   |  -->
 
 </details>
 
@@ -328,7 +329,7 @@ Under "Charts", select ☑ "Histogram" and "Normal distribution curve"
 
 <summary>Show Results</summary>
 
-![](cal_mean.png)
+<!-- ![](cal_mean.png) -->
 
 </details>
 ::: 
@@ -377,7 +378,7 @@ Schauen Sie sich das Histogramm mit Normalverteilungskurve für die neu erstellt
 
 <summary>Show Results</summary>
 
-![](cal_mean.png)
+<!-- ![](cal_mean.png) -->
 
 </details>
 :::
