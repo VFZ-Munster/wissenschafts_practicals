@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ignacio Leiva">
-<meta name="author" content="Aiswarya Puzhakkara Chennas">
+<meta name="dcterms.date" content="2026-06-04">
 
-<title>Praktikum</title>
+<title>descriptive_stat – Praktikum</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,10 +21,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -42,7 +75,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-b2f4c75a8142b5240b9dc28e2bf02e57.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -57,56 +89,24 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Keine Treffer",
-    "search-matching-documents-text": "Treffer",
-    "search-copy-link-title": "Link in die Suche kopieren",
-    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
-    "search-more-match-text": "weitere Treffer in diesem Dokument",
-    "search-more-matches-text": "weitere Treffer in diesem Dokument",
-    "search-clear-button-title": "Zurücksetzen",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Abbrechen",
-    "search-submit-button-title": "Abschicken",
-    "search-label": "Suchen"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,21 +117,21 @@ window.Quarto = {
     <span class="navbar-title">Praktikum</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Suchen"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navigation umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./../"> 
-<span class="menu-text">English</span></a>
+    <a class="nav-link" href="./de"> 
+<span class="menu-text">Deutsch</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -139,97 +139,13 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./mfm-logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Suchen"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum1/praktikum1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practikum 1: SPSS installieren</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum2/praktikum2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 2</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum3/praktikum3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./pvalue.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">p-value</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum4/praktikum4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 4</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum5/praktikum5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 5</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blackboard.html" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Blackboard</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Auf dieser Seite</h2>
-   
-  <ul>
-  <li><a href="#datensatzbeschreibung" id="toc-datensatzbeschreibung" class="nav-link active" data-scroll-target="#datensatzbeschreibung">Datensatzbeschreibung</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -242,18 +158,11 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:innen</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ignacio Leiva <a href="mailto:ignacio.leiva@uni-muenster.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-             <p>Aiswarya Puzhakkara Chennas <a href="mailto:aiswarya.chennas@uni-muenster.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14. Mai 2026</p>
+      <p class="date">June 4, 2026</p>
     </div>
   </div>
   
@@ -265,283 +174,66 @@ window.Quarto = {
 </header>
 
 
-<div class="home-hero">
-<div class="hero-copy">
-<div class="home-kicker">
-<p>Quantitative Methoden in den Gesundheitswissenschaften</p>
+<div id="91971015" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyreadstat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="praktikum" class="level1">
-<h1>Praktikum</h1>
-<p>Entdecken, analysieren und interpretieren Sie reale NHANES-Daten und entwickeln Sie einen reproduzierbaren Workflow für angewandte Gesundheitsforschung.</p>
-<div class="hero-actions">
-<p><a href="./praktikum1/praktikum1.html" class="hero-button primary">Mit Praktikum 1 starten</a> <a href="./blackboard.html" class="hero-button">Blackboard öffnen</a></p>
+<div id="76c6c964" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df, meta <span class="op">=</span> pyreadstat.read_sav(<span class="st">"nhanes30.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-</div>
-<div class="hero-panel">
-<p><img src="mfm-logo.svg" class="hero-logo img-fluid" alt="Logo der Universität Münster"></p>
-<div class="qr-card">
-<div class="qr-label">
-<p>Kurslink scannen</p>
-</div>
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#003866","colorLight":"#ffffff","height":"144","text":"https://vfz-munster.github.io/wissenschafts_practicals/","width":"144"});
-  script.remove();
-})();
-</script>
-    
-<div class="qr-url">
-<p>vfz-munster.github.io</p>
+<div id="0052a51a" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>Index(['SEQN', 'nteeth', 'cal_mean', 'perio', 'perio2', 'bop', 'sex', 'age',
+       'edu', 'smk', 'smk2', 'alcg', 'height', 'weight', 'bmi', 'bmi_cat',
+       'wc', 'wc_cat', 'diab', 'mortstat', 'permth_exm', 'binär_p', 'tobac_1',
+       'tobac_2', 'ln_loss', 'alcg2', 'Former', 'Current', 'Male', 'AlcMale'],
+      dtype='object')</code></pre>
 </div>
 </div>
-</div>
-</div>
-<div class="grid home-grid">
-<section id="datenanalyse" class="level3 g-col-12 g-col-md-6 feature-card">
-<h3 class="anchored" data-anchor-id="datenanalyse">Datenanalyse</h3>
-<p>Wir verwenden Daten der <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES</a> (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.</p>
-</section>
-<section id="der-datensatz" class="level3 g-col-12 g-col-md-6 feature-card">
-<h3 class="anchored" data-anchor-id="der-datensatz">Der Datensatz</h3>
-<p>Die Daten sind in <code>nhanes30.sav</code> gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.</p>
-</section>
-</div>
-<div class="course-path">
-<div class="path-item">
-<p><strong>01</strong> SPSS einrichten und die Arbeitsumgebung vorbereiten.</p>
-</div>
-<div class="path-item">
-<p><strong>02</strong> Variablen, Metadaten und Kodierungen prüfen.</p>
-</div>
-<div class="path-item">
-<p><strong>03</strong> Gesundheitsdaten analysieren, visualisieren und interpretieren.</p>
-</div>
-</div>
-<p><br></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-.sav?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Erweiterung <code>.sav</code> kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.</p>
-</div>
-</div>
-<section id="datensatzbeschreibung" class="level3">
-<h3 class="anchored" data-anchor-id="datensatzbeschreibung">Datensatzbeschreibung</h3>
-<div id="31a9c3c0" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<!--| quarto-html-table-processing: none -->
-<table id="itables_369c6052_d9f3_4a79_8f0e_a7af7fcbcd3b"><tbody><tr>
-    <td style="vertical-align:middle; text-align:left">
-    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
-    <g style="fill:#d9d7fc">
-        <path d="M100,400H500V357H100Z"></path>
-        <path d="M100,300H400V257H100Z"></path>
-        <path d="M0,200H400V157H0Z"></path>
-        <path d="M100,100H500V57H100Z"></path>
-        <path d="M100,350H500V307H100Z"></path>
-        <path d="M100,250H400V207H100Z"></path>
-        <path d="M0,150H400V107H0Z"></path>
-        <path d="M100,50H500V7H100Z"></path>
-    </g>
-    <g style="fill:#1a1366;stroke:#1a1366;">
-   <rect x="100" y="7" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
-      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="0" y="107" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
-    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="100" y="207" width="300" height="43">
-    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
-    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="100" y="307" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
-      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
-  </rect>
-        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
-            <g transform="translate(45 50) rotate(-45)">
-                <circle r="33" cx="0" cy="0"></circle>
-                <rect x="-8" y="32" width="16" height="30"></rect>
-            </g>
-
-            <g transform="translate(450 152)">
-                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
-                <rect x="-15" y="-40" width="60" height="60"></rect>
-            </g>
-
-            <g transform="translate(50 352)">
-                <polygon points="-35,-5 0,-40 35,-5"></polygon>
-                <polygon points="-35,10 0,45 35,10"></polygon>
-            </g>
-
-            <g transform="translate(75 250)">
-                <polyline points="-30,30 -60,0 -30,-30"></polyline>
-                <polyline points="0,30 -30,0 0,-30"></polyline>
-            </g>
-
-            <g transform="translate(425 250) rotate(180)">
-                <polyline points="-30,30 -60,0 -30,-30"></polyline>
-                <polyline points="0,30 -30,0 0,-30"></polyline>
-            </g>
-        </g>
-    </g>
-</svg>
-</a>
-    Loading ITables v2.5.2 from the internet...
-    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
-    </tr></tbody></table>
-<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
-<script type="module">
-    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
-
-    document.querySelectorAll("#itables_369c6052_d9f3_4a79_8f0e_a7af7fcbcd3b:not(.dataTable)").forEach(table => {
-        if (!(table instanceof HTMLTableElement))
-            return;
-
-        let dt_args = {"dom": "Brtip", "classes": ["display", "stripe", "hover", "course-data-table"], "style": {"table-layout": "fixed", "width": "100%"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "Datensatzbeschreibung herunterladen"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "columnDefs": [{"className": "dt-left variable-column", "targets": 0, "width": "18%"}, {"className": "dt-left description-column", "targets": 1, "width": "46%"}, {"className": "dt-left values-column", "targets": 2, "width": "36%"}], "text_in_header_can_be_selected": true, "order": [], "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variablenname</th>\n      <th>Bedeutung</th>\n      <th>Auspr\u00e4gungen</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Probandennummer\", \"\"], [\"nteeth\", \"Anzahl der nat\\u00fcrlichen Z\\u00e4hne\", \"0\\u201332\"], [\"cal_mean\", \"Mittlerer Attachmentverlust\", \"mm\"], [\"perio\", \"Parodontitis (CDC\\u2013AAP Definition, Eke et al. 2012)\", \"1=None, 2=mild, 3=moderate, 4=severe\"], [\"perio2\", \"Parodontitis\", \"1=Ja, 2=Nein\"], [\"bop\", \"Bleeding on probe (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Geschlecht\", \"1=Female, 2=Male\"], [\"age\", \"Alter\", \"Jahre\"], [\"edu\", \"Bildungsniveau\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Rauchstatus\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Rauchstatus (zusammengefasst)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alkoholkonsum\", \"Gramm pro Tag\"], [\"Height\", \"K\\u00f6rpergr\\u00f6\\u00dfe\", \"cm\"], [\"Weight\", \"K\\u00f6rpergewicht\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI-Kategorien\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Taillenumfang\", \"cm\"], [\"wc_cat\", \"Taillenumfang \\u2013 Kategorien\", \"1=m:&lt;102,f:&lt;88; 2=m:\\u2265102,f:\\u226588\"], [\"diab\", \"Diabetes\", \"Ja, Nein\"], [\"mortstat\", \"Mortalit\\u00e4t\", \"1=lebend, 0=verstorben\"], [\"perm_exm\", \"Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung\", \"\"]]"};
-        new ITable(table, dt_args);
-    });
-</script>
-</div>
-</div>
-<div class="hidden">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 28%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Variablenname</strong></th>
-<th style="text-align: left;"><strong>Bedeutung</strong></th>
-<th style="text-align: left;"><strong>Ausprägungen</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">SEQN</td>
-<td style="text-align: left;">Probandennummer</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nteeth</td>
-<td style="text-align: left;">Anzahl der natürlichen Zähne</td>
-<td style="text-align: left;">0–32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cal_mean</td>
-<td style="text-align: left;">Mittlerer Attachmentverlust</td>
-<td style="text-align: left;">mm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">perio</td>
-<td style="text-align: left;">Parodontitis (CDC-AAP Definition Eke et al.&nbsp;2012)</td>
-<td style="text-align: left;">1=None, 2=mild, 3=moderate, 4=severe</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">perio2</td>
-<td style="text-align: left;">Parodontitis</td>
-<td style="text-align: left;">1=Ja, 2=Nein</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bop</td>
-<td style="text-align: left;">Bleeding on probe (World Definition, Tonetti et al.&nbsp;2018)</td>
-<td style="text-align: left;">1=None, 2=&gt;10%, 3= <span class="math inline">\(\geq\)</span> 10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">male</td>
-<td style="text-align: left;">Geschlecht</td>
-<td style="text-align: left;">1=Female, 2=Male</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: left;">Jahre</td>
-<td style="text-align: left;">Jahre</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">edu</td>
-<td style="text-align: left;">Bildungsniveau</td>
-<td style="text-align: left;">1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=≥some college</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">smk</td>
-<td style="text-align: left;">Rauchstatus</td>
-<td style="text-align: left;">1=Never, 2=Former, 3=Current</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">smk2</td>
-<td style="text-align: left;">Rauchstatus</td>
-<td style="text-align: left;">1=Never, 2=Former/Current</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">alcg</td>
-<td style="text-align: left;">Alkoholkonsum</td>
-<td style="text-align: left;">Gramm pro Tag</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Height</td>
-<td style="text-align: left;">Körpergröße</td>
-<td style="text-align: left;">cm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Weight</td>
-<td style="text-align: left;">Körpergewicht</td>
-<td style="text-align: left;">kg</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bmi</td>
-<td style="text-align: left;">Body Mass Index</td>
-<td style="text-align: left;">kg/m²</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bmi_cat</td>
-<td style="text-align: left;">BMI-Kategorien</td>
-<td style="text-align: left;">1= <span class="math inline">\(&lt;\)</span> 18.5, 2=18.5–25, 3=25–30, 4= <span class="math inline">\(\geq\)</span> 30</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">wc</td>
-<td style="text-align: left;">Taillenumfang</td>
-<td style="text-align: left;">cm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">wc_cat</td>
-<td style="text-align: left;">Taillenumfang – Kategorien</td>
-<td style="text-align: left;">1=m:<span class="math inline">\(&lt;\)</span> 102,f: <span class="math inline">\(&lt;\)</span> 88; 2=m:<span class="math inline">\(\geq\)</span> 102,f: <span class="math inline">\(\geq\)</span> 88</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">diab</td>
-<td style="text-align: left;">Diabetes</td>
-<td style="text-align: left;">Ja, Nein</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mortstat</td>
-<td style="text-align: left;">Mortalität</td>
-<td style="text-align: left;">1=lebend, 0=verstorben</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">perm_exm</td>
-<td style="text-align: left;">Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<div id="67f4032d" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuous variables to summarize. Edit this list if you want more/fewer rows.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> [</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nteeth"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cal_mean"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bop"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"age"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"height"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"weight"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bmi"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"wc"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ln_loss"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mean_ci(series):</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> pd.to_numeric(series, errors<span class="op">=</span><span class="st">"coerce"</span>).dropna()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"NA"</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> x.mean()</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>mean<span class="sc">:.2f}</span><span class="ss"> (NA, NA)"</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    se <span class="op">=</span> x.std(ddof<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> math.sqrt(n)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    lower <span class="op">=</span> mean <span class="op">-</span> <span class="fl">1.96</span> <span class="op">*</span> se</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    upper <span class="op">=</span> mean <span class="op">+</span> <span class="fl">1.96</span> <span class="op">*</span> se</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>mean<span class="sc">:.2f}</span><span class="ss"> (</span><span class="sc">{</span>lower<span class="sc">:.2f}</span><span class="ss">, </span><span class="sc">{</span>upper<span class="sc">:.2f}</span><span class="ss">)"</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> variables:</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    rows.append({</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Variable"</span>: var,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Male"</span>: mean_ci(df.loc[df[<span class="st">"sex"</span>] <span class="op">==</span> <span class="dv">2</span>, var]),</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Female"</span>: mean_ci(df.loc[df[<span class="st">"sex"</span>] <span class="op">==</span> <span class="dv">1</span>, var]),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Total"</span>: mean_ci(df[var]),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>summary_table <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>summary_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script>
@@ -692,12 +384,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Kopiert");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Kopiert");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
