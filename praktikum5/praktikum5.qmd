@@ -19,7 +19,7 @@
 *Also known as: covariate, independent, explanatory, predictor variable*
 
 -   **Type:** Continuous or Categorical
--   One (Univariate) or Multiple (Multivariate)
+-   One (Univariable) or Multiple (Multivariable)
 :::
 :::
 
@@ -27,7 +27,7 @@
 ::: {.feature-card}
 
 ### Practicum Scenario
-In this practical, we use **univariate linear regression** to study the association between:
+In this practical, we use **univariable linear regression** to study the association between:
 
 -   **Covariate:** Smoking (`smk`)
     -   *Levels:* 1=Never, 2=Former, 3=Current
