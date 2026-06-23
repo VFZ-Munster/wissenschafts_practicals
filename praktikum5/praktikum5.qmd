@@ -19,7 +19,7 @@
 *Also known as: covariate, independent, explanatory, predictor variable*
 
 -   **Type:** Continuous or Categorical
--   One (Univariate) or Multiple (Multivariate)
+-   One (Univariable) or Multiple (Multivariable)
 :::
 :::
 
