@@ -21,7 +21,7 @@ In this session, we will cover the first steps in SPSS, including the descriptiv
 📥 Download the dataset `nhanes30.sav` and open it in **SPSS** — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.
 
 ::: {.download-card}
-[Download recap for Practical 1](recap_P1.pdf){download="recap_P1.pdf"}
+[Download recap for Practical 2](recap/recap_P2.pdf){download="recap_P2.pdf"}
 :::
 
 

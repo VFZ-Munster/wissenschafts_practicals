@@ -1,3 +1,9 @@
+---
+resources:
+  - recap/normality_skewness.png
+  - recap/assets/**
+---
+
 ::: {.content-visible when-profile="english"}
 # Practical 3
 :::
@@ -8,10 +14,18 @@
 
 ::: {.content-visible when-profile="english"}
 Introduction: In this lesson, we will focus on **confidence intervals**, **normal distribution**, and **transforming variables**.
+
+::: {.download-html-card}
+[Open the recap for Practical 3](recap/index.html){target="_blank"}
+:::
 :::
 
 ::: {.content-visible when-profile="german"}
 Einleitung: In dieser Stunde geht es um **Konfidenzintervallen**, **Normalverteilung** und **Transformieren von Variablen**.
+
+::: {.download-html-card}
+[Zusammenfassung aus Praktikum 3 öffnen](recap/index.html){target="_blank"}
+:::
 :::
 
 ::: {.content-visible when-profile="english"}
