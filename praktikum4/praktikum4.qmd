@@ -1,7 +1,7 @@
 ---
 title: "Untitled"
 format: html
-editor: visual
+editor: source
 ---
 
 ::: {.content-visible when-profile="english"}
@@ -14,10 +14,24 @@ editor: visual
 
 ::: {.content-visible when-profile="english"}
 Introduction: In this lesson, we will focus on **one-sample t-test**, **p-values**,**Mann Whitney U Test** and **Chi-square test**.
+
+::: {.download-card}
+[Download recap for Practical 4](recap/Practical4.pdf){download="recap_P4.pdf"}
 :::
+
+
+:::
+
+
 
 ::: {.content-visible when-profile="german"}
 Einleitung: In dieser Stunde geht es um **t-Test für eine Stichprobe**, **p-Werte**, **U-Test von Mann und Whitney** und **Chi²-Vierfeldertest**.
+
+
+::: {.download-card}
+[Zusammenfassung aus Praktikum 4 herunterladen](recap/Practical4.pdf){download="recap_P4.pdf"}
+:::
+
 :::
 
 :::: {.content-visible when-profile="english"}
