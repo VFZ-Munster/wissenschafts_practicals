@@ -45,7 +45,7 @@ In this practical, we use **univariable linear regression** to study the associa
 # Praktikum 5: Lineare Regression
 :::
 
-::: {.content-visible when-profile="english"}
+:::: {.content-visible when-profile="english"}
 ## Exercise 1: Univariable Analysis
 
 ### Exercise 1.1 Dummy Variables
@@ -78,9 +78,9 @@ Since the smoking variable has three levels, the first step is to create dummy v
 
 **Note:** Ensure `Measure` is Nominal in Variable View, Decimals is set to 0, and Change Values to 0 = "Current/none" and 1 = "Former".
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
 <video width="640" height="480" controls style="margin-top: 20px; display: block;">
   <source src="video1.mp4" type="video/mp4">
@@ -108,9 +108,9 @@ Your browser does not support the video tag.
 
 <span class="text-steps">Step 3: </span> Choose `Former` and `Current` under Block 1 of 1 (Independent variables).
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Formula-Time-red"></summary>
+<summary>Formula</summary>
 
 The linear regression model is defined as:
 
@@ -122,9 +122,9 @@ where $\beta_0$ is the intercept term and represents the value corresponding to 
 
 Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher `cal_mean` measurement than former smokers?: ✅ Interpret the results
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
 |Model | Meaning |Coefficient|p-value|Lower CI|Upper CI|Interpretation|
 |---|-----------|---|---|---|---|--------------|
@@ -176,23 +176,35 @@ Check whether `cal_mean` or `ln_loss` are normally distributed, graphically and 
 
 <span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results Cal mean-green"></summary>
+<summary>Task results: cal_mean</summary>
 
-![Histogram of the distribution of mean attachment loss](hist_cal.png){width="60%"}
+::: {.result-figure-grid}
+::: {.result-figure}
+![Histogram of the distribution of mean attachment loss](hist_cal.png)
+:::
 
-![Q-Q plot of the distribution of mean attachment loss](qq_cal.png){width="60%"}
+::: {.result-figure}
+![Q-Q plot of the distribution of mean attachment loss](qq_cal.png)
+:::
+:::
 
 </details>
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results ln loss-green"></summary>
+<summary>Task results: ln_loss</summary>
 
-![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png){width="60%"}
+::: {.result-figure-grid}
+::: {.result-figure}
+![Histogram of the distribution of the natural logarithm of attachment loss](hist_ln_loss.png)
+:::
 
-![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png){width="60%"}
+::: {.result-figure}
+![Q-Q plot of the distribution of the natural logarithm of attachment loss](qq_ln_loss.png)
+:::
+:::
 
 </details>
 
@@ -222,15 +234,23 @@ Double click graph >> Add Fit Line at Total >> Select Linear.
 
 Create another graph for `height` and `weight`. Compare the two. Which one shows a linear relationship?
 
-<details>
+<details class="result-panel">
 
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<summary>Task results</summary>
 
-![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png){width="60%"}
+::: {.result-figure-grid}
+::: {.result-figure}
+![Scatter plot ln_loss vs alcg](scatter_alc_ln_loss.png)
+:::
 
-![Scatter plot ln_loss vs height](scatter_height_ln_loss.png){width="60%"}
+::: {.result-figure}
+![Scatter plot ln_loss vs height](scatter_height_ln_loss.png)
+:::
 
-![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png){width="60%"}
+::: {.result-figure .wide}
+![Scatter plot ln_loss vs weight](scatter_weight_ln_loss.png)
+:::
+:::
 
 </details>
 
@@ -311,8 +331,8 @@ Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and 
 
 ![](linear_regression5.png){width="35%" fig-align="center"}
 
-<details>
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<details class="result-panel">
+<summary>Task results</summary>
 
 ![](test_homoscedasticity.png){width="40%" fig-align="center"}
 
@@ -347,15 +367,20 @@ Introduce an interaction term between gender (`sex`) and alcohol consumption (`a
 
 Assign the value 1 to the variable `male` and the value 0 to the variable `female`.
 
-```{=html}
+::: {.result-figure-grid}
+::: {.result-figure}
+![Select the source and target variables](create_male1.png)
+:::
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-    <img src="create_male1.png" width="30%">
-    <img src="create_male2.png" width="30%">
-    <img src="create_male3.png" width="20%">
-</div>
-```
-<br>
+::: {.result-figure}
+![Configure the recoding values](create_male2.png)
+:::
+
+::: {.result-figure}
+![Confirm the new dummy variable](create_male3.png)
+:::
+:::
+
 **2. Create interaction variable (`AlcMale`):**
 
 💡 Remember in SPSS:
@@ -397,8 +422,8 @@ In the **Numeric Expression** field, type `alcg * male`.
 
 Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \epsilon_i$
 
-<details>
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Results-green"></summary>
+<details class="result-panel">
+<summary>Task results</summary>
 
 ![](linear_multivariable_result.png){width="50%" fig-align="center"}
 
@@ -418,8 +443,8 @@ Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \ep
 
 </details>
 
-<details>
-<summary><img alt="Static Badge" src="https://img.shields.io/badge/Task-Additional Interpretation-green"></summary>
+<details class="result-panel">
+<summary>Additional interpretation</summary>
 
 Consider:
 
@@ -436,3 +461,5 @@ The CAL for a female that consumes 0g of alcohol is:
 $0.851 + 0.336 * 0 + 0.004 * 0 + 0.002 * 0 * 0 = 0.851$
 
 </details>
+
+
