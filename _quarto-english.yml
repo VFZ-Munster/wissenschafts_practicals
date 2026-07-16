@@ -44,15 +44,13 @@ website:
         text: Practical 2
       - href: praktikum3/praktikum3.qmd
         text: Practical 3
-      - href: pvalue.qmd
-        text: "p-value"
       - href: praktikum4/praktikum4.qmd
         text: Practical 4
       - href: praktikum5/praktikum5.qmd
         text: Practical 5
-#      - href: 
-#        text: Practical 6
- #     - href: 
+      - href: praktikum6/praktikum6.qmd
+        text: Practical 6
+ #     - href:
  #       text: Practical 7
       - href: blackboard.qmd
         text: "Blackboard"

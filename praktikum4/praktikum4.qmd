@@ -1,5 +1,4 @@
 ---
-title: "Untitled"
 format: html
 editor: source
 ---
@@ -19,6 +18,9 @@ Introduction: In this lesson, we will focus on **one-sample t-test**, **p-values
 [Download recap for Practical 4](recap/Practical4.pdf){download="recap_P4.pdf"}
 :::
 
+::: {.download-html-card}
+[Open the p-value explainer](../pvalue.qmd){target="_blank"}
+:::
 
 :::
 
@@ -30,6 +32,10 @@ Einleitung: In dieser Stunde geht es um **t-Test für eine Stichprobe**, **p-Wer
 
 ::: {.download-card}
 [Zusammenfassung aus Praktikum 4 herunterladen](recap/Practical4.pdf){download="recap_P4.pdf"}
+:::
+
+::: {.download-html-card}
+[p-Wert-Erklärung öffnen](../pvalue.qmd){target="_blank"}
 :::
 
 :::

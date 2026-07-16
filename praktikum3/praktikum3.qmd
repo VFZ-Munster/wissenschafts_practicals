@@ -18,6 +18,10 @@ Introduction: In this lesson, we will focus on **confidence intervals**, **norma
 ::: {.download-html-card}
 [Open the recap for Practical 3](recap/index.html){target="_blank"}
 :::
+
+::: {.download-html-card}
+[Open the confidence interval explainer](../confidence_interval.qmd){target="_blank"}
+:::
 :::
 
 ::: {.content-visible when-profile="german"}
@@ -25,6 +29,10 @@ Einleitung: In dieser Stunde geht es um **Konfidenzintervallen**, **Normalvertei
 
 ::: {.download-html-card}
 [Zusammenfassung aus Praktikum 3 öffnen](recap/index.html){target="_blank"}
+:::
+
+::: {.download-html-card}
+[Konfidenzintervall-Erklärung öffnen](../confidence_interval.qmd){target="_blank"}
 :::
 :::
 
@@ -130,6 +138,7 @@ b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichp
  ✓ `b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.`
 
 </details>
+
 :::
 
 
