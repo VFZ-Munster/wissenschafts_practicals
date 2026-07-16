@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Odds &amp; Ends of Logistic Regression — Interactive Recap</title>
+<meta name="description" content="An interactive, playful recap of Practical 6: logistic regression, from linear-model limits to ROC curves, with sliders instead of static slides."/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%88%3C/text%3E%3C/svg%3E"/>
+</head>
+<body>
+<style>
+  :root{
+    --paper:#EFF1EA;
+    --paper-raised:#FFFFFF;
+    --paper-sunken:#E2E6DC;
+    --ink:#16211B;
+    --ink-soft:#48564D;
+    --ink-faint:#7E8B81;
+    --line:rgba(22,33,27,.14);
+    --accent:#1F6E4A;
+    --accent-ink:#FFFFFF;
+    --gold:#D9A441;
+    --gold-ink:#7A551A;
+    --class0:#1F5FA8;
+    --class1:#C4563A;
+    --radius:14px;
+    --shadow-sm:0 1px 2px rgba(22,33,27,.08);
+    --shadow-md:0 14px 34px rgba(22,33,27,.10);
+    --font-display:"Iowan Old Style","Palatino Linotype",Palatino,"URW Palladio",Georgia,serif;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --content-w:720px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#101B15;
+      --paper-raised:#17251D;
+      --paper-sunken:#0C1510;
+      --ink:#EDEFE7;
+      --ink-soft:#B7C2B6;
+      --ink-faint:#7F9086;
+      --line:rgba(237,239,231,.16);
+      --accent:#4CAF7D;
+      --accent-ink:#0B140F;
+      --gold:#E8C170;
+      --gold-ink:#E8C170;
+      --class0:#4F9BCE;
+      --class1:#D9714D;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.35);
+      --shadow-md:0 14px 34px rgba(0,0,0,.4);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#101B15; --paper-raised:#17251D; --paper-sunken:#0C1510;
+    --ink:#EDEFE7; --ink-soft:#B7C2B6; --ink-faint:#7F9086;
+    --line:rgba(237,239,231,.16); --accent:#4CAF7D; --accent-ink:#0B140F;
+    --gold:#E8C170; --gold-ink:#E8C170; --class0:#4F9BCE; --class1:#D9714D;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.35); --shadow-md:0 14px 34px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+  :root[data-theme="light"]{
+    --paper:#EFF1EA; --paper-raised:#FFFFFF; --paper-sunken:#E2E6DC;
+    --ink:#16211B; --ink-soft:#48564D; --ink-faint:#7E8B81;
+    --line:rgba(22,33,27,.14); --accent:#1F6E4A; --accent-ink:#FFFFFF;
+    --gold:#D9A441; --gold-ink:#7A551A; --class0:#1F5FA8; --class1:#C4563A;
+    --shadow-sm:0 1px 2px rgba(22,33,27,.08); --shadow-md:0 14px 34px rgba(22,33,27,.10);
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box;}
+  svg{display:block;max-width:100%;height:auto;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--gold); color:var(--gold-ink); }
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:var(--font-display); text-wrap:balance; font-weight:600; }
+  button{ font:inherit; }
+  input[type="range"]{ accent-color:var(--accent); }
+
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:2px; border-radius:4px; }
+
+  .page{ max-width:1040px; margin:0 auto; padding:0 20px 80px; }
+
+  /* ---------- progress + nav ---------- */
+  .progress-track{ position:sticky; top:0; z-index:40; height:3px; background:transparent; }
+  .progress-fill{ height:100%; width:0%; background:var(--gold); transition:width .08s linear; }
+
+  .topnav{
+    position:sticky; top:3px; z-index:39;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; gap:10px;
+    padding:10px 20px;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .topnav::-webkit-scrollbar{ display:none; }
+  .topnav .brand{
+    font-family:var(--font-display); font-style:italic; font-weight:600;
+    font-size:1rem; white-space:nowrap; margin-right:6px; color:var(--ink-soft);
+  }
+  .navchip{
+    flex:0 0 auto;
+    width:30px; height:30px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:.78rem; font-variant-numeric:tabular-nums;
+    color:var(--ink-soft); text-decoration:none;
+    border:1px solid var(--line); background:var(--paper-raised);
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .navchip:hover{ border-color:var(--accent); color:var(--accent); }
+  .navchip.summary{ width:auto; padding:0 12px; border-radius:15px; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:56px 0 40px;
+    display:grid; gap:28px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 6vw, 3.8rem);
+    font-style:italic;
+    line-height:1.04;
+    margin:.3em 0 .2em;
+    max-width:14ch;
+  }
+  .hero .lede{
+    font-size:1.1rem; color:var(--ink-soft); max-width:52ch;
+  }
+  .goal-box{
+    border-left:3px solid var(--gold);
+    background:var(--paper-raised);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 18px;
+    box-shadow:var(--shadow-sm);
+    max-width:56ch;
+    font-size:.95rem;
+  }
+  .goal-box b{ color:var(--gold-ink); }
+  .hero-curve{
+    justify-self:center;
+    width:100%;
+    max-width:520px;
+  }
+  .hero-curve path.curve{
+    stroke-dasharray:900;
+    stroke-dashoffset:0;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero-curve path.curve{
+      animation:draw 1.8s ease-out forwards;
+    }
+    @keyframes draw{ from{ stroke-dashoffset:900; } to{ stroke-dashoffset:0; } }
+  }
+
+  /* ---------- chapters ---------- */
+  .chapter{
+    max-width:var(--content-w);
+    margin:0 auto;
+    padding:56px 0;
+    border-top:1px solid var(--line);
+    scroll-margin-top:74px;
+  }
+  .chapter-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:18px; }
+  .chapter-num{
+    font-family:var(--font-mono); font-size:.85rem; color:var(--paper);
+    background:var(--accent); width:28px; height:28px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+    font-variant-numeric:tabular-nums;
+  }
+  .chapter-head h2{ font-size:clamp(1.35rem,2.6vw,1.75rem); margin:0; }
+  .chapter-body p{ margin:0 0 1em; }
+  .chapter-body ul{ margin:0 0 1em; padding-left:1.3em; }
+  .chapter-body li{ margin-bottom:.4em; }
+
+  .callout{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:0 var(--radius) var(--radius) 0;
+    padding:14px 18px;
+    margin:1.2em 0;
+    font-size:.96rem;
+  }
+  .callout.gold{ border-left-color:var(--gold); }
+  .callout b{ color:var(--ink); }
+  details.callout{ padding:14px 18px; }
+  details.callout summary{
+    cursor:pointer; font-weight:600; color:var(--ink); list-style:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  details.callout summary::-webkit-details-marker{ display:none; }
+  details.callout summary::before{
+    content:"▸"; display:inline-block; color:var(--gold-ink);
+    transition:transform .15s ease; flex:0 0 auto;
+  }
+  details.callout[open] summary::before{ transform:rotate(90deg); }
+  details.callout[open] summary{ margin-bottom:4px; }
+
+  .tag-row{ display:flex; flex-wrap:wrap; gap:8px; margin:1em 0; }
+  .tag{
+    font-family:var(--font-mono); font-size:.78rem;
+    border:1px solid var(--line); border-radius:20px;
+    padding:4px 12px; color:var(--ink-soft); background:var(--paper-raised);
+  }
+
+  /* ---------- term chips ---------- */
+  .term{
+    position:relative;
+    border-bottom:1.5px dotted var(--gold);
+    cursor:help;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .term .tip{
+    position:absolute; left:50%; bottom:calc(100% + 10px); transform:translateX(-50%) translateY(4px);
+    width:max-content; max-width:min(300px,78vw);
+    background:var(--ink); color:var(--paper);
+    font-family:var(--font-body); font-weight:400; font-size:.85rem; line-height:1.45;
+    padding:10px 12px; border-radius:8px;
+    box-shadow:var(--shadow-md);
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .15s ease, transform .15s ease;
+    z-index:30;
+    text-transform:none; letter-spacing:normal;
+  }
+  .term .tip::after{
+    content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%);
+    border:6px solid transparent; border-top-color:var(--ink);
+  }
+  .term:hover .tip, .term:focus .tip, .term.open .tip{
+    opacity:1; visibility:visible; transform:translateX(-50%) translateY(0);
+  }
+
+  /* ---------- equations ---------- */
+  .equation{
+    font-family:var(--font-display); font-size:1.25rem;
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 22px; margin:1.2em 0;
+    display:flex; flex-wrap:wrap; align-items:center; gap:.4em .5em;
+    box-shadow:var(--shadow-sm);
+  }
+  .equation .op{ color:var(--ink-faint); }
+  .equation .frac{ display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; margin:0 .15em; font-size:.92em; }
+  .equation .frac .num{ border-bottom:1.5px solid currentColor; padding:0 .25em .06em; }
+  .equation .frac .denom{ padding:.06em .25em 0; }
+
+  /* ---------- interactive chart card ---------- */
+  .chart-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 20px 22px;
+    margin:1.4em 0;
+    box-shadow:var(--shadow-sm);
+  }
+  .try-it{
+    font-family:var(--font-mono); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold-ink); font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:6px;
+  }
+  .try-it::before{ content:""; width:6px; height:6px; border-radius:50%; background:var(--gold); display:inline-block; }
+  .legend{ display:flex; flex-wrap:wrap; gap:6px 16px; font-family:var(--font-mono); font-size:.78rem; color:var(--ink-soft); margin-bottom:10px; }
+  .legend .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:6px; }
+  .legend .line{ width:14px; height:2px; display:inline-block; margin-right:6px; vertical-align:middle; }
+
+  .control-row{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; margin-top:14px; }
+  .control-row label{ font-family:var(--font-mono); font-size:.8rem; color:var(--ink-soft); white-space:nowrap; }
+  .control-row input[type="range"]{ flex:1 1 180px; min-width:140px; }
+  .btn{
+    font-family:var(--font-mono); font-size:.78rem;
+    border:1px solid var(--accent); color:var(--accent); background:transparent;
+    border-radius:20px; padding:7px 14px; cursor:pointer; transition:background .15s,color .15s;
+  }
+  .btn:hover{ background:var(--accent); color:var(--accent-ink); }
+
+  .readouts{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:14px; font-family:var(--font-mono); font-size:.86rem; font-variant-numeric:tabular-nums; }
+  .readouts .rk{ color:var(--ink-faint); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:2px; }
+  .readouts .rv{ font-size:1.05rem; color:var(--ink); }
+  .readouts .rv.warn{ color:var(--class1); }
+  .warnbadge{
+    display:inline-block; margin-left:8px; font-family:var(--font-mono); font-size:.68rem;
+    background:var(--class1); color:#fff; padding:2px 8px; border-radius:10px;
+    visibility:hidden;
+  }
+
+  /* ---------- takehome ---------- */
+  .takehome-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:20px; }
+  .th-card{
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 18px; box-shadow:var(--shadow-sm);
+  }
+  .th-card .th-num{ font-family:var(--font-mono); color:var(--gold-ink); font-size:.78rem; font-weight:700; }
+  .th-card p.official{ font-family:var(--font-display); font-size:1.05rem; margin:.4em 0 .5em; }
+  .th-card p.gloss{ color:var(--ink-soft); font-size:.86rem; font-style:italic; margin:0; }
+
+  /* ---------- assumptions checklist ---------- */
+  .checklist{ list-style:none; margin:1em 0; padding:0; display:grid; gap:10px; }
+  .checklist li{ display:flex; gap:10px; align-items:flex-start; font-size:.96rem; }
+  .checklist svg{ flex:0 0 auto; margin-top:3px; }
+
+  footer.page-footer{
+    max-width:var(--content-w); margin:40px auto 0; padding-top:24px; border-top:1px solid var(--line);
+    color:var(--ink-faint); font-size:.82rem; font-family:var(--font-mono);
+  }
+
+  @media (min-width:760px){
+    .hero{ grid-template-columns:1.1fr .9fr; align-items:center; padding:72px 0 56px; }
+    .hero-copy{ grid-column:1; }
+    .hero-curve{ grid-column:2; }
+  }
+</style>
+
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+<nav class="topnav" aria-label="Chapters">
+  <span class="brand">Odds&nbsp;&amp;&nbsp;Ends</span>
+  <a class="navchip" href="#ch1" title="Why not linear regression?">1</a>
+  <a class="navchip" href="#ch2" title="Probability, odds, log-odds">2</a>
+  <a class="navchip" href="#ch3" title="The model">3</a>
+  <a class="navchip" href="#ch4" title="Interpreting coefficients">4</a>
+  <a class="navchip" href="#ch5" title="OR is not a risk ratio">5</a>
+  <a class="navchip" href="#ch6" title="Estimation and uncertainty">6</a>
+  <a class="navchip" href="#ch7" title="Prediction vs. classification">7</a>
+  <a class="navchip" href="#ch8" title="Model performance and assumptions">8</a>
+  <a class="navchip summary" href="#summary" title="Take-home messages">Summary</a>
+</nav>
+
+<div class="page">
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Practical 6 · a recap you can nudge</div>
+      <h1>Odds &amp; Ends of Logistic Regression</h1>
+      <p class="lede">The bridge from linear to logistic regression, in eight short stops. Drag the sliders — the curves talk back.</p>
+      <div class="goal-box"><b>Learning goal:</b> understand why logistic regression is used for binary outcomes, and how to interpret its coefficients.</div>
+    </div>
+    <svg class="hero-curve" viewBox="0 0 400 240" role="img" aria-label="An S-shaped logistic curve rising from 0 to 1">
+      <line x1="30" y1="30" x2="30" y2="210" stroke="var(--line)" stroke-width="1"/>
+      <line x1="30" y1="210" x2="380" y2="210" stroke="var(--line)" stroke-width="1"/>
+      <line x1="30" y1="30" x2="380" y2="30" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 5"/>
+      <path class="curve" d="M40,205 C120,205 150,205 175,150 C200,95 210,35 340,35" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="40" cy="205" r="4" fill="var(--class0)"/>
+      <circle cx="340" cy="35" r="4" fill="var(--class1)"/>
+      <text x="14" y="214" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">0</text>
+      <text x="14" y="38" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">1</text>
+      <text x="330" y="228" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">η</text>
+    </svg>
+  </section>
+
+  <!-- CHAPTER 1 -->
+  <section class="chapter" id="ch1">
+    <div class="chapter-head"><span class="chapter-num">1</span><h2>Why not just use linear regression?</h2></div>
+    <div class="chapter-body">
+      <p>Start with what you already know: fit a straight line, read off predictions. For a binary outcome — <span class="term" tabindex="0">Y ∈ {0, 1}<span class="tip">The outcome only ever takes two values: 0 (event did not happen) or 1 (event happened).</span></span> — that straight line runs into trouble. Push the predictor far enough in either direction and it happily predicts probabilities below 0 or above 1. Real probabilities don't do that.</p>
+      <ul>
+        <li>fitted values may be below 0 or above 1;</li>
+        <li>residuals are not normally distributed;</li>
+        <li>variance is not constant;</li>
+        <li>classification may be unstable.</li>
+      </ul>
+      <p>The problem isn't that a straight line <em>can't</em> be fitted — it's that it doesn't naturally respect the probability scale.</p>
+    </div>
+    <div class="chart-card">
+      <details class="callout" style="margin-top:0;">
+        <summary>How each prediction below is actually computed</summary>
+        <div style="margin-top:8px; display:grid; gap:6px; font-family:var(--font-mono); font-size:.86rem;">
+          <div>Linear model &nbsp;prediction <span class="op">=</span> <span class="term" tabindex="0">η<span class="tip">The linear predictor: η = β₀ + β₁x₁ + ⋯ + βₖxₖ. It's just a weighted sum of predictors — could be any real number, positive or negative. Both models below start from this same η.</span></span><span class="op"> — read straight off, </span><span class="term" tabindex="0">no conversion<span class="tip">The linear probability model skips the logit step entirely. Whatever number η comes out to is treated as "the probability" — even if it's −0.4 or 1.8.</span></span>.</div>
+          <div>Logistic model prediction <span class="op">=</span> p <span class="op">=</span> <span class="term" tabindex="0">exp(η)<span class="tip">The same η from above — here it gets exponentiated as step one of squashing it into (0, 1).</span></span> / (1 + exp(η))<span class="op"> — the </span><span class="term" tabindex="0">inverse-logit<span class="tip">Also called the logistic (sigmoid) function. This is the transform that guarantees the output always lands strictly between 0 and 1, no matter how extreme η is.</span></span><span class="op"> transform.</span></div>
+        </div>
+      </details>
+      <div class="try-it">Try it — slide the predictor</div>
+      <div class="legend">
+        <span><span class="line" style="background:var(--ink-faint); border-top:2px dashed var(--ink-faint); background:transparent;"></span>Linear probability model</span>
+        <span><span class="dot" style="background:var(--accent);"></span>Logistic regression (the S-curve)</span>
+      </div>
+      <svg id="ch1-chart" viewBox="0 0 640 300" role="img" aria-label="Linear model versus logistic model across the linear predictor">
+        <line x1="48" y1="217.5" x2="624" y2="217.5" stroke="var(--line)" stroke-dasharray="2 5"/>
+        <line x1="48" y1="62.5" x2="624" y2="62.5" stroke="var(--line)" stroke-dasharray="2 5"/>
+        <text x="52" y="213" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">p = 0</text>
+        <text x="52" y="58" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">p = 1</text>
+        <line x1="48" y1="16" x2="48" y2="264" stroke="var(--line)"/>
+        <line x1="48" y1="264" x2="624" y2="264" stroke="var(--line)"/>
+        <path d="M48.0,250.0 L60.0,245.4 L72.0,240.8 L84.0,236.1 L96.0,231.4 L108.0,226.8 L120.0,222.2 L132.0,217.5 L144.0,212.8 L156.0,208.2 L168.0,203.6 L180.0,198.9 L192.0,194.3 L204.0,189.6 L216.0,184.9 L228.0,180.3 L240.0,175.6 L252.0,171.0 L264.0,166.4 L276.0,161.7 L288.0,157.1 L300.0,152.4 L312.0,147.8 L324.0,143.1 L336.0,138.4 L348.0,133.8 L360.0,129.1 L372.0,124.5 L384.0,119.9 L396.0,115.2 L408.0,110.6 L420.0,105.9 L432.0,101.3 L444.0,96.6 L456.0,92.0 L468.0,87.3 L480.0,82.7 L492.0,78.0 L504.0,73.4 L516.0,68.7 L528.0,64.0 L540.0,59.4 L552.0,54.8 L564.0,50.1 L576.0,45.5 L588.0,40.8 L600.0,36.2 L612.0,31.5 L624.0,26.9" fill="none" stroke="var(--ink-faint)" stroke-width="2" stroke-dasharray="7 5"/>
+        <path d="M48.0,216.8 L60.0,216.6 L72.0,216.4 L84.0,216.1 L96.0,215.7 L108.0,215.3 L120.0,214.7 L132.0,214.0 L144.0,213.2 L156.0,212.1 L168.0,210.8 L180.0,209.2 L192.0,207.3 L204.0,204.9 L216.0,202.0 L228.0,198.6 L240.0,194.6 L252.0,189.8 L264.0,184.3 L276.0,178.1 L288.0,171.1 L300.0,163.5 L312.0,155.3 L324.0,146.8 L336.0,138.1 L348.0,129.4 L360.0,121.0 L372.0,113.1 L384.0,105.7 L396.0,99.1 L408.0,93.2 L420.0,88.0 L432.0,83.6 L444.0,79.8 L456.0,76.6 L468.0,74.0 L480.0,71.8 L492.0,70.0 L504.0,68.6 L516.0,67.4 L528.0,66.4 L540.0,65.7 L552.0,65.0 L564.0,64.5 L576.0,64.1 L588.0,63.8 L600.0,63.5 L612.0,63.3 L624.0,63.2" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <line id="ch1-vline" x1="336" y1="16" x2="336" y2="264" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle id="ch1-lin-dot" cx="336" cy="138.4" r="5.5" fill="var(--ink-faint)"/>
+        <circle id="ch1-log-dot" cx="336" cy="138.1" r="5.5" fill="var(--accent)"/>
+        <text x="55" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">−6</text>
+        <text x="600" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">6</text>
+        <text x="330" y="280" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">η = 0</text>
+      </svg>
+      <div class="control-row">
+        <label for="ch1-range">Linear predictor <span class="term" tabindex="0">η<span class="tip">η = β₀ + β₁x₁ + ⋯ — the linear combination of predictors. This slider lets you pick any value of η directly and see what each model does with it.</span></span></label>
+        <input type="range" id="ch1-range" min="-6" max="6" step="0.1" value="0"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">Linear model predicts</span><span class="rv" id="ch1-lin-val">0.51</span><span class="warnbadge" id="ch1-warn">outside 0–1</span></div>
+        <div><span class="rk">Logistic model predicts</span><span class="rv" id="ch1-log-val">0.51</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 2 -->
+  <section class="chapter" id="ch2">
+    <div class="chapter-head"><span class="chapter-num">2</span><h2>Probability, odds, and log-odds</h2></div>
+    <div class="chapter-body">
+      <p>Three ways to say the same thing about chance. <span class="term" tabindex="0">Probability<span class="tip">How likely the event is, from 0 (never) to 1 (always).</span></span> lives on [0, 1]. <span class="term" tabindex="0">Odds<span class="tip">How many times more likely the event is to happen than not to happen: p / (1 − p).</span></span> live on [0, ∞). <span class="term" tabindex="0">Log-odds<span class="tip">The natural logarithm of the odds — also called the logit.</span></span> stretch that out to (−∞, +∞), which is conveniently exactly the range a straight line can cover.</p>
+      <div class="equation">
+        <span>Odds</span><span class="op">=</span>
+        <span class="frac"><span class="num">p</span><span class="denom">1 − p</span></span>
+        <span class="op">&nbsp;&nbsp;&nbsp;Log-odds</span><span class="op">=</span>
+        <span>log<span class="frac"><span class="num">p</span><span class="denom">1 − p</span></span></span>
+      </div>
+      <p>Move the probability slider below and watch odds and log-odds follow along. p = 0.50 is the anchor: odds = 1, log-odds = 0.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — slide the probability</div>
+      <svg id="ch2-chart" viewBox="0 0 640 110" role="img" aria-label="Number line of log-odds from minus 4 to 4">
+        <line x1="40" y1="55" x2="600" y2="55" stroke="var(--line)" stroke-width="2"/>
+        <line x1="320" y1="42" x2="320" y2="68" stroke="var(--ink-faint)" stroke-width="1.5"/>
+        <text x="308" y="88" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">0 (p = .50)</text>
+        <text x="34" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">−4</text>
+        <text x="590" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">+4</text>
+        <circle id="ch2-dot" cx="320" cy="55" r="7" fill="var(--gold)" stroke="var(--paper-raised)" stroke-width="2"/>
+      </svg>
+      <div class="control-row">
+        <label for="ch2-range">Probability p</label>
+        <input type="range" id="ch2-range" min="0.02" max="0.98" step="0.01" value="0.5"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">Probability</span><span class="rv" id="ch2-p">0.50</span></div>
+        <div><span class="rk">Odds</span><span class="rv" id="ch2-odds">1.00</span></div>
+        <div><span class="rk">Log-odds (logit)</span><span class="rv" id="ch2-logodds">0.00</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 3 -->
+  <section class="chapter" id="ch3">
+    <div class="chapter-head"><span class="chapter-num">3</span><h2>The model itself</h2></div>
+    <div class="chapter-body">
+      <p>Hover the pieces below — the right-hand side is the very same linear predictor from multiple linear regression.</p>
+      <div class="equation">
+        <span class="term" tabindex="0">logit(p)<span class="tip">log[p / (1 − p)] — the log-odds of the outcome. This is what's linear, not p itself.</span></span>
+        <span class="op">=</span>
+        <span class="term" tabindex="0">β₀<span class="tip">The intercept — the log-odds when every predictor equals 0.</span></span>
+        <span class="op">+</span>
+        <span class="term" tabindex="0">β₁x₁<span class="tip">Slope β₁ times predictor x₁ — its contribution to the log-odds.</span></span>
+        <span class="op">+ ⋯ +</span>
+        <span class="term" tabindex="0">βₖxₖ<span class="tip">The same idea for the k-th predictor.</span></span>
+      </div>
+      <p>This is a <span class="term" tabindex="0">generalised linear model<span class="tip">A model where a transformed version of the outcome — not the outcome itself — is linear in the predictors.</span></span>: the outcome follows a <span class="term" tabindex="0">binomial distribution<span class="tip">The distribution for a 0/1 outcome with a fixed success probability.</span></span>, the <span class="term" tabindex="0">logit<span class="tip">The link function connecting probability to the linear predictor.</span></span> is the link function, and everything else about fitting a "linear" model stays the same — just on a different scale.</p>
+      <p>The inverse transformation turns the linear predictor back into a probability:</p>
+      <div class="equation">
+        <span>p</span><span class="op">=</span>
+        <span class="frac"><span class="num"><span class="term" tabindex="0">exp(η)<span class="tip">η here is the same linear predictor defined to the right (η = β₀ + β₁x₁ + ⋯). Exponentiating it is the first step of turning log-odds back into a probability.</span></span></span><span class="denom">1 + exp(η)</span></span>
+        <span class="op">,&nbsp;&nbsp;&nbsp;η</span><span class="op">=</span>
+        <span class="term" tabindex="0">β₀ + β₁x₁ + ⋯ + βₖxₖ<span class="tip">The linear predictor — exactly the right-hand side above.</span></span>
+      </div>
+      <div class="callout gold"><b>Key idea:</b> the model is linear on the <b>log-odds</b> scale, not on the probability scale.</div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 4 -->
+  <section class="chapter" id="ch4">
+    <div class="chapter-head"><span class="chapter-num">4</span><h2>Reading the coefficients</h2></div>
+    <div class="chapter-body">
+      <p>A coefficient β<sub>j</sub> is the change in <b>log-odds</b> for a one-unit increase in x<sub>j</sub>, holding everything else constant. Exponentiate it and you get something far more speakable: an <span class="term" tabindex="0">odds ratio<span class="tip">exp(β_j) — how many times higher (or lower) the odds are, per one-unit increase in the predictor.</span></span>.</p>
+      <div class="equation">OR<sub>j</sub> <span class="op">=</span> exp(β<sub>j</sub>)</div>
+      <p>Try a coefficient below and watch the odds ratio react.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — slide the coefficient</div>
+      <svg id="ch4-chart" viewBox="0 0 640 130" role="img" aria-label="Gauge from coefficient to odds ratio">
+        <rect x="40" y="60" width="560" height="14" rx="7" fill="var(--paper-sunken)"/>
+        <rect id="ch4-fill" x="320" y="60" width="0" height="14" rx="7" fill="var(--ink-faint)"/>
+        <line x1="320" y1="50" x2="320" y2="84" stroke="var(--ink-faint)" stroke-width="1.5"/>
+        <circle id="ch4-dot" cx="320" cy="67" r="9" fill="var(--paper-raised)" stroke="var(--ink)" stroke-width="2.5"/>
+        <text x="34" y="110" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">β = −2</text>
+        <text x="300" y="110" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">β = 0 (OR = 1)</text>
+        <text x="565" y="110" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">β = +2</text>
+      </svg>
+      <div class="control-row">
+        <label for="ch4-range">Coefficient β</label>
+        <input type="range" id="ch4-range" min="-2" max="2" step="0.05" value="0"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">β</span><span class="rv" id="ch4-beta">+0.00</span></div>
+        <div><span class="rk">Odds ratio exp(β)</span><span class="rv" id="ch4-or">1.00</span></div>
+        <div><span class="rk">Reads as</span><span class="rv" id="ch4-sentence">No difference in odds (OR = 1).</span></div>
+      </div>
+    </div>
+    <div class="callout"><b>Example:</b> OR = 1.30 means 30% higher odds — <em>not necessarily</em> a 30% higher probability. That distinction is the whole next chapter.</div>
+  </section>
+
+  <!-- CHAPTER 5 -->
+  <section class="chapter" id="ch5">
+    <div class="chapter-head"><span class="chapter-num">5</span><h2>Odds ratios are not risk ratios</h2></div>
+    <div class="chapter-body">
+      <p>The same odds ratio can correspond to very different changes in probability, depending on the baseline risk. Pick a baseline below and see how a doubling of the odds (OR = 2) plays out in absolute terms.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — slide the baseline risk</div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--accent);"></span>Reference</span>
+        <span><span class="dot" style="background:var(--gold);"></span>Exposure with OR = 2</span>
+      </div>
+      <svg id="ch5-chart" viewBox="0 0 640 300" role="img" aria-label="Reference curve versus exposed curve with odds ratio 2">
+        <line x1="48" y1="264" x2="624" y2="264" stroke="var(--line)"/>
+        <line x1="48" y1="16" x2="48" y2="264" stroke="var(--line)"/>
+        <line x1="48" y1="140" x2="624" y2="140" stroke="var(--line)" stroke-dasharray="2 5"/>
+        <text x="52" y="136" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">p = .50</text>
+        <path d="M48.0,259.5 L62.4,258.6 L76.8,257.4 L91.2,256.0 L105.6,254.3 L120.0,252.2 L134.4,249.8 L148.8,246.9 L163.2,243.4 L177.6,239.3 L192.0,234.4 L206.4,228.8 L220.8,222.3 L235.2,214.9 L249.6,206.6 L264.0,197.3 L278.4,187.1 L292.8,176.1 L307.2,164.5 L321.6,152.4 L336.0,140.0 L350.4,127.6 L364.8,115.5 L379.2,103.9 L393.6,92.9 L408.0,82.7 L422.4,73.4 L436.8,65.1 L451.2,57.7 L465.6,51.2 L480.0,45.6 L494.4,40.7 L508.8,36.6 L523.2,33.1 L537.6,30.2 L552.0,27.8 L566.4,25.7 L580.8,24.0 L595.2,22.6 L609.6,21.4 L624.0,20.5" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <path d="M48.0,255.2 L62.4,253.4 L76.8,251.1 L91.2,248.5 L105.6,245.3 L120.0,241.5 L134.4,237.1 L148.8,231.9 L163.2,225.9 L177.6,219.0 L192.0,211.2 L206.4,202.4 L220.8,192.7 L235.2,182.1 L249.6,170.8 L264.0,158.9 L278.4,146.6 L292.8,134.2 L307.2,122.0 L321.6,110.0 L336.0,98.7 L350.4,88.0 L364.8,78.3 L379.2,69.4 L393.6,61.5 L408.0,54.5 L422.4,48.5 L436.8,43.2 L451.2,38.7 L465.6,34.9 L480.0,31.7 L494.4,29.0 L508.8,26.8 L523.2,24.9 L537.6,23.3 L552.0,22.0 L566.4,21.0 L580.8,20.1 L595.2,19.3 L609.6,18.7 L624.0,18.3" fill="none" stroke="var(--gold)" stroke-width="2.5"/>
+        <line id="ch5-vline" x1="336" y1="16" x2="336" y2="264" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle id="ch5-dot-ref" cx="336" cy="140" r="5.5" fill="var(--accent)"/>
+        <circle id="ch5-dot-exp" cx="336" cy="98.7" r="5.5" fill="var(--gold)"/>
+        <text x="55" y="280" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">low baseline</text>
+        <text x="540" y="280" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">high baseline</text>
+      </svg>
+      <div class="control-row">
+        <label for="ch5-range">Baseline probability</label>
+        <input type="range" id="ch5-range" min="0.02" max="0.98" step="0.01" value="0.5"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">Reference risk</span><span class="rv" id="ch5-p0">50%</span></div>
+        <div><span class="rk">Risk with OR = 2</span><span class="rv" id="ch5-p1">67%</span></div>
+        <div><span class="rk">Absolute change</span><span class="rv" id="ch5-delta">17.0 pp</span></div>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p>So when possible, complement odds ratios with:</p>
+      <div class="tag-row">
+        <span class="tag">predicted probabilities</span>
+        <span class="tag">marginal effects</span>
+        <span class="tag">absolute risk differences</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 6 -->
+  <section class="chapter" id="ch6">
+    <div class="chapter-head"><span class="chapter-num">6</span><h2>Estimation and uncertainty</h2></div>
+    <div class="chapter-body">
+      <p>Unlike ordinary linear regression, logistic regression isn't fit by least squares — parameters come from <span class="term" tabindex="0">maximum likelihood<span class="tip">The parameter values that make the observed data most probable under the model.</span></span> estimation. A 95% confidence interval for a coefficient is approximately β<sub>j</sub> ± 1.96·SE(β<sub>j</sub>). Exponentiate both limits to get the CI for the odds ratio — and watch it come out lopsided.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — switch the ruler</div>
+      <p id="ch6-title" style="font-family:var(--font-mono); font-size:.82rem; color:var(--ink-soft); margin:0 0 10px;">Log-odds scale — evenly spaced by definition</p>
+      <svg id="ch6-chart" viewBox="0 0 640 130" role="img" aria-label="Confidence interval shown on log-odds and odds-ratio scales">
+        <line x1="60" y1="100" x2="600" y2="100" stroke="var(--line)"/>
+        <g class="ticks-log">
+          <line x1="60" y1="94" x2="60" y2="106" stroke="var(--ink-faint)"/><text x="46" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">−1.0</text>
+          <line x1="150" y1="94" x2="150" y2="106" stroke="var(--ink-faint)"/><text x="136" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">−0.5</text>
+          <line x1="240" y1="94" x2="240" y2="106" stroke="var(--ink-faint)"/><text x="230" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">0.0</text>
+          <line x1="330" y1="94" x2="330" y2="106" stroke="var(--ink-faint)"/><text x="320" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">0.5</text>
+          <line x1="420" y1="94" x2="420" y2="106" stroke="var(--ink-faint)"/><text x="410" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">1.0</text>
+          <line x1="510" y1="94" x2="510" y2="106" stroke="var(--ink-faint)"/><text x="500" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">1.5</text>
+          <line x1="600" y1="94" x2="600" y2="106" stroke="var(--ink-faint)"/><text x="590" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">2.0</text>
+        </g>
+        <g class="ticks-or" style="display:none;">
+          <line x1="115.3" y1="94" x2="115.3" y2="106" stroke="var(--ink-faint)"/><text x="106" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">.5</text>
+          <line x1="240" y1="94" x2="240" y2="106" stroke="var(--ink-faint)"/><text x="234" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">1</text>
+          <line x1="312.9" y1="94" x2="312.9" y2="106" stroke="var(--ink-faint)"/><text x="302" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">1.5</text>
+          <line x1="364.7" y1="94" x2="364.7" y2="106" stroke="var(--ink-faint)"/><text x="358" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">2</text>
+          <line x1="437.8" y1="94" x2="437.8" y2="106" stroke="var(--ink-faint)"/><text x="431" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">3</text>
+          <line x1="489.5" y1="94" x2="489.5" y2="106" stroke="var(--ink-faint)"/><text x="483" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">4</text>
+          <line x1="562.6" y1="94" x2="562.6" y2="106" stroke="var(--ink-faint)"/><text x="556" y="120" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">6</text>
+        </g>
+        <line x1="268.3" y1="60" x2="395.3" y2="60" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="268.3" y1="52" x2="268.3" y2="68" stroke="var(--ink)" stroke-width="2"/>
+        <line x1="395.3" y1="52" x2="395.3" y2="68" stroke="var(--ink)" stroke-width="2"/>
+        <circle cx="331.8" cy="60" r="7" fill="var(--gold)" stroke="var(--paper-raised)" stroke-width="2"/>
+      </svg>
+      <button class="btn" id="ch6-toggle">Show odds-ratio scale</button>
+      <div class="readouts">
+        <div><span class="rk">β (point estimate)</span><span class="rv">0.51</span></div>
+        <div><span class="rk">95% CI (log-odds)</span><span class="rv">0.16 to 0.86</span></div>
+        <div><span class="rk">OR = exp(β)</span><span class="rv">1.67</span></div>
+        <div><span class="rk">95% CI (OR)</span><span class="rv">1.17 to 2.37</span></div>
+      </div>
+    </div>
+    <div class="callout">Same interval, two rulers — the odds-ratio ruler just isn't evenly spaced. That's why OR confidence intervals are reported asymmetric around the point estimate.</div>
+  </section>
+
+  <!-- CHAPTER 7 -->
+  <section class="chapter" id="ch7">
+    <div class="chapter-head"><span class="chapter-num">7</span><h2>Prediction and classification are different tasks</h2></div>
+    <div class="chapter-body">
+      <p>Logistic regression's native output is a probability. Turning that into a yes/no call needs a threshold — conventionally 0.50, but that's a convention, not a law. Drag it and watch who crosses the line.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — drag the threshold</div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--class1);"></span>Observed 1</span>
+        <span><span class="dot" style="background:var(--class0);"></span>Observed 0</span>
+        <span><span class="line" style="background:var(--gold);"></span>Threshold</span>
+      </div>
+      <svg id="ch7-chart" viewBox="0 0 640 150" role="img" aria-label="Predicted probabilities with a movable classification threshold">
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--line)"/>
+        <text x="36" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">Outcome 1</text>
+        <text x="36" y="112" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">Outcome 0</text>
+        <text x="36" y="156" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">0</text>
+        <text x="440" y="156" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">predicted probability</text>
+        <text x="592" y="156" font-family="ui-monospace,monospace" font-size="10" fill="var(--ink-faint)">1</text>
+        <g id="ch7-dots"></g>
+        <line id="ch7-tline" x1="320" y1="15" x2="320" y2="140" stroke="var(--gold)" stroke-width="2"/>
+        <text id="ch7-tlabel" x="320" y="12" text-anchor="middle" font-family="ui-monospace,monospace" font-size="11" fill="var(--gold-ink)">0.50</text>
+      </svg>
+      <div class="control-row">
+        <label for="ch7-range">Classification threshold</label>
+        <input type="range" id="ch7-range" min="0" max="1" step="0.01" value="0.5"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">True positive</span><span class="rv" id="ch7-tp">0</span></div>
+        <div><span class="rk">False positive</span><span class="rv" id="ch7-fp">0</span></div>
+        <div><span class="rk">True negative</span><span class="rv" id="ch7-tn">0</span></div>
+        <div><span class="rk">False negative</span><span class="rv" id="ch7-fn">0</span></div>
+        <div><span class="rk">Sensitivity</span><span class="rv" id="ch7-sens">—</span></div>
+        <div><span class="rk">Specificity</span><span class="rv" id="ch7-spec">—</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 8 -->
+  <section class="chapter" id="ch8">
+    <div class="chapter-head"><span class="chapter-num">8</span><h2>Is the model any good?</h2></div>
+    <div class="chapter-body">
+      <p>For prediction: the <span class="term" tabindex="0">ROC curve<span class="tip">Plots sensitivity against 1 − specificity across every possible threshold.</span></span> and its <span class="term" tabindex="0">AUC<span class="tip">Area under the ROC curve — the probability a randomly chosen event outranks a randomly chosen non-event.</span></span> summarise discrimination. <span class="term" tabindex="0">Calibration<span class="tip">Agreement between predicted and observed risks.</span></span> checks whether the numbers themselves are trustworthy. <span class="term" tabindex="0">AIC<span class="tip">Akaike Information Criterion — a fit-versus-complexity score for comparing suitable models.</span></span> or likelihood-ratio tests compare models.</p>
+    </div>
+    <div class="chart-card">
+      <div class="try-it">Try it — slide along the curve</div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--accent);"></span>Illustrative model (AUC ≈ 0.69)</span>
+        <span><span class="line" style="background:var(--ink-faint);"></span>No discrimination</span>
+      </div>
+      <svg id="ch8-chart" viewBox="0 0 480 480" role="img" aria-label="ROC curve with movable point">
+        <line x1="44" y1="16" x2="44" y2="440" stroke="var(--line)"/>
+        <line x1="44" y1="440" x2="464" y2="440" stroke="var(--line)"/>
+        <path d="M44.0,440.0 L464.0,16.0" fill="none" stroke="var(--ink-faint)" stroke-width="2" stroke-dasharray="6 5"/>
+        <path d="M44.0,440.0 L52.4,366.9 L60.8,340.2 L69.2,320.2 L77.6,303.7 L86.0,289.3 L94.4,276.4 L102.8,264.7 L111.2,253.9 L119.6,243.8 L128.0,234.3 L136.4,225.3 L144.8,216.7 L153.2,208.5 L161.6,200.7 L170.0,193.1 L178.4,185.9 L186.8,178.9 L195.2,172.1 L203.6,165.5 L212.0,159.1 L220.4,152.9 L228.8,146.8 L237.2,140.9 L245.6,135.1 L254.0,129.5 L262.4,123.9 L270.8,118.5 L279.2,113.2 L287.6,108.0 L296.0,102.9 L304.4,97.9 L312.8,93.0 L321.2,88.2 L329.6,83.5 L338.0,78.8 L346.4,74.2 L354.8,69.6 L363.2,65.2 L371.6,60.8 L380.0,56.4 L388.4,52.2 L396.8,47.9 L405.2,43.8 L413.6,39.7 L422.0,35.6 L430.4,31.6 L438.8,27.6 L447.2,23.7 L455.6,19.8 L464.0,16.0" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+        <line id="ch8-vline" x1="44" y1="440" x2="44" y2="440" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
+        <line id="ch8-hline" x1="44" y1="440" x2="44" y2="440" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3"/>
+        <circle id="ch8-dot" cx="44" cy="440" r="7" fill="var(--gold)" stroke="var(--paper-raised)" stroke-width="2"/>
+        <text x="20" y="30" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">1.0</text>
+        <text x="30" y="435" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">0</text>
+        <text x="450" y="458" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">1.0</text>
+        <text x="140" y="470" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)">false-positive rate (1 − specificity)</text>
+        <text x="0" y="240" font-family="ui-monospace,monospace" font-size="11" fill="var(--ink-faint)" transform="rotate(-90 20 240)">true-positive rate (sensitivity)</text>
+      </svg>
+      <div class="control-row">
+        <label for="ch8-range">Move along the curve</label>
+        <input type="range" id="ch8-range" min="0" max="1" step="0.01" value="0"/>
+      </div>
+      <div class="readouts">
+        <div><span class="rk">1 − specificity</span><span class="rv" id="ch8-fpr">0.00</span></div>
+        <div><span class="rk">Sensitivity</span><span class="rv" id="ch8-tpr">0.00</span></div>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p><b>Key assumptions and requirements:</b></p>
+      <ul class="checklist">
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M4 8.5 L7 11.5 L12 5" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="term" tabindex="0">Independent observations<span class="tip">One person's outcome doesn't influence another's — unless that dependence is explicitly modelled (e.g. clustering).</span></span>, unless dependence is modelled.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M4 8.5 L7 11.5 L12 5" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Linearity between continuous predictors and the <span class="term" tabindex="0">logit<span class="tip">Not the raw probability — the predictor should relate linearly to the log-odds.</span></span>.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M4 8.5 L7 11.5 L12 5" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No severe <span class="term" tabindex="0">multicollinearity<span class="tip">Predictors that are highly correlated with each other make individual coefficients unstable.</span></span>.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M4 8.5 L7 11.5 L12 5" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Adequate sample size and enough outcome events.</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="3" fill="none" stroke="var(--accent)" stroke-width="1.5"/><path d="M4 8.5 L7 11.5 L12 5" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Correct model specification.</span></li>
+      </ul>
+    </div>
+    <div class="callout">Reminder: pseudo-R² doesn't mean the same thing as R² in linear regression — don't compare them head-to-head.</div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="chapter" id="summary">
+    <div class="chapter-head"><span class="chapter-num">✓</span><h2>Take-home messages</h2></div>
+    <div class="takehome-grid">
+      <div class="th-card"><div class="th-num">01</div><p class="official">Logistic regression is designed for binary outcomes.</p><p class="gloss">Two outcomes in, one probability out.</p></div>
+      <div class="th-card"><div class="th-num">02</div><p class="official">It models a linear relationship on the log-odds scale.</p><p class="gloss">Straight line — just not on the scale you're looking at.</p></div>
+      <div class="th-card"><div class="th-num">03</div><p class="official">Exponentiated coefficients are odds ratios.</p><p class="gloss">exp(β) turns "change in log-odds" into something you can say out loud.</p></div>
+      <div class="th-card"><div class="th-num">04</div><p class="official">Odds ratios should not automatically be interpreted as risk ratios.</p><p class="gloss">Same OR, different real-world impact, depending on the baseline risk.</p></div>
+      <div class="th-card"><div class="th-num">05</div><p class="official">Predicted probabilities are often easier to communicate.</p><p class="gloss">When in doubt, report the probability, not just the ratio.</p></div>
+      <div class="th-card"><div class="th-num">06</div><p class="official">Model evaluation depends on the goal: explanation, causal inference or prediction.</p><p class="gloss">Ask what the model is for before asking if it's "good."</p></div>
+    </div>
+    <div class="callout gold" style="margin-top:24px;"><b>One-sentence challenge:</b> why do fitted probabilities from logistic regression always stay between 0 and 1? <em>(Hint: revisit Chapter 1.)</em></div>
+  </section>
+
+  <footer class="page-footer">
+    Interactive companion to the Practical 6 written recap · Logistic Regression · Wissenschaftspraktikum
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s){ return document.querySelector(s); };
+  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var sigmoid = function(x){ return 1/(1+Math.exp(-x)); };
+  var logit = function(p){ return Math.log(p/(1-p)); };
+
+  /* progress bar */
+  function updateProgress(){
+    var h = document.documentElement;
+    var scrollTop = window.scrollY || h.scrollTop;
+    var max = (document.body.scrollHeight || h.scrollHeight) - window.innerHeight;
+    var pct = max > 0 ? Math.min(100, Math.max(0, scrollTop/max*100)) : 0;
+    var el = $('#progressFill');
+    if (el) el.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  /* term chip tap-to-toggle for touch devices */
+  $$('.term').forEach(function(t){
+    t.addEventListener('click', function(e){
+      e.stopPropagation();
+      var wasOpen = t.classList.contains('open');
+      $$('.term.open').forEach(function(o){ o.classList.remove('open'); });
+      if (!wasOpen) t.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(){
+    $$('.term.open').forEach(function(o){ o.classList.remove('open'); });
+  });
+
+  /* ---------- Chapter 1 ---------- */
+  (function(){
+    var range = $('#ch1-range');
+    if (!range) return;
+    var linDot = $('#ch1-lin-dot'), logDot = $('#ch1-log-dot'), vline = $('#ch1-vline');
+    var linVal = $('#ch1-lin-val'), logVal = $('#ch1-log-val'), warn = $('#ch1-warn');
+    function px(eta){ return 48 + (eta+6)/12*576; }
+    function py(v){ return 264 - (v+0.3)/1.6*248; }
+    function update(){
+      var eta = parseFloat(range.value);
+      var lin = 0.51 + 0.12*eta;
+      var log = sigmoid(0.9*eta + 0.05);
+      var x = px(eta);
+      linDot.setAttribute('cx', x); linDot.setAttribute('cy', py(Math.max(-0.28, Math.min(1.28, lin))));
+      logDot.setAttribute('cx', x); logDot.setAttribute('cy', py(log));
+      vline.setAttribute('x1', x); vline.setAttribute('x2', x);
+      linVal.textContent = lin.toFixed(2);
+      logVal.textContent = log.toFixed(2);
+      warn.style.visibility = (lin < 0 || lin > 1) ? 'visible' : 'hidden';
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+
+  /* ---------- Chapter 2 ---------- */
+  (function(){
+    var range = $('#ch2-range');
+    if (!range) return;
+    var dot = $('#ch2-dot');
+    function px(v){ return 40 + (v+4)/8*560; }
+    function update(){
+      var p = parseFloat(range.value);
+      var odds = p/(1-p);
+      var lo = Math.log(odds);
+      $('#ch2-p').textContent = p.toFixed(2);
+      $('#ch2-odds').textContent = odds.toFixed(2);
+      $('#ch2-logodds').textContent = (lo >= 0 ? '+' : '') + lo.toFixed(2);
+      var clamped = Math.max(-4, Math.min(4, lo));
+      dot.setAttribute('cx', px(clamped));
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+
+  /* ---------- Chapter 4 ---------- */
+  (function(){
+    var range = $('#ch4-range');
+    if (!range) return;
+    var fill = $('#ch4-fill'), dot = $('#ch4-dot');
+    function px(b){ return 40 + (b+2)/4*560; }
+    var cx0 = px(0);
+    function update(){
+      var b = parseFloat(range.value);
+      var or = Math.exp(b);
+      var x = px(b);
+      dot.setAttribute('cx', x);
+      var lo = Math.min(x, cx0), w = Math.abs(x - cx0);
+      fill.setAttribute('x', lo); fill.setAttribute('width', w);
+      fill.setAttribute('fill', b < -0.001 ? 'var(--class0)' : (b > 0.001 ? 'var(--class1)' : 'var(--ink-faint)'));
+      $('#ch4-beta').textContent = (b >= 0 ? '+' : '') + b.toFixed(2);
+      $('#ch4-or').textContent = or.toFixed(2);
+      var sentence;
+      if (Math.abs(b) < 0.005) sentence = 'No difference in odds (OR = 1).';
+      else if (b > 0) sentence = Math.round((or-1)*100) + '% higher odds than the reference.';
+      else sentence = Math.round((1-or)*100) + '% lower odds than the reference.';
+      $('#ch4-sentence').textContent = sentence;
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+
+  /* ---------- Chapter 5 ---------- */
+  (function(){
+    var range = $('#ch5-range');
+    if (!range) return;
+    var dotRef = $('#ch5-dot-ref'), dotExp = $('#ch5-dot-exp'), vline = $('#ch5-vline');
+    function px(eta){ return 48 + (eta+4)/8*576; }
+    function py(v){ return 264 - 248*v; }
+    var LN2 = Math.log(2);
+    function update(){
+      var p0 = parseFloat(range.value);
+      var eta0 = Math.max(-4, Math.min(4, logit(p0)));
+      var pRef = sigmoid(eta0);
+      var pExp = sigmoid(eta0 + LN2);
+      var x = px(eta0);
+      dotRef.setAttribute('cx', x); dotRef.setAttribute('cy', py(pRef));
+      dotExp.setAttribute('cx', x); dotExp.setAttribute('cy', py(pExp));
+      vline.setAttribute('x1', x); vline.setAttribute('x2', x);
+      $('#ch5-p0').textContent = Math.round(pRef*100) + '%';
+      $('#ch5-p1').textContent = Math.round(pExp*100) + '%';
+      $('#ch5-delta').textContent = ((pExp-pRef)*100).toFixed(1) + ' pp';
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+
+  /* ---------- Chapter 6 ---------- */
+  (function(){
+    var toggle = $('#ch6-toggle');
+    if (!toggle) return;
+    var chart = $('#ch6-chart'), title = $('#ch6-title');
+    var logTicks = chart.querySelector('.ticks-log'), orTicks = chart.querySelector('.ticks-or');
+    var isOR = false;
+    toggle.addEventListener('click', function(){
+      isOR = !isOR;
+      logTicks.style.display = isOR ? 'none' : 'block';
+      orTicks.style.display = isOR ? 'block' : 'none';
+      toggle.textContent = isOR ? 'Show log-odds scale' : 'Show odds-ratio scale';
+      title.textContent = isOR ? 'Odds-ratio scale — same interval, uneven ruler' : 'Log-odds scale — evenly spaced by definition';
+    });
+  })();
+
+  /* ---------- Chapter 7 ---------- */
+  (function(){
+    var range = $('#ch7-range');
+    if (!range) return;
+    var group = $('#ch7-dots');
+    var obs1 = [0.26, 0.48, 0.55, 0.68, 0.74, 0.82, 0.90];
+    var obs0 = [0.06, 0.12, 0.18, 0.31, 0.42];
+    function px(p){ return 40 + p*560; }
+    var dots = [];
+    obs1.forEach(function(p){
+      var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', px(p)); c.setAttribute('cy', 20); c.setAttribute('r', 7);
+      c.setAttribute('fill', 'var(--class1)');
+      c.dataset.p = p; c.dataset.obs = '1';
+      group.appendChild(c); dots.push(c);
+    });
+    obs0.forEach(function(p){
+      var c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', px(p)); c.setAttribute('cy', 105); c.setAttribute('r', 7);
+      c.setAttribute('fill', 'var(--class0)');
+      c.dataset.p = p; c.dataset.obs = '0';
+      group.appendChild(c); dots.push(c);
+    });
+    var tline = $('#ch7-tline'), tlabel = $('#ch7-tlabel');
+    function update(){
+      var t = parseFloat(range.value);
+      var x = px(t);
+      tline.setAttribute('x1', x); tline.setAttribute('x2', x);
+      tlabel.setAttribute('x', x); tlabel.textContent = t.toFixed(2);
+      var TP=0, FN=0, TN=0, FP=0;
+      dots.forEach(function(c){
+        var p = parseFloat(c.dataset.p), obs = c.dataset.obs;
+        var predicted = p >= t ? '1' : '0';
+        var correct = predicted === obs;
+        c.setAttribute('opacity', correct ? '1' : '.3');
+        c.setAttribute('stroke', correct ? 'none' : 'var(--gold)');
+        c.setAttribute('stroke-width', correct ? 0 : 2.5);
+        if (obs === '1') { if (predicted === '1') TP++; else FN++; }
+        else { if (predicted === '1') FP++; else TN++; }
+      });
+      $('#ch7-tp').textContent = TP; $('#ch7-fp').textContent = FP;
+      $('#ch7-tn').textContent = TN; $('#ch7-fn').textContent = FN;
+      $('#ch7-sens').textContent = (TP+FN) > 0 ? Math.round(TP/(TP+FN)*100) + '%' : '—';
+      $('#ch7-spec').textContent = (TN+FP) > 0 ? Math.round(TN/(TN+FP)*100) + '%' : '—';
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+
+  /* ---------- Chapter 8 ---------- */
+  (function(){
+    var range = $('#ch8-range');
+    if (!range) return;
+    var dot = $('#ch8-dot'), vline = $('#ch8-vline'), hline = $('#ch8-hline');
+    var k = 0.69/(1-0.69);
+    function px(f){ return 44 + f*420; }
+    function py(t){ return 440 - t*424; }
+    function update(){
+      var f = parseFloat(range.value);
+      var t = Math.pow(f, 1/k);
+      var x = px(f), y = py(t);
+      dot.setAttribute('cx', x); dot.setAttribute('cy', y);
+      vline.setAttribute('x1', x); vline.setAttribute('x2', x); vline.setAttribute('y1', 440); vline.setAttribute('y2', y);
+      hline.setAttribute('x1', 44); hline.setAttribute('x2', x); hline.setAttribute('y1', y); hline.setAttribute('y2', y);
+      $('#ch8-fpr').textContent = f.toFixed(2);
+      $('#ch8-tpr').textContent = t.toFixed(2);
+    }
+    range.addEventListener('input', update);
+    update();
+  })();
+})();
+</script>
+
+</body>
+</html>

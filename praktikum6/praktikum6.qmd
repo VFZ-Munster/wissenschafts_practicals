@@ -3,6 +3,7 @@ format: html
 editor: source
 resources:
   - recap/Practical6.pdf
+  - recap/logistic_regression_recap/logistic_regression_interactive_recap.html
   - output_uni_multivariable.pdf
 ---
 
@@ -46,7 +47,7 @@ In this practical, we use **binary logistic regression** to study the associatio
 :::
 
 ::: {.download-card}
-[Download recap for Practical 6](recap/Practical6.pdf){download="recap_P6.pdf"}
+[See the recap for Practical 6](recap/logistic_regression_recap/logistic_regression_interactive_recap.html){target="_blank" rel="noopener"}
 :::
 
 :::
@@ -91,7 +92,7 @@ In diesem Praktikum untersuchen wir mit der **binär logistischen Regression** d
 :::
 
 ::: {.download-card}
-[Zusammenfassung aus Praktikum 6 herunterladen](recap/Practical6.pdf){download="recap_P6.pdf"}
+[Zusammenfassung zu Praktikum 6 ansehen](recap/logistic_regression_recap/logistic_regression_interactive_recap.html){target="_blank" rel="noopener"}
 :::
 
 :::
