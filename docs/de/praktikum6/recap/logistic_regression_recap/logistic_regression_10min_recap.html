@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ignacio Leiva">
-<meta name="author" content="Aiswarya Puzhakkara Chennas">
+<meta name="description" content="A short bridge from linear to logistic regression">
 
-<title>Praktikum</title>
+<title>Logistic Regression: 10-Minute Recap – Praktikum</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-310baf937d0d762f08c5f944e4d301ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
-<link href="site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script>
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-310baf937d0d762f08c5f944e4d301ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
+<link href="../../../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,12 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  </head><body class="nav-fixed">katex
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -104,16 +99,16 @@ window.Quarto = {
 };
 </script>
 
-</head>
 
-<body class="nav-sidebar docked nav-fixed">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Praktikum</span>
     </a>
   </div>
@@ -124,13 +119,13 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./../"> 
+    <a class="nav-link" href="../../../../"> 
 <span class="menu-text">English</span></a>
   </li>  
 </ul>
@@ -139,95 +134,29 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./mfm-logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Suchen"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum1/praktikum1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practikum 1: SPSS installieren</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum2/praktikum2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 2</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum3/praktikum3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum4/praktikum4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 4</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum5/praktikum5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 5</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./praktikum6/praktikum6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Praktikum 6</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./blackboard.html" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Blackboard</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#datensatzbeschreibung" id="toc-datensatzbeschreibung" class="nav-link active" data-scroll-target="#datensatzbeschreibung">Datensatzbeschreibung</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link active" data-scroll-target="#logistic-regression">Logistic Regression</a>
+  <ul class="collapse">
+  <li><a href="#a-10-minute-recap-after-linear-regression" id="toc-a-10-minute-recap-after-linear-regression" class="nav-link" data-scroll-target="#a-10-minute-recap-after-linear-regression">A 10-minute recap after linear regression</a></li>
+  </ul></li>
+  <li><a href="#why-not-use-linear-regression" id="toc-why-not-use-linear-regression" class="nav-link" data-scroll-target="#why-not-use-linear-regression">1. Why not use linear regression?</a></li>
+  <li><a href="#the-bridge-probability-odds-and-log-odds" id="toc-the-bridge-probability-odds-and-log-odds" class="nav-link" data-scroll-target="#the-bridge-probability-odds-and-log-odds">2. The bridge: probability, odds and log-odds</a></li>
+  <li><a href="#the-logistic-regression-model" id="toc-the-logistic-regression-model" class="nav-link" data-scroll-target="#the-logistic-regression-model">3. The logistic regression model</a></li>
+  <li><a href="#interpreting-coefficients" id="toc-interpreting-coefficients" class="nav-link" data-scroll-target="#interpreting-coefficients">4. Interpreting coefficients</a></li>
+  <li><a href="#odds-ratios-are-not-risk-ratios" id="toc-odds-ratios-are-not-risk-ratios" class="nav-link" data-scroll-target="#odds-ratios-are-not-risk-ratios">5. Odds ratios are not risk ratios</a></li>
+  <li><a href="#estimation-and-uncertainty" id="toc-estimation-and-uncertainty" class="nav-link" data-scroll-target="#estimation-and-uncertainty">6. Estimation and uncertainty</a></li>
+  <li><a href="#prediction-and-classification-are-different-tasks" id="toc-prediction-and-classification-are-different-tasks" class="nav-link" data-scroll-target="#prediction-and-classification-are-different-tasks">7. Prediction and classification are different tasks</a></li>
+  <li><a href="#model-performance-and-assumptions" id="toc-model-performance-and-assumptions" class="nav-link" data-scroll-target="#model-performance-and-assumptions">8. Model performance and assumptions</a></li>
+  <li><a href="#take-home-messages" id="toc-take-home-messages" class="nav-link" data-scroll-target="#take-home-messages">Take-home messages</a></li>
   </ul>
 </nav>
     </div>
@@ -236,24 +165,23 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Logistic Regression: 10-Minute Recap</h1>
 </div>
 
+<div>
+  <div class="description">
+    A short bridge from linear to logistic regression
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:innen</div>
-    <div class="quarto-title-meta-contents">
-             <p>Ignacio Leiva <a href="mailto:ignacio.leiva@uni-muenster.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-             <p>Aiswarya Puzhakkara Chennas <a href="mailto:aiswarya.chennas@uni-muenster.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14. Mai 2026</p>
+      <p class="date">16. Juli 2026</p>
     </div>
   </div>
   
@@ -265,280 +193,198 @@ window.Quarto = {
 </header>
 
 
-<div class="home-hero">
-<div class="hero-copy">
-<div class="home-kicker">
-<p>Quantitative Methoden in den Gesundheitswissenschaften</p>
-</div>
-<section id="praktikum" class="level1">
-<h1>Praktikum</h1>
-<p>Entdecken, analysieren und interpretieren Sie reale NHANES-Daten und entwickeln Sie einen reproduzierbaren Workflow für angewandte Gesundheitsforschung.</p>
-<div class="hero-actions">
-<p><a href="./praktikum1/praktikum1.html" class="hero-button primary">Mit Praktikum 1 starten</a> <a href="./blackboard.html" class="hero-button">Blackboard öffnen</a></p>
-</div>
+<section id="logistic-regression" class="level1">
+<h1>Logistic Regression</h1>
+<section id="a-10-minute-recap-after-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="a-10-minute-recap-after-linear-regression">A 10-minute recap after linear regression</h2>
+<p><strong>Learning goal:</strong> understand why logistic regression is used for binary outcomes and how to interpret its coefficients.</p>
+<!--
+Timing: 30-45 seconds.
+Connect explicitly to the previous class: the right-hand side of the model will still look familiar from linear regression.
+-->
+<hr>
 </section>
-</div>
-<div class="hero-panel">
-<p><img src="mfm-logo.svg" class="hero-logo img-fluid" alt="Logo der Universität Münster"></p>
-<div class="qr-card">
-<div class="qr-label">
-<p>Kurslink scannen</p>
-</div>
-<div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#003866","colorLight":"#ffffff","height":"144","text":"https://vfz-munster.github.io/wissenschafts_practicals/","width":"144"});
-  script.remove();
-})();
-</script>
-    
-<div class="qr-url">
-<p>vfz-munster.github.io</p>
-</div>
-</div>
-</div>
-</div>
-<div class="grid home-grid">
-<section id="datenanalyse" class="level3 g-col-12 g-col-md-6 feature-card">
-<h3 class="anchored" data-anchor-id="datenanalyse">Datenanalyse</h3>
-<p>Wir verwenden Daten der <a href="https://wwwn.cdc.gov/nchs/nhanes/">NHANES</a> (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.</p>
 </section>
-<section id="der-datensatz" class="level3 g-col-12 g-col-md-6 feature-card">
-<h3 class="anchored" data-anchor-id="der-datensatz">Der Datensatz</h3>
-<p>Die Daten sind in <code>nhanes30.sav</code> gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.</p>
+<section id="why-not-use-linear-regression" class="level1">
+<h1>1. Why not use linear regression?</h1>
+<p>For a binary outcome, (Y {0,1}), a linear model can create problems:</p>
+<ul>
+<li>fitted values may be below 0 or above 1;</li>
+<li>residuals are not normally distributed;</li>
+<li>variance is not constant;</li>
+<li>classification may be unstable.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/linear_vs_logistic.png" class="img-fluid figure-img"></p>
+<figcaption>Comparison of a linear probability model and a logistic curve</figcaption>
+</figure>
+</div>
+<!--
+Timing: 1 minute.
+Emphasise that the problem is not that linear regression can never be fitted, but that it does not naturally respect the probability scale.
+-->
+<hr>
 </section>
+<section id="the-bridge-probability-odds-and-log-odds" class="level1">
+<h1>2. The bridge: probability, odds and log-odds</h1>
+<p>[ = , = () ]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/probability_odds_logodds.png" class="img-fluid figure-img"></p>
+<figcaption>Probability, odds and log-odds</figcaption>
+</figure>
 </div>
-<div class="course-path">
-<div class="path-item">
-<p><strong>01</strong> SPSS einrichten und die Arbeitsumgebung vorbereiten.</p>
+<ul>
+<li>Probability is restricted to ([0,1]).</li>
+<li>Odds range from (0) to ().</li>
+<li>Log-odds range from (-) to (+).</li>
+</ul>
+<!--
+Timing: 1.5 minutes.
+Use p=0.50 as the anchor: odds=1 and log-odds=0.
+-->
+<hr>
+</section>
+<section id="the-logistic-regression-model" class="level1">
+<h1>3. The logistic regression model</h1>
+<p>[ () = _0 + _1x_1 + + _kx_k ]</p>
+<p>This is a <strong>generalised linear model</strong>:</p>
+<ul>
+<li>the outcome follows a binomial distribution;</li>
+<li>the <strong>logit</strong> is the link function;</li>
+<li>the right-hand side is the same linear predictor used in multiple linear regression.</li>
+</ul>
+<p>The inverse transformation returns a probability:</p>
+<p>[ p = , = _0 + _1x_1 + + _kx_k ]</p>
+<!--
+Timing: 1.5 minutes.
+Key message: the model is linear on the log-odds scale, not on the probability scale.
+-->
+<hr>
+</section>
+<section id="interpreting-coefficients" class="level1">
+<h1>4. Interpreting coefficients</h1>
+<p>A coefficient (_j) is the change in <strong>log-odds</strong> for a one-unit increase in (x_j), holding the other variables constant.</p>
+<p>Exponentiating gives an odds ratio:</p>
+<p>[ OR_j = (_j) ]</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/or_interpretation.png" class="img-fluid figure-img"></p>
+<figcaption>Relationship between regression coefficients and odds ratios</figcaption>
+</figure>
 </div>
-<div class="path-item">
-<p><strong>02</strong> Variablen, Metadaten und Kodierungen prüfen.</p>
+<p><strong>Example:</strong> (OR=1.30) means 30% higher odds, not necessarily a 30% higher probability.</p>
+<!--
+Timing: 1.5 minutes.
+For categorical predictors, interpret the OR relative to the reference category.
+-->
+<hr>
+</section>
+<section id="odds-ratios-are-not-risk-ratios" class="level1">
+<h1>5. Odds ratios are not risk ratios</h1>
+<p>The same odds ratio can correspond to different changes in probability, depending on the baseline probability.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/or_probability_context.png" class="img-fluid figure-img"></p>
+<figcaption>An odds ratio of 2 produces different absolute probability changes across baseline risks</figcaption>
+</figure>
 </div>
-<div class="path-item">
-<p><strong>03</strong> Gesundheitsdaten analysieren, visualisieren und interpretieren.</p>
+<p>Therefore, when possible, complement odds ratios with:</p>
+<ul>
+<li>predicted probabilities;</li>
+<li>marginal effects;</li>
+<li>absolute risk differences.</li>
+</ul>
+<!--
+Timing: 1 minute.
+This slide prevents the common error of reading an OR as a direct percentage change in risk.
+-->
+<hr>
+</section>
+<section id="estimation-and-uncertainty" class="level1">
+<h1>6. Estimation and uncertainty</h1>
+<p>Unlike ordinary linear regression, logistic regression is not estimated by least squares.</p>
+<ul>
+<li>Parameters are estimated using <strong>maximum likelihood</strong>.</li>
+<li>A 95% confidence interval for a coefficient is approximately:</li>
+</ul>
+<p>[ _j ,SE(_j) ]</p>
+<ul>
+<li>Transform both limits with (()) to obtain the confidence interval for the odds ratio.</li>
+<li>The odds-ratio confidence interval is generally asymmetric.</li>
+</ul>
+<!--
+Timing: 1 minute.
+You do not need to derive the likelihood in a recap; focus on what changes from linear regression.
+-->
+<hr>
+</section>
+<section id="prediction-and-classification-are-different-tasks" class="level1">
+<h1>7. Prediction and classification are different tasks</h1>
+<p>Logistic regression first predicts a <strong>probability</strong>. A binary classification requires a threshold.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/classification_threshold.png" class="img-fluid figure-img"></p>
+<figcaption>Predicted probabilities and a classification threshold</figcaption>
+</figure>
 </div>
+<p>Changing the threshold changes:</p>
+<ul>
+<li>sensitivity;</li>
+<li>specificity;</li>
+<li>false positives;</li>
+<li>false negatives.</li>
+</ul>
+<!--
+Timing: 1 minute.
+Stress that 0.50 is conventional, not universally optimal.
+-->
+<hr>
+</section>
+<section id="model-performance-and-assumptions" class="level1">
+<h1>8. Model performance and assumptions</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/roc_curve.png" class="img-fluid figure-img"></p>
+<figcaption>Illustrative ROC curve</figcaption>
+</figure>
 </div>
-<p><br></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-.sav?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Erweiterung <code>.sav</code> kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.</p>
-</div>
-</div>
-<section id="datensatzbeschreibung" class="level3">
-<h3 class="anchored" data-anchor-id="datensatzbeschreibung">Datensatzbeschreibung</h3>
-<div id="8a1bc613" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display">
-<!--| quarto-html-table-processing: none -->
-<table id="itables_a02f865e_bb0a_4158_823c_bff6b9ea501f"><tbody><tr>
-    <td style="vertical-align:middle; text-align:left">
-    <a href="https://mwouts.github.io/itables/"><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="64" viewbox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
-    <g style="fill:#d9d7fc">
-        <path d="M100,400H500V357H100Z"></path>
-        <path d="M100,300H400V257H100Z"></path>
-        <path d="M0,200H400V157H0Z"></path>
-        <path d="M100,100H500V57H100Z"></path>
-        <path d="M100,350H500V307H100Z"></path>
-        <path d="M100,250H400V207H100Z"></path>
-        <path d="M0,150H400V107H0Z"></path>
-        <path d="M100,50H500V7H100Z"></path>
-    </g>
-    <g style="fill:#1a1366;stroke:#1a1366;">
-   <rect x="100" y="7" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="5s" repeatcount="indefinite"></animate>
-      <animate attributename="x" values="100;100;500" dur="5s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="0" y="107" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="3.5s" repeatcount="indefinite"></animate>
-    <animate attributename="x" values="0;0;400" dur="3.5s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="100" y="207" width="300" height="43">
-    <animate attributename="width" values="0;300;0" dur="3s" repeatcount="indefinite"></animate>
-    <animate attributename="x" values="100;100;400" dur="3s" repeatcount="indefinite"></animate>
-  </rect>
-        <rect x="100" y="307" width="400" height="43">
-    <animate attributename="width" values="0;400;0" dur="4s" repeatcount="indefinite"></animate>
-      <animate attributename="x" values="100;100;500" dur="4s" repeatcount="indefinite"></animate>
-  </rect>
-        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
-            <g transform="translate(45 50) rotate(-45)">
-                <circle r="33" cx="0" cy="0"></circle>
-                <rect x="-8" y="32" width="16" height="30"></rect>
-            </g>
+<p><strong>For prediction</strong></p>
+<ul>
+<li>ROC curve and AUC assess discrimination.</li>
+<li>Calibration assesses agreement between predicted and observed risks.</li>
+<li>AIC or likelihood-ratio tests can compare suitable models.</li>
+</ul>
+<p><strong>Key assumptions and requirements</strong></p>
+<ul>
+<li>independent observations, unless dependence is modelled;</li>
+<li>linearity between continuous predictors and the <strong>logit</strong>;</li>
+<li>no severe multicollinearity;</li>
+<li>adequate sample size and enough outcome events;</li>
+<li>correct model specification.</li>
+</ul>
+<!--
+Timing: 1 minute.
+Mention that pseudo-R² does not have the same interpretation as R² in linear regression.
+-->
+<hr>
+</section>
+<section id="take-home-messages" class="level1">
+<h1>Take-home messages</h1>
+<ol type="1">
+<li>Logistic regression is designed for binary outcomes.</li>
+<li>It models a linear relationship on the <strong>log-odds</strong> scale.</li>
+<li>Exponentiated coefficients are <strong>odds ratios</strong>.</li>
+<li>Odds ratios should not automatically be interpreted as risk ratios.</li>
+<li>Predicted probabilities are often easier to communicate.</li>
+<li>Model evaluation depends on the goal: explanation, causal inference or prediction.</li>
+</ol>
+<!--
+Timing: 30-45 seconds.
+Close by asking students to explain, in one sentence, why fitted probabilities from logistic regression remain between 0 and 1.
+-->
 
-            <g transform="translate(450 152)">
-                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20"></polyline>
-                <rect x="-15" y="-40" width="60" height="60"></rect>
-            </g>
-
-            <g transform="translate(50 352)">
-                <polygon points="-35,-5 0,-40 35,-5"></polygon>
-                <polygon points="-35,10 0,45 35,10"></polygon>
-            </g>
-
-            <g transform="translate(75 250)">
-                <polyline points="-30,30 -60,0 -30,-30"></polyline>
-                <polyline points="0,30 -30,0 0,-30"></polyline>
-            </g>
-
-            <g transform="translate(425 250) rotate(180)">
-                <polyline points="-30,30 -60,0 -30,-30"></polyline>
-                <polyline points="0,30 -30,0 0,-30"></polyline>
-            </g>
-        </g>
-    </g>
-</svg>
-</a>
-    Loading ITables v2.5.2 from the internet...
-    (need <a href="https://mwouts.github.io/itables/troubleshooting.html">help</a>?)</td>
-    </tr></tbody></table>
-<link href="https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.css" rel="stylesheet">
-<script type="module">
-    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.4.0/dt_bundle.js';
-
-    document.querySelectorAll("#itables_a02f865e_bb0a_4158_823c_bff6b9ea501f:not(.dataTable)").forEach(table => {
-        if (!(table instanceof HTMLTableElement))
-            return;
-
-        let dt_args = {"dom": "Brtip", "classes": ["display", "stripe", "hover", "course-data-table"], "style": {"table-layout": "fixed", "width": "100%"}, "columnControl": ["order", ["orderAsc", "orderDesc", "search"]], "ordering": {"indicators": false, "handler": false}, "buttons": ["columnsToggle", {"extend": "csv", "text": "Datensatzbeschreibung herunterladen"}], "paging": false, "scrollCollapse": false, "layout": {"topStart": "buttons", "topEnd": "search", "bottomStart": "info", "bottomEnd": "paging"}, "columnDefs": [{"className": "dt-left variable-column", "targets": 0, "width": "18%"}, {"className": "dt-left description-column", "targets": 1, "width": "46%"}, {"className": "dt-left values-column", "targets": 2, "width": "36%"}], "order": [], "text_in_header_can_be_selected": true, "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Variablenname</th>\n      <th>Bedeutung</th>\n      <th>Auspr\u00e4gungen</th>\n    </tr>\n  </thead></table>", "data_json": "[[\"SEQN\", \"Probandennummer\", \"\"], [\"nteeth\", \"Anzahl der nat\\u00fcrlichen Z\\u00e4hne\", \"0\\u201332\"], [\"cal_mean\", \"Mittlerer Attachmentverlust\", \"mm\"], [\"perio\", \"Parodontitis (CDC\\u2013AAP Definition, Eke et al. 2012)\", \"1=None, 2=mild, 3=moderate, 4=severe\"], [\"perio2\", \"Parodontitis\", \"1=Ja, 2=Nein\"], [\"bop\", \"Bleeding on probe (World Definition, Tonetti et al. 2018)\", \"1=None, 2=&gt;10%, 3=\\u226510%\"], [\"male\", \"Geschlecht\", \"1=Female, 2=Male\"], [\"age\", \"Alter\", \"Jahre\"], [\"edu\", \"Bildungsniveau\", \"1=&lt;9th grade/missing, 2=9\\u201311 grade/high school, 3=\\u2265some college\"], [\"smk\", \"Rauchstatus\", \"1=Never, 2=Former, 3=Current\"], [\"smk2\", \"Rauchstatus (zusammengefasst)\", \"1=Never, 2=Former/Current\"], [\"alcg\", \"Alkoholkonsum\", \"Gramm pro Tag\"], [\"Height\", \"K\\u00f6rpergr\\u00f6\\u00dfe\", \"cm\"], [\"Weight\", \"K\\u00f6rpergewicht\", \"kg\"], [\"bmi\", \"Body Mass Index\", \"kg/m\\u00b2\"], [\"bmi_cat\", \"BMI-Kategorien\", \"1=&lt;18.5, 2=18.5\\u201325, 3=25\\u201330, 4=\\u226530\"], [\"wc\", \"Taillenumfang\", \"cm\"], [\"wc_cat\", \"Taillenumfang \\u2013 Kategorien\", \"1=m:&lt;102,f:&lt;88; 2=m:\\u2265102,f:\\u226588\"], [\"diab\", \"Diabetes\", \"Ja, Nein\"], [\"mortstat\", \"Mortalit\\u00e4t\", \"1=lebend, 0=verstorben\"], [\"perm_exm\", \"Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung\", \"\"]]"};
-        new ITable(table, dt_args);
-    });
-</script>
-</div>
-</div>
-<div class="hidden">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 28%">
-<col style="width: 34%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"><strong>Variablenname</strong></th>
-<th style="text-align: left;"><strong>Bedeutung</strong></th>
-<th style="text-align: left;"><strong>Ausprägungen</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">SEQN</td>
-<td style="text-align: left;">Probandennummer</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nteeth</td>
-<td style="text-align: left;">Anzahl der natürlichen Zähne</td>
-<td style="text-align: left;">0–32</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">cal_mean</td>
-<td style="text-align: left;">Mittlerer Attachmentverlust</td>
-<td style="text-align: left;">mm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">perio</td>
-<td style="text-align: left;">Parodontitis (CDC-AAP Definition Eke et al.&nbsp;2012)</td>
-<td style="text-align: left;">1=None, 2=mild, 3=moderate, 4=severe</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">perio2</td>
-<td style="text-align: left;">Parodontitis</td>
-<td style="text-align: left;">1=Ja, 2=Nein</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bop</td>
-<td style="text-align: left;">Bleeding on probe (World Definition, Tonetti et al.&nbsp;2018)</td>
-<td style="text-align: left;">1=None, 2=&gt;10%, 3= <span class="math inline">\(\geq\)</span> 10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">male</td>
-<td style="text-align: left;">Geschlecht</td>
-<td style="text-align: left;">1=Female, 2=Male</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">age</td>
-<td style="text-align: left;">Jahre</td>
-<td style="text-align: left;">Jahre</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">edu</td>
-<td style="text-align: left;">Bildungsniveau</td>
-<td style="text-align: left;">1=&lt;9th grade/missing, 2=9–11 grade/high school, 3=≥some college</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">smk</td>
-<td style="text-align: left;">Rauchstatus</td>
-<td style="text-align: left;">1=Never, 2=Former, 3=Current</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">smk2</td>
-<td style="text-align: left;">Rauchstatus</td>
-<td style="text-align: left;">1=Never, 2=Former/Current</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">alcg</td>
-<td style="text-align: left;">Alkoholkonsum</td>
-<td style="text-align: left;">Gramm pro Tag</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Height</td>
-<td style="text-align: left;">Körpergröße</td>
-<td style="text-align: left;">cm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Weight</td>
-<td style="text-align: left;">Körpergewicht</td>
-<td style="text-align: left;">kg</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">bmi</td>
-<td style="text-align: left;">Body Mass Index</td>
-<td style="text-align: left;">kg/m²</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">bmi_cat</td>
-<td style="text-align: left;">BMI-Kategorien</td>
-<td style="text-align: left;">1= <span class="math inline">\(&lt;\)</span> 18.5, 2=18.5–25, 3=25–30, 4= <span class="math inline">\(\geq\)</span> 30</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">wc</td>
-<td style="text-align: left;">Taillenumfang</td>
-<td style="text-align: left;">cm</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">wc_cat</td>
-<td style="text-align: left;">Taillenumfang – Kategorien</td>
-<td style="text-align: left;">1=m:<span class="math inline">\(&lt;\)</span> 102,f: <span class="math inline">\(&lt;\)</span> 88; 2=m:<span class="math inline">\(\geq\)</span> 102,f: <span class="math inline">\(\geq\)</span> 88</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">diab</td>
-<td style="text-align: left;">Diabetes</td>
-<td style="text-align: left;">Ja, Nein</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">mortstat</td>
-<td style="text-align: left;">Mortalität</td>
-<td style="text-align: left;">1=lebend, 0=verstorben</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">perm_exm</td>
-<td style="text-align: left;">Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
 
 
 </section>

@@ -188,7 +188,9 @@ Add the variables `age`, `bmi`, and your dummy-coded smoking variables as indepe
 
 **Note:** If you completed Practical 5, you already have the dummy variables for smoking status. Here they are named `Former` and `Current`.
 
+
 ![SPSS dialog – regression with several independent variables](logistic_dialog_multivariable.jpeg){width="55%" fig-align="center"}
+
 
 <details class="result-panel">
 
@@ -198,19 +200,18 @@ Add the variables `age`, `bmi`, and your dummy-coded smoking variables as indepe
 
 | Variable | Coefficient B | Sig. | Exp(B) |
 |---|---|---|---|
-| bmi | 0.049 | 0.007 | 1.050 |
-| age | 0.057 | <0.001 | 1.059 |
-| Former | 0.352 | <0.001 | 1.421 |
-| Current | 1.189 | <0.001 | 3.285 |
-| age × bmi | −0.001 | 0.030 | 0.999 |
-| Constant | −5.161 | <0.001 | 0.006 |
+| bmi | 0.011 | 0.027 | 1.011 |
+| age | 0.037 | <0.001 | 1.038 |
+| Former | 0.348 | <0.001 | 1.416 |
+| Current | 1.190 | <0.001 | 3.287 |
+| Constant | −4.109 | <0.001 | 0.016 |
 
 **Note:** This output already includes the `age × bmi` interaction term — you'll build it explicitly in Exercise 3, where it is interpreted in detail.
 
 </details>
 
 :::{.callout-tip title="Why does bmi change?"}
-In Exercise 1.1, `bmi` alone was **not** significantly associated with periodontitis (p = 0.751, Exp(B) ≈ 1). In the multivariable model above, `bmi` becomes statistically significant (p = 0.007). This happens because `age` and `bmi` are correlated with each other and both affect periodontitis risk — adjusting for `age` removes some of that confounding and reveals the effect of `bmi` more clearly.
+In Exercise 1.1, `bmi` alone was **not** significantly associated with periodontitis (p = 0.751, Exp(B) ≈ 1). In the multivariable model above, `bmi` becomes statistically significant (p = 0.027). This happens because `age` and `bmi` are correlated with each other and both affect periodontitis risk — adjusting for `age` removes some of that confounding and reveals the effect of `bmi` more clearly.
 :::
 
 ## Exercise 2: Model Comparison
