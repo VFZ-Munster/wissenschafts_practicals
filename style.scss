@@ -778,6 +778,37 @@ table.dataTable.course-data-table .values-column {
   color: darken($body-color, 5%);
 }
 
+// Keep coded categories easy to scan without changing their exported values.
+table.course-data-table .value-list {
+  display: grid;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: grid;
+    grid-template-columns: 1.65rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: 0.55rem;
+  }
+}
+
+table.course-data-table .value-code {
+  background: rgba($brand-blue, 0.07);
+  border-radius: 4px;
+  color: $brand-blue;
+  font-size: 0.85em;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  padding: 0.08rem 0.25rem;
+  text-align: center;
+}
+
+table.course-data-table .value-empty {
+  color: lighten($body-color, 15%);
+}
+
 .dt-container .dt-info {
   color: lighten($body-color, 8%);
   font-size: 0.86rem;
@@ -1156,5 +1187,38 @@ table.dataTable.course-data-table .values-column {
     border-color: #c0c0c0;
     color: black;
     text-decoration: none;
+  }
+}
+
+// License server address on the SPSS setup page.
+.license-server {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0.25rem 0 1rem;
+  padding: 0.55rem 0.9rem;
+  border-left: 3px solid $brand-green;
+  border-radius: 0 6px 6px 0;
+  background: rgba($brand-green, 0.06);
+
+  p {
+    margin: 0;
+  }
+
+  .license-server-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: $body-color;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  code {
+    padding: 0;
+    background: transparent;
+    color: $brand-blue;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
 }
