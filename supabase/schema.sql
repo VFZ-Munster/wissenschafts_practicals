@@ -22,7 +22,7 @@ create table if not exists votes (
   poll_id    text not null references polls(id) on delete cascade,
   round      int not null,
   voter      uuid not null,
-  choice     int not null check (choice between 0 and 19),
+  choice     int not null check (choice between 0 and 31),
   created_at timestamptz not null default now(),
   primary key (poll_id, round, voter)
 );

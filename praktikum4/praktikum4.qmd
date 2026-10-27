@@ -111,7 +111,28 @@ For simplicity, use the mean normal weight BMI value of 21.7 as the comparison p
 
 ![](t_test_spss.png)
 
-<details class="result-panel">
+::: {.poll-calc #p4-e1}
+Enter the results of the one-sample t-test from your SPSS output (two decimals).
+
+- [Mean difference]{.calc answer="6.84" tol="0.02" mistakes="28.54: That is the mean BMI of the sample – the mean difference is the sample mean minus the test value. | -6.84: Wrong sign – subtract the test value from the sample mean. | 135.83: That is the t value."}
+- [95% CI of the difference – lower bound]{.calc answer="6.74" tol="0.02" mistakes="28.44: That is the CI of the mean BMI – here you need the CI of the difference. | 6.94: That is the upper bound."}
+- [95% CI of the difference – upper bound]{.calc answer="6.94" tol="0.02" mistakes="28.64: That is the CI of the mean BMI – here you need the CI of the difference. | 6.74: That is the lower bound."}
+:::
+
+::: {.poll #p4-e1-h0 correct="2"}
+What do you conclude from the one-sample t-test?
+
+- Retain H0 – the mean BMI in the sample does not differ significantly from 21.7.
+- Reject H0 – the mean BMI in the sample differs significantly from 21.7.
+- Reject H0 – the probability that H0 is true is less than 0.1 %.
+- No decision is possible, because BMI is not normally distributed.
+
+::: poll-explanation
+The two-sided p-value is < .001 and the 95 % CI of the difference does not include 0, so we **reject H0**. The p-value is *not* the probability that H0 is true: it is the probability of a difference at least this large *if* H0 were true. Non-normality is not a problem here: with almost 15,000 cases the sample mean is approximately normally distributed (central limit theorem).
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p4-e1-h0">
 
 <summary>Exercise results</summary>
 
@@ -129,29 +150,19 @@ For simplicity, use the mean normal weight BMI value of 21.7 as the comparison p
 
 **1.2 Comprehension question**
 
-In your work, you report the confidence interval in addition to the p-value. Why?
+::: {.poll #p4-e1-ci correct="1,4" multiple="true"}
+Why do you report the confidence interval in addition to the p-value?
 
-Select all that apply (multiple answers possible):
+- The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.
+- The confidence interval should always be reported for a significant p-value. For non-significant p-values, the confidence interval usually provides no additional information.
+- For a significant p-value, values above and below the confidence interval are excluded.
+- Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.
+- For a significant p-value and a confidence interval that does not include the "null effect," clinical relevance can automatically be assumed.
 
-a)  The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.
-
-b)  The confidence interval should always be reported for a significant p-value. For non-significant p-values, the confidence interval usually provides no additional information.
-
-c)  For a significant p-value, values above and below the confidence interval are excluded.
-
-d)  Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.
-
-e)  For a significant p-value and a confidence interval that does not include the "null effect," clinical relevance can automatically be assumed.
-
-<details class="result-panel">
-
-<summary>Exercise results</summary>
-
-✓ `a) The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.`
-
-✓ `d) Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.`
-
-</details>
+::: poll-explanation
+**a** and **d** are correct. The CI shows the direction and size of the effect, and the point estimate is our best guess of the true value. **b** is wrong: for a non-significant result the CI shows which effects are still compatible with the data – a wide CI means "imprecise", not "no effect". **c** is wrong: values outside the CI are less compatible with the data, but not excluded. **e** is wrong: statistical significance is not clinical relevance – that depends on how large the effect is.
+:::
+:::
 
 ## Exercise 2: Mann-Whitney U Test
 
@@ -206,7 +217,27 @@ For small sample sizes (e.g., n \< 25), you therefore decide either to transform
 
 Based on the "Asymp. Sig. (2-tailed)" value in the output, determine whether to retain or reject the null hypothesis.
 
-<details class="result-panel">
+::: {.poll-calc #p4-e2}
+Enter the mean ranks from the "Ranks" table of your SPSS output (two decimals).
+
+- [Mean rank – never smokers]{.calc answer="4688.93" tol="0.5" mistakes="5781.23: Groups swapped – that is the former/current smokers. | 25409315.5: That is the sum of ranks, not the mean rank."}
+- [Mean rank – former/current smokers]{.calc answer="5781.23" tol="0.5" mistakes="4688.93: Groups swapped – that is the never smokers. | 28946635.5: That is the sum of ranks, not the mean rank."}
+:::
+
+::: {.poll #p4-e2-h0 correct="2"}
+What do you conclude from the Mann–Whitney U test?
+
+- Retain H0 – attachment loss does not differ between never smokers and former/current smokers.
+- Reject H0 – attachment loss differs significantly; former/current smokers tend to have higher values.
+- Reject H0 – the test shows that former/current smokers have a higher mean attachment loss.
+- Reject H0 – smoking causes attachment loss.
+
+::: poll-explanation
+Asymp. Sig. (2-tailed) is < .001, so we **reject H0**. The former/current smokers have the higher mean rank, so they tend to have more attachment loss. The test works with **ranks**, not with the raw values, so it says nothing about the means. And the data are cross-sectional: they show an association, not a cause.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p4-e2-h0">
 
 <summary>Exercise results</summary>
 
@@ -271,7 +302,27 @@ Under the null hypothesis, the relevant outcomes are independent of each other, 
 
 ![](Chi.png)
 
-<details class="result-panel">
+::: {.poll-calc #p4-e3}
+Enter the values from your SPSS output (two decimals).
+
+- [Expected count – diabetes **with** periodontitis]{.calc answer="114.5" tol="0.1" mistakes="199: That is the observed count – you need the expected count. | 662.5: That is the expected count for diabetics without periodontitis. | 1072.5: That is the expected count for non-diabetics with periodontitis."}
+- [Pearson Chi-Square (χ²)]{.calc answer="80.95" tol="0.005" mistakes="79.99: That is the continuity correction. | 70.24: That is the likelihood ratio. | 80.94: That is the linear-by-linear association."}
+:::
+
+::: {.poll #p4-e3-h0 correct="3"}
+What do you conclude from the chi-square test?
+
+- Retain H0 – diabetes and periodontitis are independent.
+- Reject H0 – diabetes causes periodontitis.
+- Reject H0 – diabetes and periodontitis are not independent; periodontitis occurs more often among diabetics than expected under independence.
+- Reject H0 – the large χ² value shows that the association is strong.
+
+::: poll-explanation
+p < .001, so we **reject H0** of independence. Among diabetics, 199 people have periodontitis, but only 114.5 would be expected if the two were independent. χ² grows with the sample size, so it does not tell you how *strong* the association is – use the OR or RR for that (Practical 2: OR = 2.19). The data are cross-sectional, so the test shows an association, not a cause.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p4-e3-h0">
 
 <summary>Exercise results</summary>
 

@@ -288,7 +288,27 @@ ul.task-list li input[type="checkbox"] {
   </ol>
 </div>
 <p><img src="t_test_spss.png" class="img-fluid"></p>
-<details class="result-panel">
+<div id="p4-e1" class="poll-calc">
+<p>Enter the results of the one-sample t-test from your SPSS output (two decimals).</p>
+<ul>
+<li><span class="calc" data-answer="6.84" data-tol="0.02" data-mistakes="28.54: That is the mean BMI of the sample – the mean difference is the sample mean minus the test value. | -6.84: Wrong sign – subtract the test value from the sample mean. | 135.83: That is the t value.">Mean difference</span></li>
+<li><span class="calc" data-answer="6.74" data-tol="0.02" data-mistakes="28.44: That is the CI of the mean BMI – here you need the CI of the difference. | 6.94: That is the upper bound.">95% CI of the difference – lower bound</span></li>
+<li><span class="calc" data-answer="6.94" data-tol="0.02" data-mistakes="28.64: That is the CI of the mean BMI – here you need the CI of the difference. | 6.74: That is the lower bound.">95% CI of the difference – upper bound</span></li>
+</ul>
+</div>
+<div id="p4-e1-h0" class="poll" data-correct="2">
+<p>What do you conclude from the one-sample t-test?</p>
+<ul>
+<li>Retain H0 – the mean BMI in the sample does not differ significantly from 21.7.</li>
+<li>Reject H0 – the mean BMI in the sample differs significantly from 21.7.</li>
+<li>Reject H0 – the probability that H0 is true is less than 0.1 %.</li>
+<li>No decision is possible, because BMI is not normally distributed.</li>
+</ul>
+<div class="poll-explanation">
+<p>The two-sided p-value is &lt; .001 and the 95 % CI of the difference does not include 0, so we <strong>reject H0</strong>. The p-value is <em>not</em> the probability that H0 is true: it is the probability of a difference at least this large <em>if</em> H0 were true. Non-normality is not a problem here: with almost 15,000 cases the sample mean is approximately normally distributed (central limit theorem).</p>
+</div>
+</div>
+<details class="result-panel presenter-only" data-reveal-with="p4-e1-h0">
 <summary>
 Exercise results
 </summary>
@@ -301,22 +321,19 @@ Exercise results
 </ul>
 </details>
 <p><strong>1.2 Comprehension question</strong></p>
-<p>In your work, you report the confidence interval in addition to the p-value. Why?</p>
-<p>Select all that apply (multiple answers possible):</p>
-<ol type="a">
-<li><p>The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.</p></li>
-<li><p>The confidence interval should always be reported for a significant p-value. For non-significant p-values, the confidence interval usually provides no additional information.</p></li>
-<li><p>For a significant p-value, values above and below the confidence interval are excluded.</p></li>
-<li><p>Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.</p></li>
-<li><p>For a significant p-value and a confidence interval that does not include the “null effect,” clinical relevance can automatically be assumed.</p></li>
-</ol>
-<details class="result-panel">
-<summary>
-Exercise results
-</summary>
-<p>✓ <code>a) The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.</code></p>
-<p>✓ <code>d) Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.</code></p>
-</details>
+<div id="p4-e1-ci" class="poll" data-correct="1,4" multiple="true">
+<p>Why do you report the confidence interval in addition to the p-value?</p>
+<ul>
+<li>The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.</li>
+<li>The confidence interval should always be reported for a significant p-value. For non-significant p-values, the confidence interval usually provides no additional information.</li>
+<li>For a significant p-value, values above and below the confidence interval are excluded.</li>
+<li>Regardless of the width of the confidence interval, the point estimate based on the sample is the best approximation of the true population value.</li>
+<li>For a significant p-value and a confidence interval that does not include the “null effect,” clinical relevance can automatically be assumed.</li>
+</ul>
+<div class="poll-explanation">
+<p><strong>a</strong> and <strong>d</strong> are correct. The CI shows the direction and size of the effect, and the point estimate is our best guess of the true value. <strong>b</strong> is wrong: for a non-significant result the CI shows which effects are still compatible with the data – a wide CI means “imprecise”, not “no effect”. <strong>c</strong> is wrong: values outside the CI are less compatible with the data, but not excluded. <strong>e</strong> is wrong: statistical significance is not clinical relevance – that depends on how large the effect is.</p>
+</div>
+</div>
 </section>
 <section id="exercise-2-mann-whitney-u-test" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-mann-whitney-u-test">Exercise 2: Mann-Whitney U Test</h2>
@@ -362,7 +379,26 @@ Exercise results
 </div>
 <p><img src="Mann_Whitney.png" class="img-fluid"></p>
 <p>Based on the “Asymp. Sig. (2-tailed)” value in the output, determine whether to retain or reject the null hypothesis.</p>
-<details class="result-panel">
+<div id="p4-e2" class="poll-calc">
+<p>Enter the mean ranks from the “Ranks” table of your SPSS output (two decimals).</p>
+<ul>
+<li><span class="calc" data-answer="4688.93" data-tol="0.5" data-mistakes="5781.23: Groups swapped – that is the former/current smokers. | 25409315.5: That is the sum of ranks, not the mean rank.">Mean rank – never smokers</span></li>
+<li><span class="calc" data-answer="5781.23" data-tol="0.5" data-mistakes="4688.93: Groups swapped – that is the never smokers. | 28946635.5: That is the sum of ranks, not the mean rank.">Mean rank – former/current smokers</span></li>
+</ul>
+</div>
+<div id="p4-e2-h0" class="poll" data-correct="2">
+<p>What do you conclude from the Mann–Whitney U test?</p>
+<ul>
+<li>Retain H0 – attachment loss does not differ between never smokers and former/current smokers.</li>
+<li>Reject H0 – attachment loss differs significantly; former/current smokers tend to have higher values.</li>
+<li>Reject H0 – the test shows that former/current smokers have a higher mean attachment loss.</li>
+<li>Reject H0 – smoking causes attachment loss.</li>
+</ul>
+<div class="poll-explanation">
+<p>Asymp. Sig. (2-tailed) is &lt; .001, so we <strong>reject H0</strong>. The former/current smokers have the higher mean rank, so they tend to have more attachment loss. The test works with <strong>ranks</strong>, not with the raw values, so it says nothing about the means. And the data are cross-sectional: they show an association, not a cause.</p>
+</div>
+</div>
+<details class="result-panel presenter-only" data-reveal-with="p4-e2-h0">
 <summary>
 Exercise results
 </summary>
@@ -416,7 +452,26 @@ Exercise results
   </ol>
 </div>
 <p><img src="Chi.png" class="img-fluid"></p>
-<details class="result-panel">
+<div id="p4-e3" class="poll-calc">
+<p>Enter the values from your SPSS output (two decimals).</p>
+<ul>
+<li><span class="calc" data-answer="114.5" data-tol="0.1" data-mistakes="199: That is the observed count – you need the expected count. | 662.5: That is the expected count for diabetics without periodontitis. | 1072.5: That is the expected count for non-diabetics with periodontitis.">Expected count – diabetes <strong>with</strong> periodontitis</span></li>
+<li><span class="calc" data-answer="80.95" data-tol="0.005" data-mistakes="79.99: That is the continuity correction. | 70.24: That is the likelihood ratio. | 80.94: That is the linear-by-linear association.">Pearson Chi-Square (χ²)</span></li>
+</ul>
+</div>
+<div id="p4-e3-h0" class="poll" data-correct="3">
+<p>What do you conclude from the chi-square test?</p>
+<ul>
+<li>Retain H0 – diabetes and periodontitis are independent.</li>
+<li>Reject H0 – diabetes causes periodontitis.</li>
+<li>Reject H0 – diabetes and periodontitis are not independent; periodontitis occurs more often among diabetics than expected under independence.</li>
+<li>Reject H0 – the large χ² value shows that the association is strong.</li>
+</ul>
+<div class="poll-explanation">
+<p>p &lt; .001, so we <strong>reject H0</strong> of independence. Among diabetics, 199 people have periodontitis, but only 114.5 would be expected if the two were independent. χ² grows with the sample size, so it does not tell you how <em>strong</em> the association is – use the OR or RR for that (Practical 2: OR = 2.19). The data are cross-sectional, so the test shows an association, not a cause.</p>
+</div>
+</div>
+<details class="result-panel presenter-only" data-reveal-with="p4-e3-h0">
 <summary>
 Exercise results
 </summary>
@@ -707,6 +762,9 @@ Exercise results
     el.querySelector(".poll-submit").onclick = () => submitCalc(c);
     return c;
   });
+  // Long answer texts (e.g. Practical 4, 1.2) get one option per row.
+  const pollCols = p => p.options.some(o => o.replace(/<[^>]*>/g, "").length > 90) ? 1
+    : p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
   const calcIds = c => [c.id].concat(c.fields.map(f => f.id));
   const withUnit = f => f.answer + (f.unit && f.unit !== "%" ? " " : "") + f.unit;
 
@@ -855,7 +913,7 @@ Exercise results
         if (p.explanation) p.explanation.hidden = true;
 
         if (p.multiple && p.draftRound !== s.round) { p.draft = 0; p.draftRound = s.round; }
-        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const cols = pollCols(p);
         const selected = i => p.multiple ? !!(p.draft & (1 << i)) : false;
 
         body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
@@ -939,7 +997,7 @@ Exercise results
         requestAnimationFrame(() => requestAnimationFrame(() =>
           body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
       } else {
-        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const cols = pollCols(p);
         const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
         body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
           p.options.map((label, i) =>

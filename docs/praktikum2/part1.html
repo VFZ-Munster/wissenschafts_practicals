@@ -599,6 +599,9 @@ ul.task-list li input[type="checkbox"] {
     el.querySelector(".poll-submit").onclick = () => submitCalc(c);
     return c;
   });
+  // Long answer texts (e.g. Practical 4, 1.2) get one option per row.
+  const pollCols = p => p.options.some(o => o.replace(/<[^>]*>/g, "").length > 90) ? 1
+    : p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
   const calcIds = c => [c.id].concat(c.fields.map(f => f.id));
   const withUnit = f => f.answer + (f.unit && f.unit !== "%" ? " " : "") + f.unit;
 
@@ -747,7 +750,7 @@ ul.task-list li input[type="checkbox"] {
         if (p.explanation) p.explanation.hidden = true;
 
         if (p.multiple && p.draftRound !== s.round) { p.draft = 0; p.draftRound = s.round; }
-        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const cols = pollCols(p);
         const selected = i => p.multiple ? !!(p.draft & (1 << i)) : false;
 
         body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
@@ -831,7 +834,7 @@ ul.task-list li input[type="checkbox"] {
         requestAnimationFrame(() => requestAnimationFrame(() =>
           body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
       } else {
-        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const cols = pollCols(p);
         const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
         body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
           p.options.map((label, i) =>
