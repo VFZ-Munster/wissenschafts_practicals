@@ -43,7 +43,7 @@ Shown as "💡 Why?" only after the teacher reveals.
 :::
 ```
 - `multiple="true"` → select-all-that-apply. The vote is stored as a **bitmask** in `choice`
-  (DB check allows 0–19, so at most 4 options). NB: Pandoc emits it as a plain `multiple`
+  (DB check allows 0–31, so at most 5 options). NB: Pandoc emits it as a plain `multiple`
   attribute, not `data-multiple`; the script reads both.
 - **Fill-in tables:** `::: {.poll-table #p2-t3}` around a Markdown table. Cells written as
   `[199]{.blank}` become inputs (the number is the answer). The last row and last column are
@@ -74,6 +74,15 @@ Shown as "💡 Why?" only after the teacher reveals.
 - `praktikum3/praktikum3.qmd`: Ex 1 = calc card `p3-e1` (height CI bounds, mortstat mean)
   + `p3-e1-ci` (2). Ex 2 = multi-select `p3-e2-normal` (1 = height only). Ex 3 =
   `p3-e3-log` (2) and `p3-e3-n` (3, why N drops: ln(0)).
+- `praktikum4/praktikum4.qmd`: Ex 1 = calc `p4-e1` (mean difference 6.84, CI 6.74–6.94)
+  + `p4-e1-h0` (2) + multi-select `p4-e1-ci` (1,4; 5 options). Ex 2 = calc `p4-e2` (mean ranks)
+  + `p4-e2-h0` (2). Ex 3 = calc `p4-e3` (expected count 114.5, χ² 80.95) + `p4-e3-h0` (3).
+- Multi-select with 5 options needs bitmasks up to 31: `schema.sql` now says `0–31`; the live DB
+  needs `alter table votes drop constraint votes_choice_check, add constraint votes_choice_check
+  check (choice between 0 and 31);` (ask the user whether it was run).
+- The live `poll_results` sometimes omits the total row for revealed polls; `refresh()` therefore
+  uses max(total, sum of counts).
+- Options longer than 90 characters → one option per row (`pollCols`).
 - Interpretation questions must not give away the numbers of the calc card above them.
 
 **Calculation cards:** `::: {.poll-calc #id}` around a list of
