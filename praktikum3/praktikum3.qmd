@@ -4,15 +4,8 @@ resources:
   - recap/assets/**
 ---
 
-::: {.content-visible when-profile="english"}
 # Practical 3
-:::
 
-::: {.content-visible when-profile="german"}
-# Praktikum 3
-:::
-
-::: {.content-visible when-profile="english"}
 Introduction: In this lesson, we will focus on **confidence intervals**, **normal distribution**, and **transforming variables**.
 
 ::: {.download-html-card}
@@ -22,27 +15,12 @@ Introduction: In this lesson, we will focus on **confidence intervals**, **norma
 ::: {.download-html-card}
 [Open the confidence interval explainer](../confidence_interval.qmd){target="_blank"}
 :::
-:::
 
-::: {.content-visible when-profile="german"}
-Einleitung: In dieser Stunde geht es um **Konfidenzintervallen**, **Normalverteilung** und **Transformieren von Variablen**.
-
-::: {.download-html-card}
-[Zusammenfassung aus Praktikum 3 öffnen](recap/index.html){target="_blank"}
-:::
-
-::: {.download-html-card}
-[Konfidenzintervall-Erklärung öffnen](../confidence_interval.qmd){target="_blank"}
-:::
-:::
-
-::: {.content-visible when-profile="english"}
 ### Exercise 1: Estimating with Confidence Intervals
 
 **Calculate the 95% confidence intervals for the mean values of the variables `height` and `mortstat`.**
 
 💡 SPSS:
-
 
 <div class="instruction-flow">
 <span class="text-steps">Step 1: </span>
@@ -90,68 +68,13 @@ b) A 95% confidence interval means that if multiple samples are drawn, 95% of th
 
 </details>
 
-:::
-
-::: {.content-visible when-profile="german"}
-### Aufgabe 1: Schätzen mit Konfidenzintervallen
-
-**Lassen Sie sich 95% Konfidenzintervalle der Mittelwerte für die Variablen „height“ und „mortstat“ angeben**
-
-💡 SPSS: 
-
-<div class="instruction-flow">
-  <span class="step">ANALYSE</span>
-  <span class="arrow">→</span>
-  <span class="step">DESKRIPTIVE STATISTIK</span>
-    <span class="arrow">→</span>
-  <span class="step">EXPLORATIVE DATENANALYSE</span>
-</div> 
-
-„height“ und „mortstat“ als abhängige Variablen zuordnen. Unter Anzeige „Statistiken“ auswählen. Unter Statistiken können die Grenzen des Konfidenzintervalls festgelegt werden. Unter Optionen wählen Sie „paarweiser Fallausschluss“ aus. 
-
-![](CI.png)
-
-<details>
-
-<summary>Show Results</summary>
-
-| **Variablen**  | **Mittelwerte (95% Konfidenzintervalle)**| 
-|:---------------|:-----------------------------------------|
-| height         |   167.05 (166.89 - 167.21)               | 
-| mortstat       |   0.26 (0.25 - 0.27)                     |
-
-
-</details>
-
-**Verständnisfrage zum Konfidenzintervall:** 
-
-Welcher Aussage stimmen Sie zu: 
-
-a) Der wahre Wert der Grundgesamtheit liegt bei einem 95% Konfidenzintervall mit einer Wahrscheinlichkeit von 95% innerhalb der Grenzen des Intervalls.  
-
-b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten. 
-
-<details>
-
-<summary>Show Results</summary>
-
- ✓ `b) Ein Konfidenzintervall von 95% sagt, dass bei mehrfacher Ziehung einer Stichprobe in 95% der Fälle Intervalle entstehen, die den wahren Wert der Grundgesamtheit enthalten. Ob das Konfidenzintervall im Einzelfall den wahren Wert enthält, lässt sich nicht beantworten.`
-
-</details>
-
-:::
-
-
-::: {.content-visible when-profile="english"}
 ### Exercise 2: Testing for normality
 
 In the lecture, you learned about different ways to test for normality. In brief, these are:
 
 1) Assessment of skewness and kurtosis (kurtosis should be 3 – describes the steepness/peakedness of the distribution)
 
-
 2) Statistical tests for normality
-
 
 3) Graphical tests for normality
 
@@ -192,7 +115,6 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-
 <details>
 
 <summary>Statistical tests for normality</summary>
@@ -200,7 +122,6 @@ Determine which of the variables can be assumed to follow a normal distribution.
 ![](Tests_Normality.png)
 
 </details>
-
 
 <details>
 
@@ -216,8 +137,6 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-
-
 <details>
 
 <summary>Show Results</summary>
@@ -230,85 +149,6 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-:::
-
-::: {.content-visible when-profile="german"}
-
-### Aufgabe 2: Prüfen der Normalverteilung
-
-Sie haben in der Vorlesung verschiedene Möglichkeiten zum Testen auf das Vorliegen einer Normalverteilung kennengelernt. In Kürze sind dies:
-1. Die Bewertung von Schiefe und Kurtosis (Wölbung, sollte 3 sein – beschreibt die Steilheit / Spitzigkeit der Verteilung)
-
-2. Statistische Tests auf Normalverteilung 
-
-3. Graphische Tests auf Normalverteilung
-
-Das Wissen über die Verteilung der Variablen kann u.A. bei der Auswahl des richtigen Tests helfen.
-
-**Prüfen Sie die Merkmale height, bmi und cal_mean auf Normalverteilung.**
-
-💡SPSS: 
-<div class="instruction-flow">
-  <span class="step">ANALYSE</span>
-  <span class="arrow">→</span>
-  <span class="step">DESKRIPTIVE STATISTIK</span>
-    <span class="arrow">→</span>
-  <span class="step">EXPLORATIVE DATENANALYSE</span>
-</div> 
-
-
-Anzeige von „Statistiken“ auf „Beides“ ändern. Unter Statistiken „Deskriptive Statistik mit Konfidenzintervall 95%“ auswählen. Unter Diagramme „Normalverteilungsdiagramme mit Tests“ und „Histogramm“ auswählen. Variablen in das Feld „abhängige Variablen“ ziehen. Zuletzt unter Optionen „paarweisen Fallausschluss“ auswählen
-
-**Testen Sie graphisch auf Normalverteilung, indem Sie sich für `height`, `bmi`, and `cal_mean` jeweils das Histogramm und das Q-Q-Diagramm ansehen.** 
-
-Hinweis: Im Rahmen des Praktikums müssen Sie das trendbereinigte Q-Q-Diagramm nicht beachten
-
-Entscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilung ausgehen möchten
-
-![](Normality_test.png){width=80%}
-
-<details>
-<summary>Die Bewertung von Schiefe und Kurtosis</summary>
-
-![](Skew_Kurtosis.png)
-
-</details>
-
-
-<details>
-<summary>Statistische Tests auf Normalverteilung</summary>
-
-![](Tests_Normality.png)
-
-</details>
-
-
-<details>
-<summary> Graphische Tests auf Normalverteilung </summary>
-
-1. Histograms
-
-![](Histograms.png)
-
-2. Q-Q plots
-
-![](Q_Q_plots.png)
-
-</details>
-
-<details>
-<summary>Show Results</summary>
-| **Variable**   | **Normalverteilt?**     | 
-|:---------------|:------------------------|
-| height         |  Ja                     | 
-| cal_mean       |  Nein                   |
-| bmi            |  Nein                   | 
-
-</details>
-
-:::
-
-::: {.content-visible when-profile="english"}
 ### Exercise 3: Transforming Variables
 
 **Perform a logarithmic transformation of the variable `cal_mean`.**
@@ -322,7 +162,6 @@ Entscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilu
   <span class="step">COMPUTE VARIABLE</span>
 </div>
 
-
 <span class="text-steps">Step 2: </span> Assign a name to the target variable
 
 <span class="text-steps">Step 3: </span> ☑ Select the Function Group "Arithmetic" and double-click on `Ln`
@@ -330,7 +169,6 @@ Entscheiden Sie abschließend, bei welcher Variable Sie von einer Normalverteilu
 <span class="text-steps">Step 4: </span> Double-click the variable to be transformed
 
 ![](Log_Transformation.png){width=80%}
-
 
 Take a look at the histogram with the normal distribution curve for the newly created variable:
 
@@ -355,53 +193,4 @@ Under "Charts", select ☑ "Histogram" and "Normal distribution curve"
 ![](cal_mean.png)
 
 </details>
-::: 
 
-::: {.content-visible when-profile="german"}
-### Aufgabe 3:  Transformieren von Variablen 
-
-**Führen Sie eine logarithmische Transformation der Variable `cal_mean` durch.**
-
-Hinweis: Hier wird der natürliche Logarithmus verwendet.
-
-💡 SPSS: 
-
-```{=html}
-
-<div class="instruction-flow">
-  <span class="step">TRANSFORMIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">VARIABLE BERECHNEN</span>
-</div>
-```
-
-Funktionsgruppe „Arithmetisch“ auswählen und Doppelklick auf „Ln“ Doppelklick auf die zu transformierende Variable `cal_mean`.
-
-![](Log_Transformation.png){width=80%}
-
-
-Schauen Sie sich das Histogramm mit Normalverteilungskurve für die neu erstellte Variable an:
-
-💡 SPSS: 
-
-```{=html}
-<div class="instruction-flow">
-  <span class="step">ANALYSIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">DESKRIPTIVE STATISTIKEN</span>
-    <span class="arrow">→</span>
-  <span class="step">HÄUFIGKEITEN</span>
-</div>
-```
-
-
-☑ Unter Diagramme Histogramm und Normalverteilungskurve auswählen.
-
-<details>
-
-<summary>Show Results</summary>
-
-![](cal_mean.png)
-
-</details>
-:::

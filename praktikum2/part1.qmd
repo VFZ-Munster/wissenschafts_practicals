@@ -11,36 +11,56 @@ To do this, switch from the **Data View** to the **Variable View**.⚙️
 
 ![](p1.png)
 
-<details class="result-panel">
+::: {.poll #p2-t1-sex correct="1"}
+What is the level of measurement of **Gender/sex**?
 
-<summary>Task results</summary>
+- Nominal
+- Ordinal
+- Scale (metric)
 
-| **Variable**   | **SPSS measure** | **General type**      | **Values** |
-|:---------------|:----------------------|:----------------------|:------|
-| Gender         | Nominal               | Unordered categorical | Male, Female |
-| BMI            | Scale                 | Continuous numeric    | Measured in kg/m² |
-| BMI categories | Ordinal/Nominal in SPSS | Ordered categorical | < 18.5, 18.5-25, 25-30, $\geq$ 30 |
-
-::: callout-tip
--   Use **nominal** for categories without a natural order.
--   Use **ordinal** for categories with a meaningful order.
--   Use **scale** when values can be meaningfully added, subtracted, or averaged.
+::: poll-explanation
+**Nominal** – the categories (male, female) have no natural order; they are only labels.
+:::
 :::
 
-</details>
+::: {.poll #p2-t1-bmi correct="3"}
+What is the level of measurement of **BMI**?
+
+- Nominal
+- Ordinal
+- Scale (metric)
+
+::: poll-explanation
+**Scale** – BMI is a continuous measurement in kg/m²; values can be meaningfully added, subtracted and averaged.
+:::
+:::
+
+::: {.poll #p2-t1-bmicat correct="2"}
+What is the level of measurement of **BMI categories**?
+
+- Nominal
+- Ordinal
+- Scale (metric)
+
+::: poll-explanation
+**Ordinal** – the categories (< 18.5, 18.5–25, 25–30, ≥ 30) have a meaningful order.
+:::
+:::
 
 How does the level of measurement (scale level) of the variable `number of teeth` differ from that of body height or `BMI index`?
 
-<details class="result-panel">
+::: {.poll #p2-t1-teeth correct="2"}
+Compared with BMI, `number of teeth` is…
 
-<summary>Task results</summary>
+- Also continuous
+- Discrete numeric
+- Ordinal
+- Nominal
 
-| **Variable** | **Nature** | **SPSS measure** | **Comment** |
-|---------------|--------------------|---------------|-----------------------|
-| BMI | Continuous numeric | Scale | Can take decimal values |
-| Number of teeth | Discrete numeric | Scale | Only integer values, but still quantitative |
-
-</details>
+::: poll-explanation
+**Discrete numeric** – teeth can only be counted in whole numbers, while BMI is continuous and can take decimal values. Both are still quantitative, so both are *Scale* in SPSS.
+:::
+:::
 
 ## Task 2
 
@@ -58,26 +78,50 @@ Decide, before entering the data, whether to use a bar chart, histogram, or boxp
 
 ![](p2.png)
 
-<details class="result-panel">
+::: {.poll #p2-t2-sex correct="1" multiple="true"}
+Best graph for **Gender**?
 
-<summary>Task results</summary>
+- Bar chart
+- Histogram
+- Boxplot
 
-::: {.result-figure-grid}
+::: poll-explanation
+**Bar chart only** – gender is categorical, so we show the frequency of each category. Histograms and boxplots need numeric values.
+
 ::: {.result-figure}
 ![Bar plot displaying the distribution of the sex variable by category](bar_sex.png)
 :::
+:::
+:::
+
+::: {.poll #p2-t2-attach correct="2,3" multiple="true"}
+Best graph for **mean attachment loss**?
+
+- Bar chart
+- Histogram
+- Boxplot
+
+::: poll-explanation
+**Histogram and boxplot** – both work, because mean attachment loss is continuous: a histogram shows the shape of the distribution, a boxplot summarises median, spread and outliers. A bar chart is for categories.
 
 ::: {.result-figure}
 ![Histogram displaying the distribution of mean attachment loss](histo_attach.png)
 :::
+:::
+:::
+
+::: {.poll #p2-t2-teeth correct="2,3" multiple="true"}
+Best graph for **number of teeth**?
+
+- Bar chart
+- Histogram
+- Boxplot
+
+::: poll-explanation
+**Histogram and boxplot** – number of teeth is quantitative (discrete), so both work. A bar chart with one bar per count (0–32) is possible, but with so many values a histogram is clearer. Here the histogram is split by sex.
 
 ::: {.result-figure .wide}
 ![Histogram showing the distribution of number of teeth by sex](histo_nteeth_sex.png)
 :::
 :::
-
-::: callout-tip
-Use a **bar chart** for categorical variables such as gender. Use **histograms** or **boxplots** for quantitative variables such as mean attachment loss or number of teeth.
 :::
-
-</details>

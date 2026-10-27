@@ -31,16 +31,17 @@ These are the colors used to match the university’s official palette.
 
 ## Rendering the Quarto project
 
-This repository contains two YAML profiles that need to be rendered.
-You can run the commands directly in the terminal, or run the R script named  `render.r`,which contains:
+The site is English only and configured in `_quarto.yml`. Render and preview with:
 
-```r
-system("quarto render --profile english")
-system("quarto render --profile german")
-system("quarto preview")
+```bash
+./render.sh        # quarto render && quarto preview
 ```
+
 # Styling
-The styling is set in tge `style.scss` documents
+The styling is set in the `style.scss` document.
+
+# Polls
+Live classroom polls are implemented in `utilities/poll.html` with a Supabase backend; see `supabase/README.md`.
 
 # Docs
 The `docs` folder contains the HTML files used to deploy the site (for example, via GitHub Pages).

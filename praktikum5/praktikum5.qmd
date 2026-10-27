@@ -1,4 +1,3 @@
-::: {.content-visible when-profile="english"}
 # Practical 5: Linear Regression
 
 ::: {.grid}
@@ -39,13 +38,6 @@ In this practical, we use **univariable linear regression** to study the associa
 
 :::
 
-:::
-
-::: {.content-visible when-profile="german"}
-# Praktikum 5: Lineare Regression
-:::
-
-:::: {.content-visible when-profile="english"}
 ## Exercise 1: Univariable Analysis
 
 ### Exercise 1.1 Dummy Variables
@@ -148,7 +140,6 @@ These assumptions are:
 - Homoscedasticity: constant variance of the **residuals**
 
 **Note:** For more details, check the lecture.
-
 
 :::{.callout-tip title="Background"}
   By design:
@@ -254,7 +245,6 @@ Create another graph for `height` and `weight`. Compare the two. Which one shows
 
 </details>
 
-
 ### Exercise 2.3 Polynomials
 
 One way to deal with non-linearity is to introduce a quadratic expression.
@@ -300,15 +290,12 @@ Click [Statistics...]{.spss-button} and select **Estimates**, **Confidence Inter
 
 ![](linear_regression2.png){width="35%" fig-align="center"}
 
-
 Then, click [Plots...]{.spss-button} and select **Histogram** and **Normal probability plot**. In the **Scatter 1 of 1** section
 add `*ZRESID` (Standardized residual) as **Y:** and `*ZARED` (Standardized predicted value) as **X:**.
-
 
 ![](linear_regression3.png){width="35%" fig-align="center"}
 
 From the output, report the correlation Coefficient, are the two variables correlated?
-
 
 **Statistically (Breusch-Pagan test):**
 
@@ -322,7 +309,6 @@ From the output, report the correlation Coefficient, are the two variables corre
   <span class="step">Univariate</span>
 </div>
 
-
 In the **Univariate** window, select `ln_loss` as the **Dependent Variable** and `alcg` as the **Covariate(s)** variable.
 
 ![](linear_regression4.png){width="35%" fig-align="center"}
@@ -335,7 +321,6 @@ Click [Options...]{.spss-button} and select **Modified Breusch-Pagan test** and 
 <summary>Task results</summary>
 
 ![](test_homoscedasticity.png){width="40%" fig-align="center"}
-
 
 **Interpretation:**
 
@@ -395,11 +380,7 @@ In the **Compute Variable** window, in the **Target Variable** field, type `AlcM
 
 In the **Numeric Expression** field, type `alcg * male`.
 
-
 ![](interaction.png){width="40%" fig-align="center"}
-
-
-
 
 **3. Fit multivariable model:**
 
@@ -419,16 +400,12 @@ In the **Numeric Expression** field, type `alcg * male`.
 
 ![](linear_multivariable.png){width="35%" fig-align="center"}
 
-
 Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \epsilon_i$
 
 <details class="result-panel">
 <summary>Task results</summary>
 
 ![](linear_multivariable_result.png){width="50%" fig-align="center"}
-
-
-
 
 **Interpretation:** 
 
@@ -439,7 +416,6 @@ Equation: $Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \ep
 - **alcg:** Each 1-unit increase in alcohol consumption is associated with a 0.004 increase in attachment loss.
 
 - **AlcMale:** Whether alcohol consumption has an impact on attachment loss depends on gender.
-
 
 </details>
 
@@ -461,5 +437,4 @@ The CAL for a female that consumes 0g of alcohol is:
 $0.851 + 0.336 * 0 + 0.004 * 0 + 0.002 * 0 * 0 = 0.851$
 
 </details>
-
 

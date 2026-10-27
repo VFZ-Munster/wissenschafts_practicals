@@ -1,5 +1,4 @@
 ---
-#title: "Quantitative Methoden für die Gesundheitswissenschaften"
 jupyter: python3
 author:   
   - name: Ignacio Leiva
@@ -10,7 +9,6 @@ author:
     email: aiswarya.chennas@uni-muenster.de
 ---
 
-::: {.content-visible when-profile="english"}
 ::: {.home-hero}
 ::: {.hero-copy}
 ::: {.home-kicker}
@@ -72,95 +70,19 @@ Analyze, visualize, and interpret health data.
 :::
 :::
 <br>
-:::
-
-::: {.content-visible when-profile="german"}
-::: {.home-hero}
-::: {.hero-copy}
-::: {.home-kicker}
-Quantitative Methoden in den Gesundheitswissenschaften
-:::
-
-# Praktikum
-
-Entdecken, analysieren und interpretieren Sie reale NHANES-Daten und entwickeln Sie einen reproduzierbaren Workflow für angewandte Gesundheitsforschung.
-
-::: {.hero-actions}
-[Mit Praktikum 1 starten](praktikum1/praktikum1.qmd){.hero-button .primary}
-[Blackboard öffnen](blackboard.qmd){.hero-button}
-:::
-:::
-
-::: {.hero-panel}
-![](mfm-logo.svg){.hero-logo fig-alt="Logo der Universität Münster"}
-
-::: {.qr-card}
-::: {.qr-label}
-Kurslink scannen
-:::
-{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ width=144 height=144 colorDark="#003866" colorLight="#ffffff" >}}
-
-::: {.qr-url}
-vfz-munster.github.io
-:::
-:::
-:::
-:::
-
-::: {.grid .home-grid}
-::: {.g-col-12 .g-col-md-6 .feature-card}
-### Datenanalyse
-Wir verwenden Daten der [NHANES](https://wwwn.cdc.gov/nchs/nhanes/) (1999–2003), um den Gesundheitszustand der US-Bevölkerung (30-85 Jahre) zu beschreiben.
-:::
-
-::: {.g-col-12 .g-col-md-6 .feature-card}
-### Der Datensatz
-Die Daten sind in `nhanes30.sav` gespeichert. Diese Datei enthält Beobachtungsdaten, Variablenbeschreibungen und Metadaten.
-:::
-:::
-
-::: {.course-path}
-::: {.path-item}
-**01**
-SPSS einrichten und die Arbeitsumgebung vorbereiten.
-:::
-
-::: {.path-item}
-**02**
-Variablen, Metadaten und Kodierungen prüfen.
-:::
-
-::: {.path-item}
-**03**
-Gesundheitsdaten analysieren, visualisieren und interpretieren.
-:::
-:::
-<br>
-:::
-
-
 
 ::: {.callout-tip}
 ## .sav?
 
-::: {.content-visible when-profile="english"}
 `.sav` extension indicates an SPSS file, which contains the observed data, variable descriptions, and metadata.
-:::
 
-::: {.content-visible when-profile="german"}
-Die Erweiterung `.sav` kennzeichnet eine SPSS-Datei, die die beobachteten Daten, Variablenbeschreibungen und Metadaten enthält.
 :::
-:::
-
-::: {.content-visible when-profile="english"}
 
 <br> 
 
 ### Variable description
 
 <!-- Value codes checked against nhanes30.sav. MORTSTAT has no embedded labels; coding follows https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.Pdf. BMI upper boundaries checked against observed bmi/bmi_cat pairs. -->
-
-
 
 ```{python}
 #| echo: false
@@ -192,7 +114,6 @@ itables.options.columnDefs = [
         }""")
     }
 ]
-
 
 data_dict = pd.DataFrame({
     "Variable name": [
@@ -292,138 +213,4 @@ itables.show(
 | mortstat | Mortality status | 0=Assumed alive, 1=Assumed deceased |
 | permth_exm | Number of person-months between examination and death/censoring |  |
 :::
-:::
 
-::: {.content-visible when-profile="german"}
-### Datensatzbeschreibung
-
-```{python}
-#| echo: false
-import pandas as pd
-import itables
-from itables import JavascriptFunction
-import itables.options as opt
-opt.warn_on_undocumented_option = False
-itables.options.columnDefs = [
-    {"className": "dt-left variable-column", "targets": 0, "width": "18%"},
-    {"className": "dt-left description-column", "targets": 1, "width": "46%"},
-    {
-        "className": "dt-left values-column", "targets": 2, "width": "36%",
-        "render": JavascriptFunction(r"""function(data, type) {
-            if (type !== "display") return data;
-            if (!data) return '<span class="value-empty">—</span>';
-            const escape = text => String(text).replace(/[&<>"']/g, char => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-            }[char]));
-            const readable = text => escape(text.replace(/([<>≥≤])\s*/g, '$1 ')
-                .replace(/([MmFf]):/g, '$1: '));
-            if (!/^\d+=/.test(data)) return readable(data);
-            const items = data.split(/[,;]\s*(?=\d+=)/).map(item => {
-                const separator = item.indexOf('=');
-                return '<li><span class="value-code">' + escape(item.slice(0, separator))
-                    + '</span><span>' + readable(item.slice(separator + 1)) + '</span></li>';
-            });
-            return '<ul class="value-list">' + items.join('') + '</ul>';
-        }""")
-    }
-]
-
-daten_dict = pd.DataFrame({
-    "Variablenname": [
-        "SEQN", "nteeth", "cal_mean", "perio", "perio2", "bop", "sex", "age",
-        "edu", "smk", "smk2", "alcg", "height", "weight", "bmi", "bmi_cat",
-        "wc", "wc_cat", "diab", "mortstat", "permth_exm"
-    ],
-    "Bedeutung": [
-        "Probandennummer",
-        "Anzahl der natürlichen Zähne",
-        "Mittlerer Attachmentverlust",
-        "Parodontitis (CDC–AAP Definition, Eke et al. 2012)",
-        "Parodontitis",
-        "Bleeding on probe (World Definition, Tonetti et al. 2018)",
-        "Geschlecht",
-        "Alter",
-        "Bildungsniveau",
-        "Rauchstatus",
-        "Rauchstatus (zusammengefasst)",
-        "Alkoholkonsum",
-        "Körpergröße",
-        "Körpergewicht",
-        "Body Mass Index",
-        "BMI-Kategorien",
-        "Taillenumfang",
-        "Taillenumfang – Kategorien",
-        "Diabetes",
-        "Mortalität",
-        "Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung"
-    ],
-    "Ausprägungen": [
-        "",                   # SEQN
-        "0–32",               # nteeth
-        "mm",                 # cal_mean
-        "1=Keine, 2=Leicht, 3=Moderat, 4=Schwer",  # perio
-        "1=Ja, 2=Nein",       # perio2
-        "1=Keine, 2=<10%, 3=≥10%",  # bop
-        "1=Weiblich, 2=Männlich",   # sex
-        "Jahre",              # age
-        "1=<9. Klasse/fehlend, 2=9.–11. Klasse/Highschool, 3=≥Collegebesuch",  # edu
-        "1=Nie, 2=Ehemalig, 3=Aktuell",  # smk
-        "1=Nie, 2=Ehemalig/Aktuell",     # smk2
-        "Gramm pro Tag",      # alcg
-        "cm",                 # height
-        "kg",                 # weight
-        "kg/m²",              # bmi
-        "1=<18.5, 2=18.5–<25, 3=25–<30, 4=≥30",  # bmi_cat
-        "cm",                 # wc
-        "1=m:<102,f:<88; 2=m:≥102,f:≥88",      # wc_cat
-        "1=Ja, 2=Nein",      # diab
-        "0=Vermutlich lebend, 1=Vermutlich verstorben",  # mortstat
-        ""                    # permth_exm
-    ]
-})
-
-# Show the table
-
-itables.show(
-    daten_dict,
-    # The display renderer escapes labels; avoid escaping comparison signs twice.
-    allow_html=True,
-    dom="Brtip",
-    classes="display stripe hover course-data-table",
-    style="table-layout:fixed;width:100%",
-    columnControl=["order", ["orderAsc", "orderDesc", "search"]],
-    ordering={"indicators": False, "handler": False},
-    buttons=["columnsToggle", {"extend": "csv", "text": "Datensatzbeschreibung herunterladen", "exportOptions": {"orthogonal": "export"}}],
-    paging=False,       # no pagination
-   # scrollY=None,       # disable scrolling limit
-    scrollCollapse=False
-)
-
-```
-
-:::{.hidden}
-| **Variablenname** | **Bedeutung** | **Ausprägungen** |
-|:------------------|:--------------|:-----------------|
-| SEQN | Probandennummer |  |
-| nteeth | Anzahl der natürlichen Zähne | 0–32 |
-| cal_mean | Mittlerer Attachmentverlust | mm |
-| perio | Parodontitis (CDC-AAP Definition Eke et al. 2012) | 1=Keine, 2=Leicht, 3=Moderat, 4=Schwer |
-| perio2 | Parodontitis | 1=Ja, 2=Nein |
-| bop | Bleeding on probe (World Definition, Tonetti et al. 2018) | 1=Keine, 2=<10%, 3= $\geq$ 10% |
-| sex | Geschlecht | 1=Weiblich, 2=Männlich |
-| age | Jahre | Jahre |
-| edu | Bildungsniveau | 1=<9. Klasse/fehlend, 2=9.–11. Klasse/Highschool, 3=≥Collegebesuch |
-| smk | Rauchstatus | 1=Nie, 2=Ehemalig, 3=Aktuell |
-| smk2 | Rauchstatus | 1=Nie, 2=Ehemalig/Aktuell |
-| alcg | Alkoholkonsum | Gramm pro Tag |
-| height | Körpergröße | cm |
-| weight | Körpergewicht | kg |
-| bmi | Body Mass Index | kg/m² |
-| bmi_cat | BMI-Kategorien | 1= $<$ 18.5, 2=18.5–<25, 3=25–<30, 4= $\geq$ 30 |
-| wc | Taillenumfang | cm |
-| wc_cat | Taillenumfang – Kategorien | 1=m:$<$ 102,f: $<$ 88; 2=m:$\geq$ 102,f: $\geq$ 88 |
-| diab | Diabetes | 1=Ja, 2=Nein |
-| mortstat | Mortalität | 0=Vermutlich lebend, 1=Vermutlich verstorben |
-| permth_exm | Anzahl der Personenmonate zwischen Untersuchung und Versterben/Zensierung |  |
-:::
-:::

@@ -19,19 +19,15 @@ Create a cross-table for diabetes (diab) and periodontitis (perio2).
 Which variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.
 :::
 
-<details class="result-panel">
+::: {.poll-table #p2-t3}
+Fill in the missing counts from your SPSS output. The totals are calculated automatically – check them against your output.
 
-<summary>Task results</summary>
-
-*diab × perio2 Crosstabulation*
-
-| diab         | perio2 = periodontitis | perio2 = no | **Total** |
-|--------------|------------------------|-------------|-----------|
-| **diabetes** | 199                    | 578         | **777**   |
-| **no**       | 988                    | 6,290       | **7,278** |
-| **Total**    | **1,187**              | **6,868**   | **8,055** | 
-
-</details>
+| diab         | perio2 = periodontitis | perio2 = no      | **Total** |
+|--------------|------------------------|------------------|-----------|
+| **diabetes** | [199]{.blank}          | 578              |           |
+| **no**       | 988                    | [6290]{.blank}   |           |
+| **Total**    |                        |                  |           |
+:::
 
 ## Task 4
 

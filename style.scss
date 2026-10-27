@@ -1222,3 +1222,494 @@ table.course-data-table .value-empty {
     overflow-wrap: anywhere;
   }
 }
+
+// Classroom polls (utilities/poll.html)
+$poll-teal: $brand-blue-light;
+
+div.poll {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba($poll-teal, 0.045), white 7rem);
+  border: 1px solid rgba($brand-blue, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px -12px rgba($brand-blue, 0.18), 0 2px 6px rgba($brand-blue, 0.04);
+  margin: 1.25rem 0 1.75rem;
+  padding: 1.25rem 1.4rem 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, $brand-blue, $poll-teal 45%, $brand-green);
+  }
+
+  .poll-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.15rem 0.65rem;
+    border-radius: 999px;
+    background: rgba($poll-teal, 0.1);
+    color: $poll-teal;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .poll-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: #a0aec0;
+  }
+  &.poll-live .poll-dot {
+    background: $brand-green;
+    animation: poll-pulse 1.8s ease-out infinite;
+  }
+
+  .poll-question {
+    color: $brand-blue;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin: 0.6rem 0 0.9rem;
+    p { margin: 0; }
+  }
+
+  .poll-letter {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 10px;
+    background: rgba($poll-teal, 0.1);
+    color: $poll-teal;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  // Voting
+  .poll-options {
+    display: grid;
+    grid-template-columns: repeat(var(--poll-cols, 3), minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+  .poll-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: left;
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    color: $brand-blue;
+    font-weight: 600;
+    padding: 0.7rem 0.85rem;
+    box-shadow: 0 1px 2px rgba($brand-blue, 0.04);
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      border-color: rgba($poll-teal, 0.6);
+      box-shadow: 0 8px 18px -8px rgba($poll-teal, 0.45);
+    }
+    &:active:not(:disabled) { transform: translateY(0); }
+    &.poll-selected {
+      border-color: $poll-teal;
+      background: rgba($poll-teal, 0.07);
+      box-shadow: 0 0 0 3px rgba($poll-teal, 0.15);
+      .poll-letter { background: $poll-teal; color: white; }
+    }
+    &:disabled { opacity: 0.55; cursor: not-allowed; }
+  }
+
+  .poll-submit {
+    border: 0;
+    border-radius: 12px;
+    padding: 0.45rem 1.2rem;
+    background: linear-gradient(135deg, $brand-blue-light, $brand-blue);
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 8px 18px -10px rgba($brand-blue, 0.7);
+    transition: transform 0.15s;
+    &:hover { transform: translateY(-1px); }
+  }
+  .poll-options + .poll-submit { margin-top: 0.8rem; }
+  .poll-submit:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+  .poll-hint-multi {
+    margin-top: 0.2rem;
+    color: $brand-blue-light;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  // Multi-select tiles show a tick instead of the letter when chosen
+  .poll-multi .poll-option.poll-selected .poll-letter {
+    font-size: 0;
+    &::after { content: "✓"; font-size: 0.95rem; }
+  }
+
+  // Results
+  .poll-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+    margin: 0.5rem 0;
+    border-radius: 14px;
+    background: #f1f4f8;
+    overflow: hidden;
+  }
+  .poll-bar-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: linear-gradient(90deg, rgba($poll-teal, 0.16), rgba($poll-teal, 0.3));
+    border-radius: 14px;
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .poll-bar-label {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.5rem 0.6rem;
+    color: $brand-blue;
+    font-weight: 600;
+  }
+  .poll-bar-value {
+    position: relative;
+    padding-right: 0.9rem;
+    color: $brand-blue;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    span {
+      margin-left: 0.4rem;
+      color: lighten($body-color, 15%);
+      font-size: 0.8rem;
+      font-weight: 600;
+      &::before { content: "· "; }
+    }
+  }
+  .poll-correct {
+    background: rgba($brand-green, 0.08);
+    box-shadow: inset 0 0 0 1.5px rgba($brand-green, 0.55);
+    .poll-bar-fill { background: linear-gradient(90deg, rgba($brand-green, 0.25), rgba($brand-green, 0.45)); }
+    .poll-letter { background: $brand-green; color: white; }
+  }
+  .poll-chip {
+    padding: 0.05rem 0.55rem;
+    border-radius: 999px;
+    background: rgba($poll-teal, 0.12);
+    color: $poll-teal;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .poll-chip-correct { background: $brand-green; color: white; }
+
+  // Explanation
+  .poll-explanation {
+    margin: 1rem 0 0.25rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba($brand-green, 0.11), rgba($poll-teal, 0.06));
+    animation: poll-fade 0.5s ease both;
+    > :last-child { margin-bottom: 0; }
+    img { max-width: 100%; border-radius: 10px; }
+  }
+  .poll-why {
+    color: $brand-blue;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  .poll-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.85rem;
+    font-size: 0.82rem;
+    color: lighten($body-color, 10%);
+  }
+  .poll-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+  .poll-count {
+    padding: 0.1rem 0.6rem;
+    border-radius: 999px;
+    background: #f1f4f8;
+    color: $brand-blue;
+    font-weight: 700;
+  }
+}
+
+// Fill-in tables
+div.poll-table {
+  > p { margin: 0.6rem 0 0.9rem; color: $brand-blue; font-weight: 600; }
+
+  table.poll-grid {
+    width: 100%;
+    margin: 0 0 0.5rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgba($brand-blue, 0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    background: white;
+    font-variant-numeric: tabular-nums;
+    th, td { padding: 0.6rem 0.8rem; vertical-align: middle; border-color: rgba($brand-blue, 0.07); }
+    thead th { background: rgba($brand-blue-light, 0.08); color: $brand-blue; font-family: 'Nunito', sans-serif; }
+    td:not(:first-child), th:not(:first-child) { text-align: right; }
+    .poll-total-col, .poll-total-row td { background: rgba($brand-green, 0.07); color: $brand-blue; font-weight: 700; }
+    .poll-total-row td:last-child { background: rgba($brand-green, 0.16); }
+  }
+
+  .poll-input {
+    width: 6.5rem;
+    max-width: 100%;
+    padding: 0.3rem 0.6rem;
+    border: 1.5px dashed rgba($brand-blue-light, 0.6);
+    border-radius: 10px;
+    background: rgba($brand-blue-light, 0.05);
+    color: $brand-blue;
+    font-weight: 700;
+    text-align: right;
+    transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    &:focus { outline: none; border-style: solid; border-color: $brand-blue-light; box-shadow: 0 0 0 3px rgba($brand-blue-light, 0.18); background: white; }
+    &.poll-ok { border: 1.5px solid $brand-green; background: rgba($brand-green, 0.12); }
+    &.poll-bad { border: 1.5px solid #e05252; background: rgba(#e05252, 0.08); }
+    &:disabled { opacity: 1; }
+  }
+  .poll-hint { display: block; color: darken($brand-green, 10%); font-size: 0.8rem; font-weight: 700; }
+
+  .poll-table-stats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+  .poll-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; }
+}
+
+@keyframes poll-pulse {
+  0% { box-shadow: 0 0 0 0 rgba($brand-green, 0.6); }
+  70%, 100% { box-shadow: 0 0 0 0.45rem rgba($brand-green, 0); }
+}
+@keyframes poll-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.poll-control {
+  background: white;
+  border: 1.5px solid rgba($brand-blue-light, 0.5);
+  border-radius: 999px;
+  color: $brand-blue-light;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 0.4rem;
+  padding: 0.25rem 0.85rem;
+  transition: background 0.15s, color 0.15s;
+  &:hover { background: $brand-blue-light; border-color: $brand-blue-light; color: white; }
+}
+
+.poll-presenter {
+  position: fixed;
+  top: 4.5rem;
+  right: 1rem;
+  z-index: 2000;
+  .poll-presenter-bar { display: none; }
+  &.open .poll-presenter-bar { display: flex; }
+}
+
+.poll-presenter-toggle {
+  padding: 0 0.4rem;
+  border: 0;
+  background: transparent;
+  color: $navbar-fg;
+  font-size: 2.1rem !important;
+  line-height: 1;
+  opacity: 0.85;
+  vertical-align: middle;
+  &:hover { opacity: 1; }
+  .poll-presenter > & { color: $brand-blue; }
+}
+
+.poll-presenter-bar {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2rem);
+  background: rgba($brand-blue, 0.92);
+  backdrop-filter: blur(10px);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.35);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  form { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  input { border: 0; border-radius: 8px; padding: 0.2rem 0.6rem; }
+  .poll-warning { color: #ffd479; }
+}
+
+@media (max-width: 576px) {
+  div.poll { padding: 1.1rem 1rem 0.9rem; }
+  div.poll .poll-options { grid-template-columns: 1fr !important; }
+}
+
+// ---------------------------------------------------------------------------
+// Fresh look (all pages). Practical pages = every page without the home hero.
+// ---------------------------------------------------------------------------
+$fresh-gradient: linear-gradient(135deg, $brand-blue 0%, $brand-blue-light 60%, darken($brand-green, 5%) 130%);
+
+body {
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba($brand-blue-light, 0.07), transparent 70%),
+    radial-gradient(50rem 30rem at -10% 10%, rgba($brand-green, 0.06), transparent 70%),
+    $body-bg;
+  background-attachment: fixed;
+}
+
+.navbar {
+  background: linear-gradient(90deg, $brand-green, darken($brand-green, 6%)) !important;
+}
+
+#title-block-header .quarto-title-meta {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+main.content:not(:has(.home-hero)) {
+  // Page title banner, in the style of the home hero
+  > section.level1:first-of-type > h1 {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 1.75rem;
+    padding: 2.2rem 2rem;
+    border-radius: 22px;
+    background:
+      radial-gradient(16rem 16rem at 92% 10%, rgba(white, 0.14), transparent 70%),
+      radial-gradient(10rem 10rem at 75% 120%, rgba($brand-green, 0.45), transparent 70%),
+      $fresh-gradient;
+    color: white;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: -0.01em;
+    box-shadow: 0 18px 40px -18px rgba($brand-blue, 0.6);
+    border: 0;
+    .anchorjs-link { color: rgba(white, 0.6); }
+  }
+
+  // Part headings
+  > section.level1:not(:first-of-type) > h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 3rem;
+    font-size: 1.9rem;
+    border: 0;
+    &::before {
+      content: "";
+      flex: none;
+      width: 0.45rem;
+      height: 2.2rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, $brand-green, $brand-blue-light);
+    }
+  }
+
+  // Each task / exercise as a card
+  section.level2 {
+    background: white;
+    border: 1px solid rgba($brand-blue, 0.07);
+    border-radius: 22px;
+    box-shadow: 0 14px 34px -20px rgba($brand-blue, 0.28), 0 1px 3px rgba($brand-blue, 0.04);
+    padding: 1.6rem 1.8rem 1.1rem;
+    margin: 1.5rem 0 2rem;
+
+    > h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0;
+      padding: 0;
+      border: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+      &::before {
+        content: "";
+        flex: none;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 4px;
+        background: linear-gradient(135deg, $brand-green, $brand-blue-light);
+        transform: rotate(45deg);
+      }
+    }
+
+    // Plain details (like the 2x2 table) sit flat inside the card
+    details:not(.result-panel) {
+      background: #f7f9fb !important;
+      border-radius: 14px;
+    }
+  }
+
+  h3 { color: $brand-blue-light; }
+
+  // Screenshots and figures
+  p > img, figure img, .figure img, .quarto-figure img {
+    border-radius: 14px;
+    box-shadow: 0 10px 28px -14px rgba($brand-blue, 0.35);
+  }
+}
+
+// Results panels, callouts and step chips: softer, rounder
+details.result-panel {
+  border: 1px solid rgba($brand-green, 0.25);
+  border-left: 1px solid rgba($brand-green, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px -18px rgba($brand-blue, 0.35);
+  > summary {
+    background: linear-gradient(90deg, rgba($brand-green, 0.14), rgba($brand-green, 0.04));
+    border-bottom: 0;
+    &::before {
+      display: inline-grid;
+      place-items: center;
+      width: 1.4rem;
+      height: 1.4rem;
+      border-radius: 50%;
+      background: $brand-green;
+      color: white !important;
+      font-size: 0.6rem;
+    }
+  }
+  &[open] > summary { border-bottom: 1px solid rgba($brand-green, 0.15); }
+}
+
+.callout {
+  border-radius: 14px !important;
+  overflow: hidden;
+}
+
+.instruction-flow .step {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 0.3rem 0.95rem;
+}
+
+.download-card, .download-html-card {
+  border-radius: 14px;
+}
+
+@media (max-width: 767.98px) {
+  main.content:not(:has(.home-hero)) {
+    section.level2 { padding: 1.2rem 1rem 0.8rem; border-radius: 18px; }
+    section.level2 table { display: block; overflow-x: auto; white-space: nowrap; }
+    > section.level1:first-of-type > h1 { padding: 1.6rem 1.3rem; border-radius: 18px; }
+  }
+}

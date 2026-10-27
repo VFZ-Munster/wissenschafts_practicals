@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-17">
+<meta name="dcterms.date" content="2026-10-27">
 
 <title>praktikum6 – Praktikum</title>
 <style>
@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-310baf937d0d762f08c5f944e4d301ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9fdf0481d211516b1d1096cc2ad048bc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -92,12 +92,6 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">Home</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../de"> 
-<span class="menu-text">Deutsch</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -233,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 17, 2026</p>
+      <p class="date">October 27, 2026</p>
     </div>
   </div>
   
@@ -759,110 +753,413 @@ Show cheatsheet
 
 
 </main> <!-- /main -->
+<!--
+  Classroom polls. Turns every `::: {.poll #some-id}` block into a live poll.
+  Students: vote, results appear when the teacher reveals them.
+  Teacher: open the page with ?presenter in the URL and log in.
+  Database setup: see supabase/schema.sql and supabase/README.md.
+-->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
-    console.log("Language Switcher: Current path is " + path);
-    
-    const repoName = "wissenschafts_practicals";
-    
-    // Check if we are in German mode
-    const isGerman = path.includes("/de/") || path.endsWith("/de");
+(function () {
+  // Fill these in from Supabase: Project Settings -> API.
+  const SUPABASE_URL = "https://ztjjlogcdhynfkifaqtp.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0ampsb2djZGh5bmZraWZhcXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MTg0NjksImV4cCI6MjEwODM5NDQ2OX0.RsKffHoPL-wn-lKgoBW-K4xKKLiZVC8HMUWdUWhLIG8";
+  const REFRESH_MS = 4000;
+  // ?presenter turns presenter mode on in this browser (remembered), ?presenter=off turns it off.
+  const presenterParam = new URLSearchParams(location.search).get("presenter");
+  let teacher = false;
 
-    const links = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    links.forEach(link => {
-      const text = link.textContent.trim();
-      
-      if (text === "Deutsch" && !isGerman) {
-        // Switching to German
-        let newPath;
-        
-        // Check if the path contains the repo name
-        if (path.indexOf("/" + repoName) !== -1) {
-            // GitHub Pages: /wissenschafts_practicals/...
-            // We want to insert /de after the repo name
-            // Replace first occurrence of /repoName with /repoName/de
-            newPath = path.replace("/" + repoName, "/" + repoName + "/de");
-            
-            // If the path was exactly /wissenschafts_practicals (no trailing slash), it becomes /wissenschafts_practicals/de
-            // If /wissenschafts_practicals/, it becomes /wissenschafts_practicals/de/
-        } else {
-            // Local or root domain
-            newPath = "/de" + path;
-        }
-        
-        console.log("Language Switcher: Updating Deutsch link to " + newPath);
-        link.setAttribute('href', newPath);
-        
-      } else if (text === "English" && isGerman) {
-        // Switching to English
-        let newPath = path;
-        
-        if (path.indexOf("/" + repoName + "/de") !== -1) {
-             // GitHub Pages: /wissenschafts_practicals/de/...
-             // Remove /de
-             newPath = path.replace("/" + repoName + "/de", "/" + repoName);
-        } else {
-             // Local: /de/...
-             // Remove leading /de
-             newPath = path.replace(/^\/de/, "");
-        }
-        
-        if (newPath === "") newPath = "/";
-        
-        console.log("Language Switcher: Updating English link to " + newPath);
-        link.setAttribute('href', newPath);
-      }
-    });
-  });
-</script>
+  const cards = Array.from(document.querySelectorAll("div.poll[id]"));
+  const tableEls = Array.from(document.querySelectorAll("div.poll-table[id]"));
+  if (!cards.length && !tableEls.length) return;
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector("#quarto-margin-sidebar");
-    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"))
-      .filter((qrCode) => !qrCode.closest(".qr-card"));
+  const T = {
+    votes: n => n === 1 ? "1 vote" : n + " votes",
+    saved: "Vote saved – results appear once they are revealed.",
+    hidden: "Only you can see this – students don't see the results yet.",
+    yours: "your answer", correct: "correct", why: "Why?", kicker: "Live poll",
+    kickerTable: "Fill in the table", submit: "Submit", update: "Update answer",
+    fillAll: "Please fill in all empty cells.", allCorrect: "All correct",
+    submissions: n => n === 1 ? "1 submission" : n + " submissions",
+    selectAll: "Select all that apply.", exact: "Exactly right",
+    savedTable: "Answer saved – the solution appears once it is revealed.",
+    reveal: "Reveal results", hide: "Hide results", reset: "Reset (new round)",
+    confirmReset: "Start a new round? Votes from the current round are kept in the CSV export.",
+    notConfigured: "Poll not set up yet.",
+    error: "Connection failed – please try again.",
+    presenter: "Presenter mode", login: "Log in", logout: "Log out", csv: "Votes as CSV",
+    email: "E-mail", password: "Password", notTeacher: "This account is not registered as a teacher."
+  };
 
-    if (!sidebar || qrCodes.length === 0) {
-      return;
-    }
+  const store = {
+    get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  let voter = store.get("poll-voter", null);
+  if (!voter) {
+    voter = (crypto.randomUUID ? crypto.randomUUID() :
+      "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
+    store.set("poll-voter", voter);
+  }
+  const myVotes = store.get("poll-votes", {});
 
-    let sidebarContainer = sidebar.querySelector(".sidebar-qrcode");
-
-    if (!sidebarContainer) {
-      sidebarContainer = document.createElement("div");
-      sidebarContainer.className = "sidebar-qrcode";
-      sidebar.appendChild(sidebarContainer);
-    }
-
-    const placements = qrCodes.map((qrCode) => {
-      const placeholder = document.createElement("span");
-      placeholder.hidden = true;
-      qrCode.parentNode.insertBefore(placeholder, qrCode);
-      return { qrCode, placeholder };
-    });
-
-    const desktopQuery = window.matchMedia("(min-width: 992px)");
-
-    const placeQrCodes = () => {
-      placements.forEach(({ qrCode, placeholder }) => {
-        if (desktopQuery.matches) {
-          sidebarContainer.appendChild(qrCode);
-        } else {
-          placeholder.parentNode.insertBefore(qrCode, placeholder.nextSibling);
-        }
-      });
+  // Read question, options, correct answers (correct="1,3", 1-based) and the
+  // .poll-explanation block from the markdown, then rebuild the card.
+  const polls = cards.map(el => {
+    const items = Array.from(el.querySelectorAll(":scope > ul > li"));
+    const explanation = el.querySelector(":scope > .poll-explanation");
+    const p = {
+      id: el.id, el, options: items.map(li => li.innerHTML),
+      correct: (el.dataset.correct || "").split(",").filter(x => x.trim()).map(x => +x - 1),
+      // multiple="true": select all that apply. The vote is stored as a bitmask
+      // of the chosen options (the database allows 0-19, so up to 4 options).
+      multiple: (el.dataset.multiple || el.getAttribute("multiple")) === "true",
+      state: { round: 1, revealed: false, counts: null, total: 0 }
     };
+    const question = document.createElement("div");
+    question.className = "poll-question";
+    Array.from(el.children).filter(c => c.tagName !== "UL" && c !== explanation).forEach(c => question.append(c));
+    el.innerHTML = '<div class="poll-body"></div>' +
+      '<div class="poll-footer"><span class="poll-status"></span><span class="poll-controls"></span></div>';
+    el.prepend(question);
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kicker + '</div>');
+    if (explanation) {
+      explanation.hidden = true;
+      explanation.insertAdjacentHTML("afterbegin", '<div class="poll-why">💡 ' + T.why + '</div>');
+      el.querySelector(".poll-body").after(explanation);
+    }
+    p.explanation = explanation;
+    if (p.multiple) question.insertAdjacentHTML("beforeend", '<div class="poll-hint-multi">' + T.selectAll + '</div>');
+    return p;
+  });
 
-    if (typeof desktopQuery.addEventListener === "function") {
-      desktopQuery.addEventListener("change", placeQrCodes);
-    } else if (typeof desktopQuery.addListener === "function") {
-      desktopQuery.addListener(placeQrCodes);
+  // Fill-in tables: cells written as [199]{.blank} become inputs; the last row
+  // and last column are totals computed live. Each submission is stored as
+  // poll votes: <id> = all correct (0) or not (1), <id>-k = blank k right (0) or wrong (1).
+  const num = v => { const d = String(v).replace(/[^\d-]/g, ""); return d === "" ? null : +d; };
+  const fmt = n => n.toLocaleString("en-US");
+  const plain = el => el.textContent.trim();
+  const tables = tableEls.map(el => {
+    const rows = Array.from(el.querySelector("table").rows);
+    const header = rows[0], body = rows.slice(1);
+    const t = { id: el.id, el, blanks: [], state: { round: 1, revealed: false, counts: null, total: 0 }, subs: {} };
+    body.forEach(tr => Array.from(tr.cells).forEach((td, c) => {
+      const span = td.querySelector(".blank");
+      if (!span) return;
+      const input = document.createElement("input");
+      input.type = "text"; input.inputMode = "numeric"; input.autocomplete = "off"; input.className = "poll-input";
+      const label = plain(tr.cells[0]) + " × " + plain(header.cells[c]);
+      input.setAttribute("aria-label", label);
+      const hint = document.createElement("span");
+      hint.className = "poll-hint";
+      td.textContent = ""; td.append(input, hint);
+      t.blanks.push({ id: el.id + "-" + (t.blanks.length + 1), answer: num(span.textContent), input, hint, label });
+    }));
+    el.querySelector("table").classList.add("poll-grid");
+    body[body.length - 1].classList.add("poll-total-row");
+    rows.forEach(tr => tr.cells[tr.cells.length - 1].classList.add("poll-total-col"));
+
+    const value = td => { const i = td.querySelector("input"); return num(i ? i.value : td.textContent); };
+    t.updateTotals = () => {
+      const data = body.slice(0, -1), last = header.cells.length - 1;
+      const sum = cells => cells.some(v => v === null) ? null : cells.reduce((a, b) => a + b, 0);
+      const grid = data.map(tr => Array.from(tr.cells).slice(1, last).map(value));
+      const show = (td, v) => { td.textContent = v === null ? "…" : fmt(v); };
+      data.forEach((tr, r) => show(tr.cells[last], sum(grid[r])));
+      const totalRow = body[body.length - 1];
+      for (let c = 0; c < last - 1; c++) show(totalRow.cells[c + 1], sum(grid.map(g => g[c])));
+      show(totalRow.cells[last], sum(grid.map(sum)));
+    };
+    t.blanks.forEach(b => b.input.addEventListener("input", t.updateTotals));
+    t.updateTotals();
+
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kickerTable + '</div>');
+    el.insertAdjacentHTML("beforeend",
+      '<div class="poll-table-stats" hidden></div>' +
+      '<div class="poll-footer"><span class="poll-actions"><button type="button" class="poll-submit"></button>' +
+      '<span class="poll-status"></span></span><span class="poll-controls"></span></div>');
+    el.classList.add("poll");
+    el.querySelector(".poll-submit").onclick = () => submitTable(t);
+    return t;
+  });
+  const tableIds = t => [t.id].concat(t.blanks.map(b => b.id));
+
+  const configured = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
+  if (!configured) {
+    polls.forEach(p => { render(p); p.el.querySelector(".poll-status").textContent = T.notConfigured; });
+    tables.forEach(t => { t.el.querySelector(".poll-submit").hidden = true;
+      t.el.querySelector(".poll-status").textContent = T.notConfigured; });
+    return;
+  }
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  polls.concat(tables).forEach(p => p.el.classList.add("poll-live"));
+
+  function mine(p) {
+    const v = myVotes[p.id];
+    return v && v.round === p.state.round ? v.choice : null;
+  }
+
+  function render(p) {
+    const body = p.el.querySelector(".poll-body");
+    const status = p.el.querySelector(".poll-status");
+    const controls = p.el.querySelector(".poll-controls");
+    const s = p.state, my = mine(p);
+    const showResults = s.counts && (s.revealed || teacher);
+    // Multi-select: chosen options are bits of `my`; `draft` holds unsent ticks.
+    if (p.multiple && p.draftRound !== s.round) { p.draft = my || 0; p.draftRound = s.round; }
+    const picked = i => p.multiple ? !!(my & (1 << i)) : i === my;
+    const key = JSON.stringify([s, my, teacher, p.draft]);
+    if (key === p.lastKey) return;
+    p.lastKey = key;
+    p.el.classList.toggle("poll-revealed", !!showResults);
+    if (p.explanation) p.explanation.hidden = !(showResults && s.revealed);
+
+    const letter = i => '<span class="poll-letter">' + String.fromCharCode(65 + i) + '</span>';
+    if (showResults) {
+      body.innerHTML = p.options.map((label, i) => {
+        const n = p.multiple
+          ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
+          : s.counts[i] || 0;
+        const pct = s.total ? Math.round(100 * n / s.total) : 0;
+        const ok = p.correct.includes(i);
+        return '<div class="poll-bar' + (ok ? ' poll-correct' : '') + (picked(i) ? ' poll-mine' : '') + '">' +
+          '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
+          '<div class="poll-bar-label">' + (ok ? '<span class="poll-letter">✓</span>' : letter(i)) +
+          '<span class="poll-bar-text">' + label + '</span>' +
+          (ok ? '<span class="poll-chip poll-chip-correct">' + T.correct + '</span>' : '') +
+          (picked(i) ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
+          '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div></div>';
+      }).join("");
+      // Grow the bars from zero so the reveal feels live.
+      requestAnimationFrame(() => requestAnimationFrame(() =>
+        body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
+    } else {
+      const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+      const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
+      body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
+        p.options.map((label, i) =>
+        '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
+        '" data-choice="' + i + '"' + (configured ? '' : ' disabled') + '>' + letter(i) +
+        '<span>' + label + '</span></button>').join("") + '</div>' +
+        (p.multiple && configured ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
+          (my ? T.update : T.submit) + '</button>' : '');
+      body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
+        if (!p.multiple) return vote(p, +b.dataset.choice);
+        p.draft ^= 1 << +b.dataset.choice;
+        render(p);
+      });
+      const submit = body.querySelector(".poll-submit");
+      if (submit) submit.onclick = () => vote(p, p.draft);
     }
 
-    placeQrCodes();
-  });
+    let msg = "";
+    if (teacher && !s.revealed) msg = T.hidden;
+    else if (!teacher && my !== null && !s.revealed) msg = T.saved;
+    const correctMask = p.correct.reduce((m, i) => m | (1 << i), 0);
+    const exact = p.multiple && showResults && s.total
+      ? '<span class="poll-chip poll-chip-correct">' + T.exact + ' · ' +
+        Math.round(100 * (s.counts[correctMask] || 0) / s.total) + '%</span>' : '';
+    status.innerHTML = '<span class="poll-count">' + T.votes(s.total) + '</span>' + exact +
+      (msg ? '<span class="poll-msg">' + msg + '</span>' : '');
+
+    controls.innerHTML = "";
+    if (teacher) {
+      controls.append(
+        button(s.revealed ? T.hide : T.reveal, () => rpc("set_revealed", { p_poll: p.id, p_revealed: !s.revealed })),
+        button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id })));
+    }
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([body]).catch(() => {});
+  }
+
+  function renderTable(t) {
+    const s = t.state, stored = myVotes[t.id];
+    const mineNow = stored && stored.round === s.round ? stored : null;
+    const key = JSON.stringify([s, t.subs, teacher, !!mineNow]);
+    if (key === t.lastKey) return;
+    t.lastKey = key;
+
+    // New round (teacher reset): clear the inputs. First load: restore own answers.
+    if (t.round !== undefined && t.round !== s.round) t.blanks.forEach(b => b.input.value = "");
+    if (t.round === undefined && mineNow) t.blanks.forEach((b, k) => b.input.value = mineNow.values[k] ?? "");
+    t.round = s.round;
+    t.updateTotals();
+
+    t.blanks.forEach(b => {
+      const v = num(b.input.value), ok = v === b.answer;
+      b.input.disabled = s.revealed;
+      b.input.classList.toggle("poll-ok", s.revealed && ok);
+      b.input.classList.toggle("poll-bad", s.revealed && !ok);
+      b.hint.textContent = s.revealed && !ok ? "→ " + fmt(b.answer) : "";
+    });
+
+    const submit = t.el.querySelector(".poll-submit");
+    submit.hidden = s.revealed;
+    submit.textContent = mineNow ? T.update : T.submit;
+
+    const stats = t.el.querySelector(".poll-table-stats");
+    stats.hidden = !(s.revealed || teacher) || !s.total;
+    const pct = st => st && st.total ? Math.round(100 * ((st.counts || {})[0] || 0) / st.total) : 0;
+    stats.innerHTML = '<span class="poll-chip poll-chip-correct">' + T.allCorrect + ' · ' + pct(s) + '%</span>' +
+      t.blanks.map(b => '<span class="poll-chip">' + b.label + ' · ' + pct(t.subs[b.id]) + '%</span>').join("");
+
+    let msg = "";
+    if (teacher && !s.revealed) msg = T.hidden;
+    else if (!teacher && mineNow && !s.revealed) msg = T.savedTable;
+    t.el.querySelector(".poll-status").innerHTML = '<span class="poll-count">' + T.submissions(s.total) + '</span>' +
+      (msg ? '<span class="poll-msg">' + msg + '</span>' : '');
+
+    const controls = t.el.querySelector(".poll-controls");
+    controls.innerHTML = "";
+    if (teacher) {
+      controls.append(
+        button(s.revealed ? T.hide : T.reveal, () => rpcAll("set_revealed", tableIds(t), id => ({ p_poll: id, p_revealed: !s.revealed }))),
+        button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", tableIds(t), id => ({ p_poll: id }))));
+    }
+  }
+
+  async function submitTable(t) {
+    const values = t.blanks.map(b => num(b.input.value));
+    const status = t.el.querySelector(".poll-status");
+    if (values.some(v => v === null)) { status.textContent = T.fillAll; return; }
+    const right = t.blanks.map((b, k) => values[k] === b.answer);
+    const results = await Promise.all([
+      db.rpc("cast_vote", { p_poll: t.id, p_voter: voter, p_choice: right.every(Boolean) ? 0 : 1 })
+    ].concat(t.blanks.map((b, k) =>
+      db.rpc("cast_vote", { p_poll: b.id, p_voter: voter, p_choice: right[k] ? 0 : 1 }))));
+    if (results.some(r => r.error)) { status.textContent = T.error; return; }
+    myVotes[t.id] = { round: results[0].data, values };
+    store.set("poll-votes", myVotes);
+    t.lastKey = null;
+    refresh();
+  }
+
+  async function rpcAll(name, ids, args) {
+    const results = await Promise.all(ids.map(id => db.rpc(name, args(id))));
+    const err = results.find(r => r.error);
+    if (err) alert(T.error + "\n" + err.error.message);
+    refresh();
+  }
+
+  function button(label, onclick) {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "poll-control"; b.textContent = label; b.onclick = onclick;
+    return b;
+  }
+
+  async function vote(p, choice) {
+    const { data, error } = await db.rpc("cast_vote", { p_poll: p.id, p_voter: voter, p_choice: choice });
+    if (error) { p.el.querySelector(".poll-status").textContent = T.error; return; }
+    myVotes[p.id] = { round: data, choice };
+    store.set("poll-votes", myVotes);
+    refresh();
+  }
+
+  async function rpc(name, args) {
+    const { error } = await db.rpc(name, args);
+    if (error) alert(T.error + "\n" + error.message);
+    refresh();
+  }
+
+  async function refresh() {
+    const { data, error } = await db.rpc("poll_results", { p_polls: polls.map(p => p.id).concat(...tables.map(tableIds)) });
+    if (error) return;
+    const byId = {};
+    data.forEach(r => {
+      const s = byId[r.poll_id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+      s.total += Number(r.n);
+      if (r.choice !== null) (s.counts ||= {})[r.choice] = Number(r.n);
+    });
+    polls.forEach(p => {
+      const s = byId[p.id] || { round: p.state.round, revealed: false, counts: null, total: 0 };
+      if (!s.counts && (s.revealed || teacher)) s.counts = {};
+      p.state = s;
+      render(p);
+    });
+    const empty = { round: 1, revealed: false, counts: null, total: 0 };
+    tables.forEach(t => {
+      t.state = byId[t.id] || { ...empty, round: t.state.round };
+      t.subs = Object.fromEntries(t.blanks.map(b => [b.id, byId[b.id] || empty]));
+      renderTable(t);
+    });
+  }
+
+  // Presenter bar (only with ?presenter in the URL).
+  async function setupPresenter() {
+    // A gear in the navbar opens the presenter panel below it.
+    const wrap = document.createElement("div");
+    wrap.className = "poll-presenter";
+    const toggle = document.createElement("button");
+    toggle.type = "button"; toggle.className = "poll-presenter-toggle"; toggle.title = T.presenter;
+    toggle.textContent = "⚙";
+    toggle.onclick = () => wrap.classList.toggle("open");
+    const bar = document.createElement("div");
+    bar.className = "poll-presenter-bar";
+    wrap.append(bar);
+    document.body.append(wrap);
+    const tools = document.querySelector(".quarto-navbar-tools");
+    if (tools) tools.prepend(toggle); else wrap.append(toggle);
+
+    async function draw() {
+      const { data: { session } } = await db.auth.getSession();
+      if (session) {
+        const { data } = await db.rpc("is_teacher");
+        teacher = !!data;
+        bar.innerHTML = "<strong>" + T.presenter + "</strong> <span>" + session.user.email + "</span>" +
+          (teacher ? "" : ' <span class="poll-warning">' + T.notTeacher + "</span>");
+        if (teacher) bar.append(button(T.csv, exportCsv));
+        bar.append(button(T.logout, async () => { await db.auth.signOut(); teacher = false; draw(); refresh(); }));
+      } else {
+        teacher = false;
+        bar.innerHTML = "<strong>" + T.presenter + "</strong>" +
+          '<form><input type="email" placeholder="' + T.email + '" required>' +
+          '<input type="password" placeholder="' + T.password + '" required>' +
+          '<button type="submit" class="poll-control">' + T.login + "</button></form>";
+        bar.querySelector("form").onsubmit = async e => {
+          e.preventDefault();
+          const [email, password] = Array.from(e.target.querySelectorAll("input")).map(i => i.value);
+          const { error } = await db.auth.signInWithPassword({ email, password });
+          if (error) alert(error.message);
+          draw();
+        };
+      }
+      refresh();
+    }
+    draw();
+  }
+
+  async function exportCsv() {
+    const { data, error } = await db.from("votes")
+      .select("poll_id, round, choice, created_at")
+      .in("poll_id", polls.map(p => p.id).concat(...tables.map(tableIds)))
+      .order("created_at");
+    if (error) { alert(T.error + "\n" + error.message); return; }
+    const text = html => { const d = document.createElement("div"); d.innerHTML = html; return d.textContent.trim(); };
+    const labels = Object.fromEntries(polls.map(p => [p.id, p.multiple
+      ? Array.from({ length: 1 << p.options.length }, (_, m) =>
+          p.options.map(text).filter((_, i) => m & (1 << i)).join(" + "))
+      : p.options.map(text)]));
+    tables.forEach(t => {
+      labels[t.id] = ["all correct", "not all correct"];
+      t.blanks.forEach(b => labels[b.id] = [b.label + ": correct", b.label + ": wrong"]);
+    });
+    const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+    const rows = [["poll", "round", "choice", "answer", "time"]].concat(data.map(r =>
+      [r.poll_id, r.round, r.choice, (labels[r.poll_id] || [])[r.choice] ?? "", r.created_at]));
+    const blob = new Blob([rows.map(r => r.map(q).join(",")).join("\n")], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "poll-votes-" + new Date().toISOString().slice(0, 10) + ".csv";
+    a.click();
+  }
+
+  polls.forEach(render);
+  tables.forEach(renderTable);
+  if (presenterParam !== null) store.set("poll-presenter", presenterParam !== "off");
+  if (store.get("poll-presenter", false)) setupPresenter(); else refresh();
+  setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
