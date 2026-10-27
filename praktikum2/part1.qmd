@@ -1,7 +1,7 @@
 
-When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in **Tasks 1** and **2**. A graphical representation, as in the following exercises, can provide a substantive overview of the data.
+When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in **Exercises 1** and **2**. A graphical representation, as in the following exercises, can provide a substantive overview of the data.
 
-## Task 1
+## Exercise 1
 
 What is the **level of measurement (scale type)** for `Gender/sex`, `Body Mass Index (BMI)`, and `BMI categories`?
 
@@ -62,19 +62,26 @@ Compared with BMI, `number of teeth` is…
 :::
 :::
 
-## Task 2
+## Exercise 2
 
 
 How can the following variables be appropriately **represented in a graph**?: `Gender`, `mean attachment loss`, `number of teeth`.
 
 Decide, before entering the data, whether to use a bar chart, histogram, or boxplot.
 
-💡 In SPSS:
-<div class="instruction-flow">
-  <span class="step">Grafik</span>
-  <span class="arrow">→</span>
-  <span class="step">Diagrammerstellung</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Graphs</span>
+    <span class="arrow">→</span>
+    <span class="step">Chart Builder</span>
+  </div>
 </div>
+```
 
 ![](p2.png)
 

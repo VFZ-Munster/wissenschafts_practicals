@@ -5,7 +5,50 @@ editor: source
 
 # Practical 4
 
-Introduction: In this lesson, we will focus on **one-sample t-test**, **p-values**,**Mann Whitney U Test** and **Chi-square test**.
+In this practical, we will compare sample distributions against reference standards and examine group differences using parametric, non-parametric, and categorical hypothesis tests.
+
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Parametric Group Tests</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">one-sample t-test</span>
+      <span class="method-tag">test value reference</span>
+      <span class="method-tag">mean difference</span>
+      <span class="method-tag">p-value significance</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Non-Parametric Tests</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">Mann–Whitney U test</span>
+      <span class="method-tag">mean ranks</span>
+      <span class="method-tag">median comparison</span>
+      <span class="method-tag">independent samples</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Categorical Frequency Tests</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">chi-square test (χ²)</span>
+      <span class="method-tag">contingency tables</span>
+      <span class="method-tag">observed vs. expected</span>
+    </div>
+  </div>
+</div>
+```
 
 ::: {.download-card}
 [Download recap for Practical 4](recap/Practical4.pdf){download="recap_P4.pdf"}
@@ -15,7 +58,7 @@ Introduction: In this lesson, we will focus on **one-sample t-test**, **p-values
 [Open the p-value explainer](../pvalue.qmd){target="_blank"}
 :::
 
-### Exercise 1: One-sample t-test
+## Exercise 1: One-Sample t-Test
 
 The BMI expresses the relationship between body height and weight. According to the WHO, the following weight categories are defined based on the calculated value.
 
@@ -29,23 +72,48 @@ For simplicity, use the mean normal weight BMI value of 21.7 as the comparison p
 
 **Conduct a one-sample t-test**
 
-💡 In SPSS
-
-::: instruction-flow
-Step 1: [ANALYSIEREN]{.step} [→]{.arrow} [Mittelwerte vergleichen]{.arrow} [→]{.arrow} [T-Test bei einer Stichprobe]{.arrow}
-:::
-
-Step 2: Set Test Value = 21.7 and Test Variable = `bmi`
-
-Step 3: In the "Options" menu, set confidence interval to 95%.
-
-Step 4: Uncheck "Estimate effect sizes'.
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Compare Means</span>
+          <span class="arrow">→</span>
+          <span class="step">One-Sample T Test</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Set <strong>Test Value</strong> = <code>21.7</code> and <strong>Test Variable</strong> = <code>bmi</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Options</strong> menu, set confidence interval to <code>95%</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Uncheck <strong>Estimate effect sizes</strong>.
+      </div>
+    </li>
+  </ol>
+</div>
+```
 
 ![](t_test_spss.png)
 
-<details>
+<details class="result-panel">
 
-<summary><img src="https://img.shields.io/badge/Task-Results-green" alt="Static Badge"/></summary>
+<summary>Exercise results</summary>
 
 ![](t_results.png)
 
@@ -75,9 +143,9 @@ d)  Regardless of the width of the confidence interval, the point estimate based
 
 e)  For a significant p-value and a confidence interval that does not include the "null effect," clinical relevance can automatically be assumed.
 
-<details>
+<details class="result-panel">
 
-<summary><img src="https://img.shields.io/badge/Task-Results-green" alt="Static Badge"/></summary>
+<summary>Exercise results</summary>
 
 ✓ `a) The p-value provides information about statistical significance. Reporting the confidence interval also allows the assessment of the direction and magnitude of the measured effect.`
 
@@ -85,35 +153,62 @@ e)  For a significant p-value and a confidence interval that does not include th
 
 </details>
 
-### Exercise 2: Mann-Whitney-U Test
+## Exercise 2: Mann-Whitney U Test
 
 You aim to determine whether the mean attachment loss differs between non-smokers and smokers (former or current).
 
-In Task 1, you examined the distribution of the variable `cal_mean` and found that it is not normally distributed.
+In Exercise 1, you examined the distribution of the variable `cal_mean` and found that it is not normally distributed.
 
 For small sample sizes (e.g., n \< 25), you therefore decide either to transform the variable or to use the Mann--Whitney U test. The latter compares the medians of two groups.
 
 **Conduct the Mann--Whitney U test.**
 
-💡 In SPSS
-
-::: instruction-flow
-Step 1: [ANALYSIEREN]{.step} [→]{.arrow} [NICHTPARAMETRISCHE TESTS]{.arrow} [→]{.arrow} [KLASSISCHE DIALOGFELDER]{.arrow} [→]{.arrow} [2 unabhängige Stichproben]{.arrow}
-:::
-
-Step 2: Select `cal_mean` as Test variable
-
-Step 3: Select `smk2` as the Grouping variable (Note: Note: Here, you need to define the groups as "Group 1: 1" and "Group 2: 2.")
-
-Step 4: Select Mann-Whitney-U-Test.
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Nonparametric Tests</span>
+          <span class="arrow">→</span>
+          <span class="step">Legacy Dialogs</span>
+          <span class="arrow">→</span>
+          <span class="step">2 Independent Samples</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select <code>cal_mean</code> as <strong>Test Variable</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select <code>smk2</code> as the <strong>Grouping Variable</strong> <em>(Note: define groups as Group 1 = 1 and Group 2 = 2)</em>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Check <strong>Mann-Whitney U</strong> test.
+      </div>
+    </li>
+  </ol>
+</div>
+```
 
 ![](Mann_Whitney.png)
 
 Based on the "Asymp. Sig. (2-tailed)" value in the output, determine whether to retain or reject the null hypothesis.
 
-<details>
+<details class="result-panel">
 
-<summary><img src="https://img.shields.io/badge/Task-Results-green" alt="Static Badge"/></summary>
+<summary>Exercise results</summary>
 
 ![](mann_results.png)
 
@@ -127,7 +222,7 @@ Based on the "Asymp. Sig. (2-tailed)" value in the output, determine whether to 
 
 </details>
 
-### Exercise 3: Frequency tests
+## Exercise 3: Frequency Tests
 
 The Chi-square (χ²) four-field test is used, in its simplest form, to examine the independence of two binary (yes/no) variables. (It is therefore sometimes also referred to as the Chi-square test of independence.)
 
@@ -137,23 +232,48 @@ Under the null hypothesis, the relevant outcomes are independent of each other, 
 
 **Conduct a Chi-square (χ²) test to address the question stated above.**
 
-💡 In SPSS
-
-::: instruction-flow
-Step 1: [ANALYSIEREN]{.step} [→]{.arrow} [DESKRIPTIVE STATISTIK]{.arrow} [→]{.arrow} [KREUZTABELLEN]{.arrow}
-:::
-
-Step 2: Select `perio2` as outcome and `diab` as Target variable.
-
-Step 3: Under "Statistics" select "CHI²-Test".
-
-Step 3: In the "Cells" options for Frequencies, select "Observed" and "Expected".
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Crosstabs</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select <code>perio2</code> as Row/Outcome and <code>diab</code> as Column/Target variable.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Statistics</strong>, select <strong>Chi-square</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Cells</strong> options under Counts, select <strong>Observed</strong> and <strong>Expected</strong>.
+      </div>
+    </li>
+  </ol>
+</div>
+```
 
 ![](Chi.png)
 
-<details>
+<details class="result-panel">
 
-<summary><img src="https://img.shields.io/badge/Task-Results-green" alt="Static Badge"/></summary>
+<summary>Exercise results</summary>
 
 ![](Chi_results.png)
 

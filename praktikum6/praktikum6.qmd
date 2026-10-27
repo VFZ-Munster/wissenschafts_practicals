@@ -45,6 +45,49 @@ In this practical, we use **binary logistic regression** to study the associatio
 
 :::
 
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Binary Outcome Modeling</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">logistic regression</span>
+      <span class="method-tag">binary recoding</span>
+      <span class="method-tag">logit link function</span>
+      <span class="method-tag">S-curve probability</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Coefficients & Output</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">odds ratios (Exp(B))</span>
+      <span class="method-tag">95% CI for OR</span>
+      <span class="method-tag">omnibus test</span>
+      <span class="method-tag">-2 log likelihood</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Comparison & Interaction</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">model comparison</span>
+      <span class="method-tag">interaction terms</span>
+      <span class="method-tag">effect modification</span>
+    </div>
+  </div>
+</div>
+```
+
 ::: {.download-card}
 [See the recap for Practical 6](recap/logistic_regression_recap/logistic_regression_interactive_recap.html){target="_blank" rel="noopener"}
 :::
@@ -59,26 +102,46 @@ To use periodontitis as the outcome of a **binary** logistic regression, we coll
 
 <summary>SPSS steps</summary>
 
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Transform</span>
-  <span class="arrow">→</span>
-  <span class="step">Recode into Different Variables</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Transform</span>
+          <span class="arrow">→</span>
+          <span class="step">Recode into Different Variables</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select <code>perio</code> → enter <code>perio_binary</code> under <strong>Name</strong> and <em>"Periodontitis"</em> under <strong>Label</strong> → press <strong>Change</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Old and New Values...</span>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Configure the values:
+        <ul class="spss-substeps">
+          <li>Under <strong>Old Value</strong>: enter <code>1</code> → Under <strong>New Value</strong>: enter <code>0</code> → press <strong>Add</strong>.</li>
+          <li>Under <strong>Old Value</strong>: select <strong>Range</strong>, enter <code>2</code> through <code>4</code> → Under <strong>New Value</strong>: enter <code>1</code> → press <strong>Add</strong>.</li>
+          <li>Under <strong>Old Value</strong>: select <strong>All other values</strong> → Under <strong>New Value</strong>: select <strong>Copy old value(s)</strong> → press <strong>Add</strong>. <em>(Handles missing values)</em></li>
+          <li>Press <strong>Continue</strong>, then <strong>OK</strong>.</li>
+        </ul>
+      </div>
+    </li>
+  </ol>
 </div>
-
-<span class="text-steps">Step 2: </span> Select `perio` >> enter `perio_binary` under Name and "Periodontitis" under Label >> press **Change**.
-
-![Recode into Different Variables – output variable](transform1.jpg){width="60%" fig-align="center"}
-
-<span class="text-steps">Step 3: </span> Click **"Old and New Values..."**.
-
-<span class="text-steps">Step 4: </span> Configure the values:
-
--   Under **Old Value**: enter `1` >> Under **New Value**: enter `0` >> press **Add**.
--   Under **Old Value**: select **Range**, enter `2` through `4` >> Under **New Value**: enter `1` >> press **Add**.
--   Under **Old Value**: select **All other values** >> Under **New Value**: select **Copy old value(s)** >> press **Add**. (This handles missing values)
--   Press **Continue**, then **OK**.
+```
 
 ![Recode into Different Variables – Old and New Values](transform2.jpg){width="60%" fig-align="center"}
 
@@ -94,25 +157,43 @@ This gives the binary dependent variable `perio_binary` used in the exercises be
 
 Run a logistic regression with only `bmi` as the independent variable.
 
-💡 SPSS:
-
-<div class="instruction-flow">
-  <span class="step">Analyze</span>
-  <span class="arrow">→</span>
-  <span class="step">Regression</span>
-  <span class="arrow">→</span>
-  <span class="step">Binary Logistic</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Regression</span>
+          <span class="arrow">→</span>
+          <span class="step">Binary Logistic</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Dependent Variable: <code>perio_binary</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Covariates: <code>bmi</code>.
+      </div>
+    </li>
+  </ol>
 </div>
-
-<span class="text-steps">Step 2: </span> Dependent Variable: `perio_binary`.
-
-<span class="text-steps">Step 3: </span> Covariates: `bmi`.
+```
 
 ![SPSS dialog – regression with bmi](logistic_dialog_bmi.jpeg){width="55%" fig-align="center"}
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 ![Variables in the Equation – model with only bmi](ex_1_1.jpg){width="70%" fig-align="center"}
 
@@ -143,7 +224,7 @@ Add the variables `age`, `bmi`, and your dummy-coded smoking variables as indepe
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 ![Variables in the Equation – model with several independent variables](logistic_results_multivariable.jpeg){width="70%" fig-align="center"}
 
@@ -176,7 +257,7 @@ Look at the **Omnibus Test of Model Coefficients** (Chi², df, Sig.) and the **p
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 [Full SPSS output (PDF)](output_uni_multivariable.pdf){target="_blank"}
 
@@ -207,7 +288,7 @@ To add an interaction term, click `age`, hold down the **CTRL key**, and also cl
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 ![Variables in the Equation – model with interaction term](logistic_results_interaction.jpeg){width="70%" fig-align="center"}
 
@@ -230,7 +311,7 @@ b) In which direction does the effect modification act (in other words: does the
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 a) The interaction term `age × bmi` is statistically significant (p = 0.029), but its Exp(B) is 0.999 — extremely close to 1. So the *size* of the effect modification is tiny, even though it is statistically detectable (which is common with large samples).
 

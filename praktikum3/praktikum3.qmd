@@ -6,7 +6,51 @@ resources:
 
 # Practical 3
 
-Introduction: In this lesson, we will focus on **confidence intervals**, **normal distribution**, and **transforming variables**.
+In this practical, we will focus on parameter estimation with confidence intervals, diagnostic techniques for testing normality, and data transformations for skewed distributions.
+
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Parameter Estimation</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">95% confidence intervals</span>
+      <span class="method-tag">mean estimation</span>
+      <span class="method-tag">explore procedure</span>
+      <span class="method-tag">pairwise exclusion</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Testing for Normality</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">histograms</span>
+      <span class="method-tag">Q–Q plots</span>
+      <span class="method-tag">Kolmogorov–Smirnov</span>
+      <span class="method-tag">Shapiro–Wilk</span>
+      <span class="method-tag">skewness & kurtosis</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Variable Transformation</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">log transformation</span>
+      <span class="method-tag">skewness reduction</span>
+      <span class="method-tag">compute variable</span>
+    </div>
+  </div>
+</div>
+```
 
 ::: {.download-html-card}
 [Open the recap for Practical 3](recap/index.html){target="_blank"}
@@ -16,34 +60,78 @@ Introduction: In this lesson, we will focus on **confidence intervals**, **norma
 [Open the confidence interval explainer](../confidence_interval.qmd){target="_blank"}
 :::
 
-### Exercise 1: Estimating with Confidence Intervals
+## Exercise 1: Estimating with Confidence Intervals
 
 **Calculate the 95% confidence intervals for the mean values of the variables `height` and `mortstat`.**
 
-💡 SPSS:
-
-<div class="instruction-flow">
-<span class="text-steps">Step 1: </span>
-  <span class="step">Analyze</span>
-  <span class="arrow">→</span>
-  <span class="step">Descriptive Statistics</span>
-    <span class="arrow">→</span>
-  <span class="step">Explore</span>
-</div> 
-
-<span class="text-steps">Step 2: </span> Assign `height` and `mortstat` as dependent variables.
-
-<span class="text-steps">Step 3: </span> Under "Display", select "Statistics".
-
-<span class="text-steps">Step 4: </span> In the "Statistics" menu, set the desired confidence interval limits.
-
-<span class="text-steps">Step 5: </span> Under "Options", choose "Exclude cases pairwise".
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Explore</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Assign <code>height</code> and <code>mortstat</code> as dependent variables.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Display</strong>, select <strong>Statistics</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Statistics</strong> menu, set the desired confidence interval limits.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Options</strong>, choose <strong>Exclude cases pairwise</strong>.
+      </div>
+    </li>
+  </ol>
+</div>
+```
 
 ![](CI.png)
 
-<details>
+::: {.poll-calc #p3-e1}
+Enter the 95% confidence interval for the mean of `height` and the mean of `mortstat` from your SPSS output (two decimals).
 
-<summary>Show Results</summary>
+- [`height` – lower bound]{.calc answer="166.89" tol="0.02" unit="cm" mistakes="167.05: That is the mean – the bounds are below and above it. | 167.21: That is the upper bound. | 166.99: That is the 5% trimmed mean."}
+- [`height` – upper bound]{.calc answer="167.21" tol="0.02" unit="cm" mistakes="167.05: That is the mean – the bounds are below and above it. | 166.89: That is the lower bound. | 166.99: That is the 5% trimmed mean."}
+- [`mortstat` – mean]{.calc answer="0.26" tol="0.01"}
+:::
+
+**Comprehension question about Confidence Intervals:**
+
+::: {.poll #p3-e1-ci correct="2"}
+Which statement do you agree with?
+
+- For a 95% confidence interval, the true population value lies within the limits of the interval with a probability of 95%.
+- A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.
+
+::: poll-explanation
+The true population value is fixed – it is either inside a given interval or not. The 95 % refers to the **method**: if we drew many samples and calculated an interval each time, about 95 % of these intervals would contain the true value. For one specific interval we cannot tell.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p3-e1-ci">
+
+<summary>Exercise results</summary>
 
 | **Variable**   | **Mean (95% Confidence Intervals)** | 
 |:---------------|:------------------------------------|
@@ -52,23 +140,7 @@ Introduction: In this lesson, we will focus on **confidence intervals**, **norma
 
 </details>
 
-**Comprehension question about Confidence Intervals:**
-
-Which statement do you agree with:
-
-a) For a 95% confidence interval, the true population value lies within the limits of the interval with a probability of 95%.
-
-b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.
-
-<details>
-
-<summary>Show Results</summary>
-
- ✓ `b) A 95% confidence interval means that if multiple samples are drawn, 95% of the resulting intervals will contain the true population value. Whether the confidence interval contains the true value in an individual case cannot be determined.`
-
-</details>
-
-### Exercise 2: Testing for normality
+## Exercise 2: Testing for Normality
 
 In the lecture, you learned about different ways to test for normality. In brief, these are:
 
@@ -82,24 +154,47 @@ Knowledge about the distribution of variables can, among other things, help in s
 
 **Check the variables `height`, `bmi`, and `cal_mean` for normality.**
 
-💡 SPSS:
-
-<div class="instruction-flow">
-<span class="text-steps">Step 1: </span>
-  <span class="step">Analyze</span>
-  <span class="arrow">→</span>
-  <span class="step">Descriptive Statistics</span>
-    <span class="arrow">→</span>
-  <span class="step">Explore</span>
-</div> 
-
-<span class="text-steps">Step 2: </span> Under "Display", select "Both".
-
-<span class="text-steps">Step 3: </span> In the "Statistics" menu, set the desired confidence interval limits.
-
-<span class="text-steps">Step 4: </span> Under "Plots", choose "Normality plots with tests" and "Histogram".
-
-<span class="text-steps">Step 5: </span> Assign `height`, `bmi`, and `cal_mean` as dependent variables.
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Explore</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Display</strong>, select <strong>Both</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Statistics</strong> menu, set the desired confidence interval limits.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Plots</strong>, choose <strong>Normality plots with tests</strong> and <strong>Histogram</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Assign <code>height</code>, <code>bmi</code>, and <code>cal_mean</code> as dependent variables.
+      </div>
+    </li>
+  </ol>
+</div>
+```
 
 **For `height`, `bmi`, and `cal_mean`, test for normal distribution graphically by examining their histograms and Q-Q plots.** 
 
@@ -107,7 +202,19 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 ![](Normality_test.png){width=80%}
 
-<details>
+::: {.poll #p3-e2-normal correct="1" multiple="true"}
+Which of the variables can be assumed to follow a normal distribution?
+
+- `height`
+- `bmi`
+- `cal_mean`
+
+::: poll-explanation
+Only `height`: its skewness (0.09) and kurtosis (−0.40) are close to 0, the histogram is bell-shaped and the points in the Q–Q plot lie on the line. `bmi` (skewness 1.16) and `cal_mean` (skewness 2.61) are clearly right-skewed. Note that SPSS reports the *excess* kurtosis, for which a normal distribution has 0. The Kolmogorov–Smirnov test is significant (p < .001) for all three variables, even for `height`: with more than 10,000 cases the test detects even tiny deviations, so judge normality mainly from the plots and the skewness.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p3-e2-normal">
 
 <summary>Assessment of skewness and kurtosis</summary>
 
@@ -115,7 +222,7 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-<details>
+<details class="result-panel presenter-only" data-reveal-with="p3-e2-normal">
 
 <summary>Statistical tests for normality</summary>
 
@@ -123,7 +230,7 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-<details>
+<details class="result-panel presenter-only" data-reveal-with="p3-e2-normal">
 
 <summary> Graphical tests for normality</summary>
 
@@ -137,9 +244,9 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-<details>
+<details class="result-panel presenter-only" data-reveal-with="p3-e2-normal">
 
-<summary>Show Results</summary>
+<summary>Exercise results</summary>
 
 | **Variable**   | **Normal distribution** | 
 |:---------------|:------------------------|
@@ -149,46 +256,105 @@ Determine which of the variables can be assumed to follow a normal distribution.
 
 </details>
 
-### Exercise 3: Transforming Variables
+## Exercise 3: Transforming Variables
 
 **Perform a logarithmic transformation of the variable `cal_mean`.**
 
-💡 SPSS
-
-<div class="instruction-flow">
-  <span class="text-steps">Step 1: </span>
-  <span class="step">TRANSFORM</span>
-  <span class="arrow">→</span>
-  <span class="step">COMPUTE VARIABLE</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Transform</span>
+          <span class="arrow">→</span>
+          <span class="step">Compute Variable</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Assign a name to the target variable (e.g. <code>ln_cal_mean</code>).
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select the Function Group <strong>Arithmetic</strong> and double-click on <code>Ln</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Double-click the variable to be transformed (<code>cal_mean</code>).
+      </div>
+    </li>
+  </ol>
 </div>
-
-<span class="text-steps">Step 2: </span> Assign a name to the target variable
-
-<span class="text-steps">Step 3: </span> ☑ Select the Function Group "Arithmetic" and double-click on `Ln`
-
-<span class="text-steps">Step 4: </span> Double-click the variable to be transformed
+```
 
 ![](Log_Transformation.png){width=80%}
 
 Take a look at the histogram with the normal distribution curve for the newly created variable:
 
-💡 SPSS: 
-
 ```{=html}
-<div class="instruction-flow">
-  <span class="step">Analyze</span>
-  <span class="arrow">→</span>
-  <span class="step">Descriptive Statistics</span>
-    <span class="arrow">→</span>
-  <span class="step">Frequencies</span>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Frequencies</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Under <strong>Charts</strong>, select <strong>Histogram</strong> and check <strong>Show normal curve on histogram</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
 ```
 
-Under "Charts", select ☑ "Histogram" and "Normal distribution curve"
+::: {.poll #p3-e3-log correct="2"}
+Compare the histogram of the new variable with the histogram of `cal_mean`. What did the log transformation do?
 
-<details>
+- It made the distribution perfectly normal, so a normality test would no longer be significant.
+- It reduced the right skew – the distribution is now roughly symmetric and much closer to a normal distribution.
+- It made the right skew stronger.
+- It changed only the scale of the x-axis – the shape of the distribution is the same.
 
-<summary>Show Results</summary>
+::: poll-explanation
+The logarithm pulls in large values much more than small ones, so the long tail on the right disappears and the distribution becomes roughly symmetric. It is not perfect: there are spikes at the left end and a slight left skew remains.
+:::
+:::
+
+::: {.poll #p3-e3-n correct="3"}
+The new variable has fewer valid cases (N = 10,183) than `cal_mean` (N = 10,441). Why?
+
+- SPSS removes outliers automatically when computing a new variable.
+- The log transformation rounds small values to 0.
+- The logarithm of 0 is not defined, so participants with `cal_mean` = 0 get a missing value.
+- Negative values of `cal_mean` were excluded.
+
+::: poll-explanation
+ln(0) does not exist, so SPSS sets the new variable to missing for everyone with `cal_mean` = 0 (258 participants here). Keep this in mind: a log transformation can silently drop cases. A common workaround is ln(x + 1).
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p3-e3-log">
+
+<summary>Exercise results</summary>
 
 ![](cal_mean.png)
 

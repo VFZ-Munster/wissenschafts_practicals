@@ -1,9 +1,48 @@
-# Intalling SPSS
-
 # Installing and Activating SPSS 
 
-To set up SPSS on your computer, start by visiting the  [CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html).  
-They provide everything you need to download, install, and activate the software.
+To set up SPSS on your computer, start by visiting the [CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html). They provide everything you need to download, install, and activate the software with the university license.
+
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Setup & Skills covered</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Installation & Platform</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">SPSS Statistics</span>
+      <span class="method-tag">macOS & Windows</span>
+      <span class="method-tag">Medicampus login</span>
+      <span class="method-tag">CIT portal</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Licensing & Network</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">network license</span>
+      <span class="method-tag">license server IP</span>
+      <span class="method-tag">university VPN</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>First steps in SPSS</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">data view</span>
+      <span class="method-tag">variable view</span>
+      <span class="method-tag">.sav files</span>
+    </div>
+  </div>
+</div>
+```
 
 ---
 

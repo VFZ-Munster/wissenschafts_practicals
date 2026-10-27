@@ -1,5 +1,6 @@
 ---
 jupyter: python3
+toc: false
 author:   
   - name: Ignacio Leiva
     #orcid: 0000-0003-1689-0557
@@ -15,7 +16,9 @@ author:
 Quantitative Methods in Health Sciences
 :::
 
-# Practical Course
+```{=html}
+<h1 class="hero-title">Practical Course.<br><span>Real data. Applied research.</span></h1>
+```
 
 Explore, analyze, and interpret real NHANES data while building a reproducible workflow for applied health research.
 
@@ -32,7 +35,7 @@ Explore, analyze, and interpret real NHANES data while building a reproducible w
 ::: {.qr-label}
 Scan course link
 :::
-{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ width=144 height=144 colorDark="#003866" colorLight="#ffffff" >}}
+{{< qrcode https://vfz-munster.github.io/wissenschafts_practicals/ width=144 height=144 colorDark="#000000" colorLight="#ffffff" >}}
 
 ::: {.qr-url}
 vfz-munster.github.io
@@ -53,23 +56,52 @@ The data is stored in `nhanes30.sav`. This file contains observed data, variable
 :::
 :::
 
-::: {.course-path}
-::: {.path-item}
-**01**
-Set up SPSS and prepare the working environment.
-:::
-
-::: {.path-item}
-**02**
-Inspect variables, metadata, and coding decisions.
-:::
-
-::: {.path-item}
-**03**
-Analyze, visualize, and interpret health data.
-:::
-:::
-<br>
+```{=html}
+<section class="practicals">
+  <div class="practicals-head">
+    <span class="practicals-kicker">Course content</span>
+    <h2 class="practicals-title">Six practicals.<br><span>One dataset.</span></h2>
+  </div>
+  <div class="practicals-grid">
+    <a class="practical-card" href="praktikum1/praktikum1.html">
+      <div class="practical-top"><span class="practical-num">01 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>SPSS Setup.</h3>
+      <p>Download, install and activate SPSS, and get connected to the university licence.</p>
+      <div class="practical-tags"><span>Setup</span><span>SPSS</span></div>
+    </a>
+    <a class="practical-card" href="praktikum2/praktikum2.html">
+      <div class="practical-top"><span class="practical-num">02 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>First Steps & Relationships.</h3>
+      <p>Describe variables, then explore the relationship between two variables with plots, covariance and correlation.</p>
+      <div class="practical-tags"><span>Descriptives</span><span>Correlation</span></div>
+    </a>
+    <a class="practical-card" href="praktikum3/praktikum3.html">
+      <div class="practical-top"><span class="practical-num">03 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>Confidence Intervals & Normality.</h3>
+      <p>Estimate with 95% confidence intervals, check for normality and transform skewed variables.</p>
+      <div class="practical-tags"><span>CI</span><span>Normality</span><span>Log transform</span></div>
+    </a>
+    <a class="practical-card" href="praktikum4/praktikum4.html">
+      <div class="practical-top"><span class="practical-num">04 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>Hypothesis Tests.</h3>
+      <p>Compare groups with the one-sample t-test, the Mann–Whitney U test and the chi-square test.</p>
+      <div class="practical-tags"><span>t-test</span><span>Mann–Whitney</span><span>χ²</span></div>
+    </a>
+    <a class="practical-card" href="praktikum5/praktikum5.html">
+      <div class="practical-top"><span class="practical-num">05 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>Linear Regression.</h3>
+      <p>Fit univariable and multivariable models, check the assumptions and look at effect modification.</p>
+      <div class="practical-tags"><span>Regression</span><span>Assumptions</span><span>Interaction</span></div>
+    </a>
+    <a class="practical-card" href="praktikum6/praktikum6.html">
+      <div class="practical-top"><span class="practical-num">06 / 06</span><span class="practical-arrow" aria-hidden="true">↗</span></div>
+      <h3>Logistic Regression.</h3>
+      <p>Model a binary outcome, interpret odds ratios, compare models and add interaction terms.</p>
+      <div class="practical-tags"><span>Odds ratios</span><span>Model comparison</span></div>
+    </a>
+  </div>
+</section>
+```
 
 ::: {.callout-tip}
 ## .sav?

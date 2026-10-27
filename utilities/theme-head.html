@@ -1,0 +1,12 @@
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme-mode');
+      if (saved === 'light') {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+

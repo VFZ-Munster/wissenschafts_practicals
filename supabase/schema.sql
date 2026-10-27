@@ -36,11 +36,12 @@ language sql stable security definer set search_path = public as $$
   select exists (select 1 from teachers where email = auth.email());
 $$;
 
--- Students never touch the tables directly; only the functions below.
+-- Students never touch votes directly; polls metadata (id, round, revealed) is readable by all.
+drop policy if exists "anyone reads polls"   on polls;
 drop policy if exists "teacher reads polls"  on polls;
 drop policy if exists "teacher writes polls" on polls;
 drop policy if exists "teacher reads votes"  on votes;
-create policy "teacher reads polls"  on polls for select using (is_teacher());
+create policy "anyone reads polls"   on polls for select using (true);
 create policy "teacher writes polls" on polls for update using (is_teacher()) with check (is_teacher());
 create policy "teacher reads votes"  on votes for select using (is_teacher());
 
@@ -61,12 +62,13 @@ begin
 end;
 $$;
 
--- Current state of the given polls. Counts per option are only returned
--- once the poll is revealed (or to a teacher); otherwise just the total.
+-- Current state of the given polls.
+-- Counts per option are only returned once the poll is revealed (or to a teacher).
+-- Total submission count is always returned for every poll matching p_polls, even with 0 votes.
 create or replace function poll_results(p_polls text[])
 returns table (poll_id text, round int, revealed boolean, choice int, n bigint)
 language sql stable security definer set search_path = public as $$
-  select p.id, p.round, p.revealed, v.choice, count(*)
+  select p.id, p.round, p.revealed, v.choice, count(v.voter)
   from polls p
   join votes v on v.poll_id = p.id and v.round = p.round
   where p.id = any(p_polls) and (p.revealed or is_teacher())
@@ -75,7 +77,7 @@ language sql stable security definer set search_path = public as $$
   select p.id, p.round, p.revealed, null, count(v.voter)
   from polls p
   left join votes v on v.poll_id = p.id and v.round = p.round
-  where p.id = any(p_polls) and not (p.revealed or is_teacher())
+  where p.id = any(p_polls)
   group by p.id, p.round, p.revealed;
 $$;
 

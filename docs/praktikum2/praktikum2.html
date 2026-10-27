@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -35,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-e67f66e09760c5d87c6ba66cdb9bb3db.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9fdf0481d211516b1d1096cc2ad048bc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-aea7dd50ace4d4c42960430ba0507719.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -68,6 +69,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme-mode');
+      if (saved === 'light') {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -101,13 +114,16 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../mfm-logo.svg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Praktikum</span>
     </a>
@@ -119,8 +135,43 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practicals" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Practicals</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-practicals">    
+        <li>
+    <a class="dropdown-item" href="../praktikum1/praktikum1.html">
+ <span class="dropdown-text">Practical 1: SPSS installation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum2/praktikum2.html">
+ <span class="dropdown-text">Practical 2: Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum3/praktikum3.html">
+ <span class="dropdown-text">Practical 3: CI &amp; Normality</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum4/praktikum4.html">
+ <span class="dropdown-text">Practical 4: Hypothesis Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum5/praktikum5.html">
+ <span class="dropdown-text">Practical 5: Linear Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum6/praktikum6.html">
+ <span class="dropdown-text">Practical 6: Logistic Regression</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../blackboard.html" target="_blank"> 
+<span class="menu-text">Blackboard</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -128,88 +179,10 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../praktikum2/praktikum2.html">Practical 2</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../mfm-logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum1/praktikum1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 1: SPSS installation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum2/praktikum2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Practical 2</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum3/praktikum3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum4/praktikum4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 4</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum5/praktikum5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 5</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum6/praktikum6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 6</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../blackboard.html" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Blackboard</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -222,16 +195,16 @@ window.Quarto = {
   </ul></li>
   <li><a href="#part-1-first-steps" id="toc-part-1-first-steps" class="nav-link" data-scroll-target="#part-1-first-steps">Part 1: First Steps</a>
   <ul class="collapse">
-  <li><a href="#task-1" id="toc-task-1" class="nav-link" data-scroll-target="#task-1">Task 1</a></li>
-  <li><a href="#task-2" id="toc-task-2" class="nav-link" data-scroll-target="#task-2">Task 2</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   </ul></li>
   <li><a href="#part-2-relationship-between-two-variables" id="toc-part-2-relationship-between-two-variables" class="nav-link" data-scroll-target="#part-2-relationship-between-two-variables">Part 2: Relationship between two variables</a>
   <ul class="collapse">
-  <li><a href="#task-3" id="toc-task-3" class="nav-link" data-scroll-target="#task-3">Task 3</a></li>
-  <li><a href="#task-4" id="toc-task-4" class="nav-link" data-scroll-target="#task-4">Task 4</a></li>
-  <li><a href="#task-5" id="toc-task-5" class="nav-link" data-scroll-target="#task-5">Task 5</a></li>
-  <li><a href="#task-6" id="toc-task-6" class="nav-link" data-scroll-target="#task-6">Task 6</a></li>
-  <li><a href="#additional-task" id="toc-additional-task" class="nav-link" data-scroll-target="#additional-task">Additional task</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#additional-exercise" id="toc-additional-exercise" class="nav-link" data-scroll-target="#additional-exercise">Additional Exercise</a></li>
   </ul></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul>
@@ -266,12 +239,48 @@ window.Quarto = {
 
 <section id="practical-2" class="level1">
 <h1>Practical 2</h1>
-<p>In this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables. The following methods will be applied today:</p>
-<ul>
-<li><strong>Graphical representations of quantitative variables</strong>: bar charts, histograms, boxplots, and Q–Q plots</li>
-<li><strong>Qualitative variables</strong>: cross-tabulations, relative frequencies, risk difference, relative risk, and odds ratio</li>
-<li><strong>Quantitative variables</strong>: scatterplots, covariance, and correlation coefficient</li>
-</ul>
+<p>In this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables.</p>
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Graphical representations of quantitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">bar charts</span>
+      <span class="method-tag">histograms</span>
+      <span class="method-tag">boxplots</span>
+      <span class="method-tag">Q–Q plots</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Qualitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">cross-tabulations</span>
+      <span class="method-tag">relative frequencies</span>
+      <span class="method-tag">risk difference</span>
+      <span class="method-tag">relative risk</span>
+      <span class="method-tag">odds ratio</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Quantitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">scatterplots</span>
+      <span class="method-tag">covariance</span>
+      <span class="method-tag">correlation coefficient</span>
+    </div>
+  </div>
+</div>
 <section id="practice-exercises" class="level3">
 <h3 class="anchored" data-anchor-id="practice-exercises">Practice exercises</h3>
 <p>📥 Download the dataset <code>nhanes30.sav</code> and open it in <strong>SPSS</strong> — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.</p>
@@ -282,9 +291,9 @@ window.Quarto = {
 </section>
 <section id="part-1-first-steps" class="level1">
 <h1>Part 1: First Steps</h1>
-<p>When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in <strong>Tasks 1</strong> and <strong>2</strong>. A graphical representation, as in the following exercises, can provide a substantive overview of the data.</p>
-<section id="task-1" class="level2">
-<h2 class="anchored" data-anchor-id="task-1">Task 1</h2>
+<p>When working with a new dataset, you should first familiarize yourself with its variables and codings. Examples of this are given in <strong>Exercises 1</strong> and <strong>2</strong>. A graphical representation, as in the following exercises, can provide a substantive overview of the data.</p>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
 <p>What is the <strong>level of measurement (scale type)</strong> for <code>Gender/sex</code>, <code>Body Mass Index (BMI)</code>, and <code>BMI categories</code>?</p>
 <p>First, answer this question based on your knowledge from the lecture, and then check whether the variables are correctly coded in SPSS.</p>
 <p>To do this, switch from the <strong>Data View</strong> to the <strong>Variable View</strong>.⚙️</p>
@@ -336,13 +345,20 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="task-2" class="level2">
-<h2 class="anchored" data-anchor-id="task-2">Task 2</h2>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>How can the following variables be appropriately <strong>represented in a graph</strong>?: <code>Gender</code>, <code>mean attachment loss</code>, <code>number of teeth</code>.</p>
 <p>Decide, before entering the data, whether to use a bar chart, histogram, or boxplot.</p>
-💡 In SPSS:
-<div class="instruction-flow">
-<p><span class="step">Grafik</span> <span class="arrow">→</span> <span class="step">Diagrammerstellung</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Graphs</span>
+    <span class="arrow">→</span>
+    <span class="step">Chart Builder</span>
+  </div>
 </div>
 <p><img src="p2.png" class="img-fluid"></p>
 <div id="p2-t2-sex" class="poll" data-correct="1" multiple="true">
@@ -407,12 +423,21 @@ window.Quarto = {
 <section id="part-2-relationship-between-two-variables" class="level1">
 <h1>Part 2: Relationship between two variables</h1>
 <p>If you have measured several variables in your <strong>cross-sectional</strong> study, you can display an (⚠️ apparent) relationship between them using various methods.</p>
-<section id="task-3" class="level2">
-<h2 class="anchored" data-anchor-id="task-3">Task 3</h2>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Create a cross-table for diabetes (diab) and periodontitis (perio2).</p>
-💡 In SPSS:
-<div class="instruction-flow">
-<p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">DESKRIPTIVE STATISTIKEN</span> <span class="arrow">→</span> <span class="step">KREUZTABELLEN</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Descriptive Statistics</span>
+    <span class="arrow">→</span>
+    <span class="step">Crosstabs</span>
+  </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -461,15 +486,38 @@ Tip
 </table>
 </div>
 </section>
-<section id="task-4" class="level2">
-<h2 class="anchored" data-anchor-id="task-4">Task 4</h2>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
 <p>Calculate the <strong>risk difference</strong>, <strong>relative risk</strong>, and <strong>odds ratio</strong> for the association between diabetes and periodontitis.</p>
-💡 In SPSS:
-<div class="instruction-flow">
-<p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">DESKRIPTIVE STATISTIKEN</span> <span class="arrow">→</span> <span class="step">KREUZTABELLEN</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Crosstabs</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the Crosstabs dialog, click <span class="spss-button">Cells...</span>, under <strong>Percentages</strong> select <strong>Row</strong>, then click <strong>Continue</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Statistics...</span>, check <strong>Risk</strong>, and click <strong>Continue</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p>Then in the Crosstabs dialog, click <strong>[Cells…]</strong> and under <strong>Percentages</strong>, select <strong>Row</strong>, then click <strong>Continue</strong>.<br>
-Next, click <strong>[Statistics…]</strong>, check <strong>Risk</strong>, and click <strong>Continue</strong>.</p>
 <p><strong>Calculate manually:</strong></p>
 <div class="formula-grid">
 <div class="formula-card">
@@ -562,9 +610,29 @@ OR = \frac{a/b}{c/d} = \frac{a \times d}{b \times c}
 </tbody>
 </table>
 </details>
-<details class="result-panel">
+<div id="p2-t4" class="poll-calc">
+<p>Enter your results (two decimals).</p>
+<ul>
+<li><span class="calc" data-answer="12" data-tol="0.3" data-unit="%" data-mistakes="-12: Negative sign – subtract the non-diabetics from the diabetics. | 1.88: That is a ratio (RR) – the RD is a difference.">Risk difference (RD)</span></li>
+<li><span class="calc" data-answer="1.88" data-tol="0.02" data-mistakes="0.53: Groups swapped – divide diabetics by non-diabetics. | 0.34: Divided within the diabetic row – that is the odds a/b. | 0.86: Used the “no periodontitis” column.">Relative risk (RR)</span></li>
+<li><span class="calc" data-answer="2.19" data-tol="0.02" data-mistakes="0.46: Inverted – OR = (a·d) / (b·c). | 1.88: That is the relative risk, not the odds ratio. | 0.34: Only the odds of the diabetics (a/b).">Odds ratio (OR)</span></li>
+</ul>
+</div>
+<div id="p2-t4-or" class="poll" data-correct="3">
+<p>Which statement correctly describes the odds ratio you calculated?</p>
+<ul>
+<li>It is the difference in the risk of periodontitis between the two groups, in percentage points.</li>
+<li>It shows that diabetes causes periodontitis.</li>
+<li>It compares the odds of periodontitis in people with diabetes with the odds in people without diabetes.</li>
+<li>It tells you how many times higher the risk of periodontitis is in people with diabetes.</li>
+</ul>
+<div class="poll-explanation">
+<p>The OR compares <strong>odds</strong>, not risks. The risk ratio here is the RR = 1.88. The two differ because periodontitis is not rare (about 15 %). The data are cross-sectional, so the OR describes an association, not a cause.</p>
+</div>
+</div>
+<details class="result-panel presenter-only" data-reveal-with="p2-t4-or">
 <summary>
-Task results
+Exercise results
 </summary>
 <p><em>diab × perio2 Crosstabulation</em></p>
 <table class="caption-top table">
@@ -668,19 +736,28 @@ Warning
 </div>
 </details>
 </section>
-<section id="task-5" class="level2">
-<h2 class="anchored" data-anchor-id="task-5">Task 5</h2>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
 <p>Create a scatterplot for the covariation of <code>weight</code> ~ <code>height</code></p>
-💡 In SPSS:
-<div class="instruction-flow">
-<p><span class="step">GRAFIK</span> <span class="arrow">→</span> <span class="step">DIAGRAMMDARSTELLUNG</span> <span class="arrow">→</span> <span class="step option">Streu/-Punktdiagramm auswählen</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Graphs</span>
+    <span class="arrow">→</span>
+    <span class="step">Chart Builder</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Scatter / Dot</span>
+  </div>
 </div>
 <p>Draw a regression line.</p>
 <p>💡 SPSS: Double-click on the created graph, then click the symbol marked below.</p>
 <p><img src="p3.png" class="img-fluid"></p>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <div class="result-figure wide">
 <div class="quarto-figure quarto-figure-center">
@@ -705,16 +782,45 @@ Tip
 </div>
 </details>
 </section>
-<section id="task-6" class="level2">
-<h2 class="anchored" data-anchor-id="task-6">Task 6</h2>
+<section id="exercise-6" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
 <p>Calculate the covariance and the Pearson correlation coefficient for the relationship between <code>height</code> and <code>weight</code>.</p>
-<p>💡 In SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">KORRELATIONEN</span> <span class="arrow">→</span> <span class="step">BIVARIAT</span> <span class="arrow">→</span> <span class="step option">Korrelationskoeffizienten: Pearson auswählen</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Correlate</span>
+    <span class="arrow">→</span>
+    <span class="step">Bivariate</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Pearson</span>
+  </div>
 </div>
-<details class="result-panel">
+<div id="p2-t6" class="poll-calc">
+<p>Enter the Pearson correlation coefficient from your SPSS output (three decimals).</p>
+<ul>
+<li><span class="calc" data-answer="0.466" data-tol="0.005" data-mistakes="1: That is the diagonal – the correlation of a variable with itself. | 0.001: That is the p-value (Sig.), not r. | 0.217: That is r², not r.">Pearson correlation (r)</span></li>
+</ul>
+</div>
+<div id="p2-t6-r" class="poll" data-correct="2">
+<p>Which statement about the Pearson correlation you found between height and weight is correct?</p>
+<ul>
+<li>It shows a strong positive association.</li>
+<li>It shows a moderate positive linear association.</li>
+<li>It is the percentage of the variation in weight that is explained by height.</li>
+<li>It is the increase in weight (kg) per cm of height.</li>
+</ul>
+<div class="poll-explanation">
+<p>r = 0.466 is a <strong>moderate</strong>, positive, linear association: taller people tend to be heavier. The percentage of variation explained is r² = 0.217, i.e.&nbsp;about 22 %, not 46.6 %. And r has no units, so it is not the change in kg per cm – that would be the slope of a regression line.</p>
+</div>
+</div>
+<details class="result-panel presenter-only" data-reveal-with="p2-t6-r">
 <summary>
-Task results
+Exercise results
 </summary>
 <p>Correlations</p>
 <table class="caption-top table">
@@ -774,16 +880,27 @@ Task results
 <p>The p-value &lt; 0.001 shows this association is statistically significant.</p>
 </details>
 </section>
-<section id="additional-task" class="level2">
-<h2 class="anchored" data-anchor-id="additional-task">Additional task</h2>
+<section id="additional-exercise" class="level2">
+<h2 class="anchored" data-anchor-id="additional-exercise">Additional Exercise</h2>
 <p>Calculate the Spearman correlation coefficient for the relationship between <code>age</code> and <code>number of teeth</code>.</p>
-💡 In SPSS:
-<div class="instruction-flow">
-<p><span class="step">ANALYSIEREN</span> <span class="arrow">→</span> <span class="step">KORRELATIONEN</span> <span class="arrow">→</span> <span class="step">BIVARIAT</span> <span class="arrow">→</span> <span class="step option">Korrelationskoeffizienten: Spearman auswählen</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Correlate</span>
+    <span class="arrow">→</span>
+    <span class="step">Bivariate</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Spearman</span>
+  </div>
 </div>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <p>Spearman’s rho Correlations</p>
 <table class="caption-top table">
@@ -897,10 +1014,66 @@ Strength of association
 </section>
 
 </main> <!-- /main -->
+<script>
+(function () {
+  function setupThemeToggle() {
+    if (document.getElementById('theme-toggle-btn')) return;
+
+    var target = document.querySelector('.quarto-navbar-tools');
+    if (!target) {
+      target = document.querySelector('.navbar .navbar-collapse');
+    }
+    if (!target) {
+      target = document.querySelector('.navbar .container-fluid');
+    }
+    if (!target) return;
+
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle-btn';
+    btn.className = 'theme-toggle-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle light/dark theme');
+
+    function updateLabel() {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      btn.innerHTML = isLight
+        ? '<span class="theme-icon" aria-hidden="true">☾</span><span>Dark</span>'
+        : '<span class="theme-icon" aria-hidden="true">☀</span><span>Light</span>';
+      btn.title = isLight ? 'Switch to Dark Studio' : 'Switch to Light Theme';
+    }
+
+    btn.addEventListener('click', function () {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      if (isLight) {
+        document.documentElement.classList.remove('theme-light');
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('theme-mode', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('theme-mode', 'light'); } catch (e) {}
+      }
+      updateLabel();
+    });
+
+    updateLabel();
+    target.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupThemeToggle);
+  } else {
+    setupThemeToggle();
+  }
+})();
+</script>
+
 <!--
-  Classroom polls. Turns every `::: {.poll #some-id}` block into a live poll.
-  Students: vote, results appear when the teacher reveals them.
-  Teacher: open the page with ?presenter in the URL and log in.
+  Classroom polls & on-demand practice quizzes.
+  Turns every `::: {.poll #some-id}` block into an interactive poll/quiz.
+  - Live Classroom Mode: students vote during lecture; results & explanations appear once presenter reveals them.
+  - Practice Mode: students test themselves on-demand after class with instant feedback, zero database writes.
+  - Presenter Toolbar: in-page banner on each practical + floating ⚙ in navbar for mode switching, reveals, resets, and CSV export.
   Database setup: see supabase/schema.sql and supabase/README.md.
 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
@@ -910,36 +1083,81 @@ Strength of association
   const SUPABASE_URL = "https://ztjjlogcdhynfkifaqtp.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0ampsb2djZGh5bmZraWZhcXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MTg0NjksImV4cCI6MjEwODM5NDQ2OX0.RsKffHoPL-wn-lKgoBW-K4xKKLiZVC8HMUWdUWhLIG8";
   const REFRESH_MS = 4000;
-  // ?presenter turns presenter mode on in this browser (remembered), ?presenter=off turns it off.
-  const presenterParam = new URLSearchParams(location.search).get("presenter");
-  let teacher = false;
 
   const cards = Array.from(document.querySelectorAll("div.poll[id]"));
   const tableEls = Array.from(document.querySelectorAll("div.poll-table[id]"));
-  if (!cards.length && !tableEls.length) return;
+  const calcEls = Array.from(document.querySelectorAll("div.poll-calc[id]"));
+
+  // Canonical session ID for this page: derived from the poll prefix (e.g. "p2") or page filename
+  const firstPoll = (cards[0] || tableEls[0] || calcEls[0] || {}).id || "";
+  const pollPrefix = firstPoll ? firstPoll.split("-")[0] : "";
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const pageSlug = (pathParts[pathParts.length - 1] || "index").replace(/\.(html|qmd)$/, "");
+  const pageSessionId = "session-" + (pollPrefix || pageSlug);
+
+  function getPracticalLabel() {
+    const h1 = document.querySelector("#quarto-document-content h1") || document.querySelector("h1");
+    const text = h1 ? h1.textContent.trim() : "";
+    const m = text.match(/Practical\s*(\d+)/i) || text.match(/Praktikum\s*(\d+)/i) || document.title.match(/praktikum\s*(\d+)/i);
+    if (m) return { full: "Practical " + m[1], short: "P" + m[1], num: m[1] };
+    if (pollPrefix && /^p\d+/i.test(pollPrefix)) {
+      const num = pollPrefix.replace(/\D/g, "");
+      return { full: "Practical " + num, short: "P" + num, num };
+    }
+    return { full: pageSlug, short: pageSlug, num: "" };
+  }
+
+  let teacher = false;
+  let practiceMode = false;
+  let previewAsStudent = false;
+  let praktikumBar = null;
 
   const T = {
     votes: n => n === 1 ? "1 vote" : n + " votes",
     saved: "Vote saved – results appear once they are revealed.",
     hidden: "Only you can see this – students don't see the results yet.",
+    revealedToAll: "Results are revealed to everyone.",
     yours: "your answer", correct: "correct", why: "Why?", kicker: "Live poll",
-    kickerTable: "Fill in the table", submit: "Submit", update: "Update answer",
+    kickerPractice: "Practice / Self-Check",
+    kickerTable: "Fill in the table", kickerTablePractice: "Practice Table",
+    kickerCalc: "Calculate", kickerCalcPractice: "Practice Calculation",
+    submit: "Submit", update: "Update answer",
+    checkAnswer: "Check answer", checkAnswers: "Check answers",
+    tryAgain: "↺ Try again",
+    correctBadge: "Correct", incorrectBadge: "Incorrect",
+    yourAnswerCorrect: "your answer · Correct ✓",
+    yourAnswerWrong: "your answer · Incorrect ✗",
+    classBenchmark: n => "Class results (" + (n === 1 ? "1 vote" : n + " votes") + " in lecture)",
+    promptPractice: "Select your answer to test yourself.",
+    promptTablePractice: "Fill in the blanks and check your answers.",
+    promptCalcPractice: "Enter your calculated values and check your answers.",
     fillAll: "Please fill in all empty cells.", allCorrect: "All correct",
     submissions: n => n === 1 ? "1 submission" : n + " submissions",
     selectAll: "Select all that apply.", exact: "Exactly right",
+    partiallyCorrect: "Partially correct",
     savedTable: "Answer saved – the solution appears once it is revealed.",
+    fillNumbers: "Please enter a number in every field.", other: "Other answer",
     reveal: "Reveal results", hide: "Hide results", reset: "Reset (new round)",
     confirmReset: "Start a new round? Votes from the current round are kept in the CSV export.",
     notConfigured: "Poll not set up yet.",
     error: "Connection failed – please try again.",
     presenter: "Presenter mode", login: "Log in", logout: "Log out", csv: "Votes as CSV",
-    email: "E-mail", password: "Password", notTeacher: "This account is not registered as a teacher."
+    email: "E-mail", password: "Password", notTeacher: "This account is not registered as a teacher.",
+    openPractice: "Open Practice Mode for Students",
+    switchLive: "Switch to Live Classroom",
+    resetAll: "↺ Reset all polls on this page",
+    confirmResetAll: "Reset all polls on this page for a new class? Previous votes remain archived in the CSV export.",
+    previewStudent: "Preview as student",
+    practiceActiveNotice: "Practice Mode Active",
+    setToPractice: "Set to Practice",
+    setToLive: "Set to Live"
   };
 
   const store = {
     get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
+
   let voter = store.get("poll-voter", null);
   if (!voter) {
     voter = (crypto.randomUUID ? crypto.randomUUID() :
@@ -947,7 +1165,9 @@ Strength of association
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
     store.set("poll-voter", voter);
   }
+
   const myVotes = store.get("poll-votes", {});
+  const practiceVotes = store.get("poll-practice-votes", {});
 
   // Read question, options, correct answers (correct="1,3", 1-based) and the
   // .poll-explanation block from the markdown, then rebuild the card.
@@ -957,8 +1177,6 @@ Strength of association
     const p = {
       id: el.id, el, options: items.map(li => li.innerHTML),
       correct: (el.dataset.correct || "").split(",").filter(x => x.trim()).map(x => +x - 1),
-      // multiple="true": select all that apply. The vote is stored as a bitmask
-      // of the chosen options (the database allows 0-19, so up to 4 options).
       multiple: (el.dataset.multiple || el.getAttribute("multiple")) === "true",
       state: { round: 1, revealed: false, counts: null, total: 0 }
     };
@@ -980,8 +1198,7 @@ Strength of association
   });
 
   // Fill-in tables: cells written as [199]{.blank} become inputs; the last row
-  // and last column are totals computed live. Each submission is stored as
-  // poll votes: <id> = all correct (0) or not (1), <id>-k = blank k right (0) or wrong (1).
+  // and last column are totals computed live.
   const num = v => { const d = String(v).replace(/[^\d-]/g, ""); return d === "" ? null : +d; };
   const fmt = n => n.toLocaleString("en-US");
   const plain = el => el.textContent.trim();
@@ -1030,15 +1247,72 @@ Strength of association
   });
   const tableIds = t => [t.id].concat(t.blanks.map(b => b.id));
 
+  // Calculation cards: each list item [label]{.calc answer="2.19" tol="0.02" unit="%"
+  // mistakes="0.46: text | 1.88: text"} becomes a number input.
+  const attr = (el, k) => el.getAttribute("data-" + k) ?? el.getAttribute(k);
+  const dec = v => { const d = String(v).replace(/[\s%]/g, "").replace(",", "."); return d === "" || isNaN(d) ? null : +d; };
+  const calcs = calcEls.map(el => {
+    const c = { id: el.id, el, fields: [], state: { round: 1, revealed: false, counts: null, total: 0 }, subs: {} };
+    const list = el.querySelector(":scope > ul");
+    const grid = document.createElement("div");
+    grid.className = "poll-calc-fields";
+    Array.from(list.querySelectorAll(":scope > li span.calc")).forEach(span => {
+      const f = {
+        id: el.id + "-" + (c.fields.length + 1), label: span.innerHTML, text: plain(span),
+        answer: +attr(span, "answer"), tol: +(attr(span, "tol") || 0.01), unit: attr(span, "unit") || "",
+        mistakes: (attr(span, "mistakes") || "").split("|").map(m => m.trim()).filter(Boolean).map(m => {
+          const i = m.indexOf(":");
+          return { value: +m.slice(0, i), label: m.slice(i + 1).trim() };
+        })
+      };
+      const box = document.createElement("div");
+      box.className = "poll-calc-field";
+      box.innerHTML = '<div class="poll-calc-label">' + f.label + '</div><div class="poll-calc-row">' +
+        '<input type="text" inputmode="decimal" autocomplete="off" class="poll-input">' +
+        (f.unit ? '<span class="poll-calc-unit">' + f.unit + '</span>' : '') + '</div>' +
+        '<span class="poll-hint"></span><div class="poll-calc-feedback"></div><div class="poll-calc-stats" hidden></div>';
+      f.input = box.querySelector("input");
+      f.input.setAttribute("aria-label", f.text);
+      f.hint = box.querySelector(".poll-hint");
+      f.feedback = box.querySelector(".poll-calc-feedback");
+      f.stats = box.querySelector(".poll-calc-stats");
+      grid.append(box);
+      c.fields.push(f);
+    });
+    list.replaceWith(grid);
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kickerCalc + '</div>');
+    el.insertAdjacentHTML("beforeend",
+      '<div class="poll-table-stats" hidden></div>' +
+      '<div class="poll-footer"><span class="poll-actions"><button type="button" class="poll-submit"></button>' +
+      '<span class="poll-status"></span></span><span class="poll-controls"></span></div>');
+    el.classList.add("poll", "poll-table");
+    el.querySelector(".poll-submit").onclick = () => submitCalc(c);
+    return c;
+  });
+  const calcIds = c => [c.id].concat(c.fields.map(f => f.id));
+  const withUnit = f => f.answer + (f.unit && f.unit !== "%" ? " " : "") + f.unit;
+
+  // Percent fields also accept proportions (0.12 = 12 %).
+  function classify(f, raw) {
+    let v = dec(raw);
+    if (v === null) return null;
+    if (f.unit === "%" && Math.abs(v) < 1) v *= 100;
+    const near = x => Math.abs(v - x) <= f.tol + 1e-9;
+    if (near(f.answer)) return 0;
+    const m = f.mistakes.findIndex(m => near(m.value));
+    return m >= 0 ? m + 1 : f.mistakes.length + 1;
+  }
+  const allIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+
   const configured = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
   if (!configured) {
     polls.forEach(p => { render(p); p.el.querySelector(".poll-status").textContent = T.notConfigured; });
-    tables.forEach(t => { t.el.querySelector(".poll-submit").hidden = true;
+    tables.concat(calcs).forEach(t => { t.el.querySelector(".poll-submit").hidden = true;
       t.el.querySelector(".poll-status").textContent = T.notConfigured; });
     return;
   }
   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  polls.concat(tables).forEach(p => p.el.classList.add("poll-live"));
+  polls.concat(tables, calcs).forEach(p => p.el.classList.add("poll-live"));
 
   function mine(p) {
     const v = myVotes[p.id];
@@ -1049,82 +1323,334 @@ Strength of association
     const body = p.el.querySelector(".poll-body");
     const status = p.el.querySelector(".poll-status");
     const controls = p.el.querySelector(".poll-controls");
+    const kicker = p.el.querySelector(".poll-kicker");
     const s = p.state, my = mine(p);
-    const showResults = s.counts && (s.revealed || teacher);
-    // Multi-select: chosen options are bits of `my`; `draft` holds unsent ticks.
-    if (p.multiple && p.draftRound !== s.round) { p.draft = my || 0; p.draftRound = s.round; }
-    const picked = i => p.multiple ? !!(my & (1 << i)) : i === my;
-    const key = JSON.stringify([s, my, teacher, p.draft]);
-    if (key === p.lastKey) return;
-    p.lastKey = key;
-    p.el.classList.toggle("poll-revealed", !!showResults);
-    if (p.explanation) p.explanation.hidden = !(showResults && s.revealed);
+    const isTeacher = teacher && !previewAsStudent;
+
+    // Kicker & card styling
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerPractice;
+        p.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kicker;
+        p.el.classList.remove("poll-practice");
+      }
+    }
+
+    // Practice status check
+    const pVote = practiceVotes[p.id];
+    const hasRetried = pVote && pVote.retry;
+    const liveChoice = (my !== null && !hasRetried) ? my : null;
+    const effectiveChoice = (pVote && pVote.choice !== undefined) ? pVote.choice : liveChoice;
+    const isPracticed = effectiveChoice !== null;
 
     const letter = i => '<span class="poll-letter">' + String.fromCharCode(65 + i) + '</span>';
-    if (showResults) {
-      body.innerHTML = p.options.map((label, i) => {
-        const n = p.multiple
-          ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
-          : s.counts[i] || 0;
-        const pct = s.total ? Math.round(100 * n / s.total) : 0;
-        const ok = p.correct.includes(i);
-        return '<div class="poll-bar' + (ok ? ' poll-correct' : '') + (picked(i) ? ' poll-mine' : '') + '">' +
-          '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
-          '<div class="poll-bar-label">' + (ok ? '<span class="poll-letter">✓</span>' : letter(i)) +
-          '<span class="poll-bar-text">' + label + '</span>' +
-          (ok ? '<span class="poll-chip poll-chip-correct">' + T.correct + '</span>' : '') +
-          (picked(i) ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
-          '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div></div>';
-      }).join("");
-      // Grow the bars from zero so the reveal feels live.
-      requestAnimationFrame(() => requestAnimationFrame(() =>
-        body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
-    } else {
-      const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
-      const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
-      body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
-        p.options.map((label, i) =>
-        '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
-        '" data-choice="' + i + '"' + (configured ? '' : ' disabled') + '>' + letter(i) +
-        '<span>' + label + '</span></button>').join("") + '</div>' +
-        (p.multiple && configured ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
-          (my ? T.update : T.submit) + '</button>' : '');
-      body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
-        if (!p.multiple) return vote(p, +b.dataset.choice);
-        p.draft ^= 1 << +b.dataset.choice;
-        render(p);
-      });
-      const submit = body.querySelector(".poll-submit");
-      if (submit) submit.onclick = () => vote(p, p.draft);
-    }
-
-    let msg = "";
-    if (teacher && !s.revealed) msg = T.hidden;
-    else if (!teacher && my !== null && !s.revealed) msg = T.saved;
     const correctMask = p.correct.reduce((m, i) => m | (1 << i), 0);
-    const exact = p.multiple && showResults && s.total
-      ? '<span class="poll-chip poll-chip-correct">' + T.exact + ' · ' +
-        Math.round(100 * (s.counts[correctMask] || 0) / s.total) + '%</span>' : '';
-    status.innerHTML = '<span class="poll-count">' + T.votes(s.total) + '</span>' + exact +
-      (msg ? '<span class="poll-msg">' + msg + '</span>' : '');
 
-    controls.innerHTML = "";
-    if (teacher) {
-      controls.append(
-        button(s.revealed ? T.hide : T.reveal, () => rpc("set_revealed", { p_poll: p.id, p_revealed: !s.revealed })),
-        button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id })));
+    if (practiceMode) {
+      // =======================================================================
+      // PRACTICE / SELF-STUDY MODE (Interactive on-demand self-tests)
+      // =======================================================================
+      if (isPracticed) {
+        p.el.classList.add("poll-revealed");
+        if (p.explanation) p.explanation.hidden = false;
+
+        const hasClassVotes = s.total > 0 && s.counts;
+
+        body.innerHTML = p.options.map((label, i) => {
+          const isPicked = p.multiple ? !!(effectiveChoice & (1 << i)) : i === effectiveChoice;
+          const isCorrect = p.correct.includes(i);
+          let barClass = "poll-bar";
+          let chipHtml = "";
+          let letterHtml = letter(i);
+
+          if (isPicked && isCorrect) {
+            barClass += " poll-correct poll-mine";
+            letterHtml = '<span class="poll-letter">✓</span>';
+            chipHtml = '<span class="poll-chip poll-chip-correct">' + T.yourAnswerCorrect + '</span>';
+          } else if (isPicked && !isCorrect) {
+            barClass += " poll-wrong poll-mine";
+            letterHtml = '<span class="poll-letter">✗</span>';
+            chipHtml = '<span class="poll-chip poll-chip-wrong">' + T.yourAnswerWrong + '</span>';
+          } else if (!isPicked && isCorrect) {
+            barClass += " poll-correct";
+            letterHtml = '<span class="poll-letter">✓</span>';
+            chipHtml = '<span class="poll-chip poll-chip-correct">' + T.correctBadge + '</span>';
+          }
+
+          const n = hasClassVotes
+            ? (p.multiple
+                ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
+                : s.counts[i] || 0)
+            : 0;
+          const pct = (hasClassVotes && s.total) ? Math.round(100 * n / s.total) : 0;
+
+          return '<div class="' + barClass + '">' +
+            (hasClassVotes ? '<div class="poll-bar-fill" data-w="' + pct + '"></div>' : '') +
+            '<div class="poll-bar-label">' + letterHtml +
+            '<span class="poll-bar-text">' + label + '</span>' +
+            chipHtml + '</div>' +
+            (hasClassVotes ? '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div>' : '') +
+            '</div>';
+        }).join("");
+
+        if (hasClassVotes) {
+          requestAnimationFrame(() => requestAnimationFrame(() =>
+            body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
+        }
+
+        let statusHtml = '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span>';
+        if (hasClassVotes) {
+          statusHtml += ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>';
+        }
+        if (p.multiple) {
+          const isExact = effectiveChoice === correctMask;
+          statusHtml += ' <span class="poll-chip ' + (isExact ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+            (isExact ? T.exact : T.partiallyCorrect) + '</span>';
+        }
+        status.innerHTML = statusHtml;
+
+        controls.innerHTML = "";
+        const retryBtn = button(T.tryAgain, () => {
+          practiceVotes[p.id] = { retry: true };
+          store.set("poll-practice-votes", practiceVotes);
+          p.draft = 0;
+          p.lastKey = null;
+          render(p);
+        });
+        retryBtn.className = "poll-control poll-btn-retry";
+        controls.append(retryBtn);
+
+        // Teacher controls preserved right on the card
+        if (isTeacher) {
+          controls.append(
+            button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+          );
+        }
+
+      } else {
+        // Unanswered question waiting for selection
+        p.el.classList.remove("poll-revealed");
+        if (p.explanation) p.explanation.hidden = true;
+
+        if (p.multiple && p.draftRound !== s.round) { p.draft = 0; p.draftRound = s.round; }
+        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const selected = i => p.multiple ? !!(p.draft & (1 << i)) : false;
+
+        body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
+          p.options.map((label, i) =>
+          '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
+          '" data-choice="' + i + '">' + letter(i) +
+          '<span class="poll-option-label">' + label + '</span>' +
+          '<span class="poll-option-indicator" aria-hidden="true">' + (selected(i) ? (p.multiple ? '✓' : '●') : '') + '</span>' +
+          '</button>').join("") + '</div>' +
+          (p.multiple ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
+            T.checkAnswer + '</button>' : '');
+
+        body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
+          const choice = +b.dataset.choice;
+          if (!p.multiple) {
+            // Evaluated 100% in-browser, no database write
+            practiceVotes[p.id] = { choice, time: Date.now() };
+            store.set("poll-practice-votes", practiceVotes);
+            p.lastKey = null;
+            render(p);
+            return;
+          }
+          p.draft ^= 1 << choice;
+          render(p);
+        });
+
+        const submit = body.querySelector(".poll-submit");
+        if (submit) {
+          submit.onclick = () => {
+            practiceVotes[p.id] = { choice: p.draft, time: Date.now() };
+            store.set("poll-practice-votes", practiceVotes);
+            p.lastKey = null;
+            render(p);
+          };
+        }
+
+        let statusHtml = '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptPractice + '</span>';
+        if (s.total > 0) {
+          statusHtml += ' <span class="poll-count">' + T.votes(s.total) + ' in lecture</span>';
+        }
+        status.innerHTML = statusHtml;
+
+        controls.innerHTML = "";
+        if (isTeacher) {
+          controls.append(
+            button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+          );
+        }
+      }
+
+    } else {
+      // =======================================================================
+      // LIVE CLASSROOM MODE (Synchronized in-class polling)
+      // =======================================================================
+      // Results stay hidden for everyone (presenter too, the screen may be projected) until revealed.
+      const showResults = s.counts && s.revealed;
+      if (p.multiple && p.draftRound !== s.round) { p.draft = my || 0; p.draftRound = s.round; }
+      const picked = i => p.multiple ? !!(my & (1 << i)) : i === my;
+      const key = JSON.stringify([s, my, isTeacher, p.draft, practiceMode]);
+      if (key === p.lastKey) return;
+      p.lastKey = key;
+      p.el.classList.toggle("poll-revealed", !!showResults);
+      if (p.explanation) p.explanation.hidden = !(showResults && s.revealed);
+
+      if (showResults) {
+        body.innerHTML = p.options.map((label, i) => {
+          const n = p.multiple
+            ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
+            : s.counts[i] || 0;
+          const pct = s.total ? Math.round(100 * n / s.total) : 0;
+          const ok = p.correct.includes(i);
+          return '<div class="poll-bar' + (ok ? ' poll-correct' : '') + (picked(i) ? ' poll-mine' : '') + '">' +
+            '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
+            '<div class="poll-bar-label">' + (ok ? '<span class="poll-letter">✓</span>' : letter(i)) +
+            '<span class="poll-bar-text">' + label + '</span>' +
+            (ok ? '<span class="poll-chip poll-chip-correct">' + T.correct + '</span>' : '') +
+            (picked(i) ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
+            '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div></div>';
+        }).join("");
+        requestAnimationFrame(() => requestAnimationFrame(() =>
+          body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
+      } else {
+        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
+        body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
+          p.options.map((label, i) =>
+          '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
+          '" data-choice="' + i + '"' + (configured ? '' : ' disabled') + '>' + letter(i) +
+          '<span class="poll-option-label">' + label + '</span>' +
+          '<span class="poll-option-indicator" aria-hidden="true">' + (selected(i) ? (p.multiple ? '✓' : '●') : '') + '</span>' +
+          '</button>').join("") + '</div>' +
+          (p.multiple && configured ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
+            (my ? T.update : T.submit) + '</button>' : '');
+        body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
+          if (!p.multiple) return vote(p, +b.dataset.choice);
+          p.draft ^= 1 << +b.dataset.choice;
+          render(p);
+        });
+        const submit = body.querySelector(".poll-submit");
+        if (submit) submit.onclick = () => vote(p, p.draft);
+      }
+
+      let msg = "";
+      if (isTeacher) {
+        msg = s.revealed ? T.revealedToAll : T.hidden;
+      } else if (my !== null && !s.revealed) {
+        msg = T.saved;
+      }
+      const exact = p.multiple && showResults && s.total
+        ? '<span class="poll-chip poll-chip-correct">' + T.exact + ' · ' +
+          Math.round(100 * (s.counts[correctMask] || 0) / s.total) + '%</span>' : '';
+      status.innerHTML = '<span class="poll-count">' + T.votes(s.total) + '</span>' + exact +
+        (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
+
+      controls.innerHTML = "";
+      if (isTeacher) {
+        controls.append(
+          button(s.revealed ? T.hide : T.reveal, async () => {
+            await rpc("set_revealed", { p_poll: p.id, p_revealed: !s.revealed });
+          }),
+          button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+        );
+      }
     }
+
     if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([body]).catch(() => {});
   }
 
   function renderTable(t) {
-    const s = t.state, stored = myVotes[t.id];
+    const s = t.state;
+    const isTeacher = teacher && !previewAsStudent;
+    const pVote = practiceVotes[t.id];
+    const hasPracticed = practiceMode && pVote;
+
+    const kicker = t.el.querySelector(".poll-kicker");
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerTablePractice;
+        t.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerTable;
+        t.el.classList.remove("poll-practice");
+      }
+    }
+
+    if (practiceMode) {
+      if (hasPracticed) {
+        t.blanks.forEach((b, k) => {
+          b.input.value = pVote.values[k] ?? "";
+          b.input.disabled = true;
+          const ok = pVote.right[k];
+          b.input.classList.toggle("poll-ok", ok);
+          b.input.classList.toggle("poll-bad", !ok);
+          b.hint.textContent = !ok ? "→ " + fmt(b.answer) : "";
+        });
+        const submit = t.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.tryAgain;
+        submit.className = "poll-submit poll-btn-retry";
+        submit.onclick = () => {
+          delete practiceVotes[t.id];
+          store.set("poll-practice-votes", practiceVotes);
+          t.blanks.forEach(b => {
+            b.input.value = "";
+            b.input.disabled = false;
+            b.input.classList.remove("poll-ok", "poll-bad");
+            b.hint.textContent = "";
+          });
+          t.updateTotals();
+          t.lastKey = null;
+          renderTable(t);
+        };
+        const nRight = pVote.right.filter(Boolean).length;
+        const allOk = nRight === t.blanks.length;
+        t.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-chip ' + (allOk ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+          (allOk ? T.allCorrect : nRight + "/" + t.blanks.length + " correct") + '</span>' +
+          (s.total ? ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>' : '');
+      } else {
+        t.blanks.forEach(b => {
+          b.input.disabled = false;
+          b.input.classList.remove("poll-ok", "poll-bad");
+          b.hint.textContent = "";
+        });
+        const submit = t.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.checkAnswers;
+        submit.className = "poll-submit";
+        submit.onclick = () => submitTable(t);
+        t.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptTablePractice + '</span>';
+      }
+      t.el.querySelector(".poll-controls").innerHTML = "";
+      if (isTeacher) {
+        t.el.querySelector(".poll-controls").append(
+          button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", tableIds(t), id => ({ p_poll: id })))
+        );
+      }
+      return;
+    }
+
+    // Live Classroom / Teacher view
+    const stored = myVotes[t.id];
     const mineNow = stored && stored.round === s.round ? stored : null;
-    const key = JSON.stringify([s, t.subs, teacher, !!mineNow]);
+    const key = JSON.stringify([s, t.subs, isTeacher, !!mineNow, practiceMode]);
     if (key === t.lastKey) return;
     t.lastKey = key;
 
-    // New round (teacher reset): clear the inputs. First load: restore own answers.
     if (t.round !== undefined && t.round !== s.round) t.blanks.forEach(b => b.input.value = "");
     if (t.round === undefined && mineNow) t.blanks.forEach((b, k) => b.input.value = mineNow.values[k] ?? "");
     t.round = s.round;
@@ -1140,23 +1666,28 @@ Strength of association
 
     const submit = t.el.querySelector(".poll-submit");
     submit.hidden = s.revealed;
+    submit.className = "poll-submit";
     submit.textContent = mineNow ? T.update : T.submit;
+    submit.onclick = () => submitTable(t);
 
     const stats = t.el.querySelector(".poll-table-stats");
-    stats.hidden = !(s.revealed || teacher) || !s.total;
+    stats.hidden = !s.revealed || !s.total;
     const pct = st => st && st.total ? Math.round(100 * ((st.counts || {})[0] || 0) / st.total) : 0;
     stats.innerHTML = '<span class="poll-chip poll-chip-correct">' + T.allCorrect + ' · ' + pct(s) + '%</span>' +
       t.blanks.map(b => '<span class="poll-chip">' + b.label + ' · ' + pct(t.subs[b.id]) + '%</span>').join("");
 
     let msg = "";
-    if (teacher && !s.revealed) msg = T.hidden;
-    else if (!teacher && mineNow && !s.revealed) msg = T.savedTable;
+    if (isTeacher) {
+      msg = s.revealed ? T.revealedToAll : T.hidden;
+    } else if (mineNow && !s.revealed) {
+      msg = T.savedTable;
+    }
     t.el.querySelector(".poll-status").innerHTML = '<span class="poll-count">' + T.submissions(s.total) + '</span>' +
-      (msg ? '<span class="poll-msg">' + msg + '</span>' : '');
+      (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
 
     const controls = t.el.querySelector(".poll-controls");
     controls.innerHTML = "";
-    if (teacher) {
+    if (isTeacher) {
       controls.append(
         button(s.revealed ? T.hide : T.reveal, () => rpcAll("set_revealed", tableIds(t), id => ({ p_poll: id, p_revealed: !s.revealed }))),
         button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", tableIds(t), id => ({ p_poll: id }))));
@@ -1164,10 +1695,21 @@ Strength of association
   }
 
   async function submitTable(t) {
+    const isTeacher = teacher && !previewAsStudent;
     const values = t.blanks.map(b => num(b.input.value));
     const status = t.el.querySelector(".poll-status");
     if (values.some(v => v === null)) { status.textContent = T.fillAll; return; }
     const right = t.blanks.map((b, k) => values[k] === b.answer);
+
+    if (practiceMode) {
+      // 100% in-browser, no database write
+      practiceVotes[t.id] = { values, right, time: Date.now() };
+      store.set("poll-practice-votes", practiceVotes);
+      t.lastKey = null;
+      renderTable(t);
+      return;
+    }
+
     const results = await Promise.all([
       db.rpc("cast_vote", { p_poll: t.id, p_voter: voter, p_choice: right.every(Boolean) ? 0 : 1 })
     ].concat(t.blanks.map((b, k) =>
@@ -1179,11 +1721,180 @@ Strength of association
     refresh();
   }
 
+  function renderCalc(c) {
+    const s = c.state;
+    const isTeacher = teacher && !previewAsStudent;
+    const pVote = practiceVotes[c.id];
+    const hasPracticed = practiceMode && pVote;
+
+    const kicker = c.el.querySelector(".poll-kicker");
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerCalcPractice;
+        c.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerCalc;
+        c.el.classList.remove("poll-practice");
+      }
+    }
+
+    if (practiceMode) {
+      if (hasPracticed) {
+        c.fields.forEach((f, k) => {
+          f.input.value = pVote.values[k] ?? "";
+          f.input.disabled = true;
+          const got = pVote.got[k];
+          f.input.classList.toggle("poll-ok", got === 0);
+          f.input.classList.toggle("poll-bad", got !== 0);
+          f.hint.textContent = got !== 0 ? "→ " + withUnit(f) : "";
+          f.feedback.textContent = got > 0 && got <= f.mistakes.length ? f.mistakes[got - 1].label : "";
+        });
+        const submit = c.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.tryAgain;
+        submit.className = "poll-submit poll-btn-retry";
+        submit.onclick = () => {
+          delete practiceVotes[c.id];
+          store.set("poll-practice-votes", practiceVotes);
+          c.fields.forEach(f => {
+            f.input.value = "";
+            f.input.disabled = false;
+            f.input.classList.remove("poll-ok", "poll-bad");
+            f.hint.textContent = "";
+            f.feedback.textContent = "";
+          });
+          c.lastKey = null;
+          renderCalc(c);
+        };
+        const allOk = pVote.got.every(g => g === 0);
+        c.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-chip ' + (allOk ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+          (allOk ? T.allCorrect : 'Check feedback above') + '</span>' +
+          (s.total ? ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>' : '');
+      } else {
+        c.fields.forEach(f => {
+          f.input.disabled = false;
+          f.input.classList.remove("poll-ok", "poll-bad");
+          f.hint.textContent = "";
+          f.feedback.textContent = "";
+        });
+        const submit = c.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.checkAnswers;
+        submit.className = "poll-submit";
+        submit.onclick = () => submitCalc(c);
+        c.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptCalcPractice + '</span>';
+      }
+      c.el.querySelector(".poll-controls").innerHTML = "";
+      if (isTeacher) {
+        c.el.querySelector(".poll-controls").append(
+          button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", calcIds(c), id => ({ p_poll: id })))
+        );
+      }
+      return;
+    }
+
+    // Live Classroom / Teacher view
+    const stored = myVotes[c.id];
+    const mineNow = stored && stored.round === s.round ? stored : null;
+    const key = JSON.stringify([s, c.subs, isTeacher, !!mineNow, practiceMode]);
+    if (key === c.lastKey) return;
+    c.lastKey = key;
+
+    if (c.round !== undefined && c.round !== s.round) c.fields.forEach(f => f.input.value = "");
+    if (c.round === undefined && mineNow) c.fields.forEach((f, k) => f.input.value = mineNow.values[k] ?? "");
+    c.round = s.round;
+
+    const showStats = s.revealed && s.total;
+    c.fields.forEach(f => {
+      const got = classify(f, f.input.value);
+      f.input.disabled = s.revealed;
+      f.input.classList.toggle("poll-ok", s.revealed && got === 0);
+      f.input.classList.toggle("poll-bad", s.revealed && got !== 0);
+      f.hint.textContent = s.revealed && got !== 0 ? "→ " + withUnit(f) : "";
+      f.feedback.textContent = s.revealed && got > 0 && got <= f.mistakes.length ? f.mistakes[got - 1].label : "";
+      f.stats.hidden = !showStats;
+      if (!showStats) return;
+      const st = c.subs[f.id] || {}, counts = st.counts || {}, n = st.total || 0;
+      const rows = ["✓ " + withUnit(f)].concat(f.mistakes.map(m => m.label), T.other);
+      f.stats.innerHTML = rows.map((label, i) => {
+        const pct = n ? Math.round(100 * (counts[i] || 0) / n) : 0;
+        return '<div class="poll-bar' + (i === 0 ? ' poll-correct' : '') + '">' +
+          '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
+          '<div class="poll-bar-label"><span class="poll-bar-text">' + label + '</span>' +
+          (mineNow && got === i ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
+          '<div class="poll-bar-value">' + pct + '%<span>' + (counts[i] || 0) + '</span></div></div>';
+      }).join("");
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() =>
+      c.el.querySelectorAll(".poll-bar-fill").forEach(b => b.style.width = b.dataset.w + "%")));
+
+    const submit = c.el.querySelector(".poll-submit");
+    submit.hidden = s.revealed;
+    submit.className = "poll-submit";
+    submit.textContent = mineNow ? T.update : T.submit;
+    submit.onclick = () => submitCalc(c);
+
+    const stats = c.el.querySelector(".poll-table-stats");
+    stats.hidden = !showStats;
+    stats.innerHTML = '<span class="poll-chip poll-chip-correct">' + T.allCorrect + ' · ' +
+      (s.total ? Math.round(100 * ((s.counts || {})[0] || 0) / s.total) : 0) + '%</span>';
+
+    let msg = "";
+    if (isTeacher) {
+      msg = s.revealed ? T.revealedToAll : T.hidden;
+    } else if (mineNow && !s.revealed) {
+      msg = T.savedTable;
+    }
+    c.el.querySelector(".poll-status").innerHTML = '<span class="poll-count">' + T.submissions(s.total) + '</span>' +
+      (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
+
+    const controls = c.el.querySelector(".poll-controls");
+    controls.innerHTML = "";
+    if (isTeacher) {
+      controls.append(
+        button(s.revealed ? T.hide : T.reveal, () => rpcAll("set_revealed", calcIds(c), id => ({ p_poll: id, p_revealed: !s.revealed }))),
+        button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", calcIds(c), id => ({ p_poll: id }))));
+    }
+  }
+
+  async function submitCalc(c) {
+    const isTeacher = teacher && !previewAsStudent;
+    const values = c.fields.map(f => f.input.value.trim());
+    const got = c.fields.map(f => classify(f, f.input.value));
+    const status = c.el.querySelector(".poll-status");
+    if (got.some(g => g === null)) { status.textContent = T.fillNumbers; return; }
+
+    if (practiceMode) {
+      // 100% in-browser, no database write
+      practiceVotes[c.id] = { values, got, time: Date.now() };
+      store.set("poll-practice-votes", practiceVotes);
+      c.lastKey = null;
+      renderCalc(c);
+      return;
+    }
+
+    const results = await Promise.all([
+      db.rpc("cast_vote", { p_poll: c.id, p_voter: voter, p_choice: got.every(g => g === 0) ? 0 : 1 })
+    ].concat(c.fields.map((f, k) =>
+      db.rpc("cast_vote", { p_poll: f.id, p_voter: voter, p_choice: got[k] }))));
+    if (results.some(r => r.error)) { status.textContent = T.error; return; }
+    myVotes[c.id] = { round: results[0].data, values };
+    store.set("poll-votes", myVotes);
+    c.lastKey = null;
+    refresh();
+  }
+
   async function rpcAll(name, ids, args) {
     const results = await Promise.all(ids.map(id => db.rpc(name, args(id))));
     const err = results.find(r => r.error);
     if (err) alert(T.error + "\n" + err.error.message);
-    refresh();
+    await refresh();
   }
 
   function button(label, onclick) {
@@ -1203,21 +1914,187 @@ Strength of association
   async function rpc(name, args) {
     const { error } = await db.rpc(name, args);
     if (error) alert(T.error + "\n" + error.message);
-    refresh();
+    await refresh();
+  }
+
+  // Toggle page mode: switches between Live Classroom and Practice Mode for all polls
+  async function togglePageMode() {
+    const nextMode = !practiceMode;
+    // 1. Update session in polls table
+    await db.rpc("set_revealed", { p_poll: pageSessionId, p_revealed: nextMode });
+
+    // 2. Cast session vote so old unmigrated poll_results RPC with inner join also finds it
+    if (nextMode) {
+      await db.rpc("cast_vote", { p_poll: pageSessionId, p_voter: voter, p_choice: 0 });
+    }
+
+    // 3. Update all polls on the page in parallel
+    const updateIds = allIds();
+    await Promise.all(updateIds.map(id => db.rpc("set_revealed", { p_poll: id, p_revealed: nextMode })));
+
+    practiceMode = nextMode;
+    await refresh();
+    drawPresenterUi();
+  }
+
+  async function resetAllPolls() {
+    if (!confirm(T.confirmResetAll)) return;
+    await db.rpc("set_revealed", { p_poll: pageSessionId, p_revealed: false });
+    await Promise.all(allIds().map(id => db.rpc("reset_poll", { p_poll: id })));
+    practiceMode = false;
+    await refresh();
+    drawPresenterUi();
+  }
+
+  let presenterDock = null;
+  let dockMinimized = store.get("poll-dock-min", false);
+  let previewBanner = null;
+
+  function updatePreviewBanner() {
+    if (teacher && previewAsStudent) {
+      if (!previewBanner) {
+        previewBanner = document.createElement("div");
+        previewBanner.id = "poll-preview-banner";
+        previewBanner.className = "poll-preview-banner";
+        previewBanner.innerHTML = `
+          <span class="poll-preview-text">👁️ <strong>Previewing as Student</strong></span>
+          <button type="button" class="poll-control" id="poll-btn-exit-preview">Exit Preview</button>
+        `;
+        document.body.appendChild(previewBanner);
+        previewBanner.querySelector("#poll-btn-exit-preview").onclick = () => {
+          previewAsStudent = false;
+          updatePreviewBanner();
+          drawPresenterDock();
+          drawPresenterUi();
+          refresh();
+        };
+      }
+      previewBanner.style.display = "flex";
+    } else if (previewBanner) {
+      previewBanner.style.display = "none";
+    }
+  }
+
+  function drawPresenterDock() {
+    const oldBar = document.getElementById("poll-praktikum-bar");
+    if (oldBar) oldBar.remove();
+
+    updatePreviewBanner();
+
+    const show = teacher && !previewAsStudent && !!(polls.length || tables.length || calcs.length);
+    if (!show) {
+      if (presenterDock) presenterDock.style.display = "none";
+      return;
+    }
+
+    if (!presenterDock) {
+      presenterDock = document.createElement("div");
+      presenterDock.id = "poll-presenter-dock";
+      document.body.appendChild(presenterDock);
+    }
+
+    presenterDock.style.display = "flex";
+    presenterDock.className = "poll-presenter-dock" + (practiceMode ? " practice-mode" : "") + (dockMinimized ? " minimized" : "");
+
+    const label = getPracticalLabel();
+
+    if (dockMinimized) {
+      presenterDock.innerHTML = `
+        <button type="button" class="poll-dock-min-btn ${practiceMode ? 'poll-mode-practice' : 'poll-mode-live'}" title="Expand Presenter Controls for ${label.full} (${practiceMode ? 'Practice Mode' : 'Live Classroom'})">
+          <span class="poll-dock-dot"></span>
+          <span class="poll-dock-min-text">${label.short}</span>
+        </button>
+      `;
+      presenterDock.querySelector(".poll-dock-min-btn").onclick = () => {
+        dockMinimized = false;
+        store.set("poll-dock-min", false);
+        drawPresenterDock();
+      };
+      return;
+    }
+
+    presenterDock.innerHTML = `
+      <div class="poll-dock-capsule">
+        <span class="poll-dock-scope-badge" title="Controls apply ONLY to ${label.full}">${label.short}</span>
+        <div class="poll-dock-indicator ${practiceMode ? 'poll-mode-practice' : 'poll-mode-live'}" title="${label.full}: ${practiceMode ? 'Self-study: instant local evaluation, 0 DB writes' : 'Live: students vote into classroom dataset'}">
+          <span class="poll-dock-dot"></span>
+          <span class="poll-dock-status-label">${label.full}: ${practiceMode ? 'Practice' : 'Live'}</span>
+        </div>
+        <div class="poll-dock-sep"></div>
+        <button type="button" class="poll-dock-toggle-btn" title="Toggle ${label.full} between Live Classroom and Practice Mode (other practicals remain unaffected)">
+          ${practiceMode ? 'Set ' + label.short + ' to Live' : 'Set ' + label.short + ' to Practice'}
+        </button>
+        <div class="poll-dock-sep"></div>
+        <button type="button" class="poll-dock-icon-btn poll-dock-csv" title="Export CSV for ${label.full}">📊 CSV</button>
+        <button type="button" class="poll-dock-icon-btn poll-dock-reset" title="${label.full}: ${T.resetAll}">↺</button>
+        <button type="button" class="poll-dock-icon-btn poll-dock-min" title="Minimize toolbar">—</button>
+      </div>
+    `;
+
+    const toggleBtn = presenterDock.querySelector(".poll-dock-toggle-btn");
+    if (toggleBtn) toggleBtn.onclick = togglePageMode;
+
+    const csvBtn = presenterDock.querySelector(".poll-dock-csv");
+    if (csvBtn) csvBtn.onclick = exportCsv;
+
+    const resetBtn = presenterDock.querySelector(".poll-dock-reset");
+    if (resetBtn) resetBtn.onclick = resetAllPolls;
+
+    const minBtn = presenterDock.querySelector(".poll-dock-min");
+    if (minBtn) {
+      minBtn.onclick = () => {
+        dockMinimized = true;
+        store.set("poll-dock-min", true);
+        drawPresenterDock();
+      };
+    }
   }
 
   async function refresh() {
-    const { data, error } = await db.rpc("poll_results", { p_polls: polls.map(p => p.id).concat(...tables.map(tableIds)) });
-    if (error) return;
+    if (!polls.length && !tables.length && !calcs.length) return;
+    const queryIds = [pageSessionId].concat(allIds());
     const byId = {};
-    data.forEach(r => {
-      const s = byId[r.poll_id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
-      s.total += Number(r.n);
-      if (r.choice !== null) (s.counts ||= {})[r.choice] = Number(r.n);
-    });
+
+    // 1. Fetch live RPC results
+    const { data, error } = await db.rpc("poll_results", { p_polls: queryIds });
+    if (!error && data) {
+      data.forEach(r => {
+        const s = byId[r.poll_id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+        s.round = r.round;
+        s.revealed = r.revealed;
+        if (r.choice === null) {
+          s.total = Number(r.n);
+        } else {
+          (s.counts ||= {})[r.choice] = Number(r.n);
+        }
+      });
+      // One vote per voter and poll, so the counts add up to the total. The live DB sometimes
+      // omits the total row for revealed polls (→ "0 votes", 0 %), so never trust it below the sum.
+      Object.values(byId).forEach(s => {
+        if (s.counts) s.total = Math.max(s.total, Object.values(s.counts).reduce((a, n) => a + n, 0));
+      });
+    }
+
+    // 2. Fetch authoritative poll state from polls table directly (handles 0-vote polls under RLS)
+    try {
+      const { data: pollRows } = await db.from("polls").select("id, round, revealed").in("id", queryIds);
+      if (pollRows) {
+        pollRows.forEach(r => {
+          const s = byId[r.id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+          s.round = r.round;
+          s.revealed = r.revealed;
+        });
+      }
+    } catch (e) {}
+
+    // Check practice mode from session row
+    if (byId[pageSessionId]) {
+      practiceMode = !!byId[pageSessionId].revealed;
+    }
+
     polls.forEach(p => {
       const s = byId[p.id] || { round: p.state.round, revealed: false, counts: null, total: 0 };
-      if (!s.counts && (s.revealed || teacher)) s.counts = {};
+      if (!s.counts && (s.revealed || (teacher && !previewAsStudent))) s.counts = {};
       p.state = s;
       render(p);
     });
@@ -1227,11 +2104,38 @@ Strength of association
       t.subs = Object.fromEntries(t.blanks.map(b => [b.id, byId[b.id] || empty]));
       renderTable(t);
     });
+    calcs.forEach(c => {
+      c.state = byId[c.id] || { ...empty, round: c.state.round };
+      c.subs = Object.fromEntries(c.fields.map(f => [f.id, byId[f.id] || empty]));
+      renderCalc(c);
+    });
+    // Elements with class .presenter-only[data-reveal-with]: unlock in practice mode or when revealed
+    document.querySelectorAll(".presenter-only[data-reveal-with]").forEach(el => {
+      const isRev = practiceMode || !!(byId[el.dataset.revealWith] || {}).revealed;
+      el.classList.toggle("poll-unlocked", isRev);
+    });
+
+    drawPresenterDock();
+    if (navBadge) {
+      const hasPolls = !!(polls.length || tables.length || calcs.length);
+      if (teacher && !previewAsStudent && hasPolls) {
+        const label = getPracticalLabel();
+        navBadge.style.display = "inline-flex";
+        navBadge.className = "poll-navbar-badge " + (practiceMode ? "poll-mode-practice" : "poll-mode-live");
+        navBadge.innerHTML = '<span class="poll-nav-dot"></span><span class="poll-nav-label">' +
+          label.short + ' · ' + (practiceMode ? "Practice" : "Live") + '</span>';
+        navBadge.title = `${label.full}: ${practiceMode ? 'Practice Mode' : 'Live Classroom'} (Click to open Presenter Menu)`;
+      } else {
+        navBadge.style.display = "none";
+      }
+    }
   }
 
-  // Presenter bar (only with ?presenter in the URL).
+  let drawPresenterUi = () => {};
+  let navBadge = null;
+
+  // Persistent Presenter Toolbar in navbar (gear icon always visible)
   async function setupPresenter() {
-    // A gear in the navbar opens the presenter panel below it.
     const wrap = document.createElement("div");
     wrap.className = "poll-presenter";
     const toggle = document.createElement("button");
@@ -1243,19 +2147,92 @@ Strength of association
     wrap.append(bar);
     document.body.append(wrap);
     const tools = document.querySelector(".quarto-navbar-tools");
-    if (tools) tools.prepend(toggle); else wrap.append(toggle);
+    if (tools) {
+      navBadge = document.createElement("button");
+      navBadge.type = "button";
+      navBadge.className = "poll-navbar-badge";
+      navBadge.style.display = "none";
+      navBadge.onclick = () => wrap.classList.toggle("open");
+      tools.prepend(toggle);
+      tools.prepend(navBadge);
+    } else {
+      wrap.append(toggle);
+    }
 
-    async function draw() {
+    drawPresenterUi = async function () {
       const { data: { session } } = await db.auth.getSession();
       if (session) {
         const { data } = await db.rpc("is_teacher");
         teacher = !!data;
-        bar.innerHTML = "<strong>" + T.presenter + "</strong> <span>" + session.user.email + "</span>" +
-          (teacher ? "" : ' <span class="poll-warning">' + T.notTeacher + "</span>");
-        if (teacher) bar.append(button(T.csv, exportCsv));
-        bar.append(button(T.logout, async () => { await db.auth.signOut(); teacher = false; draw(); refresh(); }));
+        const label = getPracticalLabel();
+
+        let html = '<div class="poll-presenter-row poll-presenter-top">' +
+          '<strong>' + T.presenter + '</strong> ' +
+          '<span class="poll-presenter-email">' + session.user.email + '</span>' +
+          (teacher ? '' : ' <span class="poll-warning">' + T.notTeacher + '</span>') +
+          '</div>';
+
+        if (teacher) {
+          html += '<div class="poll-presenter-row poll-presenter-mode-row">' +
+            '<div class="poll-mode-status">' +
+            '<strong>' + label.full + ':</strong> <span class="poll-mode-badge ' + (practiceMode ? 'poll-mode-practice' : 'poll-mode-live') + '">' +
+            '<span class="poll-nav-dot"></span> ' + (practiceMode ? 'Practice Mode' : 'Live Classroom') +
+            '</span></div>' +
+            '<button type="button" class="poll-control poll-btn-mode-toggle">' +
+            (practiceMode ? 'Set ' + label.short + ' to Live' : 'Set ' + label.short + ' to Practice') + '</button>' +
+            '</div>' +
+            '<div class="poll-mode-scope-hint">' +
+            '<span>🎯 <strong>Independent Scope:</strong> Mode is stored per practical. Setting ' + label.full + ' to Practice leaves all other practicals untouched.</span>' +
+            '</div>';
+
+          html += '<div class="poll-presenter-row poll-presenter-actions">' +
+            '<label class="poll-presenter-preview"><input type="checkbox" id="poll-preview-chk"' +
+            (previewAsStudent ? ' checked' : '') + '> ' + T.previewStudent + '</label>' +
+            '<button type="button" class="poll-control" id="poll-btn-csv">' + T.csv + '</button>' +
+            '<button type="button" class="poll-control poll-btn-danger" id="poll-btn-reset-all">' + T.resetAll + '</button>' +
+            '<button type="button" class="poll-control" id="poll-btn-logout">' + T.logout + '</button>' +
+            '</div>';
+        } else {
+          html += '<div class="poll-presenter-row"><button type="button" class="poll-control" id="poll-btn-logout">' + T.logout + '</button></div>';
+        }
+
+        bar.innerHTML = html;
+
+        if (teacher) {
+          const modeBtn = bar.querySelector(".poll-btn-mode-toggle");
+          if (modeBtn) modeBtn.onclick = togglePageMode;
+
+          const chk = bar.querySelector("#poll-preview-chk");
+          if (chk) {
+            chk.onchange = () => {
+              previewAsStudent = chk.checked;
+              wrap.classList.remove("open");
+              drawPresenterDock();
+              refresh();
+            };
+          }
+
+          const csvBtn = bar.querySelector("#poll-btn-csv");
+          if (csvBtn) csvBtn.onclick = exportCsv;
+
+          const resetAllBtn = bar.querySelector("#poll-btn-reset-all");
+          if (resetAllBtn) resetAllBtn.onclick = resetAllPolls;
+        }
+
+        const logoutBtn = bar.querySelector("#poll-btn-logout");
+        if (logoutBtn) {
+          logoutBtn.onclick = async () => {
+            await db.auth.signOut();
+            teacher = false;
+            previewAsStudent = false;
+            drawPresenterUi();
+            drawPresenterDock();
+            refresh();
+          };
+        }
       } else {
         teacher = false;
+        previewAsStudent = false;
         bar.innerHTML = "<strong>" + T.presenter + "</strong>" +
           '<form><input type="email" placeholder="' + T.email + '" required>' +
           '<input type="password" placeholder="' + T.password + '" required>' +
@@ -1265,18 +2242,36 @@ Strength of association
           const [email, password] = Array.from(e.target.querySelectorAll("input")).map(i => i.value);
           const { error } = await db.auth.signInWithPassword({ email, password });
           if (error) alert(error.message);
-          draw();
+          drawPresenterUi();
         };
       }
+      document.documentElement.classList.toggle("poll-teacher", teacher && !previewAsStudent);
+
+      if (navBadge) {
+        const hasPolls = !!(polls.length || tables.length || calcs.length);
+        if (teacher && !previewAsStudent && hasPolls) {
+          const label = getPracticalLabel();
+          navBadge.style.display = "inline-flex";
+          navBadge.className = "poll-navbar-badge " + (practiceMode ? "poll-mode-practice" : "poll-mode-live");
+          navBadge.innerHTML = '<span class="poll-nav-dot"></span><span class="poll-nav-label">' +
+            label.short + ' · ' + (practiceMode ? "Practice" : "Live") + '</span>';
+          navBadge.title = `${label.full}: ${practiceMode ? 'Practice Mode' : 'Live Classroom'} (Click to open Presenter Menu)`;
+        } else {
+          navBadge.style.display = "none";
+        }
+      }
+
+      drawPresenterDock();
       refresh();
-    }
-    draw();
+    };
+
+    drawPresenterUi();
   }
 
   async function exportCsv() {
     const { data, error } = await db.from("votes")
       .select("poll_id, round, choice, created_at")
-      .in("poll_id", polls.map(p => p.id).concat(...tables.map(tableIds)))
+      .in("poll_id", allIds())
       .order("created_at");
     if (error) { alert(T.error + "\n" + error.message); return; }
     const text = html => { const d = document.createElement("div"); d.innerHTML = html; return d.textContent.trim(); };
@@ -1287,6 +2282,11 @@ Strength of association
     tables.forEach(t => {
       labels[t.id] = ["all correct", "not all correct"];
       t.blanks.forEach(b => labels[b.id] = [b.label + ": correct", b.label + ": wrong"]);
+    });
+    calcs.forEach(c => {
+      labels[c.id] = ["all correct", "not all correct"];
+      c.fields.forEach(f => labels[f.id] = [f.text + ": correct"]
+        .concat(f.mistakes.map(m => f.text + ": " + m.label), f.text + ": other"));
     });
     const q = v => '"' + String(v).replace(/"/g, '""') + '"';
     const rows = [["poll", "round", "choice", "answer", "time"]].concat(data.map(r =>
@@ -1300,9 +2300,12 @@ Strength of association
 
   polls.forEach(render);
   tables.forEach(renderTable);
-  if (presenterParam !== null) store.set("poll-presenter", presenterParam !== "off");
-  if (store.get("poll-presenter", false)) setupPresenter(); else refresh();
-  setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+  calcs.forEach(renderCalc);
+  setupPresenter();
+  if (polls.length || tables.length || calcs.length) {
+    refresh();
+    setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+  }
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

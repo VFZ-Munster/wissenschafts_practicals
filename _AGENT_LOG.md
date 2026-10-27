@@ -51,12 +51,15 @@ Shown as "💡 Why?" only after the teacher reveals.
   `<id>-k` per blank (0 = right, 1 = wrong). Only right/wrong is stored, not the typed value.
 
 **Behaviour**
-- Students: anonymous; the voter id is a random UUID in localStorage (`poll-voter`), and own
-  votes are in `poll-votes`. Polling every 4 s. Students can change their vote until reveal.
-- Presenter: open any poll page with `?presenter` once → remembered in localStorage
-  (`poll-presenter`); `?presenter=off` clears it. A ⚙ gear in the navbar
-  (`.quarto-navbar-tools`) opens the login panel. Logged-in teachers see live results +
-  correct marks, Reveal/Hide, Reset (new round, old votes kept), and a CSV export.
+- Students:
+  - **Live Classroom Mode**: anonymous voter id (`poll-voter`), own live votes in `poll-votes`. Polling every 4 s. Students change votes until reveal.
+  - **Practice / Self-Study Mode (Approach 1)**: triggered when presenter opens practice mode for the page. Questions are interactive self-tests; clicking answers yields immediate feedback (green/crimson option highlights, check/cross badge, chip status, automatic expansion of the "Why?" block, class lecture benchmarks if votes exist, and a "Try again" retry button).
+  - **Zero Database Writes in Practice Mode**: all student practice attempts are stored locally in `localStorage` (`poll-practice-votes`). `cast_vote` is NEVER called, keeping the teacher's classroom dataset completely clean and unpolluted.
+- Presenter: a persistent ⚙ gear in the navbar (`.quarto-navbar-tools`) is always visible on every page. Logged-in teachers see:
+  - Current mode indicator (`🔴 Live Classroom` vs `🎓 Practice / Self-Study`).
+  - One-click toggle: `[ 🎓 Open Practice Mode for Students ]` / `[ 🔴 Switch to Live Classroom ]`.
+  - Checkbox: `Preview as student` to test the practice quiz directly in browser without logging out.
+  - Action buttons: `[ Votes as CSV ]`, `[ Reset all polls on this page ]`, `[ Log out ]`.
 - UI strings are English only.
 
 **Polls currently in the content**
@@ -66,17 +69,41 @@ Shown as "💡 Why?" only after the teacher reveals.
   `poll-explanation` blocks. The user asked for no tables or tip callouts in the "Why?"
   boxes – short explanation text only (plus the figures in Task 2).
 - `praktikum2/part2.qmd`: Task 3 = `p2-t3` fill-in table (blanks: 199 and 6290).
-  Tasks 4–6 still use the classic `<details class="result-panel">`.
+  Task 4 = calc card `p2-t4` (RD, RR, OR) + `p2-t4-or` (3). Task 6 = calc card `p2-t6` (r)
+  + `p2-t6-r` (2). Task 5 and the additional task still use a plain result panel.
+- `praktikum3/praktikum3.qmd`: Ex 1 = calc card `p3-e1` (height CI bounds, mortstat mean)
+  + `p3-e1-ci` (2). Ex 2 = multi-select `p3-e2-normal` (1 = height only). Ex 3 =
+  `p3-e3-log` (2) and `p3-e3-n` (3, why N drops: ln(0)).
+- Interpretation questions must not give away the numbers of the calc card above them.
 
-### 2. Site-wide visual refresh (`style.scss`)
-- Poll styles: section `// Classroom polls`, plus `// Fill-in tables`.
-- `// Fresh look (all pages)` at the end of the file: gradient title banner for the first
-  `h1` on practical pages, accent bars on part headings, every `section.level2` as a white
-  rounded card, softer result panels, callouts and step chips. The home page is excluded via
-  `main.content:not(:has(.home-hero))`.
-- The user wants the fresh look on the whole site, not just Practical 2.
+**Calculation cards:** `::: {.poll-calc #id}` around a list of
+`[Label]{.calc answer="1.88" tol="0.02" unit="%" mistakes="0.53: feedback | …"}`.
+Votes: `<id>` (0 = all correct) and `<id>-k` per field (0 = right, 1..n = nth listed
+mistake, n+1 = other). `unit="%"` also accepts proportions (0.12 → 12).
 
-## Open items / warnings
+**Results before reveal:** nobody sees percentages/bars before Reveal – not even the logged-in
+presenter (the screen is usually projected). The presenter sees only the submission count.
+
+**Presenter-only panels:** `<details class="result-panel presenter-only" data-reveal-with="<poll-id>">`
+is visible to logged-in teachers always, to students only once that poll is revealed (or in
+practice mode). Convention: link it to the *last* question of the task, not the calc card.
+
+### 2. Dopamine Studio design system conversion (`style.scss` & `index.qmd`)
+- Overhauled the entire site styling to match `dopaminestudio.io`:
+  - Deep black canvas (`#050505`) with a 48px grid overlay and ambient lighting.
+  - High-voltage neon lime accents (`#ccff00`).
+  - Space Grotesk for all titles, banners, headings, and cards with two-tone subtitle splits.
+  - IBM Plex Mono for technical tags, numbers, kickers, code chips, buttons, and tables.
+  - Removed the left sidebar / table of contents (`sidebar:` in `_quarto.yml`); consolidated practical navigation into a dark frosted glass dropdown menu under the top navbar.
+  - Homepage hero redesigned with a two-tone title, neon kicker badge, pill buttons, and scannable QR ticket.
+  - Complete dark mode overhaul for DataTables (`itables`) variable descriptions, interactive classroom polls, and fill-in tables.
+  - Added a global theme toggle button in the navbar (`utilities/theme-toggle.html` & `utilities/theme-head.html`), saving `theme-mode` in `localStorage`.
+  - Supports both the dark Dopamine Studio aesthetic (`#050505` with neon lime accents) and a crisp light mode (`#f8f9fb` off-white background with dark slate typography `#0f172a` and emerald accents).
+  - Practical pages 1–6 updated with dark studio cards, neon accent dots, and dark callouts.
+  - Added `.methods-card` & `.method-tag` / `.tag` component: converts bulleted method/topic lists into categorized interactive pill tag clouds (desktop 2-column grid, mobile stacked cards, neon/emerald dot indicators and hover glow).
+  - Enhanced poll boxes and option styling: upgraded `div.poll` with frosted glass backdrop, electric hairline top gradient, pulsing live badge, tactile option tiles with interactive letter badges and right-hand selection indicators, animated telemetry bars with neon leading edges, and pill-styled vote count tags.
+
+### 3. Open items / warnings
 - **Nothing is committed or pushed.** Branch `Igna`. The changes are in `_quarto.yml`,
   `style.scss`, `praktikum2/part1.qmd`, `praktikum2/part2.qmd`, `utilities/poll.html`,
   `supabase/`, and the rendered `docs/`. The `.DS_Store` changes are noise.
@@ -102,6 +129,34 @@ Shown as "💡 Why?" only after the teacher reveals.
   `?presenter` and Cmd+Shift+R (they hit both several times).
 
 ## Ideas the user may ask for next
-- A "Reset all polls on this page" button in the presenter panel (offered, not built).
 - Storing the actual typed values for fill-in tables (needs a schema change).
-- Polls for Task 4 (OR interpretation) and Task 5 (trend direction).
+- Polls for Practical 2 Task 5 (trend direction) and Practicals 4–6.
+- Practical 3 text says "kurtosis should be 3", but SPSS shows excess kurtosis (normal = 0); the user has not decided whether to change it.
+
+## Presenter Bar & Poll Footers Redesign (Session Update)
+- **Uninterrupted Flow**: Completely removed the in-page `.poll-praktikum-bar` that was previously inserted right before the first question of Task 1. Practical reading flow is now 100% natural and unhindered.
+- **Floating Presenter Remote Dock (`#poll-presenter-dock`)**: Pinned at bottom-right (`position: fixed; bottom: 22px; right: 24px; z-index: 1080;`) using Dopamine Studio frosted glass. Shows current mode (`🔴 Live Classroom` vs `🎓 Practice Mode`), 1-click mode switcher button, CSV export, page reset, and a minimize button `—` that collapses into a tiny 40px corner indicator circle (`🔴`/`🎓`).
+- **Navbar Status Badge (`.poll-navbar-badge`)**: Sits right in `.quarto-navbar-tools` at the top right of the fixed header. Pulsing red/cyan indicator dot, 1-click toggle between Live and Practice, and `⚙` dropdown for presenter settings.
+- **Clean Poll Footers**: Removed all per-card "Set to Live" / "Set to Practice" buttons from poll card footers. Footers only display `[ Reveal results ]` / `[ Hide results ]` and `[ ↺ Reset ]`.
+- **Student Preview Banner (`.poll-preview-banner`)**: Floats at bottom-right when previewing as student with a 1-click "Exit Preview" button.
+- **Strict Per-Practical Scope Isolation**: Each practical maps to its own independent session row in Supabase (`session-p1`, `session-p2`, `session-p3`, `session-p4`, `session-p5`, `session-p6`). Setting Practical 2 to Practice mode after class only updates `session-p2` and `p2-*` polls; Practicals 1, 3, 4, 5, 6 remain completely unaffected. Surfaced explicit scope badges (`[P2]`, `Practical 2: Live Classroom`, `[ Set P2 to Practice ]`, and `P2 · Live`) in both the floating dock and top navbar so the presenter always knows exactly which practical is being controlled.
+- **Removed Hat & Ball Emojis**: Removed all `🎓` and `🔴` emojis from mode badges, dock buttons, navbar, and modals. Mode status is indicated solely by clean typography and the animated **beating dot** (pulsing red for Live, pulsing cyan for Practice).
+- **Consolidated Switch Locations (2-Tier Standard UX)**: Eliminated the 3rd duplicate toggle button from the navbar. The navbar pill (`P2 · Live`) is now purely an informational status indicator that opens the `⚙` drawer on click. The mode switch button now lives in exactly 2 standard places: (1) The **Floating Remote Dock** for quick 1-click action during class, and (2) Inside the **Presenter Menu Drawer (`⚙`)** for administrative settings.
+- **Unified Exercise Card Boxes Across All Practicals**:
+  - Replaced all instances of "Task" with "Exercise" across all practicals (`## Exercise 1`, `## Exercise 2`, `<summary>Exercise results</summary>`).
+  - Standardized exercise headings in Practical 3 and Practical 4 from `###` to `##`, bringing all exercises into the signature Dopamine Studio card boxes (`section.level2`) with glowing accent dots, frosted glass backdrops, and rounded corners.
+  - Enhanced `style.scss` so sub-exercises (`section.level2 section.level3`, e.g. Exercise 1.1 in P5 & P6) render as crisp nested sub-cards.
+  - Upgraded solution accordions across all practicals to `.result-panel` with consistent interactive styling in both dark and light modes.
+
+## SPSS Stepper & Workflow Guide Design (Session Update)
+- **New Stepper UI Component (`.spss-workflow`)**:
+  - Transformed all disjointed, raw step text (`Step 1: Analyze...`, `Step 2: Assign...`) into unified, modern timeline cards following the Dopamine Studio design system.
+  - Card features frosted glass backdrop, gradient accent top border (`#00ffcc` -> `#ccff00`), and a dedicated `.spss-workflow-header` with an `SPSS` badge and `Workflow Guide` label.
+  - Sequential steps formatted via `<ol class="spss-steps">` with an automated vertical timeline connector line.
+  - Each step item features an interactive glowing pill badge (`Step 1`, `Step 2`, ...) in monospace font (`IBM Plex Mono`) that scales and glows on hover.
+  - Content area displays menu breadcrumb chips (`.step` + `.arrow`), variable codes (`<code>variable</code>`), dialog buttons (`.spss-button`), and formatted substep bullet lists (`.spss-substeps`).
+- **Comprehensive Rollout Across All Practicals**:
+  - Upgraded all step walkthroughs across Practical 2, Practical 3, Practical 4, Practical 5, and Practical 6.
+  - Translated remaining German menu items in Practical 2 and Practical 4 into standard English SPSS menu paths (`Analyze` → `Compare Means` → `One-Sample T Test`, `Analyze` → `Nonparametric Tests` → `Legacy Dialogs` → `2 Independent Samples`, etc.).
+  - Wrapped HTML blocks with ````{=html} ... ```` so Quarto/Pandoc parses them with 0 warnings.
+  - Provided complete Dark and Light theme styling in `style.scss`.

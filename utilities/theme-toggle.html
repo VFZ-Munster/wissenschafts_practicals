@@ -1,0 +1,54 @@
+<script>
+(function () {
+  function setupThemeToggle() {
+    if (document.getElementById('theme-toggle-btn')) return;
+
+    var target = document.querySelector('.quarto-navbar-tools');
+    if (!target) {
+      target = document.querySelector('.navbar .navbar-collapse');
+    }
+    if (!target) {
+      target = document.querySelector('.navbar .container-fluid');
+    }
+    if (!target) return;
+
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle-btn';
+    btn.className = 'theme-toggle-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle light/dark theme');
+
+    function updateLabel() {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      btn.innerHTML = isLight
+        ? '<span class="theme-icon" aria-hidden="true">☾</span><span>Dark</span>'
+        : '<span class="theme-icon" aria-hidden="true">☀</span><span>Light</span>';
+      btn.title = isLight ? 'Switch to Dark Studio' : 'Switch to Light Theme';
+    }
+
+    btn.addEventListener('click', function () {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      if (isLight) {
+        document.documentElement.classList.remove('theme-light');
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('theme-mode', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('theme-mode', 'light'); } catch (e) {}
+      }
+      updateLabel();
+    });
+
+    updateLabel();
+    target.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupThemeToggle);
+  } else {
+    setupThemeToggle();
+  }
+})();
+</script>
+

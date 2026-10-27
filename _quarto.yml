@@ -8,39 +8,31 @@ filters:
 website:
   title: "Praktikum"
   navbar:
+    logo: mfm-logo.svg
     left:
       - href: index.qmd
         text: Home
+      - text: Practicals
+        menu:
+          - href: praktikum1/praktikum1.qmd
+            text: "Practical 1: SPSS installation"
+          - href: praktikum2/praktikum2.qmd
+            text: "Practical 2: Relationships"
+          - href: praktikum3/praktikum3.qmd
+            text: "Practical 3: CI & Normality"
+          - href: praktikum4/praktikum4.qmd
+            text: "Practical 4: Hypothesis Tests"
+          - href: praktikum5/praktikum5.qmd
+            text: "Practical 5: Linear Regression"
+          - href: praktikum6/praktikum6.qmd
+            text: "Practical 6: Logistic Regression"
+      - href: blackboard.qmd
+        text: "Blackboard"
+        target: _blank
 
   page-footer:
     right: "This page is built with [Quarto](https://quarto.org/)."
     left: "&copy; CC-1.0"
-
-  sidebar:
-    title: "Course Materials"
-    logo: mfm-logo.svg
-    pinned: true
-    style: docked
-    search: true
-    collapse-level: 1
-    contents:
-      - href: index.qmd
-        text: Home
-      - href: praktikum1/praktikum1.qmd
-        text: "Practical 1: SPSS installation"
-      - href: praktikum2/praktikum2.qmd
-        text: Practical 2
-      - href: praktikum3/praktikum3.qmd
-        text: Practical 3
-      - href: praktikum4/praktikum4.qmd
-        text: Practical 4
-      - href: praktikum5/praktikum5.qmd
-        text: Practical 5
-      - href: praktikum6/praktikum6.qmd
-        text: Practical 6
-      - href: blackboard.qmd
-        text: "Blackboard"
-        target: _blank
 
 lang: en
 
@@ -48,8 +40,7 @@ format:
   html:
     df-print: paged
     grid:
-      sidebar-width: 300px
-      body-width: 2000px
+      body-width: 1400px
       margin-width: 300px
       gutter-width: 1.5rem
     theme:
@@ -59,7 +50,10 @@ format:
     code-overflow: wrap
     toc: true
     toc-depth: 3
+    include-in-header:
+      - utilities/theme-head.html
     include-after-body:
+      - utilities/theme-toggle.html
       - utilities/poll.html
 
 date: last-modified
