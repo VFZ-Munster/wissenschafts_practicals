@@ -1,5 +1,8 @@
 /.quarto/
 .quarto
 nhanes30.sav
-# practikum3/
 /.luarc.json
+.DS_Store
+Icon?
+.Rhistory
+tempCodeRunnerFile.*

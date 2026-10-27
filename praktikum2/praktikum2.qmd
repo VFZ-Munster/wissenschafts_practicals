@@ -1,49 +1,57 @@
 
-::: {.content-visible when-profile="english"}
 # Practical 2
-:::
 
-::: {.content-visible when-profile="german"}
-# Praktikum 2
-:::
+In this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables.
 
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
 
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Graphical representations of quantitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">bar charts</span>
+      <span class="method-tag">histograms</span>
+      <span class="method-tag">boxplots</span>
+      <span class="method-tag">Q–Q plots</span>
+    </div>
+  </div>
 
-::: {.content-visible when-profile="english"}
-In this session, we will cover the first steps in SPSS, including the descriptive analysis of a single variable and the (apparent) relationship between two variables. The following methods will be applied today:
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Qualitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">cross-tabulations</span>
+      <span class="method-tag">relative frequencies</span>
+      <span class="method-tag">risk difference</span>
+      <span class="method-tag">relative risk</span>
+      <span class="method-tag">odds ratio</span>
+    </div>
+  </div>
 
--   **Graphical representations of quantitative variables**: bar charts, histograms, boxplots, and Q–Q plots
--   **Qualitative variables**: cross-tabulations, relative frequencies, risk difference, relative risk, and odds ratio
--   **Quantitative variables**: scatterplots, covariance, and correlation coefficient
-
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Quantitative variables</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">scatterplots</span>
+      <span class="method-tag">covariance</span>
+      <span class="method-tag">correlation coefficient</span>
+    </div>
+  </div>
+</div>
+```
 
 ### Practice exercises
 📥 Download the dataset `nhanes30.sav` and open it in **SPSS** — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.
 
 ::: {.download-card}
 [Download recap for Practical 2](recap/recap_P2.pdf){download="recap_P2.pdf"}
-:::
-
-
-:::
-
-::: {.content-visible when-profile="german"}
-
-In dieser Stunde geht es um die ersten Schritte in SPSS, die deskriptive Beschreibung eines Merkmals und eines (scheinbaren) Zusammenhangs zweier Merkmale. Folgende Verfahren kommen hierfür heute zur Anwendung:
-
--   **Grafische Darstellungen quantitativer Merkmale**: Balkendiagramme, Histogramme, Boxplots, Q-Q-Plots
--   **Qualitative Merkmale**: Kreuztabellen, relative Häufigkeiten, Risikodifferenz, Relatives Risiko, Odds Ratio
--   **Quantitative Merkmale**: Streudiagramme, Kovarianz, Korrelationskoeffizient
-
-### Übungsaufgaben
-
-📥 Laden Sie den Datensatz `nhanes30.sav` herunter und öffnen Sie diesen in **SPSS** —  entweder per drag & drop 🖱️  oder über das Auswahlmenü unter „Datei“ 🗂️ 
-
-::: {.download-card}
-[Zusammenfassung aus Praktikum 2 herunterladen](recap/recap_P2.pdf){download="recap_P2.pdf"}
-:::
-
-
 :::
 
 # Part 1: First Steps

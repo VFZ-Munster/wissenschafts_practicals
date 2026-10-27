@@ -1,10 +1,48 @@
-::: {.content-visible when-profile="english"}
-# Intalling SPSS
-
 # Installing and Activating SPSS 
 
-To set up SPSS on your computer, start by visiting the  [CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html).  
-They provide everything you need to download, install, and activate the software.
+To set up SPSS on your computer, start by visiting the [CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html). They provide everything you need to download, install, and activate the software with the university license.
+
+```{=html}
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Setup & Skills covered</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Installation & Platform</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">SPSS Statistics</span>
+      <span class="method-tag">macOS & Windows</span>
+      <span class="method-tag">Medicampus login</span>
+      <span class="method-tag">CIT portal</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Licensing & Network</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">network license</span>
+      <span class="method-tag">license server IP</span>
+      <span class="method-tag">university VPN</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>First steps in SPSS</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">data view</span>
+      <span class="method-tag">variable view</span>
+      <span class="method-tag">.sav files</span>
+    </div>
+  </div>
+</div>
+```
 
 ---
 
@@ -66,79 +104,3 @@ This connection is required whenever SPSS checks the license.
 
 ---
 
-:::
-
-::: {.content-visible when-profile="german"}
-
-# Installation von SPSS
-
-# SPSS installieren und aktivieren 
-
-Um SPSS auf Ihrem Computer einzurichten, besuchen Sie zunächst die  
-[CIT – Center for Information Technology website](https://www.uni-muenster.de/IT/services/arbeitsplatz/software/spss.html).  
-Dort finden Sie alle notwendigen Schritte zum Herunterladen, Installieren und Aktivieren der Software.
-
----
-
-## 1. SPSS herunterladen
-
-Öffnen Sie die Seite und klappen Sie den Reiter **„Download, Installation & Lizenzaktivierung“** auf  
-(der gelb markierte Bereich auf der Website).
-
-![](deutsch_image.png){width=60%}
-
-Klicken Sie anschließend auf **Downloadbereich für SPSS Statistics**.
-
-![](deutsch_image2.png){width=60%}
-
-Wenn ein Login-Fenster erscheint, melden Sie sich mit Ihrer **Medicampus ID** an  
-— *nur der Benutzername*, **ohne** „@uni-muenster.de“.
-
----
-
-## 2. Version und Betriebssystem auswählen
-
-Wählen Sie die aktuellste verfügbare Version aus:
-
-![](options.png){width=40%}
-
-Danach wählen Sie Ihr Betriebssystem (Windows, macOS):
-
-![](options2.png){width=80%}
-
-**Hinweis:** Optionen für Linux finden Sie im Ordner „Arch“.
-
----
-
-## 3. SPSS aktivieren
-
-SPSS muss über die **Netzwerklizenz** aktiviert werden.
-
-Öffnen Sie die offizielle Aktivierungsseite:  
-[spss lizenzaktivierung](https://www.uni-muenster.de/IT/en/services/arbeitsplatz/software/spss-lizenzaktivierung.html)
-
-Folgen Sie dort den Schritten unter **„Aktivieren der Netzwerklizenz“**.
-
-Im nächsten Fenster werden Sie nach dem Namen des Lizenzservers oder der IP-Adresse gefragt.
-
-::: {.license-server}
-[Lizenzserver]{.license-server-label}
-
-`spss.uni-muenster.de`
-:::
-
----
-
-## 4. Wichtige Verbindungsanforderung
-
-Um SPSS nutzen zu können, müssen Sie mit einem der folgenden Netzwerke verbunden sein:
-
-- dem **ms-uni WLAN**, oder  
-- dem **VPN der Universität**
-
-Diese Verbindung ist erforderlich, wenn SPSS die Lizenz überprüft.
-
----
-
-
-:::

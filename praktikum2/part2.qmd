@@ -1,54 +1,75 @@
 If you have measured several variables in your **cross-sectional** study, you can display an (⚠️ apparent) relationship between them using various methods.
 
-## Task 3
+## Exercise 3
 
 
 Create a cross-table for diabetes (diab) and periodontitis (perio2).
 
-💡 In SPSS:
-<div class="instruction-flow">
-  <span class="step">ANALYSIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">DESKRIPTIVE STATISTIKEN</span>
-  <span class="arrow">→</span>
-  <span class="step">KREUZTABELLEN</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Descriptive Statistics</span>
+    <span class="arrow">→</span>
+    <span class="step">Crosstabs</span>
+  </div>
 </div>
-
+```
 
 ::: callout-tip
 Which variable you assign to the rows or columns is up to you. However, it may be helpful to think of a consistent system — for example, “Outcome on top,” meaning the outcome variable is placed in the columns.
 :::
 
-<details class="result-panel">
+::: {.poll-table #p2-t3}
+Fill in the missing counts from your SPSS output. The totals are calculated automatically – check them against your output.
 
-<summary>Task results</summary>
+| diab         | perio2 = periodontitis | perio2 = no      | **Total** |
+|--------------|------------------------|------------------|-----------|
+| **diabetes** | [199]{.blank}          | 578              |           |
+| **no**       | 988                    | [6290]{.blank}   |           |
+| **Total**    |                        |                  |           |
+:::
 
-*diab × perio2 Crosstabulation*
-
-| diab         | perio2 = periodontitis | perio2 = no | **Total** |
-|--------------|------------------------|-------------|-----------|
-| **diabetes** | 199                    | 578         | **777**   |
-| **no**       | 988                    | 6,290       | **7,278** |
-| **Total**    | **1,187**              | **6,868**   | **8,055** | 
-
-</details>
-
-## Task 4
+## Exercise 4
 
 Calculate the **risk difference**, **relative risk**, and **odds ratio** for the association between diabetes and periodontitis.
 
-💡 In SPSS:
-<div class="instruction-flow">
-  <span class="step">ANALYSIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">DESKRIPTIVE STATISTIKEN</span>
-  <span class="arrow">→</span>
-  <span class="step">KREUZTABELLEN</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Crosstabs</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the Crosstabs dialog, click <span class="spss-button">Cells...</span>, under <strong>Percentages</strong> select <strong>Row</strong>, then click <strong>Continue</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Statistics...</span>, check <strong>Risk</strong>, and click <strong>Continue</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
-
-
-Then in the Crosstabs dialog, click **\[Cells...\]** and under **Percentages**, select **Row**, then click **Continue**.\
-Next, click **\[Statistics...\]**, check **Risk**, and click **Continue**.
+```
 
 **Calculate manually:**
 
@@ -126,9 +147,30 @@ Let the 2×2 table be:
 
 </details>
 
-<details class="result-panel">
+::: {.poll-calc #p2-t4}
+Enter your results (two decimals).
 
-<summary>Task results</summary>
+- [Risk difference (RD)]{.calc answer="12" tol="0.3" unit="%" mistakes="-12: Negative sign – subtract the non-diabetics from the diabetics. | 1.88: That is a ratio (RR) – the RD is a difference."}
+- [Relative risk (RR)]{.calc answer="1.88" tol="0.02" mistakes="0.53: Groups swapped – divide diabetics by non-diabetics. | 0.34: Divided within the diabetic row – that is the odds a/b. | 0.86: Used the “no periodontitis” column."}
+- [Odds ratio (OR)]{.calc answer="2.19" tol="0.02" mistakes="0.46: Inverted – OR = (a·d) / (b·c). | 1.88: That is the relative risk, not the odds ratio. | 0.34: Only the odds of the diabetics (a/b)."}
+:::
+
+::: {.poll #p2-t4-or correct="3"}
+Which statement correctly describes the odds ratio you calculated?
+
+- It is the difference in the risk of periodontitis between the two groups, in percentage points.
+- It shows that diabetes causes periodontitis.
+- It compares the odds of periodontitis in people with diabetes with the odds in people without diabetes.
+- It tells you how many times higher the risk of periodontitis is in people with diabetes.
+
+::: poll-explanation
+The OR compares **odds**, not risks. The risk ratio here is the RR = 1.88. The two differ because periodontitis is not rare (about 15 %). The data are cross-sectional, so the OR describes an association, not a cause.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p2-t4-or">
+
+<summary>Exercise results</summary>
 
 *diab × perio2 Crosstabulation*
 
@@ -180,19 +222,26 @@ Because these are cross-sectional data, interpret the association descriptively.
 :::
 </details>
 
-## Task 5
+## Exercise 5
 
 
 Create a scatterplot for the covariation of `weight` \~ `height`
 
-💡 In SPSS: 
-<div class="instruction-flow">
-  <span class="step">GRAFIK</span>
-  <span class="arrow">→</span>
-  <span class="step">DIAGRAMMDARSTELLUNG</span>
-  <span class="arrow">→</span>
-  <span class="step option">Streu/-Punktdiagramm auswählen</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Graphs</span>
+    <span class="arrow">→</span>
+    <span class="step">Chart Builder</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Scatter / Dot</span>
+  </div>
 </div>
+```
 
 Draw a regression line.
 
@@ -202,7 +251,7 @@ Draw a regression line.
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 ::: {.result-figure .wide}
 ![Scatterplot of weight by height with regression line](h_w.png)
@@ -213,25 +262,50 @@ The points show a positive trend: taller participants tend to have higher weight
 :::
 </details>
 
-## Task 6
+## Exercise 6
 
 Calculate the covariance and the Pearson correlation coefficient for the relationship between `height` and `weight`.
 
-💡 In SPSS: 
-
-<div class="instruction-flow">
-  <span class="step">ANALYSIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">KORRELATIONEN</span>
-  <span class="arrow">→</span>
-    <span class="step">BIVARIAT</span>
-  <span class="arrow">→</span>
-  <span class="step option">Korrelationskoeffizienten: Pearson auswählen</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Correlate</span>
+    <span class="arrow">→</span>
+    <span class="step">Bivariate</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Pearson</span>
+  </div>
 </div>
+```
 
-<details class="result-panel">
+::: {.poll-calc #p2-t6}
+Enter the Pearson correlation coefficient from your SPSS output (three decimals).
 
-<summary>Task results</summary>
+- [Pearson correlation (r)]{.calc answer="0.466" tol="0.005" mistakes="1: That is the diagonal – the correlation of a variable with itself. | 0.001: That is the p-value (Sig.), not r. | 0.217: That is r², not r."}
+:::
+
+::: {.poll #p2-t6-r correct="2"}
+Which statement about the Pearson correlation you found between height and weight is correct?
+
+- It shows a strong positive association.
+- It shows a moderate positive linear association.
+- It is the percentage of the variation in weight that is explained by height.
+- It is the increase in weight (kg) per cm of height.
+
+::: poll-explanation
+r = 0.466 is a **moderate**, positive, linear association: taller people tend to be heavier. The percentage of variation explained is r² = 0.217, i.e. about 22 %, not 46.6 %. And r has no units, so it is not the change in kg per cm – that would be the slope of a regression line.
+:::
+:::
+
+<details class="result-panel presenter-only" data-reveal-with="p2-t6-r">
+
+<summary>Exercise results</summary>
 
 Correlations
 
@@ -256,24 +330,31 @@ The p-value \< 0.001 shows this association is statistically significant.
 
 </details>
 
-## Additional task
+## Additional Exercise
 
 Calculate the Spearman correlation coefficient for the relationship between `age` and `number of teeth`.
 
-💡 In SPSS:
-<div class="instruction-flow">
-  <span class="step">ANALYSIEREN</span>
-  <span class="arrow">→</span>
-  <span class="step">KORRELATIONEN</span>
-  <span class="arrow">→</span>
-    <span class="step">BIVARIAT</span>
-  <span class="arrow">→</span>
-  <span class="step option">Korrelationskoeffizienten: Spearman auswählen</span>
+```{=html}
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <div class="instruction-flow">
+    <span class="step">Analyze</span>
+    <span class="arrow">→</span>
+    <span class="step">Correlate</span>
+    <span class="arrow">→</span>
+    <span class="step">Bivariate</span>
+    <span class="arrow">→</span>
+    <span class="step option">Select Spearman</span>
+  </div>
 </div>
+```
 
 <details class="result-panel">
 
-<summary>Task results</summary>
+<summary>Exercise results</summary>
 
 Spearman's rho Correlations
 

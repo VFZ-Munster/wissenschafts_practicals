@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-24">
+<meta name="dcterms.date" content="2026-10-27">
 
 <title>praktikum5 – Praktikum</title>
 <style>
@@ -25,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
@@ -35,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-e67f66e09760c5d87c6ba66cdb9bb3db.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-310baf937d0d762f08c5f944e4d301ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-aea7dd50ace4d4c42960430ba0507719.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -68,6 +69,18 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme-mode');
+      if (saved === 'light') {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -101,13 +114,16 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../mfm-logo.svg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Praktikum</span>
     </a>
@@ -119,14 +135,43 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practicals" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Practicals</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-practicals">    
+        <li>
+    <a class="dropdown-item" href="../praktikum1/praktikum1.html">
+ <span class="dropdown-text">Practical 1: SPSS installation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum2/praktikum2.html">
+ <span class="dropdown-text">Practical 2: Relationships</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum3/praktikum3.html">
+ <span class="dropdown-text">Practical 3: CI &amp; Normality</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum4/praktikum4.html">
+ <span class="dropdown-text">Practical 4: Hypothesis Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum5/praktikum5.html">
+ <span class="dropdown-text">Practical 5: Linear Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../praktikum6/praktikum6.html">
+ <span class="dropdown-text">Practical 6: Logistic Regression</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
-    <a class="nav-link" href="../de"> 
-<span class="menu-text">Deutsch</span></a>
+    <a class="nav-link" href="../blackboard.html" target="_blank"> 
+<span class="menu-text">Blackboard</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -134,88 +179,10 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../praktikum5/praktikum5.html">Practical 5</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../mfm-logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum1/praktikum1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 1: SPSS installation</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum2/praktikum2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 2</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum3/praktikum3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum4/praktikum4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 4</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum5/praktikum5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Practical 5</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../praktikum6/praktikum6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Practical 6</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../blackboard.html" class="sidebar-item-text sidebar-link" target="_blank">
- <span class="menu-text">Blackboard</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -258,7 +225,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 24, 2026</p>
+      <p class="date">October 27, 2026</p>
     </div>
   </div>
   
@@ -311,6 +278,48 @@ window.Quarto = {
 </section>
 </div>
 </div>
+<div class="methods-card">
+  <div class="methods-card-head">
+    <span class="methods-kicker"><span class="kicker-dot"></span> Methods applied today</span>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Regression Modeling</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">univariable regression</span>
+      <span class="method-tag">multivariable regression</span>
+      <span class="method-tag">dummy variables</span>
+      <span class="method-tag">reference categories</span>
+      <span class="method-tag">coefficients (β)</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Model Assumptions &amp; Fit</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">linearity</span>
+      <span class="method-tag">homoscedasticity</span>
+      <span class="method-tag">residual plots</span>
+      <span class="method-tag">polynomials</span>
+      <span class="method-tag">R² goodness of fit</span>
+    </div>
+  </div>
+
+  <div class="method-group">
+    <div class="method-label">
+      <strong>Effect Modification</strong>
+    </div>
+    <div class="tag-cloud">
+      <span class="method-tag">interaction terms</span>
+      <span class="method-tag">moderation analysis</span>
+      <span class="method-tag">subgroup comparison</span>
+    </div>
+  </div>
+</div>
 <section id="exercise-1-univariable-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1-univariable-analysis">Exercise 1: Univariable Analysis</h2>
 <section id="exercise-1.1-dummy-variables" class="level3">
@@ -318,24 +327,49 @@ window.Quarto = {
 <p>Build a univariable linear regression model to study the association between smoking (<code>smk</code>; 1=Never, 2=Former, 3=Current, set the never smokers as a reference group) and attachment loss (<code>cal_mean</code>; in mm).</p>
 <p>Since the smoking variable has three levels, the first step is to create dummy variables.</p>
 <p><strong>1. Create a dummy variable for “Former” smokers:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Transform</span> <span class="arrow">→</span> <span class="step">Recode into Different Variables</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Transform</span>
+          <span class="arrow">→</span>
+          <span class="step">Recode into Different Variables</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Select <code>smk</code> → write <code>Former</code> under <strong>Name &amp; Label</strong> → press <strong>Change</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Old and New Values...</span>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Configure values:
+        <ul class="spss-substeps">
+          <li>Under <strong>Old Value</strong>: enter <code>2</code> → Under <strong>New Value</strong>: enter <code>1</code> → Press <strong>Add</strong>.</li>
+          <li>Under <strong>Old Value</strong>: enter <code>1</code> → Under <strong>New Value</strong>: enter <code>0</code> → Press <strong>Add</strong>.</li>
+          <li>Under <strong>Old Value</strong>: enter <code>3</code> → Under <strong>New Value</strong>: enter <code>0</code> → Press <strong>Add</strong>.</li>
+          <li>Under <strong>Old Value</strong>: select <strong>System- or user-missing</strong> → Under <strong>New Value</strong>: select <strong>System-missing</strong> → Press <strong>Add</strong>.</li>
+          <li>Select <strong>All other values</strong> → select <strong>Copy old value(s)</strong> → Press <strong>Add</strong>. <em>(Handles missing values)</em></li>
+        </ul>
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Select <code>smk</code> &gt;&gt; write <code>Former</code> under Name &amp; Label &gt;&gt; press Change.</p>
-<p><span class="text-steps">Step 3: </span> Click “Old and New Values”.</p>
-<p><span class="text-steps">Step 4: </span> Configure values:</p>
-<ul>
-<li>Under <strong>Old Value</strong>: enter <code>2</code> &gt;&gt; Under <strong>New Value</strong>: enter <code>1</code> &gt;&gt; Press <strong>Add</strong>.</li>
-<li>Under <strong>Old Value</strong>: enter <code>1</code> &gt;&gt; Under <strong>New Value</strong>: enter <code>0</code> &gt;&gt; Press <strong>Add</strong>.</li>
-<li>Under <strong>Old Value</strong>: enter <code>3</code> &gt;&gt; Under <strong>New Value</strong>: enter <code>0</code> &gt;&gt; Press <strong>Add</strong>.</li>
-<li>Under <strong>Old Value</strong>: select <strong>System- or user-missing</strong> &gt;&gt; Under <strong>New Value</strong>: select <strong>System-missing</strong> &gt;&gt; Press <strong>Add</strong>.</li>
-<li>Select <strong>All other values</strong> &gt;&gt; select <strong>Copy old value(s)</strong> &gt;&gt; Press <strong>Add</strong>. (This handles missing values)</li>
-</ul>
 <p><strong>Note:</strong> Ensure <code>Measure</code> is Nominal in Variable View, Decimals is set to 0, and Change Values to 0 = “Current/none” and 1 = “Former”.</p>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <video width="640" height="480" controls="" style="margin-top: 20px; display: block;">
 <source src="video1.mp4" type="video/mp4">
@@ -343,12 +377,35 @@ Task results
 </video></details>
 <p><strong>2. Repeat the same procedure to create a dummy variable for “Current” smokers.</strong> (Recode <code>smk</code>: 3 -&gt; 1, 1 -&gt; 0, 2 -&gt; 0).</p>
 <p><strong>3. Fit the model</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Regression</span>
+          <span class="arrow">→</span>
+          <span class="step">Linear</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Choose <code>cal_mean</code> as <strong>Dependent Variable</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Choose <code>Former</code> and <code>Current</code> under <strong>Block 1 of 1</strong> (Independent variables).
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Choose <code>cal_mean</code> as Dependent Variable.</p>
-<p><span class="text-steps">Step 3: </span> Choose <code>Former</code> and <code>Current</code> under Block 1 of 1 (Independent variables).</p>
 <details class="result-panel">
 <summary>
 Formula
@@ -360,7 +417,7 @@ Formula
 <p>Based on the output, and considering never smokers as the reference group, do individuals who are currently smoking have higher <code>cal_mean</code> measurement than former smokers?: ✅ Interpret the results</p>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <table class="caption-top table">
 <colgroup>
@@ -447,15 +504,38 @@ Background
 <section id="exercise-2.1-descriptive" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2.1-descriptive">Exercise 2.1 Descriptive</h3>
 <p>Check whether <code>cal_mean</code> or <code>ln_loss</code> are normally distributed, graphically and statistically.</p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Descriptive statistics</span> <span class="arrow">→</span> <span class="step">Explore</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Descriptive Statistics</span>
+          <span class="arrow">→</span>
+          <span class="step">Explore</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Dependent list: <code>cal_mean</code> and <code>ln_loss</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Plots: Check <strong>Histogram</strong> and <strong>Normality plots with tests</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Dependent list: <code>cal_mean</code> and <code>ln_loss</code>.</p>
-<p><span class="text-steps">Step 3: </span> Plots: Check Histogram and Normality plots with tests.</p>
 <details class="result-panel">
 <summary>
-Task results: cal_mean
+Exercise results: cal_mean
 </summary>
 <div class="result-figure-grid">
 <div class="result-figure">
@@ -478,7 +558,7 @@ Task results: cal_mean
 </details>
 <details class="result-panel">
 <summary>
-Task results: ln_loss
+Exercise results: ln_loss
 </summary>
 <div class="result-figure-grid">
 <div class="result-figure">
@@ -504,18 +584,44 @@ Task results: ln_loss
 <h3 class="anchored" data-anchor-id="exercise-2.2-linearity-assumption">Exercise 2.2 Linearity assumption</h3>
 <p>Check graphically the linearity assumption between <code>ln_loss</code> and other continuous variables you want to consider adding to your model (potential confounders).</p>
 <p>For that purpose, <strong>create a scatter plot:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Graphs</span> <span class="arrow">→</span> <span class="step">Chart Builder</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Graphs</span>
+          <span class="arrow">→</span>
+          <span class="step">Chart Builder</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Gallery → <strong>Scatter/Dot</strong> → Drag <strong>Scatter plot</strong> to preview.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Y-axis: <code>ln_loss</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        X-axis: <code>alcg</code> (independent).
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Gallery &gt;&gt; Scatter/Dot &gt;&gt; Drag ‘Scatter plot’ to preview.</p>
-<p><span class="text-steps">Step 3: </span> Y-axis: <code>ln_loss</code>.</p>
-<p><span class="text-steps">Step 4: </span> X-axis: <code>alcg</code> (independent).</p>
-<p><strong>Add regression line:</strong> Double click graph &gt;&gt; Add Fit Line at Total &gt;&gt; Select Linear.</p>
+<p><strong>Add regression line:</strong><br>
+Double click graph → <span class="spss-button">Add Fit Line at Total</span> → Select <strong>Linear</strong>.</p>
 <p>Create another graph for <code>height</code> and <code>weight</code>. Compare the two. Which one shows a linear relationship?</p>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <div class="result-figure-grid">
 <div class="result-figure">
@@ -549,34 +655,78 @@ Task results
 <h3 class="anchored" data-anchor-id="exercise-2.3-polynomials">Exercise 2.3 Polynomials</h3>
 <p>One way to deal with non-linearity is to introduce a quadratic expression. For the relationship between <code>ln_loss</code> and <code>alcg</code>, add a quadratic term.</p>
 <p>Then, <strong>create quadratic term:</strong> Create new variable <code>alcg2</code> = <code>alcg</code> * <code>alcg</code>.</p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Transform</span> <span class="arrow">→</span> <span class="step">Compute Variables</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Transform</span>
+          <span class="arrow">→</span>
+          <span class="step">Compute Variables</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Target Variable: <code>alcg2</code>. Numeric Expression: <code>alcg * alcg</code>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Target Variable: <code>alcg2</code>. Numeric Expression: <code>alcg * alcg</code>.</p>
 </section>
 <section id="exercise-2.4-homoscedasticity-assumption" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-2.4-homoscedasticity-assumption">Exercise 2.4 Homoscedasticity assumption</h3>
 <p>Homoscedasticity means that the <strong>independent variable</strong> do not affect the <strong>residuals</strong>.</p>
 <p>Check the homoscedasticity assumption graphically and statistically.</p>
 <p><strong>Graphically:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Regression</span>
+          <span class="arrow">→</span>
+          <span class="step">Linear</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Linear Regression</strong> window, choose <code>ln_loss</code> as <strong>Dependent</strong> and <code>alcg</code> as <strong>Independent(s)</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Statistics...</span> and select <strong>Estimates</strong>, <strong>Confidence Intervals</strong>, <strong>Model fit</strong>, <strong>R squared change</strong>, <strong>Part and partial correlations</strong>, <strong>Collinearity diagnostics</strong>, <strong>Casewise diagnostics</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Plots...</span> and select <strong>Histogram</strong> and <strong>Normal probability plot</strong>. In <strong>Scatter 1 of 1</strong>, set <code>*ZRESID</code> as <strong>Y</strong> and <code>*ZPRED</code> as <strong>X</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p>In the <strong>Linear Regression window</strong> choose <code>ln_loss</code> as <strong>Dependent</strong> variable and <code>alcg</code> as <strong>Independent(s)</strong> variable.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_regression.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
 </figure>
 </div>
-<p>Click <span class="spss-button">Statistics…</span> and select <strong>Estimates</strong>, <strong>Confidence Intervals</strong>, <strong>Model fit</strong>, <strong>R squared change</strong>, <strong>Part and partial correlations</strong>, <strong>Collinearity diagnostics</strong>, <strong>Casewise diagnostics</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_regression2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
 </figure>
 </div>
-<p>Then, click <span class="spss-button">Plots…</span> and select <strong>Histogram</strong> and <strong>Normal probability plot</strong>. In the <strong>Scatter 1 of 1</strong> section add <code>*ZRESID</code> (Standardized residual) as <strong>Y:</strong> and <code>*ZARED</code> (Standardized predicted value) as <strong>X:</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_regression3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
@@ -584,17 +734,40 @@ Task results
 </div>
 <p>From the output, report the correlation Coefficient, are the two variables correlated?</p>
 <p><strong>Statistically (Breusch-Pagan test):</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">General Linear Model</span> <span class="arrow">→</span> <span class="step">Univariate</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">General Linear Model</span>
+          <span class="arrow">→</span>
+          <span class="step">Univariate</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        In the <strong>Univariate</strong> window, select <code>ln_loss</code> as <strong>Dependent Variable</strong> and <code>alcg</code> as <strong>Covariate(s)</strong>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Click <span class="spss-button">Options...</span> and select <strong>Modified Breusch-Pagan test</strong> and <strong>Parameter estimates with robust standard errors</strong>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p>In the <strong>Univariate</strong> window, select <code>ln_loss</code> as the <strong>Dependent Variable</strong> and <code>alcg</code> as the <strong>Covariate(s)</strong> variable.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_regression4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
 </figure>
 </div>
-<p>Click <span class="spss-button">Options…</span> and select <strong>Modified Breusch-Pagan test</strong> and <strong>Parameter estimates with robust standard error</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_regression5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
@@ -602,7 +775,7 @@ Task results
 </div>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -669,12 +842,35 @@ Task results
 </figure>
 </div>
 <p><strong>3. Fit multivariable model:</strong></p>
-<p>💡 SPSS:</p>
-<div class="instruction-flow">
-<p><span class="step">Analyze</span> <span class="arrow">→</span> <span class="step">Regression</span> <span class="arrow">→</span> <span class="step">Linear</span></p>
+<div class="spss-workflow">
+  <div class="spss-workflow-header">
+    <span class="spss-workflow-badge">SPSS</span>
+    <span class="spss-workflow-title">Workflow Guide</span>
+  </div>
+  <ol class="spss-steps">
+    <li>
+      <div class="step-content">
+        <div class="instruction-flow">
+          <span class="step">Analyze</span>
+          <span class="arrow">→</span>
+          <span class="step">Regression</span>
+          <span class="arrow">→</span>
+          <span class="step">Linear</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Dependent Variable: <code>attachment loss</code>.
+      </div>
+    </li>
+    <li>
+      <div class="step-content">
+        Independent Variables: <code>male</code>, <code>alcg</code>, <code>AlcMale</code>.
+      </div>
+    </li>
+  </ol>
 </div>
-<p><span class="text-steps">Step 2: </span> Dependent: <code>attachment loss</code></p>
-<p><span class="text-steps">Step 3: </span> Independent: <code>male</code>, <code>alcg</code>, <code>AlcMale</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_multivariable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:35.0%"></p>
@@ -683,7 +879,7 @@ Task results
 <p>Equation: <span class="math inline">\(Y_i = \beta_0 + \beta_1 Male + \beta_2 alcg + \beta_3 alcg*Male + \epsilon_i\)</span></p>
 <details class="result-panel">
 <summary>
-Task results
+Exercise results
 </summary>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -721,109 +917,1298 @@ Additional interpretation
 
 </main> <!-- /main -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
-    console.log("Language Switcher: Current path is " + path);
-    
-    const repoName = "wissenschafts_practicals";
-    
-    // Check if we are in German mode
-    const isGerman = path.includes("/de/") || path.endsWith("/de");
+(function () {
+  function setupThemeToggle() {
+    if (document.getElementById('theme-toggle-btn')) return;
 
-    const links = document.querySelectorAll('.navbar-nav .nav-link');
-    
-    links.forEach(link => {
-      const text = link.textContent.trim();
-      
-      if (text === "Deutsch" && !isGerman) {
-        // Switching to German
-        let newPath;
-        
-        // Check if the path contains the repo name
-        if (path.indexOf("/" + repoName) !== -1) {
-            // GitHub Pages: /wissenschafts_practicals/...
-            // We want to insert /de after the repo name
-            // Replace first occurrence of /repoName with /repoName/de
-            newPath = path.replace("/" + repoName, "/" + repoName + "/de");
-            
-            // If the path was exactly /wissenschafts_practicals (no trailing slash), it becomes /wissenschafts_practicals/de
-            // If /wissenschafts_practicals/, it becomes /wissenschafts_practicals/de/
-        } else {
-            // Local or root domain
-            newPath = "/de" + path;
-        }
-        
-        console.log("Language Switcher: Updating Deutsch link to " + newPath);
-        link.setAttribute('href', newPath);
-        
-      } else if (text === "English" && isGerman) {
-        // Switching to English
-        let newPath = path;
-        
-        if (path.indexOf("/" + repoName + "/de") !== -1) {
-             // GitHub Pages: /wissenschafts_practicals/de/...
-             // Remove /de
-             newPath = path.replace("/" + repoName + "/de", "/" + repoName);
-        } else {
-             // Local: /de/...
-             // Remove leading /de
-             newPath = path.replace(/^\/de/, "");
-        }
-        
-        if (newPath === "") newPath = "/";
-        
-        console.log("Language Switcher: Updating English link to " + newPath);
-        link.setAttribute('href', newPath);
+    var target = document.querySelector('.quarto-navbar-tools');
+    if (!target) {
+      target = document.querySelector('.navbar .navbar-collapse');
+    }
+    if (!target) {
+      target = document.querySelector('.navbar .container-fluid');
+    }
+    if (!target) return;
+
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle-btn';
+    btn.className = 'theme-toggle-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Toggle light/dark theme');
+
+    function updateLabel() {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      btn.innerHTML = isLight
+        ? '<span class="theme-icon" aria-hidden="true">☾</span><span>Dark</span>'
+        : '<span class="theme-icon" aria-hidden="true">☀</span><span>Light</span>';
+      btn.title = isLight ? 'Switch to Dark Studio' : 'Switch to Light Theme';
+    }
+
+    btn.addEventListener('click', function () {
+      var isLight = document.documentElement.classList.contains('theme-light');
+      if (isLight) {
+        document.documentElement.classList.remove('theme-light');
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('theme-mode', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.classList.add('theme-light');
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('theme-mode', 'light'); } catch (e) {}
       }
+      updateLabel();
     });
-  });
+
+    updateLabel();
+    target.appendChild(btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupThemeToggle);
+  } else {
+    setupThemeToggle();
+  }
+})();
 </script>
 
+<!--
+  Classroom polls & on-demand practice quizzes.
+  Turns every `::: {.poll #some-id}` block into an interactive poll/quiz.
+  - Live Classroom Mode: students vote during lecture; results & explanations appear once presenter reveals them.
+  - Practice Mode: students test themselves on-demand after class with instant feedback, zero database writes.
+  - Presenter Toolbar: in-page banner on each practical + floating ⚙ in navbar for mode switching, reveals, resets, and CSV export.
+  Database setup: see supabase/schema.sql and supabase/README.md.
+-->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const sidebar = document.querySelector("#quarto-margin-sidebar");
-    const qrCodes = Array.from(document.querySelectorAll("main .qrcode"))
-      .filter((qrCode) => !qrCode.closest(".qr-card"));
+(function () {
+  // Fill these in from Supabase: Project Settings -> API.
+  const SUPABASE_URL = "https://ztjjlogcdhynfkifaqtp.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0ampsb2djZGh5bmZraWZhcXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MTg0NjksImV4cCI6MjEwODM5NDQ2OX0.RsKffHoPL-wn-lKgoBW-K4xKKLiZVC8HMUWdUWhLIG8";
+  const REFRESH_MS = 4000;
 
-    if (!sidebar || qrCodes.length === 0) {
+  const cards = Array.from(document.querySelectorAll("div.poll[id]"));
+  const tableEls = Array.from(document.querySelectorAll("div.poll-table[id]"));
+  const calcEls = Array.from(document.querySelectorAll("div.poll-calc[id]"));
+
+  // Canonical session ID for this page: derived from the poll prefix (e.g. "p2") or page filename
+  const firstPoll = (cards[0] || tableEls[0] || calcEls[0] || {}).id || "";
+  const pollPrefix = firstPoll ? firstPoll.split("-")[0] : "";
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const pageSlug = (pathParts[pathParts.length - 1] || "index").replace(/\.(html|qmd)$/, "");
+  const pageSessionId = "session-" + (pollPrefix || pageSlug);
+
+  function getPracticalLabel() {
+    const h1 = document.querySelector("#quarto-document-content h1") || document.querySelector("h1");
+    const text = h1 ? h1.textContent.trim() : "";
+    const m = text.match(/Practical\s*(\d+)/i) || text.match(/Praktikum\s*(\d+)/i) || document.title.match(/praktikum\s*(\d+)/i);
+    if (m) return { full: "Practical " + m[1], short: "P" + m[1], num: m[1] };
+    if (pollPrefix && /^p\d+/i.test(pollPrefix)) {
+      const num = pollPrefix.replace(/\D/g, "");
+      return { full: "Practical " + num, short: "P" + num, num };
+    }
+    return { full: pageSlug, short: pageSlug, num: "" };
+  }
+
+  let teacher = false;
+  let practiceMode = false;
+  let previewAsStudent = false;
+  let praktikumBar = null;
+
+  const T = {
+    votes: n => n === 1 ? "1 vote" : n + " votes",
+    saved: "Vote saved – results appear once they are revealed.",
+    hidden: "Only you can see this – students don't see the results yet.",
+    revealedToAll: "Results are revealed to everyone.",
+    yours: "your answer", correct: "correct", why: "Why?", kicker: "Live poll",
+    kickerPractice: "Practice / Self-Check",
+    kickerTable: "Fill in the table", kickerTablePractice: "Practice Table",
+    kickerCalc: "Calculate", kickerCalcPractice: "Practice Calculation",
+    submit: "Submit", update: "Update answer",
+    checkAnswer: "Check answer", checkAnswers: "Check answers",
+    tryAgain: "↺ Try again",
+    correctBadge: "Correct", incorrectBadge: "Incorrect",
+    yourAnswerCorrect: "your answer · Correct ✓",
+    yourAnswerWrong: "your answer · Incorrect ✗",
+    classBenchmark: n => "Class results (" + (n === 1 ? "1 vote" : n + " votes") + " in lecture)",
+    promptPractice: "Select your answer to test yourself.",
+    promptTablePractice: "Fill in the blanks and check your answers.",
+    promptCalcPractice: "Enter your calculated values and check your answers.",
+    fillAll: "Please fill in all empty cells.", allCorrect: "All correct",
+    submissions: n => n === 1 ? "1 submission" : n + " submissions",
+    selectAll: "Select all that apply.", exact: "Exactly right",
+    partiallyCorrect: "Partially correct",
+    savedTable: "Answer saved – the solution appears once it is revealed.",
+    fillNumbers: "Please enter a number in every field.", other: "Other answer",
+    reveal: "Reveal results", hide: "Hide results", reset: "Reset (new round)",
+    confirmReset: "Start a new round? Votes from the current round are kept in the CSV export.",
+    notConfigured: "Poll not set up yet.",
+    error: "Connection failed – please try again.",
+    presenter: "Presenter mode", login: "Log in", logout: "Log out", csv: "Votes as CSV",
+    email: "E-mail", password: "Password", notTeacher: "This account is not registered as a teacher.",
+    openPractice: "Open Practice Mode for Students",
+    switchLive: "Switch to Live Classroom",
+    resetAll: "↺ Reset all polls on this page",
+    confirmResetAll: "Reset all polls on this page for a new class? Previous votes remain archived in the CSV export.",
+    previewStudent: "Preview as student",
+    practiceActiveNotice: "Practice Mode Active",
+    setToPractice: "Set to Practice",
+    setToLive: "Set to Live"
+  };
+
+  const store = {
+    get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  let voter = store.get("poll-voter", null);
+  if (!voter) {
+    voter = (crypto.randomUUID ? crypto.randomUUID() :
+      "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)));
+    store.set("poll-voter", voter);
+  }
+
+  const myVotes = store.get("poll-votes", {});
+  const practiceVotes = store.get("poll-practice-votes", {});
+
+  // Read question, options, correct answers (correct="1,3", 1-based) and the
+  // .poll-explanation block from the markdown, then rebuild the card.
+  const polls = cards.map(el => {
+    const items = Array.from(el.querySelectorAll(":scope > ul > li"));
+    const explanation = el.querySelector(":scope > .poll-explanation");
+    const p = {
+      id: el.id, el, options: items.map(li => li.innerHTML),
+      correct: (el.dataset.correct || "").split(",").filter(x => x.trim()).map(x => +x - 1),
+      multiple: (el.dataset.multiple || el.getAttribute("multiple")) === "true",
+      state: { round: 1, revealed: false, counts: null, total: 0 }
+    };
+    const question = document.createElement("div");
+    question.className = "poll-question";
+    Array.from(el.children).filter(c => c.tagName !== "UL" && c !== explanation).forEach(c => question.append(c));
+    el.innerHTML = '<div class="poll-body"></div>' +
+      '<div class="poll-footer"><span class="poll-status"></span><span class="poll-controls"></span></div>';
+    el.prepend(question);
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kicker + '</div>');
+    if (explanation) {
+      explanation.hidden = true;
+      explanation.insertAdjacentHTML("afterbegin", '<div class="poll-why">💡 ' + T.why + '</div>');
+      el.querySelector(".poll-body").after(explanation);
+    }
+    p.explanation = explanation;
+    if (p.multiple) question.insertAdjacentHTML("beforeend", '<div class="poll-hint-multi">' + T.selectAll + '</div>');
+    return p;
+  });
+
+  // Fill-in tables: cells written as [199]{.blank} become inputs; the last row
+  // and last column are totals computed live.
+  const num = v => { const d = String(v).replace(/[^\d-]/g, ""); return d === "" ? null : +d; };
+  const fmt = n => n.toLocaleString("en-US");
+  const plain = el => el.textContent.trim();
+  const tables = tableEls.map(el => {
+    const rows = Array.from(el.querySelector("table").rows);
+    const header = rows[0], body = rows.slice(1);
+    const t = { id: el.id, el, blanks: [], state: { round: 1, revealed: false, counts: null, total: 0 }, subs: {} };
+    body.forEach(tr => Array.from(tr.cells).forEach((td, c) => {
+      const span = td.querySelector(".blank");
+      if (!span) return;
+      const input = document.createElement("input");
+      input.type = "text"; input.inputMode = "numeric"; input.autocomplete = "off"; input.className = "poll-input";
+      const label = plain(tr.cells[0]) + " × " + plain(header.cells[c]);
+      input.setAttribute("aria-label", label);
+      const hint = document.createElement("span");
+      hint.className = "poll-hint";
+      td.textContent = ""; td.append(input, hint);
+      t.blanks.push({ id: el.id + "-" + (t.blanks.length + 1), answer: num(span.textContent), input, hint, label });
+    }));
+    el.querySelector("table").classList.add("poll-grid");
+    body[body.length - 1].classList.add("poll-total-row");
+    rows.forEach(tr => tr.cells[tr.cells.length - 1].classList.add("poll-total-col"));
+
+    const value = td => { const i = td.querySelector("input"); return num(i ? i.value : td.textContent); };
+    t.updateTotals = () => {
+      const data = body.slice(0, -1), last = header.cells.length - 1;
+      const sum = cells => cells.some(v => v === null) ? null : cells.reduce((a, b) => a + b, 0);
+      const grid = data.map(tr => Array.from(tr.cells).slice(1, last).map(value));
+      const show = (td, v) => { td.textContent = v === null ? "…" : fmt(v); };
+      data.forEach((tr, r) => show(tr.cells[last], sum(grid[r])));
+      const totalRow = body[body.length - 1];
+      for (let c = 0; c < last - 1; c++) show(totalRow.cells[c + 1], sum(grid.map(g => g[c])));
+      show(totalRow.cells[last], sum(grid.map(sum)));
+    };
+    t.blanks.forEach(b => b.input.addEventListener("input", t.updateTotals));
+    t.updateTotals();
+
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kickerTable + '</div>');
+    el.insertAdjacentHTML("beforeend",
+      '<div class="poll-table-stats" hidden></div>' +
+      '<div class="poll-footer"><span class="poll-actions"><button type="button" class="poll-submit"></button>' +
+      '<span class="poll-status"></span></span><span class="poll-controls"></span></div>');
+    el.classList.add("poll");
+    el.querySelector(".poll-submit").onclick = () => submitTable(t);
+    return t;
+  });
+  const tableIds = t => [t.id].concat(t.blanks.map(b => b.id));
+
+  // Calculation cards: each list item [label]{.calc answer="2.19" tol="0.02" unit="%"
+  // mistakes="0.46: text | 1.88: text"} becomes a number input.
+  const attr = (el, k) => el.getAttribute("data-" + k) ?? el.getAttribute(k);
+  const dec = v => { const d = String(v).replace(/[\s%]/g, "").replace(",", "."); return d === "" || isNaN(d) ? null : +d; };
+  const calcs = calcEls.map(el => {
+    const c = { id: el.id, el, fields: [], state: { round: 1, revealed: false, counts: null, total: 0 }, subs: {} };
+    const list = el.querySelector(":scope > ul");
+    const grid = document.createElement("div");
+    grid.className = "poll-calc-fields";
+    Array.from(list.querySelectorAll(":scope > li span.calc")).forEach(span => {
+      const f = {
+        id: el.id + "-" + (c.fields.length + 1), label: span.innerHTML, text: plain(span),
+        answer: +attr(span, "answer"), tol: +(attr(span, "tol") || 0.01), unit: attr(span, "unit") || "",
+        mistakes: (attr(span, "mistakes") || "").split("|").map(m => m.trim()).filter(Boolean).map(m => {
+          const i = m.indexOf(":");
+          return { value: +m.slice(0, i), label: m.slice(i + 1).trim() };
+        })
+      };
+      const box = document.createElement("div");
+      box.className = "poll-calc-field";
+      box.innerHTML = '<div class="poll-calc-label">' + f.label + '</div><div class="poll-calc-row">' +
+        '<input type="text" inputmode="decimal" autocomplete="off" class="poll-input">' +
+        (f.unit ? '<span class="poll-calc-unit">' + f.unit + '</span>' : '') + '</div>' +
+        '<span class="poll-hint"></span><div class="poll-calc-feedback"></div><div class="poll-calc-stats" hidden></div>';
+      f.input = box.querySelector("input");
+      f.input.setAttribute("aria-label", f.text);
+      f.hint = box.querySelector(".poll-hint");
+      f.feedback = box.querySelector(".poll-calc-feedback");
+      f.stats = box.querySelector(".poll-calc-stats");
+      grid.append(box);
+      c.fields.push(f);
+    });
+    list.replaceWith(grid);
+    el.insertAdjacentHTML("afterbegin", '<div class="poll-kicker"><span class="poll-dot"></span>' + T.kickerCalc + '</div>');
+    el.insertAdjacentHTML("beforeend",
+      '<div class="poll-table-stats" hidden></div>' +
+      '<div class="poll-footer"><span class="poll-actions"><button type="button" class="poll-submit"></button>' +
+      '<span class="poll-status"></span></span><span class="poll-controls"></span></div>');
+    el.classList.add("poll", "poll-table");
+    el.querySelector(".poll-submit").onclick = () => submitCalc(c);
+    return c;
+  });
+  const calcIds = c => [c.id].concat(c.fields.map(f => f.id));
+  const withUnit = f => f.answer + (f.unit && f.unit !== "%" ? " " : "") + f.unit;
+
+  // Percent fields also accept proportions (0.12 = 12 %).
+  function classify(f, raw) {
+    let v = dec(raw);
+    if (v === null) return null;
+    if (f.unit === "%" && Math.abs(v) < 1) v *= 100;
+    const near = x => Math.abs(v - x) <= f.tol + 1e-9;
+    if (near(f.answer)) return 0;
+    const m = f.mistakes.findIndex(m => near(m.value));
+    return m >= 0 ? m + 1 : f.mistakes.length + 1;
+  }
+  const allIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+
+  const configured = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
+  if (!configured) {
+    polls.forEach(p => { render(p); p.el.querySelector(".poll-status").textContent = T.notConfigured; });
+    tables.concat(calcs).forEach(t => { t.el.querySelector(".poll-submit").hidden = true;
+      t.el.querySelector(".poll-status").textContent = T.notConfigured; });
+    return;
+  }
+  const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  polls.concat(tables, calcs).forEach(p => p.el.classList.add("poll-live"));
+
+  function mine(p) {
+    const v = myVotes[p.id];
+    return v && v.round === p.state.round ? v.choice : null;
+  }
+
+  function render(p) {
+    const body = p.el.querySelector(".poll-body");
+    const status = p.el.querySelector(".poll-status");
+    const controls = p.el.querySelector(".poll-controls");
+    const kicker = p.el.querySelector(".poll-kicker");
+    const s = p.state, my = mine(p);
+    const isTeacher = teacher && !previewAsStudent;
+
+    // Kicker & card styling
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerPractice;
+        p.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kicker;
+        p.el.classList.remove("poll-practice");
+      }
+    }
+
+    // Practice status check
+    const pVote = practiceVotes[p.id];
+    const hasRetried = pVote && pVote.retry;
+    const liveChoice = (my !== null && !hasRetried) ? my : null;
+    const effectiveChoice = (pVote && pVote.choice !== undefined) ? pVote.choice : liveChoice;
+    const isPracticed = effectiveChoice !== null;
+
+    const letter = i => '<span class="poll-letter">' + String.fromCharCode(65 + i) + '</span>';
+    const correctMask = p.correct.reduce((m, i) => m | (1 << i), 0);
+
+    if (practiceMode) {
+      // =======================================================================
+      // PRACTICE / SELF-STUDY MODE (Interactive on-demand self-tests)
+      // =======================================================================
+      if (isPracticed) {
+        p.el.classList.add("poll-revealed");
+        if (p.explanation) p.explanation.hidden = false;
+
+        const hasClassVotes = s.total > 0 && s.counts;
+
+        body.innerHTML = p.options.map((label, i) => {
+          const isPicked = p.multiple ? !!(effectiveChoice & (1 << i)) : i === effectiveChoice;
+          const isCorrect = p.correct.includes(i);
+          let barClass = "poll-bar";
+          let chipHtml = "";
+          let letterHtml = letter(i);
+
+          if (isPicked && isCorrect) {
+            barClass += " poll-correct poll-mine";
+            letterHtml = '<span class="poll-letter">✓</span>';
+            chipHtml = '<span class="poll-chip poll-chip-correct">' + T.yourAnswerCorrect + '</span>';
+          } else if (isPicked && !isCorrect) {
+            barClass += " poll-wrong poll-mine";
+            letterHtml = '<span class="poll-letter">✗</span>';
+            chipHtml = '<span class="poll-chip poll-chip-wrong">' + T.yourAnswerWrong + '</span>';
+          } else if (!isPicked && isCorrect) {
+            barClass += " poll-correct";
+            letterHtml = '<span class="poll-letter">✓</span>';
+            chipHtml = '<span class="poll-chip poll-chip-correct">' + T.correctBadge + '</span>';
+          }
+
+          const n = hasClassVotes
+            ? (p.multiple
+                ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
+                : s.counts[i] || 0)
+            : 0;
+          const pct = (hasClassVotes && s.total) ? Math.round(100 * n / s.total) : 0;
+
+          return '<div class="' + barClass + '">' +
+            (hasClassVotes ? '<div class="poll-bar-fill" data-w="' + pct + '"></div>' : '') +
+            '<div class="poll-bar-label">' + letterHtml +
+            '<span class="poll-bar-text">' + label + '</span>' +
+            chipHtml + '</div>' +
+            (hasClassVotes ? '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div>' : '') +
+            '</div>';
+        }).join("");
+
+        if (hasClassVotes) {
+          requestAnimationFrame(() => requestAnimationFrame(() =>
+            body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
+        }
+
+        let statusHtml = '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span>';
+        if (hasClassVotes) {
+          statusHtml += ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>';
+        }
+        if (p.multiple) {
+          const isExact = effectiveChoice === correctMask;
+          statusHtml += ' <span class="poll-chip ' + (isExact ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+            (isExact ? T.exact : T.partiallyCorrect) + '</span>';
+        }
+        status.innerHTML = statusHtml;
+
+        controls.innerHTML = "";
+        const retryBtn = button(T.tryAgain, () => {
+          practiceVotes[p.id] = { retry: true };
+          store.set("poll-practice-votes", practiceVotes);
+          p.draft = 0;
+          p.lastKey = null;
+          render(p);
+        });
+        retryBtn.className = "poll-control poll-btn-retry";
+        controls.append(retryBtn);
+
+        // Teacher controls preserved right on the card
+        if (isTeacher) {
+          controls.append(
+            button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+          );
+        }
+
+      } else {
+        // Unanswered question waiting for selection
+        p.el.classList.remove("poll-revealed");
+        if (p.explanation) p.explanation.hidden = true;
+
+        if (p.multiple && p.draftRound !== s.round) { p.draft = 0; p.draftRound = s.round; }
+        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const selected = i => p.multiple ? !!(p.draft & (1 << i)) : false;
+
+        body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
+          p.options.map((label, i) =>
+          '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
+          '" data-choice="' + i + '">' + letter(i) +
+          '<span class="poll-option-label">' + label + '</span>' +
+          '<span class="poll-option-indicator" aria-hidden="true">' + (selected(i) ? (p.multiple ? '✓' : '●') : '') + '</span>' +
+          '</button>').join("") + '</div>' +
+          (p.multiple ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
+            T.checkAnswer + '</button>' : '');
+
+        body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
+          const choice = +b.dataset.choice;
+          if (!p.multiple) {
+            // Evaluated 100% in-browser, no database write
+            practiceVotes[p.id] = { choice, time: Date.now() };
+            store.set("poll-practice-votes", practiceVotes);
+            p.lastKey = null;
+            render(p);
+            return;
+          }
+          p.draft ^= 1 << choice;
+          render(p);
+        });
+
+        const submit = body.querySelector(".poll-submit");
+        if (submit) {
+          submit.onclick = () => {
+            practiceVotes[p.id] = { choice: p.draft, time: Date.now() };
+            store.set("poll-practice-votes", practiceVotes);
+            p.lastKey = null;
+            render(p);
+          };
+        }
+
+        let statusHtml = '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptPractice + '</span>';
+        if (s.total > 0) {
+          statusHtml += ' <span class="poll-count">' + T.votes(s.total) + ' in lecture</span>';
+        }
+        status.innerHTML = statusHtml;
+
+        controls.innerHTML = "";
+        if (isTeacher) {
+          controls.append(
+            button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+          );
+        }
+      }
+
+    } else {
+      // =======================================================================
+      // LIVE CLASSROOM MODE (Synchronized in-class polling)
+      // =======================================================================
+      // Results stay hidden for everyone (presenter too, the screen may be projected) until revealed.
+      const showResults = s.counts && s.revealed;
+      if (p.multiple && p.draftRound !== s.round) { p.draft = my || 0; p.draftRound = s.round; }
+      const picked = i => p.multiple ? !!(my & (1 << i)) : i === my;
+      const key = JSON.stringify([s, my, isTeacher, p.draft, practiceMode]);
+      if (key === p.lastKey) return;
+      p.lastKey = key;
+      p.el.classList.toggle("poll-revealed", !!showResults);
+      if (p.explanation) p.explanation.hidden = !(showResults && s.revealed);
+
+      if (showResults) {
+        body.innerHTML = p.options.map((label, i) => {
+          const n = p.multiple
+            ? Object.entries(s.counts).reduce((a, [mask, c]) => a + (mask & (1 << i) ? c : 0), 0)
+            : s.counts[i] || 0;
+          const pct = s.total ? Math.round(100 * n / s.total) : 0;
+          const ok = p.correct.includes(i);
+          return '<div class="poll-bar' + (ok ? ' poll-correct' : '') + (picked(i) ? ' poll-mine' : '') + '">' +
+            '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
+            '<div class="poll-bar-label">' + (ok ? '<span class="poll-letter">✓</span>' : letter(i)) +
+            '<span class="poll-bar-text">' + label + '</span>' +
+            (ok ? '<span class="poll-chip poll-chip-correct">' + T.correct + '</span>' : '') +
+            (picked(i) ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
+            '<div class="poll-bar-value">' + pct + '%<span>' + n + '</span></div></div>';
+        }).join("");
+        requestAnimationFrame(() => requestAnimationFrame(() =>
+          body.querySelectorAll(".poll-bar-fill").forEach(f => f.style.width = f.dataset.w + "%")));
+      } else {
+        const cols = p.options.length === 4 ? 2 : Math.min(p.options.length, 3);
+        const selected = i => p.multiple ? !!(p.draft & (1 << i)) : i === my;
+        body.innerHTML = '<div class="poll-options' + (p.multiple ? ' poll-multi' : '') + '" style="--poll-cols:' + cols + '">' +
+          p.options.map((label, i) =>
+          '<button type="button" class="poll-option' + (selected(i) ? ' poll-selected' : '') +
+          '" data-choice="' + i + '"' + (configured ? '' : ' disabled') + '>' + letter(i) +
+          '<span class="poll-option-label">' + label + '</span>' +
+          '<span class="poll-option-indicator" aria-hidden="true">' + (selected(i) ? (p.multiple ? '✓' : '●') : '') + '</span>' +
+          '</button>').join("") + '</div>' +
+          (p.multiple && configured ? '<button type="button" class="poll-submit"' + (p.draft ? '' : ' disabled') + '>' +
+            (my ? T.update : T.submit) + '</button>' : '');
+        body.querySelectorAll(".poll-option").forEach(b => b.onclick = () => {
+          if (!p.multiple) return vote(p, +b.dataset.choice);
+          p.draft ^= 1 << +b.dataset.choice;
+          render(p);
+        });
+        const submit = body.querySelector(".poll-submit");
+        if (submit) submit.onclick = () => vote(p, p.draft);
+      }
+
+      let msg = "";
+      if (isTeacher) {
+        msg = s.revealed ? T.revealedToAll : T.hidden;
+      } else if (my !== null && !s.revealed) {
+        msg = T.saved;
+      }
+      const exact = p.multiple && showResults && s.total
+        ? '<span class="poll-chip poll-chip-correct">' + T.exact + ' · ' +
+          Math.round(100 * (s.counts[correctMask] || 0) / s.total) + '%</span>' : '';
+      status.innerHTML = '<span class="poll-count">' + T.votes(s.total) + '</span>' + exact +
+        (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
+
+      controls.innerHTML = "";
+      if (isTeacher) {
+        controls.append(
+          button(s.revealed ? T.hide : T.reveal, async () => {
+            await rpc("set_revealed", { p_poll: p.id, p_revealed: !s.revealed });
+          }),
+          button(T.reset, () => confirm(T.confirmReset) && rpc("reset_poll", { p_poll: p.id }))
+        );
+      }
+    }
+
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([body]).catch(() => {});
+  }
+
+  function renderTable(t) {
+    const s = t.state;
+    const isTeacher = teacher && !previewAsStudent;
+    const pVote = practiceVotes[t.id];
+    const hasPracticed = practiceMode && pVote;
+
+    const kicker = t.el.querySelector(".poll-kicker");
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerTablePractice;
+        t.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerTable;
+        t.el.classList.remove("poll-practice");
+      }
+    }
+
+    if (practiceMode) {
+      if (hasPracticed) {
+        t.blanks.forEach((b, k) => {
+          b.input.value = pVote.values[k] ?? "";
+          b.input.disabled = true;
+          const ok = pVote.right[k];
+          b.input.classList.toggle("poll-ok", ok);
+          b.input.classList.toggle("poll-bad", !ok);
+          b.hint.textContent = !ok ? "→ " + fmt(b.answer) : "";
+        });
+        const submit = t.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.tryAgain;
+        submit.className = "poll-submit poll-btn-retry";
+        submit.onclick = () => {
+          delete practiceVotes[t.id];
+          store.set("poll-practice-votes", practiceVotes);
+          t.blanks.forEach(b => {
+            b.input.value = "";
+            b.input.disabled = false;
+            b.input.classList.remove("poll-ok", "poll-bad");
+            b.hint.textContent = "";
+          });
+          t.updateTotals();
+          t.lastKey = null;
+          renderTable(t);
+        };
+        const nRight = pVote.right.filter(Boolean).length;
+        const allOk = nRight === t.blanks.length;
+        t.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-chip ' + (allOk ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+          (allOk ? T.allCorrect : nRight + "/" + t.blanks.length + " correct") + '</span>' +
+          (s.total ? ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>' : '');
+      } else {
+        t.blanks.forEach(b => {
+          b.input.disabled = false;
+          b.input.classList.remove("poll-ok", "poll-bad");
+          b.hint.textContent = "";
+        });
+        const submit = t.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.checkAnswers;
+        submit.className = "poll-submit";
+        submit.onclick = () => submitTable(t);
+        t.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptTablePractice + '</span>';
+      }
+      t.el.querySelector(".poll-controls").innerHTML = "";
+      if (isTeacher) {
+        t.el.querySelector(".poll-controls").append(
+          button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", tableIds(t), id => ({ p_poll: id })))
+        );
+      }
       return;
     }
 
-    let sidebarContainer = sidebar.querySelector(".sidebar-qrcode");
+    // Live Classroom / Teacher view
+    const stored = myVotes[t.id];
+    const mineNow = stored && stored.round === s.round ? stored : null;
+    const key = JSON.stringify([s, t.subs, isTeacher, !!mineNow, practiceMode]);
+    if (key === t.lastKey) return;
+    t.lastKey = key;
 
-    if (!sidebarContainer) {
-      sidebarContainer = document.createElement("div");
-      sidebarContainer.className = "sidebar-qrcode";
-      sidebar.appendChild(sidebarContainer);
-    }
+    if (t.round !== undefined && t.round !== s.round) t.blanks.forEach(b => b.input.value = "");
+    if (t.round === undefined && mineNow) t.blanks.forEach((b, k) => b.input.value = mineNow.values[k] ?? "");
+    t.round = s.round;
+    t.updateTotals();
 
-    const placements = qrCodes.map((qrCode) => {
-      const placeholder = document.createElement("span");
-      placeholder.hidden = true;
-      qrCode.parentNode.insertBefore(placeholder, qrCode);
-      return { qrCode, placeholder };
+    t.blanks.forEach(b => {
+      const v = num(b.input.value), ok = v === b.answer;
+      b.input.disabled = s.revealed;
+      b.input.classList.toggle("poll-ok", s.revealed && ok);
+      b.input.classList.toggle("poll-bad", s.revealed && !ok);
+      b.hint.textContent = s.revealed && !ok ? "→ " + fmt(b.answer) : "";
     });
 
-    const desktopQuery = window.matchMedia("(min-width: 992px)");
+    const submit = t.el.querySelector(".poll-submit");
+    submit.hidden = s.revealed;
+    submit.className = "poll-submit";
+    submit.textContent = mineNow ? T.update : T.submit;
+    submit.onclick = () => submitTable(t);
 
-    const placeQrCodes = () => {
-      placements.forEach(({ qrCode, placeholder }) => {
-        if (desktopQuery.matches) {
-          sidebarContainer.appendChild(qrCode);
-        } else {
-          placeholder.parentNode.insertBefore(qrCode, placeholder.nextSibling);
-        }
-      });
-    };
+    const stats = t.el.querySelector(".poll-table-stats");
+    stats.hidden = !s.revealed || !s.total;
+    const pct = st => st && st.total ? Math.round(100 * ((st.counts || {})[0] || 0) / st.total) : 0;
+    stats.innerHTML = '<span class="poll-chip poll-chip-correct">' + T.allCorrect + ' · ' + pct(s) + '%</span>' +
+      t.blanks.map(b => '<span class="poll-chip">' + b.label + ' · ' + pct(t.subs[b.id]) + '%</span>').join("");
 
-    if (typeof desktopQuery.addEventListener === "function") {
-      desktopQuery.addEventListener("change", placeQrCodes);
-    } else if (typeof desktopQuery.addListener === "function") {
-      desktopQuery.addListener(placeQrCodes);
+    let msg = "";
+    if (isTeacher) {
+      msg = s.revealed ? T.revealedToAll : T.hidden;
+    } else if (mineNow && !s.revealed) {
+      msg = T.savedTable;
+    }
+    t.el.querySelector(".poll-status").innerHTML = '<span class="poll-count">' + T.submissions(s.total) + '</span>' +
+      (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
+
+    const controls = t.el.querySelector(".poll-controls");
+    controls.innerHTML = "";
+    if (isTeacher) {
+      controls.append(
+        button(s.revealed ? T.hide : T.reveal, () => rpcAll("set_revealed", tableIds(t), id => ({ p_poll: id, p_revealed: !s.revealed }))),
+        button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", tableIds(t), id => ({ p_poll: id }))));
+    }
+  }
+
+  async function submitTable(t) {
+    const isTeacher = teacher && !previewAsStudent;
+    const values = t.blanks.map(b => num(b.input.value));
+    const status = t.el.querySelector(".poll-status");
+    if (values.some(v => v === null)) { status.textContent = T.fillAll; return; }
+    const right = t.blanks.map((b, k) => values[k] === b.answer);
+
+    if (practiceMode) {
+      // 100% in-browser, no database write
+      practiceVotes[t.id] = { values, right, time: Date.now() };
+      store.set("poll-practice-votes", practiceVotes);
+      t.lastKey = null;
+      renderTable(t);
+      return;
     }
 
-    placeQrCodes();
-  });
+    const results = await Promise.all([
+      db.rpc("cast_vote", { p_poll: t.id, p_voter: voter, p_choice: right.every(Boolean) ? 0 : 1 })
+    ].concat(t.blanks.map((b, k) =>
+      db.rpc("cast_vote", { p_poll: b.id, p_voter: voter, p_choice: right[k] ? 0 : 1 }))));
+    if (results.some(r => r.error)) { status.textContent = T.error; return; }
+    myVotes[t.id] = { round: results[0].data, values };
+    store.set("poll-votes", myVotes);
+    t.lastKey = null;
+    refresh();
+  }
+
+  function renderCalc(c) {
+    const s = c.state;
+    const isTeacher = teacher && !previewAsStudent;
+    const pVote = practiceVotes[c.id];
+    const hasPracticed = practiceMode && pVote;
+
+    const kicker = c.el.querySelector(".poll-kicker");
+    if (kicker) {
+      if (practiceMode) {
+        kicker.className = "poll-kicker poll-kicker-practice";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerCalcPractice;
+        c.el.classList.add("poll-practice");
+      } else {
+        kicker.className = "poll-kicker";
+        kicker.innerHTML = '<span class="poll-dot"></span>' + T.kickerCalc;
+        c.el.classList.remove("poll-practice");
+      }
+    }
+
+    if (practiceMode) {
+      if (hasPracticed) {
+        c.fields.forEach((f, k) => {
+          f.input.value = pVote.values[k] ?? "";
+          f.input.disabled = true;
+          const got = pVote.got[k];
+          f.input.classList.toggle("poll-ok", got === 0);
+          f.input.classList.toggle("poll-bad", got !== 0);
+          f.hint.textContent = got !== 0 ? "→ " + withUnit(f) : "";
+          f.feedback.textContent = got > 0 && got <= f.mistakes.length ? f.mistakes[got - 1].label : "";
+        });
+        const submit = c.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.tryAgain;
+        submit.className = "poll-submit poll-btn-retry";
+        submit.onclick = () => {
+          delete practiceVotes[c.id];
+          store.set("poll-practice-votes", practiceVotes);
+          c.fields.forEach(f => {
+            f.input.value = "";
+            f.input.disabled = false;
+            f.input.classList.remove("poll-ok", "poll-bad");
+            f.hint.textContent = "";
+            f.feedback.textContent = "";
+          });
+          c.lastKey = null;
+          renderCalc(c);
+        };
+        const allOk = pVote.got.every(g => g === 0);
+        c.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-chip ' + (allOk ? 'poll-chip-correct' : 'poll-chip-wrong') + '">' +
+          (allOk ? T.allCorrect : 'Check feedback above') + '</span>' +
+          (s.total ? ' <span class="poll-count">' + T.classBenchmark(s.total) + '</span>' : '');
+      } else {
+        c.fields.forEach(f => {
+          f.input.disabled = false;
+          f.input.classList.remove("poll-ok", "poll-bad");
+          f.hint.textContent = "";
+          f.feedback.textContent = "";
+        });
+        const submit = c.el.querySelector(".poll-submit");
+        submit.hidden = false;
+        submit.textContent = T.checkAnswers;
+        submit.className = "poll-submit";
+        submit.onclick = () => submitCalc(c);
+        c.el.querySelector(".poll-status").innerHTML =
+          '<span class="poll-chip poll-chip-practice">' + T.practiceActiveNotice + '</span> ' +
+          '<span class="poll-msg">' + T.promptCalcPractice + '</span>';
+      }
+      c.el.querySelector(".poll-controls").innerHTML = "";
+      if (isTeacher) {
+        c.el.querySelector(".poll-controls").append(
+          button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", calcIds(c), id => ({ p_poll: id })))
+        );
+      }
+      return;
+    }
+
+    // Live Classroom / Teacher view
+    const stored = myVotes[c.id];
+    const mineNow = stored && stored.round === s.round ? stored : null;
+    const key = JSON.stringify([s, c.subs, isTeacher, !!mineNow, practiceMode]);
+    if (key === c.lastKey) return;
+    c.lastKey = key;
+
+    if (c.round !== undefined && c.round !== s.round) c.fields.forEach(f => f.input.value = "");
+    if (c.round === undefined && mineNow) c.fields.forEach((f, k) => f.input.value = mineNow.values[k] ?? "");
+    c.round = s.round;
+
+    const showStats = s.revealed && s.total;
+    c.fields.forEach(f => {
+      const got = classify(f, f.input.value);
+      f.input.disabled = s.revealed;
+      f.input.classList.toggle("poll-ok", s.revealed && got === 0);
+      f.input.classList.toggle("poll-bad", s.revealed && got !== 0);
+      f.hint.textContent = s.revealed && got !== 0 ? "→ " + withUnit(f) : "";
+      f.feedback.textContent = s.revealed && got > 0 && got <= f.mistakes.length ? f.mistakes[got - 1].label : "";
+      f.stats.hidden = !showStats;
+      if (!showStats) return;
+      const st = c.subs[f.id] || {}, counts = st.counts || {}, n = st.total || 0;
+      const rows = ["✓ " + withUnit(f)].concat(f.mistakes.map(m => m.label), T.other);
+      f.stats.innerHTML = rows.map((label, i) => {
+        const pct = n ? Math.round(100 * (counts[i] || 0) / n) : 0;
+        return '<div class="poll-bar' + (i === 0 ? ' poll-correct' : '') + '">' +
+          '<div class="poll-bar-fill" data-w="' + pct + '"></div>' +
+          '<div class="poll-bar-label"><span class="poll-bar-text">' + label + '</span>' +
+          (mineNow && got === i ? '<span class="poll-chip">' + T.yours + '</span>' : '') + '</div>' +
+          '<div class="poll-bar-value">' + pct + '%<span>' + (counts[i] || 0) + '</span></div></div>';
+      }).join("");
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() =>
+      c.el.querySelectorAll(".poll-bar-fill").forEach(b => b.style.width = b.dataset.w + "%")));
+
+    const submit = c.el.querySelector(".poll-submit");
+    submit.hidden = s.revealed;
+    submit.className = "poll-submit";
+    submit.textContent = mineNow ? T.update : T.submit;
+    submit.onclick = () => submitCalc(c);
+
+    const stats = c.el.querySelector(".poll-table-stats");
+    stats.hidden = !showStats;
+    stats.innerHTML = '<span class="poll-chip poll-chip-correct">' + T.allCorrect + ' · ' +
+      (s.total ? Math.round(100 * ((s.counts || {})[0] || 0) / s.total) : 0) + '%</span>';
+
+    let msg = "";
+    if (isTeacher) {
+      msg = s.revealed ? T.revealedToAll : T.hidden;
+    } else if (mineNow && !s.revealed) {
+      msg = T.savedTable;
+    }
+    c.el.querySelector(".poll-status").innerHTML = '<span class="poll-count">' + T.submissions(s.total) + '</span>' +
+      (msg ? ' <span class="poll-msg">' + msg + '</span>' : '');
+
+    const controls = c.el.querySelector(".poll-controls");
+    controls.innerHTML = "";
+    if (isTeacher) {
+      controls.append(
+        button(s.revealed ? T.hide : T.reveal, () => rpcAll("set_revealed", calcIds(c), id => ({ p_poll: id, p_revealed: !s.revealed }))),
+        button(T.reset, () => confirm(T.confirmReset) && rpcAll("reset_poll", calcIds(c), id => ({ p_poll: id }))));
+    }
+  }
+
+  async function submitCalc(c) {
+    const isTeacher = teacher && !previewAsStudent;
+    const values = c.fields.map(f => f.input.value.trim());
+    const got = c.fields.map(f => classify(f, f.input.value));
+    const status = c.el.querySelector(".poll-status");
+    if (got.some(g => g === null)) { status.textContent = T.fillNumbers; return; }
+
+    if (practiceMode) {
+      // 100% in-browser, no database write
+      practiceVotes[c.id] = { values, got, time: Date.now() };
+      store.set("poll-practice-votes", practiceVotes);
+      c.lastKey = null;
+      renderCalc(c);
+      return;
+    }
+
+    const results = await Promise.all([
+      db.rpc("cast_vote", { p_poll: c.id, p_voter: voter, p_choice: got.every(g => g === 0) ? 0 : 1 })
+    ].concat(c.fields.map((f, k) =>
+      db.rpc("cast_vote", { p_poll: f.id, p_voter: voter, p_choice: got[k] }))));
+    if (results.some(r => r.error)) { status.textContent = T.error; return; }
+    myVotes[c.id] = { round: results[0].data, values };
+    store.set("poll-votes", myVotes);
+    c.lastKey = null;
+    refresh();
+  }
+
+  async function rpcAll(name, ids, args) {
+    const results = await Promise.all(ids.map(id => db.rpc(name, args(id))));
+    const err = results.find(r => r.error);
+    if (err) alert(T.error + "\n" + err.error.message);
+    await refresh();
+  }
+
+  function button(label, onclick) {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "poll-control"; b.textContent = label; b.onclick = onclick;
+    return b;
+  }
+
+  async function vote(p, choice) {
+    const { data, error } = await db.rpc("cast_vote", { p_poll: p.id, p_voter: voter, p_choice: choice });
+    if (error) { p.el.querySelector(".poll-status").textContent = T.error; return; }
+    myVotes[p.id] = { round: data, choice };
+    store.set("poll-votes", myVotes);
+    refresh();
+  }
+
+  async function rpc(name, args) {
+    const { error } = await db.rpc(name, args);
+    if (error) alert(T.error + "\n" + error.message);
+    await refresh();
+  }
+
+  // Toggle page mode: switches between Live Classroom and Practice Mode for all polls
+  async function togglePageMode() {
+    const nextMode = !practiceMode;
+    // 1. Update session in polls table
+    await db.rpc("set_revealed", { p_poll: pageSessionId, p_revealed: nextMode });
+
+    // 2. Cast session vote so old unmigrated poll_results RPC with inner join also finds it
+    if (nextMode) {
+      await db.rpc("cast_vote", { p_poll: pageSessionId, p_voter: voter, p_choice: 0 });
+    }
+
+    // 3. Update all polls on the page in parallel
+    const updateIds = allIds();
+    await Promise.all(updateIds.map(id => db.rpc("set_revealed", { p_poll: id, p_revealed: nextMode })));
+
+    practiceMode = nextMode;
+    await refresh();
+    drawPresenterUi();
+  }
+
+  async function resetAllPolls() {
+    if (!confirm(T.confirmResetAll)) return;
+    await db.rpc("set_revealed", { p_poll: pageSessionId, p_revealed: false });
+    await Promise.all(allIds().map(id => db.rpc("reset_poll", { p_poll: id })));
+    practiceMode = false;
+    await refresh();
+    drawPresenterUi();
+  }
+
+  let presenterDock = null;
+  let dockMinimized = store.get("poll-dock-min", false);
+  let previewBanner = null;
+
+  function updatePreviewBanner() {
+    if (teacher && previewAsStudent) {
+      if (!previewBanner) {
+        previewBanner = document.createElement("div");
+        previewBanner.id = "poll-preview-banner";
+        previewBanner.className = "poll-preview-banner";
+        previewBanner.innerHTML = `
+          <span class="poll-preview-text">👁️ <strong>Previewing as Student</strong></span>
+          <button type="button" class="poll-control" id="poll-btn-exit-preview">Exit Preview</button>
+        `;
+        document.body.appendChild(previewBanner);
+        previewBanner.querySelector("#poll-btn-exit-preview").onclick = () => {
+          previewAsStudent = false;
+          updatePreviewBanner();
+          drawPresenterDock();
+          drawPresenterUi();
+          refresh();
+        };
+      }
+      previewBanner.style.display = "flex";
+    } else if (previewBanner) {
+      previewBanner.style.display = "none";
+    }
+  }
+
+  function drawPresenterDock() {
+    const oldBar = document.getElementById("poll-praktikum-bar");
+    if (oldBar) oldBar.remove();
+
+    updatePreviewBanner();
+
+    const show = teacher && !previewAsStudent && !!(polls.length || tables.length || calcs.length);
+    if (!show) {
+      if (presenterDock) presenterDock.style.display = "none";
+      return;
+    }
+
+    if (!presenterDock) {
+      presenterDock = document.createElement("div");
+      presenterDock.id = "poll-presenter-dock";
+      document.body.appendChild(presenterDock);
+    }
+
+    presenterDock.style.display = "flex";
+    presenterDock.className = "poll-presenter-dock" + (practiceMode ? " practice-mode" : "") + (dockMinimized ? " minimized" : "");
+
+    const label = getPracticalLabel();
+
+    if (dockMinimized) {
+      presenterDock.innerHTML = `
+        <button type="button" class="poll-dock-min-btn ${practiceMode ? 'poll-mode-practice' : 'poll-mode-live'}" title="Expand Presenter Controls for ${label.full} (${practiceMode ? 'Practice Mode' : 'Live Classroom'})">
+          <span class="poll-dock-dot"></span>
+          <span class="poll-dock-min-text">${label.short}</span>
+        </button>
+      `;
+      presenterDock.querySelector(".poll-dock-min-btn").onclick = () => {
+        dockMinimized = false;
+        store.set("poll-dock-min", false);
+        drawPresenterDock();
+      };
+      return;
+    }
+
+    presenterDock.innerHTML = `
+      <div class="poll-dock-capsule">
+        <span class="poll-dock-scope-badge" title="Controls apply ONLY to ${label.full}">${label.short}</span>
+        <div class="poll-dock-indicator ${practiceMode ? 'poll-mode-practice' : 'poll-mode-live'}" title="${label.full}: ${practiceMode ? 'Self-study: instant local evaluation, 0 DB writes' : 'Live: students vote into classroom dataset'}">
+          <span class="poll-dock-dot"></span>
+          <span class="poll-dock-status-label">${label.full}: ${practiceMode ? 'Practice' : 'Live'}</span>
+        </div>
+        <div class="poll-dock-sep"></div>
+        <button type="button" class="poll-dock-toggle-btn" title="Toggle ${label.full} between Live Classroom and Practice Mode (other practicals remain unaffected)">
+          ${practiceMode ? 'Set ' + label.short + ' to Live' : 'Set ' + label.short + ' to Practice'}
+        </button>
+        <div class="poll-dock-sep"></div>
+        <button type="button" class="poll-dock-icon-btn poll-dock-csv" title="Export CSV for ${label.full}">📊 CSV</button>
+        <button type="button" class="poll-dock-icon-btn poll-dock-reset" title="${label.full}: ${T.resetAll}">↺</button>
+        <button type="button" class="poll-dock-icon-btn poll-dock-min" title="Minimize toolbar">—</button>
+      </div>
+    `;
+
+    const toggleBtn = presenterDock.querySelector(".poll-dock-toggle-btn");
+    if (toggleBtn) toggleBtn.onclick = togglePageMode;
+
+    const csvBtn = presenterDock.querySelector(".poll-dock-csv");
+    if (csvBtn) csvBtn.onclick = exportCsv;
+
+    const resetBtn = presenterDock.querySelector(".poll-dock-reset");
+    if (resetBtn) resetBtn.onclick = resetAllPolls;
+
+    const minBtn = presenterDock.querySelector(".poll-dock-min");
+    if (minBtn) {
+      minBtn.onclick = () => {
+        dockMinimized = true;
+        store.set("poll-dock-min", true);
+        drawPresenterDock();
+      };
+    }
+  }
+
+  async function refresh() {
+    if (!polls.length && !tables.length && !calcs.length) return;
+    const queryIds = [pageSessionId].concat(allIds());
+    const byId = {};
+
+    // 1. Fetch live RPC results
+    const { data, error } = await db.rpc("poll_results", { p_polls: queryIds });
+    if (!error && data) {
+      data.forEach(r => {
+        const s = byId[r.poll_id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+        s.round = r.round;
+        s.revealed = r.revealed;
+        if (r.choice === null) {
+          s.total = Number(r.n);
+        } else {
+          (s.counts ||= {})[r.choice] = Number(r.n);
+        }
+      });
+      // One vote per voter and poll, so the counts add up to the total. The live DB sometimes
+      // omits the total row for revealed polls (→ "0 votes", 0 %), so never trust it below the sum.
+      Object.values(byId).forEach(s => {
+        if (s.counts) s.total = Math.max(s.total, Object.values(s.counts).reduce((a, n) => a + n, 0));
+      });
+    }
+
+    // 2. Fetch authoritative poll state from polls table directly (handles 0-vote polls under RLS)
+    try {
+      const { data: pollRows } = await db.from("polls").select("id, round, revealed").in("id", queryIds);
+      if (pollRows) {
+        pollRows.forEach(r => {
+          const s = byId[r.id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+          s.round = r.round;
+          s.revealed = r.revealed;
+        });
+      }
+    } catch (e) {}
+
+    // Check practice mode from session row
+    if (byId[pageSessionId]) {
+      practiceMode = !!byId[pageSessionId].revealed;
+    }
+
+    polls.forEach(p => {
+      const s = byId[p.id] || { round: p.state.round, revealed: false, counts: null, total: 0 };
+      if (!s.counts && (s.revealed || (teacher && !previewAsStudent))) s.counts = {};
+      p.state = s;
+      render(p);
+    });
+    const empty = { round: 1, revealed: false, counts: null, total: 0 };
+    tables.forEach(t => {
+      t.state = byId[t.id] || { ...empty, round: t.state.round };
+      t.subs = Object.fromEntries(t.blanks.map(b => [b.id, byId[b.id] || empty]));
+      renderTable(t);
+    });
+    calcs.forEach(c => {
+      c.state = byId[c.id] || { ...empty, round: c.state.round };
+      c.subs = Object.fromEntries(c.fields.map(f => [f.id, byId[f.id] || empty]));
+      renderCalc(c);
+    });
+    // Elements with class .presenter-only[data-reveal-with]: unlock in practice mode or when revealed
+    document.querySelectorAll(".presenter-only[data-reveal-with]").forEach(el => {
+      const isRev = practiceMode || !!(byId[el.dataset.revealWith] || {}).revealed;
+      el.classList.toggle("poll-unlocked", isRev);
+    });
+
+    drawPresenterDock();
+    if (navBadge) {
+      const hasPolls = !!(polls.length || tables.length || calcs.length);
+      if (teacher && !previewAsStudent && hasPolls) {
+        const label = getPracticalLabel();
+        navBadge.style.display = "inline-flex";
+        navBadge.className = "poll-navbar-badge " + (practiceMode ? "poll-mode-practice" : "poll-mode-live");
+        navBadge.innerHTML = '<span class="poll-nav-dot"></span><span class="poll-nav-label">' +
+          label.short + ' · ' + (practiceMode ? "Practice" : "Live") + '</span>';
+        navBadge.title = `${label.full}: ${practiceMode ? 'Practice Mode' : 'Live Classroom'} (Click to open Presenter Menu)`;
+      } else {
+        navBadge.style.display = "none";
+      }
+    }
+  }
+
+  let drawPresenterUi = () => {};
+  let navBadge = null;
+
+  // Persistent Presenter Toolbar in navbar (gear icon always visible)
+  async function setupPresenter() {
+    const wrap = document.createElement("div");
+    wrap.className = "poll-presenter";
+    const toggle = document.createElement("button");
+    toggle.type = "button"; toggle.className = "poll-presenter-toggle"; toggle.title = T.presenter;
+    toggle.textContent = "⚙";
+    toggle.onclick = () => wrap.classList.toggle("open");
+    const bar = document.createElement("div");
+    bar.className = "poll-presenter-bar";
+    wrap.append(bar);
+    document.body.append(wrap);
+    const tools = document.querySelector(".quarto-navbar-tools");
+    if (tools) {
+      navBadge = document.createElement("button");
+      navBadge.type = "button";
+      navBadge.className = "poll-navbar-badge";
+      navBadge.style.display = "none";
+      navBadge.onclick = () => wrap.classList.toggle("open");
+      tools.prepend(toggle);
+      tools.prepend(navBadge);
+    } else {
+      wrap.append(toggle);
+    }
+
+    drawPresenterUi = async function () {
+      const { data: { session } } = await db.auth.getSession();
+      if (session) {
+        const { data } = await db.rpc("is_teacher");
+        teacher = !!data;
+        const label = getPracticalLabel();
+
+        let html = '<div class="poll-presenter-row poll-presenter-top">' +
+          '<strong>' + T.presenter + '</strong> ' +
+          '<span class="poll-presenter-email">' + session.user.email + '</span>' +
+          (teacher ? '' : ' <span class="poll-warning">' + T.notTeacher + '</span>') +
+          '</div>';
+
+        if (teacher) {
+          html += '<div class="poll-presenter-row poll-presenter-mode-row">' +
+            '<div class="poll-mode-status">' +
+            '<strong>' + label.full + ':</strong> <span class="poll-mode-badge ' + (practiceMode ? 'poll-mode-practice' : 'poll-mode-live') + '">' +
+            '<span class="poll-nav-dot"></span> ' + (practiceMode ? 'Practice Mode' : 'Live Classroom') +
+            '</span></div>' +
+            '<button type="button" class="poll-control poll-btn-mode-toggle">' +
+            (practiceMode ? 'Set ' + label.short + ' to Live' : 'Set ' + label.short + ' to Practice') + '</button>' +
+            '</div>' +
+            '<div class="poll-mode-scope-hint">' +
+            '<span>🎯 <strong>Independent Scope:</strong> Mode is stored per practical. Setting ' + label.full + ' to Practice leaves all other practicals untouched.</span>' +
+            '</div>';
+
+          html += '<div class="poll-presenter-row poll-presenter-actions">' +
+            '<label class="poll-presenter-preview"><input type="checkbox" id="poll-preview-chk"' +
+            (previewAsStudent ? ' checked' : '') + '> ' + T.previewStudent + '</label>' +
+            '<button type="button" class="poll-control" id="poll-btn-csv">' + T.csv + '</button>' +
+            '<button type="button" class="poll-control poll-btn-danger" id="poll-btn-reset-all">' + T.resetAll + '</button>' +
+            '<button type="button" class="poll-control" id="poll-btn-logout">' + T.logout + '</button>' +
+            '</div>';
+        } else {
+          html += '<div class="poll-presenter-row"><button type="button" class="poll-control" id="poll-btn-logout">' + T.logout + '</button></div>';
+        }
+
+        bar.innerHTML = html;
+
+        if (teacher) {
+          const modeBtn = bar.querySelector(".poll-btn-mode-toggle");
+          if (modeBtn) modeBtn.onclick = togglePageMode;
+
+          const chk = bar.querySelector("#poll-preview-chk");
+          if (chk) {
+            chk.onchange = () => {
+              previewAsStudent = chk.checked;
+              wrap.classList.remove("open");
+              drawPresenterDock();
+              refresh();
+            };
+          }
+
+          const csvBtn = bar.querySelector("#poll-btn-csv");
+          if (csvBtn) csvBtn.onclick = exportCsv;
+
+          const resetAllBtn = bar.querySelector("#poll-btn-reset-all");
+          if (resetAllBtn) resetAllBtn.onclick = resetAllPolls;
+        }
+
+        const logoutBtn = bar.querySelector("#poll-btn-logout");
+        if (logoutBtn) {
+          logoutBtn.onclick = async () => {
+            await db.auth.signOut();
+            teacher = false;
+            previewAsStudent = false;
+            drawPresenterUi();
+            drawPresenterDock();
+            refresh();
+          };
+        }
+      } else {
+        teacher = false;
+        previewAsStudent = false;
+        bar.innerHTML = "<strong>" + T.presenter + "</strong>" +
+          '<form><input type="email" placeholder="' + T.email + '" required>' +
+          '<input type="password" placeholder="' + T.password + '" required>' +
+          '<button type="submit" class="poll-control">' + T.login + "</button></form>";
+        bar.querySelector("form").onsubmit = async e => {
+          e.preventDefault();
+          const [email, password] = Array.from(e.target.querySelectorAll("input")).map(i => i.value);
+          const { error } = await db.auth.signInWithPassword({ email, password });
+          if (error) alert(error.message);
+          drawPresenterUi();
+        };
+      }
+      document.documentElement.classList.toggle("poll-teacher", teacher && !previewAsStudent);
+
+      if (navBadge) {
+        const hasPolls = !!(polls.length || tables.length || calcs.length);
+        if (teacher && !previewAsStudent && hasPolls) {
+          const label = getPracticalLabel();
+          navBadge.style.display = "inline-flex";
+          navBadge.className = "poll-navbar-badge " + (practiceMode ? "poll-mode-practice" : "poll-mode-live");
+          navBadge.innerHTML = '<span class="poll-nav-dot"></span><span class="poll-nav-label">' +
+            label.short + ' · ' + (practiceMode ? "Practice" : "Live") + '</span>';
+          navBadge.title = `${label.full}: ${practiceMode ? 'Practice Mode' : 'Live Classroom'} (Click to open Presenter Menu)`;
+        } else {
+          navBadge.style.display = "none";
+        }
+      }
+
+      drawPresenterDock();
+      refresh();
+    };
+
+    drawPresenterUi();
+  }
+
+  async function exportCsv() {
+    const { data, error } = await db.from("votes")
+      .select("poll_id, round, choice, created_at")
+      .in("poll_id", allIds())
+      .order("created_at");
+    if (error) { alert(T.error + "\n" + error.message); return; }
+    const text = html => { const d = document.createElement("div"); d.innerHTML = html; return d.textContent.trim(); };
+    const labels = Object.fromEntries(polls.map(p => [p.id, p.multiple
+      ? Array.from({ length: 1 << p.options.length }, (_, m) =>
+          p.options.map(text).filter((_, i) => m & (1 << i)).join(" + "))
+      : p.options.map(text)]));
+    tables.forEach(t => {
+      labels[t.id] = ["all correct", "not all correct"];
+      t.blanks.forEach(b => labels[b.id] = [b.label + ": correct", b.label + ": wrong"]);
+    });
+    calcs.forEach(c => {
+      labels[c.id] = ["all correct", "not all correct"];
+      c.fields.forEach(f => labels[f.id] = [f.text + ": correct"]
+        .concat(f.mistakes.map(m => f.text + ": " + m.label), f.text + ": other"));
+    });
+    const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+    const rows = [["poll", "round", "choice", "answer", "time"]].concat(data.map(r =>
+      [r.poll_id, r.round, r.choice, (labels[r.poll_id] || [])[r.choice] ?? "", r.created_at]));
+    const blob = new Blob([rows.map(r => r.map(q).join(",")).join("\n")], { type: "text/csv" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "poll-votes-" + new Date().toISOString().slice(0, 10) + ".csv";
+    a.click();
+  }
+
+  polls.forEach(render);
+  tables.forEach(renderTable);
+  calcs.forEach(renderCalc);
+  setupPresenter();
+  if (polls.length || tables.length || calcs.length) {
+    refresh();
+    setInterval(() => { if (!document.hidden) refresh(); }, REFRESH_MS);
+  }
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
