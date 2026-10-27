@@ -43,7 +43,4 @@ What is the level of measurement of **BMI**?
 
 English and German pages use the same ids, so votes from both count together.
 
-virsoS-defzab-4rosju
 
-
-hodxe6-fivreJ-qatvyj user
