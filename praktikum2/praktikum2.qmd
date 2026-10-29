@@ -1,3 +1,8 @@
+---
+resources:
+  - recap/index.html
+---
+
 
 # Practical 2
 
@@ -50,8 +55,8 @@ In this session, we will cover the first steps in SPSS, including the descriptiv
 ### Practice exercises
 📥 Download the dataset `nhanes30.sav` and open it in **SPSS** — either by drag and drop 🖱️ or via the File menu 🗂️ → Open.
 
-::: {.download-card}
-[Download recap for Practical 2](recap/recap_P2.pdf){download="recap_P2.pdf"}
+::: {.download-html-card}
+[Open the recap for Practical 2](recap/index.html){target="_blank"}
 :::
 
 # Part 1: First Steps
