@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practical 2 Recap</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f1ec;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #677481;
+      --line: #e2dcd2;
+      --teal: #0f766e;
+      --teal-soft: #ccebe7;
+      --orange: #e2704a;
+      --orange-soft: #fbe2d8;
+      --navy: #17212b;
+      --sand: #f1e6c4;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; }
+
+    /* header */
+    .top {
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+      gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 16px;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    }
+    .eyebrow::before { content: ""; width: 4px; height: 14px; background: var(--teal); border-radius: 2px; }
+    h1 { margin: 6px 0 4px; font-size: clamp(22px, 3vw, 30px); line-height: 1.15; }
+    .sub { margin: 0; color: var(--muted); max-width: 70ch; }
+    .steps { display: flex; gap: 8px; flex-wrap: wrap; }
+    .step {
+      flex: 1; display: flex; gap: 8px; align-items: baseline;
+      padding: 8px 12px; background: var(--bg); border-radius: 10px;
+      border-top: 3px solid var(--teal); min-width: 150px;
+    }
+    .step:nth-child(even) { border-top-color: var(--orange); }
+    .step b { font-size: 18px; color: var(--teal); font-variant-numeric: tabular-nums; }
+    .step:nth-child(even) b { color: var(--orange); }
+    .step span { font-weight: 600; }
+    .step small { display: block; color: var(--muted); font-size: 11px; font-weight: 400; }
+
+    /* tabs */
+    .tabs {
+      position: sticky; top: 0; z-index: 5; display: flex; gap: 4px; overflow-x: auto;
+      margin: 0 -16px 16px; padding: 8px 16px; background: var(--bg); border-bottom: 1px solid var(--line);
+      scrollbar-width: none;
+    }
+    .tabs button {
+      flex: none; font: inherit; font-weight: 600; font-size: 13px; cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 10px; border: 1px solid transparent; background: transparent; color: var(--muted);
+    }
+    .tabs button b { font-size: 11px; font-variant-numeric: tabular-nums; color: var(--muted); }
+    .tabs button:hover { background: var(--panel); color: var(--ink); }
+    .tabs button[aria-selected="true"] { background: var(--panel); border-color: var(--line); color: var(--ink); box-shadow: inset 0 -3px 0 var(--teal); }
+    .tabs button[aria-selected="true"] b { color: var(--teal); }
+    .tabs button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .panel[hidden] { display: none; }
+    .pager { display: flex; justify-content: space-between; gap: 8px; margin-top: 16px; }
+    .pager button {
+      font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; padding: 8px 14px;
+      border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    }
+    .pager button:disabled { visibility: hidden; }
+
+    /* grid */
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card {
+      background: var(--panel); border-radius: var(--radius); padding: 16px 18px;
+      border: 1px solid var(--line); min-width: 0;
+    }
+    .card h2 {
+      margin: 0 0 2px; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .card h3 { margin: 0 0 12px; font-size: 16px; line-height: 1.3; }
+    .s3 { grid-column: span 3; } .s4 { grid-column: span 4; } .s5 { grid-column: span 5; }
+    .s6 { grid-column: span 6; } .s7 { grid-column: span 7; } .s8 { grid-column: span 8; } .s12 { grid-column: span 12; }
+    @media (max-width: 1000px) {
+      .s3, .s4, .s5, .s6, .s7, .s8 { grid-column: span 6; }
+    }
+    @media (max-width: 680px) {
+      .grid > * { grid-column: span 12 !important; }
+    }
+
+    .dark { background: var(--navy); color: #f4f1ec; border-color: var(--navy); }
+    .dark h2 { color: #9fb3c2; }
+    .dark .big { font-size: 20px; font-weight: 700; line-height: 1.25; margin: 6px 0 10px; }
+    .dark p { color: #c7d2da; margin: 0; font-size: 13px; }
+
+    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .kpi { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+    .kpi .v { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .kpi .l { font-size: 12px; color: var(--muted); }
+    .warn {
+      margin-top: 12px; padding: 10px 12px; border-radius: 10px;
+      background: var(--orange-soft); font-size: 13px;
+    }
+    .warn b { color: #a4421f; }
+
+    .chips { display: grid; gap: 8px; }
+    .chipgroup { display: grid; grid-template-columns: 110px 1fr; gap: 8px; align-items: start; }
+    .chipgroup > span { font-size: 12px; font-weight: 600; padding-top: 3px; }
+    .chipgroup div { display: flex; flex-wrap: wrap; gap: 4px; }
+    code, .chip {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px;
+      background: var(--teal-soft); color: #0b4f49; border-radius: 6px; padding: 2px 6px;
+    }
+
+    /* table */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+    td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    tr:last-child td { border-bottom: 0; }
+    .lvl { display: inline-block; border-radius: 999px; padding: 1px 8px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+    .lvl.nom { background: var(--orange-soft); color: #a4421f; }
+    .lvl.ord { background: var(--sand); color: #7a5b0c; }
+    .lvl.met { background: var(--teal-soft); color: #0b4f49; }
+    .tablewrap { overflow-x: auto; }
+    .note { margin: 10px 0 0; font-size: 12px; color: var(--muted); }
+    .note b { color: var(--ink); }
+    .path {
+      margin-top: 12px; font-size: 12px; padding: 8px 10px; border-radius: 8px;
+      background: var(--bg); border-left: 3px solid var(--teal);
+    }
+
+    /* graph chooser */
+    .seg { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .seg button {
+      font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+    }
+    .seg button[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .rec { display: grid; gap: 8px; }
+    .rec div { padding: 10px 12px; border-radius: 10px; background: var(--bg); }
+    .rec b { display: block; }
+    .rec small { color: var(--muted); }
+
+    /* mini plots */
+    .minis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 680px) { .minis { grid-template-columns: 1fr; } }
+    .mini { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+    .mini b { display: block; }
+    .mini .q { font-size: 12px; color: var(--muted); }
+    .mini svg { width: 100%; height: auto; display: block; margin: 6px 0; }
+    .mini p { margin: 0; font-size: 12px; }
+    .banner {
+      margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: var(--navy); color: #f4f1ec; font-size: 13px;
+    }
+
+    /* crosstab */
+    .ct { width: 100%; text-align: center; }
+    .ct th, .ct td { text-align: center; }
+    .ct td.rowh { text-align: left; font-weight: 600; }
+    .ct input {
+      width: 76px; font: inherit; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums;
+      padding: 6px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg);
+    }
+    .ct .cell-l { display: block; font-size: 11px; color: var(--muted); }
+    .ct .pct { display: block; font-size: 11px; color: var(--teal); font-weight: 600; }
+    .risk { display: grid; gap: 10px; }
+    .rm { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; background: var(--bg); border-radius: 10px; align-items: baseline; }
+    .rm .name { font-weight: 700; }
+    .rm .val { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+    .rm .f { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); }
+    .rm .i { grid-column: 1 / -1; font-size: 12px; }
+    .rm .n {
+      grid-column: 1 / -1; font-family: ui-monospace, Menlo, monospace; font-size: 12px;
+      background: var(--panel); border-radius: 6px; padding: 6px 8px; overflow-x: auto; white-space: nowrap;
+    }
+    .rm .n em { font-style: normal; color: var(--teal); font-weight: 700; }
+    .bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--line); position: relative; overflow: hidden; }
+    .bar i { position: absolute; top: 0; bottom: 0; background: var(--orange); border-radius: 3px; }
+    .bar .mid { position: absolute; top: -2px; bottom: -2px; left: 50%; width: 2px; background: var(--ink); opacity: .5; }
+
+    /* correlation strip */
+    .strip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    @media (max-width: 900px) { .strip { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 480px) { .strip { grid-template-columns: repeat(2, 1fr); } }
+    .sc { background: var(--bg); border-radius: 10px; padding: 8px; text-align: center; }
+    .sc svg { width: 100%; height: auto; display: block; }
+    .sc b { font-variant-numeric: tabular-nums; }
+    .sc small { display: block; color: var(--muted); font-size: 11px; }
+
+    .pvs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 680px) { .pvs { grid-template-columns: 1fr; } }
+    .pv { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+    .pv svg { width: 100%; height: auto; display: block; margin: 6px 0; }
+    .pv .rs { display: flex; gap: 10px; }
+    .pv .rs div { flex: 1; background: var(--panel); border-radius: 8px; padding: 6px 8px; }
+    .pv .rs span { display: block; font-size: 11px; color: var(--muted); }
+    .pv .rs b { font-size: 18px; font-variant-numeric: tabular-nums; }
+    ul.tight { margin: 6px 0 0; padding-left: 18px; font-size: 13px; }
+    ul.tight li { margin: 2px 0; }
+
+    /* interactive correlation playground */
+    .play { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+    @media (max-width: 800px) { .play { grid-template-columns: 1fr; } }
+    #play-svg { width: 100%; height: auto; display: block; background: var(--bg); border-radius: 10px; touch-action: none; cursor: crosshair; user-select: none; }
+    #play-svg circle { cursor: grab; }
+    #play-svg circle.drag { cursor: grabbing; }
+    .meter { background: var(--bg); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
+    .meter .mtop { display: flex; justify-content: space-between; align-items: baseline; }
+    .meter .mtop span { font-size: 12px; color: var(--muted); }
+    .meter .mtop b { font-size: 28px; font-variant-numeric: tabular-nums; }
+    .meter .lbl { font-size: 12px; font-weight: 600; }
+    .scale { position: relative; height: 8px; border-radius: 4px; margin: 8px 0 4px;
+      background: linear-gradient(90deg, #e2704a, #e2dcd2 50%, #0f766e); }
+    .scale i { position: absolute; top: -4px; width: 4px; height: 16px; margin-left: -2px; background: var(--ink); border-radius: 2px; transition: left 80ms; }
+    .ticks { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .presets { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+    .presets button {
+      font: inherit; font-size: 12px; padding: 5px 10px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    }
+    .presets button:hover { border-color: var(--teal); }
+    .hint { font-size: 12px; color: var(--muted); margin: 0; }
+
+    /* one-variable explorer */
+    .ov-controls { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; }
+    .ov-controls .seg { margin: 0; }
+    .ov-slider { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+    .ov-slider input { accent-color: var(--teal); width: 140px; }
+    .ov-slider b { color: var(--ink); font-variant-numeric: tabular-nums; min-width: 2em; }
+    .ov { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 12px; margin-top: 12px; align-items: stretch; }
+    .ov .qq-pnl { display: flex; flex-direction: column; }
+    .ov .qq-pnl svg { flex: 1 1 0; height: 0; min-height: 300px; }
+    .ov-left { display: grid; gap: 12px; }
+    @media (max-width: 1000px) { .ov { grid-template-columns: 1fr; } }
+    .ov .how { margin: 6px 0 0; font-size: 12px; color: var(--ink); }
+    .ov .pnl { background: var(--bg); border-radius: 10px; padding: 10px 12px; }
+    .ov .pnl > b { display: block; }
+    .ov .q { font-size: 12px; color: var(--muted); }
+    .ov svg { width: 100%; height: auto; display: block; margin-top: 6px; }
+    .ov-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 12px; }
+    @media (max-width: 800px) { .ov-stats { grid-template-columns: repeat(3, 1fr); } }
+    .ov-stats .kpi .v { font-size: 18px; }
+    .ov-err { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+    .ov-err button {
+      font: inherit; font-size: 12px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    }
+    .ov-err button:hover:not(:disabled) { border-color: var(--orange); }
+    .ov-err button:disabled { opacity: .4; cursor: default; }
+    #ov-msg { flex-basis: 100%; margin: 4px 0 0; font-size: 13px; padding: 10px 12px; border-radius: 10px; background: var(--bg); }
+    #ov-msg.bad { background: var(--orange-soft); }
+
+    .tip {
+      position: fixed; z-index: 20; max-width: 280px; padding: 8px 10px; border-radius: 8px;
+      background: var(--navy); color: #f4f1ec; font-size: 12px; line-height: 1.4;
+      pointer-events: none; opacity: 0; transition: opacity 80ms; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    }
+    .tip.on { opacity: 1; }
+    svg [data-tip] { cursor: help; }
+    .hit { stroke: transparent; stroke-width: 14; }
+    #ov-h rect[data-tip]:hover { fill-opacity: 1; fill: #0b5f58; }
+    #ov-b rect[data-tip]:hover { fill: #f8cdbb; }
+    #ov-qq circle[data-tip]:hover, #ov-b circle[data-tip]:hover { stroke: #e2704a; stroke-opacity: 1; stroke-width: 2.5; }
+
+    /* warm-up polls (live, shared with utilities/poll.html via Supabase) */
+    .warm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .gear { font-size: 16px; line-height: 1; padding: 6px 8px; border-radius: 8px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; opacity: .5; }
+    .gear:hover, .gear[aria-expanded="true"] { opacity: 1; border-color: var(--line); background: var(--bg); }
+    .pp-panel { margin-bottom: 12px; padding: 10px 12px; border-radius: 10px; background: var(--bg); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .pp-panel[hidden] { display: none; }
+    .pp-panel input { font: inherit; font-size: 13px; padding: 6px 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); min-width: 180px; }
+    .pbtn { font: inherit; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+    .pbtn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .pbtn:disabled { opacity: .5; cursor: default; }
+    .polls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 800px) { .polls { grid-template-columns: 1fr; } }
+    .poll { background: var(--bg); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+    .pq { margin: 0; font-size: 14px; }
+    .pnum { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 4px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 12px; font-weight: 700; }
+    .popts { display: none; }
+    .pchoices { display: grid; gap: 6px; }
+    .pchoice {
+      position: relative; overflow: hidden; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      width: 100%; text-align: left; font: inherit; font-size: 13px; padding: 9px 12px; border-radius: 10px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+    }
+    .pchoice:hover:not(:disabled) { border-color: var(--teal); }
+    .pchoice.mine { border-color: var(--teal); box-shadow: inset 0 0 0 1px var(--teal); background: var(--teal-soft); }
+    .pchoice:disabled { cursor: default; }
+    .pchoice .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--line); transition: width 400ms ease; }
+    .pchoice.correct { border-color: var(--teal); }
+    .pchoice.correct .fill { background: var(--teal-soft); }
+    .pchoice > span { position: relative; }
+    .pchoice .pct { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .pchoice .tag { font-size: 11px; font-weight: 600; color: var(--teal); margin-left: 6px; }
+    .pstatus { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .pstatus .count { font-weight: 600; color: var(--ink); }
+    .pexp { font-size: 13px; padding: 10px 12px; border-radius: 10px; background: var(--panel); border-left: 3px solid var(--teal); }
+    .pexp[hidden] { display: none; }
+
+    footer { margin-top: 20px; font-size: 11px; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <span class="eyebrow">Practical 2 · Recap dashboard</span>
+      <h1>Describe variables, then describe associations</h1>
+      <p class="sub">NHANES 1999–2003 · descriptive statistics, crosstabs, risk measures, scatterplots, Pearson and Spearman.</p>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Recap sections">
+    <button role="tab" id="tab-warmup" aria-controls="sec-warmup"><b>01</b>Warm-up</button>
+    <button role="tab" id="tab-overview" aria-controls="sec-overview"><b>02</b>Overview</button>
+    <button role="tab" id="tab-variables" aria-controls="sec-variables"><b>03</b>Variables &amp; graphs</button>
+    <button role="tab" id="tab-one" aria-controls="sec-one"><b>04</b>One variable</button>
+    <button role="tab" id="tab-crosstab" aria-controls="sec-crosstab"><b>05</b>Crosstab &amp; risk</button>
+    <button role="tab" id="tab-correlation" aria-controls="sec-correlation"><b>06</b>Correlation</button>
+  </nav>
+
+  <div class="grid panel" id="sec-warmup" role="tabpanel" aria-labelledby="tab-warmup">
+
+    <section class="card s12" id="warmup-polls">
+      <div class="warm-head">
+        <div>
+          <h2>Warm-up poll</h2>
+          <h3>Before we start: vote anonymously. The results appear when your instructor reveals them.</h3>
+        </div>
+        <button type="button" class="gear" id="pp-toggle" title="Presenter login" aria-label="Presenter login">⚙</button>
+      </div>
+      <div class="pp-panel" id="pp-panel" hidden></div>
+      <div class="polls">
+        <div class="poll" data-id="p2-recap-causation" data-correct="0">
+          <p class="pq"><span class="pnum">1</span> True or false? <b>“An association between two variables does not mean that one causes the other.”</b></p>
+          <ol class="popts"><li>True</li><li>False</li><li>I don't know</li></ol>
+          <div class="pexp" hidden>💡 <b>True.</b> Two variables can move together because of chance or because a third factor drives both (a confounder). In a cross-sectional study like NHANES we can describe associations, but we cannot show causes.</div>
+        </div>
+        <div class="poll" data-id="p2-recap-coffee" data-correct="1">
+          <p class="pq"><span class="pnum">2</span> A study finds that people who drink a lot of coffee develop lung cancer more often. Is this…</p>
+          <ol class="popts"><li>Causation: drinking coffee causes lung cancer</li><li>Association: a third factor explains both</li><li>I don't know</li></ol>
+          <div class="pexp" hidden>💡 <b>Association.</b> Smoking is the confounder. Heavy coffee drinkers are more often smokers, and smoking causes lung cancer. When smokers are compared with smokers and non-smokers with non-smokers, the link between coffee and lung cancer largely disappears.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="grid panel" id="sec-overview" role="tabpanel" aria-labelledby="tab-overview" hidden>
+
+    <section class="card s12">
+      <h2>Worksheet workflow</h2>
+      <h3>Choose, compute, interpret</h3>
+      <div class="steps">
+        <div class="step"><b>1</b><span>Inspect<small>Variable view, coding, units</small></span></div>
+        <div class="step"><b>2</b><span>Classify<small>Nominal, ordinal, metric</small></span></div>
+        <div class="step"><b>3</b><span>Plot<small>Match graph to variable type</small></span></div>
+        <div class="step"><b>4</b><span>Compare<small>Crosstabs or correlations</small></span></div>
+      </div>
+    </section>
+
+    <!-- Row 1 -->
+    <section class="card dark s3">
+      <h2>Core rule</h2>
+      <div class="big">The measurement level decides the graph, the summary, and the association measure.</div>
+      <p>In a cross-sectional study, describe associations carefully. Do not turn them into causal conclusions.</p>
+    </section>
+
+    <section class="card s4">
+      <h2>Study frame</h2>
+      <h3>NHANES: interpretation starts with the study design</h3>
+      <div class="kpis">
+        <div class="kpi"><div class="v">’99–’03</div><div class="l">Survey years</div></div>
+        <div class="kpi"><div class="v">30–85</div><div class="l">Age range analysed</div></div>
+        <div class="kpi"><div class="v">1×</div><div class="l">Cross-sectional: each person measured once</div></div>
+      </div>
+      <div class="warn"><b>Important:</b> you can say variables are <em>associated in this dataset</em>. You cannot infer that diabetes causes periodontitis, or that weight causes height.</div>
+    </section>
+
+    <section class="card s5">
+      <h2>Variables in <code>nhanes30.sav</code></h2>
+      <h3>Five groups of variables</h3>
+      <div class="chips">
+        <div class="chipgroup"><span>Oral health</span><div><span class="chip">nteeth</span><span class="chip">cal_mean</span><span class="chip">perio</span><span class="chip">perio2</span><span class="chip">bop</span></div></div>
+        <div class="chipgroup"><span>Demographics</span><div><span class="chip">male</span><span class="chip">age</span><span class="chip">edu</span></div></div>
+        <div class="chipgroup"><span>Lifestyle</span><div><span class="chip">smk</span><span class="chip">smk2</span><span class="chip">alcg</span></div></div>
+        <div class="chipgroup"><span>Body measures</span><div><span class="chip">Height</span><span class="chip">Weight</span><span class="chip">bmi</span><span class="chip">wc</span></div></div>
+        <div class="chipgroup"><span>Health outcome</span><div><span class="chip">diab</span><span class="chip">mortstat</span><span class="chip">perm_exm</span></div></div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="grid panel" id="sec-variables" role="tabpanel" aria-labelledby="tab-variables" hidden>
+    <section class="card s7">
+      <h2>Measurement levels</h2>
+      <h3>The measurement level tells you which summaries and graphs to use</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Variable</th><th>Level</th><th>Values mean</th><th>Summaries</th><th>Graphics</th></tr></thead>
+          <tbody>
+            <tr><td>Sex (<code>male</code>)</td><td><span class="lvl nom">Nominal</span></td><td>Categories, no order</td><td>Counts, %</td><td>Bar chart</td></tr>
+            <tr><td>BMI category</td><td><span class="lvl ord">Ordinal</span></td><td>Ordered groups</td><td>Counts, %, median if coded carefully</td><td>Bar chart</td></tr>
+            <tr><td>BMI</td><td><span class="lvl met">Metric, continuous</span></td><td>Distance is meaningful</td><td>Mean, SD, median, IQR</td><td>Histogram, boxplot</td></tr>
+            <tr><td>Number of teeth</td><td><span class="lvl met">Discrete metric</span></td><td>Count 0–32</td><td>Mean/median, distribution, floor effects</td><td>Bar or histogram</td></tr>
+            <tr><td>Height</td><td><span class="lvl met">Metric, continuous</span></td><td>Measured in cm</td><td>Mean, SD, range</td><td>Histogram, boxplot</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><b>SPSS check:</b> in Variable View, confirm that <em>Measure</em> matches the actual coding. <b>Key distinction:</b> number of teeth is a bounded integer count, while height and BMI are continuous measurements.</p>
+    </section>
+
+    <section class="card s5">
+      <h2>Graph choice</h2>
+      <h3>Which variable type do you have?</h3>
+      <div class="seg" id="gc-seg" role="group" aria-label="Variable type">
+        <button type="button" data-type="cat" aria-pressed="true">Categorical</button>
+        <button type="button" data-type="met" aria-pressed="false">Quantitative / metric</button>
+        <button type="button" data-type="cnt" aria-pressed="false">Count with few values</button>
+      </div>
+      <p class="note" id="gc-desc" style="margin:0 0 10px"></p>
+      <div class="rec" id="gc-rec"></div>
+      <div class="path"><b>SPSS:</b> Graphs → Chart Builder. Pick the chart family first, then drag the variable to the axis.</div>
+    </section>
+
+  </div>
+
+  <div class="grid panel" id="sec-one" role="tabpanel" aria-labelledby="tab-one" hidden>
+
+    <section class="card s12">
+      <h2>Reading one variable</h2>
+      <h3>Three views of the same data: change the variable and its shape, and all three plots respond</h3>
+      <div class="ov-controls">
+        <div class="seg" id="ov-var" role="group" aria-label="Variable">
+          <button type="button" data-v="height" aria-pressed="false">Height</button>
+          <button type="button" data-v="bmi" aria-pressed="true">BMI</button>
+          <button type="button" data-v="cal" aria-pressed="false">cal_mean</button>
+          <button type="button" data-v="teeth" aria-pressed="false">nteeth</button>
+        </div>
+        <label class="ov-slider">Skew <span>left</span><input type="range" id="ov-skew" min="-1" max="1" step="0.05"><span>right</span></label>
+        <label class="ov-slider">Bins <input type="range" id="ov-bins" min="5" max="40" step="1" value="20"><b id="ov-bins-v"></b></label>
+      </div>
+      <p class="note" id="ov-note" style="margin:6px 0 0"></p>
+      <div class="ov">
+        <div class="ov-left">
+          <div class="pnl">
+            <b>Histogram</b><span class="q">What is the shape of the distribution?</span>
+            <svg id="ov-h" viewBox="0 0 560 230" role="img" aria-label="Histogram of the selected variable"></svg>
+          </div>
+          <div class="pnl">
+            <b>Boxplot</b><span class="q">Where are the median, the middle 50% and the outliers? (Same x-axis as the histogram.)</span>
+            <svg id="ov-b" viewBox="0 0 560 200" role="img" aria-label="Annotated boxplot of the selected variable"></svg>
+          </div>
+        </div>
+        <div class="pnl qq-pnl">
+          <b>Q-Q plot</b><span class="q">Does the variable roughly follow a normal distribution?</span>
+          <svg id="ov-qq" viewBox="0 0 360 425" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Normal Q-Q plot of the selected variable"></svg>
+          <p class="how">Points on the dashed line mean the data are approximately normal. A curve away from the line means skewness.</p>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:8px">Hover over (or tap) any bar, line, box, whisker or point to see what it means.</p>
+      <div class="ov-stats" id="ov-stats"></div>
+      <div class="ov-err">
+        <button type="button" id="ov-add">Add coding error (999)</button>
+        <button type="button" id="ov-fix" disabled>Declare 999 as missing</button>
+        <p id="ov-msg"></p>
+      </div>
+      <div class="banner"><b>Interpret first, compute second:</b> a plot can reveal coding errors, outliers, skewness and impossible values before any formal analysis. Data are simulated to resemble each NHANES variable.</div>
+    </section>
+  </div>
+
+  <div class="grid panel" id="sec-crosstab" role="tabpanel" aria-labelledby="tab-crosstab" hidden>
+    <section class="card s6">
+      <h2>Two categorical variables</h2>
+      <h3>A crosstab turns diabetes and periodontitis into conditional risks</h3>
+      <div class="tablewrap">
+        <table class="ct">
+          <thead><tr><th></th><th>Periodontitis yes</th><th>Periodontitis no</th><th>Row total</th></tr></thead>
+          <tbody>
+            <tr><td class="rowh">Diabetes yes</td>
+              <td><span class="cell-l">a</span><input id="a" type="number" min="0" value="90"><span class="pct" id="pa"></span></td>
+              <td><span class="cell-l">b</span><input id="b" type="number" min="0" value="210"><span class="pct" id="pb"></span></td>
+              <td id="ab"></td></tr>
+            <tr><td class="rowh">Diabetes no</td>
+              <td><span class="cell-l">c</span><input id="c" type="number" min="0" value="300"><span class="pct" id="pc"></span></td>
+              <td><span class="cell-l">d</span><input id="d" type="number" min="0" value="1400"><span class="pct" id="pd"></span></td>
+              <td id="cd"></td></tr>
+            <tr><td class="rowh">Column total</td><td id="ac"></td><td id="bd"></td><td id="n"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Example counts. Type in your own SPSS counts to check your results. Row percentages are shown in teal.</p>
+      <div class="path"><b>SPSS:</b> Analyze → Descriptive Statistics → Crosstabs. Under <em>Cells</em>, request row percentages. Under <em>Statistics</em>, tick <em>Risk</em>. Put the outcome across the top and the exposure in the rows.</div>
+    </section>
+
+    <section class="card s6">
+      <h2>Risk measures</h2>
+      <h3>Difference, ratio and odds answer three different questions</h3>
+      <div class="risk">
+        <div class="rm">
+          <span class="name">Risk difference</span><span class="val" id="rd"></span>
+          <span class="f">RD = a/(a+b) − c/(c+d)</span><span></span>
+          <span class="n" id="rd-n"></span>
+          <span class="i" id="rd-i"></span>
+        </div>
+        <div class="rm">
+          <span class="name">Relative risk</span><span class="val" id="rr"></span>
+          <span class="f">RR = [a/(a+b)] / [c/(c+d)]</span><span></span>
+          <span class="n" id="rr-n"></span>
+          <div class="bar"><i id="rr-bar"></i><span class="mid"></span></div>
+          <span class="i" id="rr-i"></span>
+        </div>
+        <div class="rm">
+          <span class="name">Odds ratio</span><span class="val" id="or"></span>
+          <span class="f">OR = (a/b) / (c/d) = ad / bc</span><span></span>
+          <span class="n" id="or-n"></span>
+          <div class="bar"><i id="or-bar"></i><span class="mid"></span></div>
+          <span class="i" id="or-i"></span>
+        </div>
+      </div>
+      <p class="note"><b>Hand-check SPSS:</b> subtract the row percentages to get RD, divide them to get RR, and compute OR from the four cells. Bars use a log scale, and the centre line marks 1 (no association).</p>
+    </section>
+
+  </div>
+
+  <div class="grid panel" id="sec-correlation" role="tabpanel" aria-labelledby="tab-correlation" hidden>
+
+    <section class="card s12">
+      <h2>Try it yourself</h2>
+      <h3>Move the points and watch the correlation change</h3>
+      <div class="play">
+        <div>
+          <svg id="play-svg" viewBox="0 0 400 260" role="application" aria-label="Interactive scatterplot: drag points to change the correlation">
+            <line x1="30" y1="240" x2="390" y2="240" stroke="#677481"/>
+            <line x1="30" y1="240" x2="30" y2="10" stroke="#677481"/>
+            <text x="210" y="256" font-size="10" text-anchor="middle" fill="#677481">X</text>
+            <text x="16" y="125" font-size="10" text-anchor="middle" fill="#677481" transform="rotate(-90 16 125)">Y</text>
+            <line id="play-fit" stroke="#e2704a" stroke-width="2" stroke-dasharray="6 4"/>
+            <g id="play-pts"></g>
+          </svg>
+          <p class="hint" style="margin-top:6px">Drag a point to move it · click an empty spot to add one · Shift-click or double-click a point to remove it. The dashed line is the least-squares fit.</p>
+        </div>
+        <div>
+          <div class="meter">
+            <div class="mtop"><span>Pearson r (linear)</span><b id="play-r">–</b></div>
+            <div class="scale"><i id="play-r-m"></i></div>
+            <div class="ticks"><span>−1</span><span>0</span><span>+1</span></div>
+            <div class="lbl" id="play-r-l"></div>
+          </div>
+          <div class="meter">
+            <div class="mtop"><span>Spearman ρ (ranks)</span><b id="play-s">–</b></div>
+            <div class="scale"><i id="play-s-m"></i></div>
+            <div class="ticks"><span>−1</span><span>0</span><span>+1</span></div>
+            <div class="lbl" id="play-s-l"></div>
+          </div>
+          <div class="presets">
+            <button type="button" data-preset="pos">Strong positive</button>
+            <button type="button" data-preset="neg">Negative</button>
+            <button type="button" data-preset="none">No correlation</button>
+            <button type="button" data-preset="curve">Curved</button>
+            <button type="button" data-preset="outlier">+ Add an outlier</button>
+          </div>
+          <p class="hint"><b>Try this:</b> choose “Curved”. Spearman stays close to 1 because the relationship is monotonic, while Pearson is lower because it only measures linear fit. Then choose “Strong positive” and add an outlier: a single point can change both coefficients when n is small. n = <b id="play-n"></b></p>
+        </div>
+      </div>
+    </section>
+    <section class="card s12">
+      <h2>Quantitative association</h2>
+      <h3>A scatterplot shows the relationship before a coefficient compresses it</h3>
+      <div class="strip" id="strip"></div>
+    </section>
+
+    <section class="card s12">
+      <h2>Pearson vs Spearman</h2>
+      <h3>Pearson measures linear association. Spearman uses ranks, so it measures monotonic association.</h3>
+      <div class="pvs">
+        <div class="pv">
+          <b>Linear data</b>
+          <svg id="pv-lin" viewBox="0 0 300 130" role="img" aria-label="Linear scatterplot"></svg>
+          <div class="rs"><div><span>Pearson r</span><b id="lin-p"></b></div><div><span>Spearman ρ</span><b id="lin-s"></b></div></div>
+          <p class="note"><b>Use Pearson when</b></p>
+          <ul class="tight">
+            <li>both variables are continuous,</li>
+            <li>the relationship is roughly linear, and</li>
+            <li>the distribution is not strongly skewed and has no extreme outliers.</li>
+          </ul>
+        </div>
+        <div class="pv">
+          <b>Non-linear (monotonic) data</b>
+          <svg id="pv-exp" viewBox="0 0 300 130" role="img" aria-label="Exponential scatterplot"></svg>
+          <div class="rs"><div><span>Pearson r</span><b id="exp-p"></b></div><div><span>Spearman ρ</span><b id="exp-s"></b></div></div>
+          <p class="note"><b>Use Spearman when you have</b></p>
+          <ul class="tight">
+            <li>ordinal or rank-based data,</li>
+            <li>a monotonic relationship that may not be linear, or</li>
+            <li>skewed distributions or outliers.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="pager">
+    <button type="button" id="prev">← Previous</button>
+    <button type="button" id="next">Next →</button>
+  </div>
+
+  <footer>Sources: Worksheet 1, Practical QB Scientific Work; NHANES 1999–2003. Correlation examples after CQE Academy (2021) and blog.DailyDoseofDS.com. All plotted data are simulated for illustration.</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script>
+  // seeded RNG so plots are stable between reloads
+  let seed = 7;
+  const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+  const norm = () => { let u = 0, v = 0; while (!u) u = rnd(); while (!v) v = rnd(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+
+  // graph chooser
+  const gc = {
+    cat: { d: "Names or groups with no meaningful numeric distance.", r: [["Bar chart", "Show counts or percentages by category."]] },
+    met: { d: "Numbers where distances or ordered magnitudes carry information.", r: [["Histogram", "Shape, spread, skew or modality."], ["Boxplot", "Median, IQR, whiskers and outliers."], ["Q-Q plot", "Use when approximate normality matters."]] },
+    cnt: { d: "Example: number of teeth (0–32).", r: [["Bar chart or histogram", "A few integer values, so bars per value can work well."]] }
+  };
+  const showGC = t => {
+    document.querySelectorAll("#gc-seg button").forEach(b => b.setAttribute("aria-pressed", b.dataset.type === t));
+    document.getElementById("gc-desc").textContent = gc[t].d;
+    document.getElementById("gc-rec").innerHTML = gc[t].r.map(([n, s]) => `<div><b>${n}</b><small>${s}</small></div>`).join("");
+  };
+  document.querySelectorAll("#gc-seg button").forEach(b => b.addEventListener("click", () => showGC(b.dataset.type)));
+  showGC("cat");
+
+  // crosstab + risk
+  const fmt = (x, d = 2) => Number.isFinite(x) ? x.toFixed(d) : "–";
+  const pct = x => Number.isFinite(x) ? (x * 100).toFixed(1) + "%" : "–";
+  const logBar = (id, v) => {
+    const b = document.getElementById(id), s = Math.max(-1, Math.min(1, Math.log10(v) / 1)); // ±1 = ×10
+    if (!Number.isFinite(s)) { b.style.width = 0; return; }
+    b.style.left = (s >= 0 ? 50 : 50 + s * 50) + "%"; b.style.width = Math.abs(s) * 50 + "%";
+    b.style.background = s >= 0 ? "#e2704a" : "#0f766e";
+  };
+  const calc = () => {
+    const [a, b, c, d] = ["a", "b", "c", "d"].map(k => Math.max(0, +document.getElementById(k).value || 0));
+    const set = (id, t) => document.getElementById(id).textContent = t;
+    set("ab", a + b); set("cd", c + d); set("ac", a + c); set("bd", b + d); set("n", a + b + c + d);
+    const r1 = a / (a + b), r0 = c / (c + d);
+    set("pa", pct(r1)); set("pb", pct(b / (a + b))); set("pc", pct(r0)); set("pd", pct(d / (c + d)));
+    const rd = (r1 - r0) * 100, rr = r1 / r0, or = (a * d) / (b * c);
+    set("rd", (rd >= 0 ? "+" : "") + fmt(rd, 1) + " pp");
+    set("rr", fmt(rr)); set("or", fmt(or));
+    // the same formulas with the current cell counts substituted
+    const html = (id, h) => document.getElementById(id).innerHTML = h;
+    html("rd-n", `= ${a}/${a + b} − ${c}/${c + d} = ${fmt(r1, 3)} − ${fmt(r0, 3)} = ${fmt(r1 - r0, 3)} → <em>${(rd >= 0 ? "+" : "") + fmt(rd, 1)} pp</em>`);
+    html("rr-n", `= (${a}/${a + b}) / (${c}/${c + d}) = ${fmt(r1, 3)} / ${fmt(r0, 3)} = <em>${fmt(rr)}</em>`);
+    html("or-n", `= (${a}/${b}) / (${c}/${d}) = (${a}·${d}) / (${b}·${c}) = ${a * d} / ${b * c} = <em>${fmt(or)}</em>`);
+    set("rd-i", Number.isFinite(rd) ? `The risk of periodontitis is ${fmt(Math.abs(rd), 1)} percentage points ${rd >= 0 ? "higher" : "lower"} in people with diabetes. Report it in percentage points, not percent.` : "");
+    set("rr-i", Number.isFinite(rr) ? `The risk is ${fmt(rr)} times as high in people with diabetes. RR = 1 means no association.` : "");
+    set("or-i", Number.isFinite(or) ? `The odds are ${fmt(or)} times as high. The OR is close to the RR only when the outcome is rare (here ${pct((a + c) / (a + b + c + d))} have periodontitis).` : "");
+    logBar("rr-bar", rr); logBar("or-bar", or);
+  };
+  ["a", "b", "c", "d"].forEach(k => document.getElementById(k).addEventListener("input", calc));
+  calc();
+
+  // correlation strip
+  const strip = document.getElementById("strip");
+  const labels = { "1": "Perfect positive", "0.8": "Strong positive", "0.3": "Weak positive", "0": "No correlation", "-0.3": "Weak negative", "-0.8": "Strong negative", "-1": "Perfect negative" };
+  [1, .8, .3, 0, -.3, -.8, -1].forEach(r => {
+    const svg = el("svg", { viewBox: "0 0 100 80", role: "img", "aria-label": "Scatterplot r = " + r });
+    svg.appendChild(el("line", { x1: 6, y1: 74, x2: 96, y2: 74, stroke: "#677481" }));
+    svg.appendChild(el("line", { x1: 6, y1: 74, x2: 6, y2: 4, stroke: "#677481" }));
+    const col = r > 0 ? "#0f766e" : r < 0 ? "#e2704a" : "#677481";
+    for (let i = 0; i < 22; i++) {
+      const x = norm(), y = r * x + Math.sqrt(1 - r * r) * norm();
+      const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+      svg.appendChild(el("circle", { cx: clamp(51 + x * 16, 10, 94), cy: clamp(39 - y * 14, 6, 70), r: 2.4, fill: col, "fill-opacity": .8 }));
+    }
+    const d = document.createElement("div"); d.className = "sc";
+    d.appendChild(svg);
+    d.insertAdjacentHTML("beforeend", `<b>r = ${r}</b><small>${labels[String(r)]}</small>`);
+    strip.appendChild(d);
+  });
+
+  // pearson vs spearman, computed from the plotted data
+  const pearson = (x, y) => {
+    const n = x.length, mx = x.reduce((s, v) => s + v) / n, my = y.reduce((s, v) => s + v) / n;
+    let sxy = 0, sxx = 0, syy = 0;
+    for (let i = 0; i < n; i++) { sxy += (x[i] - mx) * (y[i] - my); sxx += (x[i] - mx) ** 2; syy += (y[i] - my) ** 2; }
+    return sxy / Math.sqrt(sxx * syy);
+  };
+  const ranks = v => { const o = v.map((x, i) => [x, i]).sort((p, q) => p[0] - q[0]), r = []; o.forEach(([, i], k) => r[i] = k + 1); return r; };
+  const spearman = (x, y) => pearson(ranks(x), ranks(y));
+  const drawPV = (id, xs, ys, pId, sId) => {
+    const svg = document.getElementById(id), ymin = Math.min(...ys), ymax = Math.max(...ys);
+    svg.appendChild(el("line", { x1: 10, y1: 124, x2: 294, y2: 124, stroke: "#677481" }));
+    svg.appendChild(el("line", { x1: 10, y1: 124, x2: 10, y2: 4, stroke: "#677481" }));
+    xs.forEach((x, i) => svg.appendChild(el("circle", { cx: 14 + x * 276, cy: 120 - (ys[i] - ymin) / (ymax - ymin) * 112, r: 2.3, fill: "#e2704a", "fill-opacity": .7 })));
+    document.getElementById(pId).textContent = pearson(xs, ys).toFixed(2);
+    document.getElementById(sId).textContent = spearman(xs, ys).toFixed(2);
+  };
+  const xs = Array.from({ length: 120 }, (_, i) => i / 119);
+  drawPV("pv-lin", xs, xs.map(x => x + norm() * 0.07), "lin-p", "lin-s");
+  drawPV("pv-exp", xs, xs.map(x => Math.exp(7 * x) * (1 + norm() * 0.04)), "exp-p", "exp-s");
+
+  // interactive playground: points live in data space [0,1]², drawn into a 360×230 plot area
+  const play = { pts: [], svg: document.getElementById("play-svg"), g: document.getElementById("play-pts") };
+  const PX = x => 30 + x * 360, PY = y => 240 - y * 230;
+  const strength = r => {
+    if (!Number.isFinite(r)) return "–";
+    const a = Math.abs(r), dir = r > 0 ? "positive" : "negative";
+    return a < 0.1 ? "No correlation" : (a < 0.3 ? "Weak " : a < 0.7 ? "Moderate " : a < 0.99 ? "Strong " : "Perfect ") + dir;
+  };
+  const toData = e => {
+    const p = play.svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+    const q = p.matrixTransform(play.svg.getScreenCTM().inverse());
+    return [Math.max(0, Math.min(1, (q.x - 30) / 360)), Math.max(0, Math.min(1, (240 - q.y) / 230))];
+  };
+  const updatePlay = () => {
+    const xs = play.pts.map(p => p[0]), ys = play.pts.map(p => p[1]), n = xs.length;
+    const r = n > 2 ? pearson(xs, ys) : NaN, s = n > 2 ? spearman(xs, ys) : NaN;
+    [["r", r], ["s", s]].forEach(([k, v]) => {
+      document.getElementById("play-" + k).textContent = Number.isFinite(v) ? v.toFixed(2) : "–";
+      document.getElementById("play-" + k + "-m").style.left = Number.isFinite(v) ? (v + 1) * 50 + "%" : "50%";
+      document.getElementById("play-" + k + "-l").textContent = strength(v);
+    });
+    document.getElementById("play-n").textContent = n;
+    const fit = document.getElementById("play-fit");
+    if (n > 1) {
+      const mx = xs.reduce((a, b) => a + b) / n, my = ys.reduce((a, b) => a + b) / n;
+      let sxy = 0, sxx = 0; xs.forEach((x, i) => { sxy += (x - mx) * (ys[i] - my); sxx += (x - mx) ** 2; });
+      const b = sxx ? sxy / sxx : 0, a0 = my - b * mx;
+      // clip the fitted line to the plot box
+      const yAt = x => Math.max(-0.02, Math.min(1.02, a0 + b * x));
+      fit.setAttribute("x1", PX(0)); fit.setAttribute("y1", PY(yAt(0)));
+      fit.setAttribute("x2", PX(1)); fit.setAttribute("y2", PY(yAt(1)));
+      fit.style.display = "";
+    } else fit.style.display = "none";
+  };
+  const drawPlay = () => {
+    play.g.innerHTML = "";
+    play.pts.forEach((p, i) => {
+      const c = el("circle", { cx: PX(p[0]), cy: PY(p[1]), r: 6, fill: "#0f766e", "fill-opacity": .85, stroke: "#fff", "stroke-width": 1.5 });
+      c.dataset.i = i;
+      play.g.appendChild(c);
+    });
+    updatePlay();
+  };
+  let dragging = null;
+  play.svg.addEventListener("pointerdown", e => {
+    if (e.target.tagName === "circle" && e.target.dataset.i !== undefined) {
+      const i = +e.target.dataset.i;
+      if (e.shiftKey) { play.pts.splice(i, 1); drawPlay(); return; }
+      dragging = { i, c: e.target }; e.target.classList.add("drag");
+      play.svg.setPointerCapture(e.pointerId);
+    } else {
+      play.pts.push(toData(e)); drawPlay();
+    }
+  });
+  play.svg.addEventListener("pointermove", e => {
+    if (!dragging) return;
+    const p = toData(e); play.pts[dragging.i] = p;
+    dragging.c.setAttribute("cx", PX(p[0])); dragging.c.setAttribute("cy", PY(p[1]));
+    updatePlay();
+  });
+  const endDrag = () => { if (dragging) dragging.c.classList.remove("drag"); dragging = null; };
+  play.svg.addEventListener("pointerup", endDrag);
+  play.svg.addEventListener("pointercancel", endDrag);
+  play.svg.addEventListener("dblclick", e => {
+    if (e.target.tagName === "circle" && e.target.dataset.i !== undefined) { play.pts.splice(+e.target.dataset.i, 1); drawPlay(); }
+  });
+  const clamp01 = v => Math.max(0.02, Math.min(0.98, v));
+  const presets = {
+    pos: () => Array.from({ length: 20 }, () => { const x = rnd(); return [clamp01(0.05 + x * 0.9), clamp01(0.08 + x * 0.8 + norm() * 0.07)]; }),
+    neg: () => Array.from({ length: 20 }, () => { const x = rnd(); return [clamp01(0.05 + x * 0.9), clamp01(0.9 - x * 0.75 + norm() * 0.1)]; }),
+    none: () => Array.from({ length: 20 }, () => [clamp01(0.1 + rnd() * 0.8), clamp01(0.1 + rnd() * 0.8)]),
+    curve: () => Array.from({ length: 20 }, (_, i) => { const x = i / 19; return [clamp01(0.05 + x * 0.9), clamp01(0.04 + Math.exp(5 * x) / Math.exp(5) * 0.9 + norm() * 0.015)]; })
+  };
+  document.querySelectorAll("[data-preset]").forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.preset === "outlier") play.pts.push([0.96, 0.04]);
+    else play.pts = presets[b.dataset.preset]();
+    drawPlay();
+  }));
+  play.pts = presets.pos(); drawPlay();
+
+  // one-variable explorer: fixed standard-normal draws per variable, bent by a skew transform
+  const OV = {
+    height: { unit: "cm", c: 170, s: 10, k: 0, lo: 140, hi: 205, dp: 1, note: "Height: a continuous measurement, usually close to symmetric." },
+    bmi: { unit: "kg/m²", c: 27, s: 5, k: 0.35, lo: 15, hi: 60, dp: 1, note: "BMI: continuous and typically right-skewed, with a long tail of high values." },
+    cal: { unit: "mm", c: 1.3, s: 0.6, k: 0.8, lo: 0, hi: 10, dp: 2, note: "Mean clinical attachment loss: strongly right-skewed. Practical 3 tries a log transformation for this." },
+    teeth: { unit: "teeth", c: 27, s: 6, k: -0.7, lo: 0, hi: 32, dp: 0, note: "Number of teeth: a count from 0 to 32. Values pile up at 32 (ceiling), with a long left tail." }
+  };
+  const ovZ = {};
+  let ovKey = "bmi", ovErr = "none";
+  const ovSkew = document.getElementById("ov-skew"), ovBins = document.getElementById("ov-bins");
+  const invNorm = p => {
+    const a = [-39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269, -30.66479806614716, 2.506628277459239],
+      b = [-54.47609879822406, 161.5858368580409, -155.6989798598866, 66.80131188771972, -13.28068155288572],
+      c = [-0.007784894002430293, -0.3223964580411365, -2.400758277161838, -2.549732539343734, 4.374664141464968, 2.938163982698783],
+      d = [0.007784695709041462, 0.3224671290700398, 2.445134137142996, 3.754408661907416];
+    const tail = q => (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1);
+    if (p < 0.02425) return tail(Math.sqrt(-2 * Math.log(p)));
+    if (p > 1 - 0.02425) return -tail(Math.sqrt(-2 * Math.log(1 - p)));
+    const q = p - 0.5, r = q * q;
+    return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
+  };
+  const niceTicks = (lo, hi, n = 6) => {
+    const raw = (hi - lo) / n, p = 10 ** Math.floor(Math.log10(raw)), m = raw / p;
+    const step = (m < 1.5 ? 1 : m < 3 ? 2 : m < 7 ? 5 : 10) * p, t = [];
+    for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) t.push(+v.toFixed(10));
+    return t;
+  };
+  const quant = (s, q) => { const h = (s.length - 1) * q, i = Math.floor(h); return s[i] + (h - i) * ((s[i + 1] ?? s[i]) - s[i]); };
+  const ovData = () => {
+    const p = OV[ovKey], sg = 1.2 * +ovSkew.value, f = 10 ** p.dp;
+    if (!ovZ[ovKey]) ovZ[ovKey] = Array.from({ length: 300 }, norm);
+    const v = ovZ[ovKey].map(z => {
+      const g = Math.abs(sg) < 1e-6 ? z : (Math.exp(sg * z) - 1) / sg;
+      return Math.round(Math.min(p.hi, Math.max(p.lo, p.c + p.s * g)) * f) / f;
+    });
+    return ovErr === "present" ? v.concat(Array(6).fill(999)) : v;
+  };
+  const drawOV = () => {
+    const p = OV[ovKey], v = ovData(), s = [...v].sort((x, y) => x - y), n = s.length;
+    const mean = s.reduce((a, b) => a + b) / n, sd = Math.sqrt(s.reduce((a, x) => a + (x - mean) ** 2, 0) / (n - 1));
+    const med = quant(s, .5), q1 = quant(s, .25), q3 = quant(s, .75), iqr = q3 - q1;
+    const skew = n / ((n - 1) * (n - 2)) * s.reduce((a, x) => a + ((x - mean) / sd) ** 3, 0);
+    let lo = s[0], hi = s[n - 1]; if (hi === lo) { lo -= 1; hi += 1; }
+    const pad = (hi - lo) * 0.02; lo -= pad; hi += pad;
+    const fx = x => x.toFixed(p.dp === 0 ? 1 : p.dp);
+
+    // shared x scale for histogram and boxplot (stacked, same width)
+    const X = x => 34 + (x - lo) / (hi - lo) * 516;
+    const xAxis = (svg, y) => {
+      svg.appendChild(el("line", { x1: 34, y1: y, x2: 550, y2: y, stroke: "#677481" }));
+      niceTicks(lo, hi, 8).forEach(t => {
+        svg.appendChild(el("line", { x1: X(t), y1: y, x2: X(t), y2: y + 4, stroke: "#677481" }));
+        const tx = el("text", { x: X(t), y: y + 16, "font-size": 10, fill: "#677481", "text-anchor": "middle" }); tx.textContent = t; svg.appendChild(tx);
+      });
+      const ul = el("text", { x: 550, y: y + 32, "font-size": 10, fill: "#677481", "text-anchor": "end" }); ul.textContent = p.unit; svg.appendChild(ul);
+    };
+    const label = (svg, x, y, txt, col, anchor, bold) => {
+      // keep labels inside the 560-wide box
+      const wTxt = txt.length * 6.4;
+      if (anchor === "middle") x = Math.max(4 + wTxt / 2, Math.min(556 - wTxt / 2, x));
+      if (anchor === "end" && x - wTxt < 2) { anchor = "start"; x = 2; }
+      if (anchor === "start" && x + wTxt > 558) { anchor = "end"; x = 558; }
+      const t = el("text", { x, y, "font-size": 11, "font-weight": bold ? 700 : 400, fill: col, "text-anchor": anchor, "pointer-events": "none" });
+      t.textContent = txt; svg.appendChild(t);
+    };
+    // thin lines are hard to hover, so each gets a wide invisible twin that carries the tooltip
+    const hit = (svg, x1, y1, x2, y2, tip) => svg.appendChild(el("line", { x1, y1, x2, y2, class: "hit", "data-tip": tip }));
+    const U = ` ${p.unit}`;
+    const T = {
+      mean: `<b>Mean = ${fx(mean)}${U}</b><br>The average. In skewed data it is pulled toward the long tail.`,
+      med: `<b>Median = ${fx(med)}${U}</b><br>Half of the people are below this value and half are above. It is not affected by extreme values.`
+    };
+
+    // histogram
+    const hs = document.getElementById("ov-h"); hs.innerHTML = "";
+    // integer variables get whole-number bin edges so counts don't alias between bins
+    let b0 = lo, w = (hi - lo) / +ovBins.value;
+    if (p.dp === 0) { b0 = s[0] - 0.5; w = Math.max(1, Math.ceil((s[n - 1] + 0.5 - b0) / +ovBins.value)); }
+    const bins = Math.ceil((hi - b0) / w - 1e-9), counts = Array(bins).fill(0);
+    s.forEach(x => counts[Math.min(bins - 1, Math.floor((x - b0) / w))]++);
+    if (p.dp === 0) hi = Math.max(hi, b0 + bins * w); // X reads hi lazily, so the axis now spans every bin
+    const maxc = Math.max(...counts);
+    counts.forEach((c, i) => {
+      if (!c) return;
+      const from = b0 + i * w, to = from + w;
+      const range = p.dp === 0 ? (w === 1 ? `${from + 0.5}` : `${from + 0.5} to ${to - 0.5}`) : `${fx(from)} to ${fx(to)}`;
+      hs.appendChild(el("rect", { x: X(from) + 0.5, y: 190 - c / maxc * 150, width: Math.max(1, X(b0 + w) - X(b0) - 1), height: c / maxc * 150, fill: "#0f766e", "fill-opacity": .85,
+        "data-tip": `<b>${range}${U}: ${c} people (${(c / n * 100).toFixed(1)}%)</b><br>Each bar counts how many people have a value in this range. Taller bars mean more common values.` }));
+    });
+    [[mean, "mean", "#e2704a", T.mean], [med, "median", "#a4421f", T.med]].forEach(([x, lab, col, tip], k) => {
+      hs.appendChild(el("line", { x1: X(x), y1: 38, x2: X(x), y2: 190, stroke: col, "stroke-width": 2, "stroke-dasharray": k ? "" : "5 3", "pointer-events": "none" }));
+      hit(hs, X(x), 38, X(x), 190, tip);
+      label(hs, X(x) + 4, k ? 32 : 16, `${lab} ${fx(x)}`, col, "start", true);
+    });
+    const fq = el("text", { x: 12, y: 115, "font-size": 10, fill: "#677481", "text-anchor": "middle", transform: "rotate(-90 12 115)" }); fq.textContent = "frequency"; hs.appendChild(fq);
+    xAxis(hs, 190);
+
+    // boxplot, annotated
+    const bs = document.getElementById("ov-b"); bs.innerHTML = "";
+    const wl = s.find(x => x >= q1 - 1.5 * iqr), wh = [...s].reverse().find(x => x <= q3 + 1.5 * iqr);
+    const outl = s.filter(x => x < wl || x > wh);
+    const tipLo = `<b>Lower whisker = ${fx(wl)}${U}</b><br>The smallest value that is still within 1.5 × IQR below Q1.`;
+    const tipHi = `<b>Upper whisker = ${fx(wh)}${U}</b><br>The largest value that is still within 1.5 × IQR above Q3.`;
+    const tipBox = `<b>Box: Q1 = ${fx(q1)} to Q3 = ${fx(q3)}${U}</b><br>The box holds the middle 50% of people. A quarter of the people are below Q1 and a quarter are above Q3.`;
+    const tipIqr = `<b>IQR = Q3 − Q1 = ${fx(q3)} − ${fx(q1)} = ${fx(iqr)}${U}</b><br>The interquartile range is the width of the box: the spread of the middle 50%.`;
+    bs.appendChild(el("line", { x1: X(wl), y1: 82, x2: X(q1), y2: 82, stroke: "#1f2933", "pointer-events": "none" }));
+    bs.appendChild(el("line", { x1: X(q3), y1: 82, x2: X(wh), y2: 82, stroke: "#1f2933", "pointer-events": "none" }));
+    [wl, wh].forEach(x => bs.appendChild(el("line", { x1: X(x), y1: 70, x2: X(x), y2: 94, stroke: "#1f2933", "pointer-events": "none" })));
+    hit(bs, X(wl), 82, X(q1), 82, tipLo); hit(bs, X(wl), 70, X(wl), 94, tipLo);
+    hit(bs, X(q3), 82, X(wh), 82, tipHi); hit(bs, X(wh), 70, X(wh), 94, tipHi);
+    bs.appendChild(el("rect", { x: X(q1), y: 62, width: Math.max(1, X(q3) - X(q1)), height: 40, rx: 3, fill: "#fbe2d8", stroke: "#e2704a", "data-tip": tipBox }));
+    bs.appendChild(el("line", { x1: X(med), y1: 62, x2: X(med), y2: 102, stroke: "#a4421f", "stroke-width": 3, "pointer-events": "none" }));
+    hit(bs, X(med), 62, X(med), 102, T.med);
+    s.forEach((x, i) => (x < wl || x > wh) && bs.appendChild(el("circle", { cx: X(x), cy: 82 + ((i * 37) % 11 - 5) * 1.4, r: 3.5, fill: "#fff", stroke: "#0f766e", "stroke-width": 1.5,
+      "data-tip": `<b>Possible outlier: ${fx(x)}${U}</b><br>This value lies more than 1.5 × IQR beyond the box. Check whether it is real or an error.` + (x === 999 ? "<br><b>999 looks like a missing-value code!</b>" : "") })));
+    // IQR bracket above the box
+    bs.appendChild(el("path", { d: `M${X(q1)},48 v-6 H${X(q3)} v6`, fill: "none", stroke: "#677481", "pointer-events": "none" }));
+    hit(bs, X(q1), 42, X(q3), 42, tipIqr);
+    label(bs, (X(q1) + X(q3)) / 2, 34, `IQR = ${fx(iqr)} (middle 50%)`, "#677481", "middle");
+    label(bs, X(med), 57, `median ${fx(med)}`, "#a4421f", "middle", true);
+    label(bs, X(q1) - 3, 118, `Q1 ${fx(q1)}`, "#1f2933", "end");
+    label(bs, X(q3) + 3, 118, `Q3 ${fx(q3)}`, "#1f2933", "start");
+    // whisker labels on separate rows so they never collide
+    label(bs, X(wl), 134, `lower whisker ${fx(wl)}`, "#677481", "middle");
+    label(bs, X(wh), 150, `upper whisker ${fx(wh)}`, "#677481", "middle");
+    if (outl.length) label(bs, 34, 14, `${outl.length} possible outlier${outl.length > 1 ? "s" : ""} (circles)`, "#0f766e", "start", true);
+    xAxis(bs, 162);
+
+    // normal Q-Q plot (Blom positions), reference line mean + SD·z
+    const qq = document.getElementById("ov-qq"); qq.innerHTML = "";
+    const QX = z => 44 + (z + 3.2) / 6.4 * 306, QY = x => 380 - (x - lo) / (hi - lo) * 370;
+    const clip = el("clipPath", { id: "ov-clip" }); clip.appendChild(el("rect", { x: 44, y: 10, width: 306, height: 370 })); qq.appendChild(clip);
+    qq.appendChild(el("line", { x1: 44, y1: 380, x2: 350, y2: 380, stroke: "#677481" }));
+    qq.appendChild(el("line", { x1: 44, y1: 380, x2: 44, y2: 10, stroke: "#677481" }));
+    qq.appendChild(el("line", { x1: QX(-3.2), y1: QY(mean - 3.2 * sd), x2: QX(3.2), y2: QY(mean + 3.2 * sd), stroke: "#e2704a", "stroke-width": 1.5, "stroke-dasharray": "5 3", "clip-path": "url(#ov-clip)", "pointer-events": "none" }));
+    const qline = hit(qq, QX(-3.2), QY(mean - 3.2 * sd), QX(3.2), QY(mean + 3.2 * sd), `<b>Reference line</b><br>Where the points would lie if the data were exactly normal with mean ${fx(mean)} and SD ${fx(sd)}.`);
+    qline.setAttribute("clip-path", "url(#ov-clip)");
+    s.forEach((x, i) => {
+      const z = invNorm((i + 1 - 0.375) / (n + 0.25)), exp = mean + sd * z;
+      qq.appendChild(el("circle", { cx: QX(z), cy: QY(x), r: 3, fill: "none", stroke: "#1f2933", "stroke-opacity": .6,
+        "data-tip": `<b>Observed ${fx(x)}${U}</b><br>A normal distribution would put this person at about ${fx(exp)}${U} (z = ${z.toFixed(2)}). ${Math.abs(x - exp) < 0.5 * sd ? "Close to the line." : x > exp ? "Above the line: higher than expected under normality." : "Below the line: lower than expected under normality."}` }));
+    });
+    [-3, -2, -1, 0, 1, 2, 3].forEach(z => {
+      qq.appendChild(el("line", { x1: QX(z), y1: 380, x2: QX(z), y2: 384, stroke: "#677481" }));
+      const t = el("text", { x: QX(z), y: 396, "font-size": 10, fill: "#677481", "text-anchor": "middle" }); t.textContent = z; qq.appendChild(t);
+    });
+    niceTicks(lo, hi, 6).forEach(v => {
+      qq.appendChild(el("line", { x1: 40, y1: QY(v), x2: 44, y2: QY(v), stroke: "#677481" }));
+      const t = el("text", { x: 37, y: QY(v) + 3, "font-size": 10, fill: "#677481", "text-anchor": "end" }); t.textContent = v; qq.appendChild(t);
+    });
+    const qa = el("text", { x: 197, y: 416, "font-size": 10, fill: "#677481", "text-anchor": "middle" }); qa.textContent = "expected normal quantile (z)"; qq.appendChild(qa);
+    const qb = el("text", { x: 8, y: 195, "font-size": 10, fill: "#677481", "text-anchor": "middle", transform: "rotate(-90 8 195)" }); qb.textContent = `observed value (${p.unit})`; qq.appendChild(qb);
+
+    // summary tiles and interpretation
+    const nTxt = ovErr === "declared" ? `${n} <small style="font-size:11px;color:var(--muted)">(6 missing)</small>` : n;
+    document.getElementById("ov-stats").innerHTML = [
+      ["n (valid)", nTxt], ["Mean", fx(mean)], ["Median", fx(med)], ["SD", fx(sd)], ["IQR", fx(iqr)], ["Skewness", skew.toFixed(2)]
+    ].map(([l, x]) => `<div class="kpi"><div class="v">${x}</div><div class="l">${l}</div></div>`).join("");
+    document.getElementById("ov-note").textContent = p.note;
+    document.getElementById("ov-bins-v").textContent = bins;
+    const msg = document.getElementById("ov-msg");
+    msg.className = ovErr === "present" ? "bad" : "";
+    msg.innerHTML = ovErr === "present"
+      ? "<b>Something is wrong.</b> Six cases have the value 999. That is almost certainly a missing-value code, not a real measurement. Look at how they squash the histogram, inflate the mean and SD, and bend the Q-Q plot. In SPSS, check <em>Variable View → Missing</em>."
+      : (ovErr === "declared" ? "999 is now declared as missing. The 6 cases are excluded from the statistics and the plots are back to normal. " : "")
+        + (Math.abs(skew) <= 0.5 ? "<b>Roughly symmetric:</b> the mean and median are close, and the Q-Q points follow the line. Mean and SD are a fair summary."
+          : skew > 0 ? "<b>Right-skewed:</b> the long right tail pulls the mean above the median, and the Q-Q points curve upward at the top. Report the median and IQR."
+            : "<b>Left-skewed:</b> the long left tail pulls the mean below the median, and the Q-Q points bend away at the bottom. Report the median and IQR.");
+    document.getElementById("ov-add").disabled = ovErr === "present";
+    document.getElementById("ov-fix").disabled = ovErr !== "present";
+  };
+  document.querySelectorAll("#ov-var button").forEach(b => b.addEventListener("click", () => {
+    ovKey = b.dataset.v; ovSkew.value = OV[ovKey].k; ovErr = "none";
+    document.querySelectorAll("#ov-var button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    drawOV();
+  }));
+  ovSkew.addEventListener("input", drawOV);
+  ovBins.addEventListener("input", drawOV);
+  document.getElementById("ov-add").addEventListener("click", () => { ovErr = "present"; drawOV(); });
+  document.getElementById("ov-fix").addEventListener("click", () => { ovErr = "declared"; drawOV(); });
+  ovSkew.value = OV[ovKey].k; drawOV();
+
+  // shared tooltip for every element with data-tip (hover with a mouse, tap on touch)
+  const tip = document.createElement("div"); tip.className = "tip"; tip.setAttribute("role", "tooltip"); document.body.appendChild(tip);
+  const showTip = e => {
+    const t = e.target.closest && e.target.closest("[data-tip]");
+    if (!t) { tip.classList.remove("on"); return; }
+    tip.innerHTML = t.getAttribute("data-tip"); tip.classList.add("on");
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - r.width - 8) + "px";
+    tip.style.top = (e.clientY + 14 + r.height > innerHeight ? e.clientY - r.height - 10 : e.clientY + 14) + "px";
+  };
+  document.addEventListener("pointermove", showTip);
+  document.addEventListener("pointerdown", showTip);
+  document.addEventListener("scroll", () => tip.classList.remove("on"), { passive: true });
+
+  // warm-up polls: same Supabase project, RPCs and localStorage keys as utilities/poll.html,
+  // so votes, presenter login and reveal/reset behave exactly like the polls on the practical pages
+  (function () {
+    const SUPABASE_URL = "https://ztjjlogcdhynfkifaqtp.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp0ampsb2djZGh5bmZraWZhcXRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI4MTg0NjksImV4cCI6MjEwODM5NDQ2OX0.RsKffHoPL-wn-lKgoBW-K4xKKLiZVC8HMUWdUWhLIG8";
+    const store = {
+      get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+    };
+    let voter = store.get("poll-voter", null);
+    if (!voter) { voter = crypto.randomUUID(); store.set("poll-voter", voter); }
+
+    const polls = [...document.querySelectorAll("#warmup-polls .poll")].map(el => {
+      const options = [...el.querySelectorAll(".popts li")].map(li => li.innerHTML);
+      const box = document.createElement("div"); box.className = "pchoices";
+      const status = document.createElement("div"); status.className = "pstatus";
+      el.querySelector(".popts").after(box, status);
+      return { el, id: el.dataset.id, correct: +el.dataset.correct, options, box, status, exp: el.querySelector(".pexp"),
+        state: { round: 1, revealed: false, counts: null, total: 0 } };
+    });
+    const db = window.supabase ? // detectSessionInUrl off: it would read the #tab hash and make the page jump
+      window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { detectSessionInUrl: false } }) : null;
+    let teacher = false;
+    const mine = p => { const v = store.get("poll-votes", {})[p.id]; return v && v.round === p.state.round ? v.choice : null; };
+
+    const render = p => {
+      const s = p.state, my = mine(p), shown = s.revealed;
+      p.box.innerHTML = p.options.map((o, i) => {
+        const n = (s.counts && s.counts[i]) || 0, pct = s.total ? Math.round(100 * n / s.total) : 0;
+        const cls = ["pchoice", my === i ? "mine" : "", shown && i === p.correct ? "correct" : ""].join(" ");
+        return `<button type="button" class="${cls}" data-i="${i}" ${shown || !db ? "disabled" : ""}>` +
+          (shown ? `<i class="fill" data-w="${pct}"></i>` : "") +
+          `<span>${o}${my === i ? '<span class="tag">your vote</span>' : ""}${shown && i === p.correct ? '<span class="tag">✓ correct</span>' : ""}</span>` +
+          (shown ? `<span class="pct">${pct}% <small style="font-weight:400;color:var(--muted)">(${n})</small></span>` : "") + `</button>`;
+      }).join("");
+      if (shown) requestAnimationFrame(() => requestAnimationFrame(() => p.box.querySelectorAll(".fill").forEach(f => f.style.width = f.dataset.w + "%")));
+      p.box.querySelectorAll(".pchoice:not(:disabled)").forEach(b => b.onclick = () => vote(p, +b.dataset.i));
+      p.exp.hidden = !shown;
+      const count = `<span class="count">${s.total} vote${s.total === 1 ? "" : "s"}</span>`;
+      p.status.innerHTML = !db ? "Poll not available (no connection)."
+        : shown ? count + " · results revealed"
+        : count + " · " + (my === null ? "Choose an answer." : "Vote saved. You can change it until the results are revealed.");
+      if (teacher) {
+        const rev = document.createElement("button"); rev.className = "pbtn primary"; rev.textContent = shown ? "Hide results" : "Reveal results";
+        rev.onclick = () => rpc("set_revealed", { p_poll: p.id, p_revealed: !shown });
+        const rst = document.createElement("button"); rst.className = "pbtn"; rst.textContent = "Reset (new round)";
+        rst.onclick = () => confirm("Start a new round? Votes from the current round are kept in the CSV export.") && rpc("reset_poll", { p_poll: p.id });
+        p.status.append(rev, rst);
+      }
+    };
+    polls.forEach(render);
+    if (!db) return;
+
+    async function vote(p, choice) {
+      const { data, error } = await db.rpc("cast_vote", { p_poll: p.id, p_voter: voter, p_choice: choice });
+      if (error) { p.status.textContent = "Connection failed – please try again."; return; }
+      const all = store.get("poll-votes", {}); all[p.id] = { round: data, choice }; store.set("poll-votes", all);
+      p.state.round = data; render(p); refresh();
+    }
+    async function rpc(name, args) {
+      const { error } = await db.rpc(name, args);
+      if (error) alert("Connection failed – please try again."); else refresh();
+    }
+    async function refresh() {
+      const ids = polls.map(p => p.id), byId = {};
+      const { data } = await db.rpc("poll_results", { p_polls: ids });
+      (data || []).forEach(r => {
+        const s = byId[r.poll_id] ||= { round: r.round, revealed: r.revealed, counts: null, total: 0 };
+        if (r.choice === null) s.total = Number(r.n); else (s.counts ||= {})[r.choice] = Number(r.n);
+      });
+      // counts add up to the total (one vote per voter), so never show a total below their sum
+      Object.values(byId).forEach(s => { if (s.counts) s.total = Math.max(s.total, Object.values(s.counts).reduce((a, n) => a + n, 0)); });
+      try {
+        const { data: rows } = await db.from("polls").select("id, round, revealed").in("id", ids);
+        (rows || []).forEach(r => Object.assign(byId[r.id] ||= { counts: null, total: 0 }, { round: r.round, revealed: r.revealed }));
+      } catch (e) {}
+      polls.forEach(p => { if (byId[p.id]) { p.state = byId[p.id]; render(p); } });
+    }
+    refresh();
+    setInterval(() => { if (!document.hidden && !document.getElementById("sec-warmup").hidden) refresh(); }, 4000);
+
+    // presenter login (the same Supabase session as the ⚙ on the practical pages)
+    const panel = document.getElementById("pp-panel"), toggle = document.getElementById("pp-toggle");
+    toggle.onclick = () => { panel.hidden = !panel.hidden; toggle.setAttribute("aria-expanded", !panel.hidden); };
+    async function drawPanel() {
+      const { data: { session } } = await db.auth.getSession();
+      if (session) {
+        const { data } = await db.rpc("is_teacher"); teacher = !!data;
+        panel.innerHTML = `<b>Presenter</b> <span>${session.user.email}</span>` +
+          (teacher ? "" : ' <span style="color:#a4421f">This account is not registered as a presenter.</span>') +
+          ' <button type="button" class="pbtn" id="pp-out">Log out</button>';
+        panel.querySelector("#pp-out").onclick = async () => { await db.auth.signOut(); teacher = false; drawPanel(); polls.forEach(render); };
+      } else {
+        teacher = false;
+        panel.innerHTML = '<b>Presenter</b> <input type="email" id="pp-email" placeholder="E-mail" autocomplete="username">' +
+          '<input type="password" id="pp-pass" placeholder="Password" autocomplete="current-password">' +
+          '<button type="button" class="pbtn primary" id="pp-in">Log in</button><span id="pp-msg"></span>';
+        panel.querySelector("#pp-in").onclick = async () => {
+          const { error } = await db.auth.signInWithPassword({ email: panel.querySelector("#pp-email").value, password: panel.querySelector("#pp-pass").value });
+          if (error) { panel.querySelector("#pp-msg").textContent = error.message; return; }
+          drawPanel();
+        };
+      }
+      polls.forEach(render);
+    }
+    drawPanel();
+  })();
+
+  // tabs: click, arrow keys, prev/next, and #hash so a tab can be linked directly
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const ids = tabs.map(t => t.getAttribute("aria-controls"));
+  // the URL hash uses the short name (#crosstab); panel ids differ (sec-crosstab) so the browser never jumps to them
+  const names = ids.map(id => id.replace(/^sec-/, ""));
+  let cur = 0;
+  const showTab = (i, focus, initial) => {
+    cur = (i + tabs.length) % tabs.length;
+    tabs.forEach((t, k) => {
+      t.setAttribute("aria-selected", k === cur);
+      t.tabIndex = k === cur ? 0 : -1;
+      document.getElementById(ids[k]).hidden = k !== cur;
+    });
+    if (focus) tabs[cur].focus();
+    // keep the active tab visible in the bar on narrow screens without scrolling the page
+    const bar = tabs[cur].parentElement;
+    bar.scrollLeft = tabs[cur].offsetLeft - bar.clientWidth / 2 + tabs[cur].offsetWidth / 2;
+    document.getElementById("prev").disabled = cur === 0;
+    document.getElementById("next").disabled = cur === tabs.length - 1;
+    if (!initial) history.replaceState(null, "", "#" + names[cur]);
+  };
+  tabs.forEach((t, k) => {
+    t.addEventListener("click", () => showTab(k));
+    t.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") showTab(cur + 1, true);
+      if (e.key === "ArrowLeft") showTab(cur - 1, true);
+    });
+  });
+  document.getElementById("prev").addEventListener("click", () => { showTab(cur - 1); window.scrollTo(0, 0); });
+  document.getElementById("next").addEventListener("click", () => { showTab(cur + 1); window.scrollTo(0, 0); });
+  showTab(Math.max(0, names.indexOf(location.hash.slice(1))), false, true);
+</script>
+</body>
+</html>
