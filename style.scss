@@ -2585,6 +2585,12 @@ html.theme-light div.poll-calc {
   .poll-calc-feedback { color: #b91c1c !important; }
 }
 
+// Revealed correct answer ("→ 166.89 cm"): neon is unreadable on white
+html.theme-light div.poll-calc .poll-hint,
+html.theme-light div.poll-table .poll-hint {
+  color: #15803d !important;
+}
+
 // Presenter Floating Toolbar
 .poll-presenter {
   position: fixed;
