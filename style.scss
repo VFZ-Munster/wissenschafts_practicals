@@ -4518,3 +4518,46 @@ html.theme-light {
     }
   }
 }
+
+// SD formula hover diagram (confidence_interval.qmd)
+.sd-hover {
+  position: relative;
+  border-radius: 8px;
+  outline: none;
+  cursor: help;
+
+  .sd-hover-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.65;
+    margin-top: -0.5rem;
+  }
+
+  .sd-hover-plot {
+    display: none;
+    max-width: 480px;
+    margin: 0.5rem auto 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.85);
+
+    svg { width: 100%; height: auto; display: block; }
+    .sd-dot circle { fill: #3b82f6; }
+    p { font-size: 0.9rem; margin: 0.5rem 0 0; line-height: 1.45; }
+  }
+
+  &:hover .sd-hover-plot,
+  &:focus-within .sd-hover-plot { display: block; }
+  &:hover .sd-hover-hint,
+  &:focus-within .sd-hover-hint { display: none; }
+}
+
+html.theme-light .sd-hover .sd-hover-plot {
+  border-color: #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  .sd-dot circle { fill: #2563eb; }
+}
