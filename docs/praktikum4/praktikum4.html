@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-10-27">
+<meta name="dcterms.date" content="2026-11-26">
 
 <title>praktikum4 – Praktikum</title>
 <style>
@@ -39,7 +39,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-e67f66e09760c5d87c6ba66cdb9bb3db.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-f4d69658f1cf6601c605e565f8f9d758.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-62d270bd987a7ee83a7e458fd7b3caae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.js"></script>
 <link href="../site_libs/quarto-contrib/quarto-timer-1.0.0/timer.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -184,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 27, 2026</p>
+      <p class="date">November 26, 2026</p>
     </div>
   </div>
   
@@ -251,6 +251,19 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="BMI.png" class="img-fluid"></p>
 <p>You want to test whether the mean BMI in the NHANES sample differs significantly from the WHO reference for normal weight.</p>
 <p>For simplicity, use the mean normal weight BMI value of 21.7 as the comparison point.</p>
+<div id="p4-e1-hyp" class="poll" data-correct="3">
+<p>Which pair of hypotheses fits this research question?</p>
+<ul>
+<li>H0: The mean BMI in the population is different from 21.7. — H1: The mean BMI in the population is equal to 21.7.</li>
+<li>H0: The mean BMI in our NHANES sample is exactly 21.7. — H1: The mean BMI in our NHANES sample is not 21.7.</li>
+<li>H0: The mean BMI in the population is equal to 21.7 (no difference). — H1: The mean BMI in the population is different from 21.7 (higher or lower).</li>
+<li>H0: The mean BMI in the population is 21.7 or lower. — H1: The mean BMI in the population is higher than 21.7.</li>
+</ul>
+<div class="poll-explanation">
+<p>The null hypothesis (H0) always says “there is <strong>no difference</strong>”; the alternative hypothesis (H1) describes the difference we are looking for. Hypotheses are statements about the <strong>population</strong> (all people the sample represents), not about our sample – we already know the sample mean, so there is nothing to test about it. Our question is whether BMI <em>differs</em> from 21.7, in either direction, so H1 says “higher <strong>or</strong> lower” (two-sided). Testing only “higher” (one-sided) would only be justified if we had decided on that direction before looking at the data.</p>
+<p>In mathematical notation (μ = population mean): H0: μ = 21.7, H1: μ ≠ 21.7.</p>
+</div>
+</div>
 <p><strong>1.1 Exercise</strong></p>
 <p><strong>Conduct a one-sample t-test</strong></p>
 <div class="spss-workflow">
@@ -308,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The two-sided p-value is &lt; .001 and the 95 % CI of the difference does not include 0, so we <strong>reject H0</strong>. The p-value is <em>not</em> the probability that H0 is true: it is the probability of a difference at least this large <em>if</em> H0 were true. Non-normality is not a problem here: with almost 15,000 cases the sample mean is approximately normally distributed (central limit theorem).</p>
 </div>
 </div>
-<details class="result-panel presenter-only" data-reveal-with="p4-e1-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e1-results">
 <summary>
 Exercise results
 </summary>
@@ -338,8 +351,20 @@ Exercise results
 <section id="exercise-2-mann-whitney-u-test" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-mann-whitney-u-test">Exercise 2: Mann-Whitney U Test</h2>
 <p>You aim to determine whether the mean attachment loss differs between non-smokers and smokers (former or current).</p>
-<p>In Exercise 1, you examined the distribution of the variable <code>cal_mean</code> and found that it is not normally distributed.</p>
+<p>In the previous practical (Practical 3, Exercise 2), you examined the distribution of the variable <code>cal_mean</code> and found that it is not normally distributed.</p>
 <p>For small sample sizes (e.g., n &lt; 25), you therefore decide either to transform the variable or to use the Mann–Whitney U test. The latter compares the medians of two groups.</p>
+<div id="p4-e2-hyp" class="poll" data-correct="2">
+<p>Which pair of hypotheses fits the Mann–Whitney U test for this question?</p>
+<ul>
+<li>H0: Smokers have more attachment loss than never smokers. — H1: There is no difference between the groups.</li>
+<li>H0: Attachment loss is spread the same way in never smokers and in former/current smokers (same median, no difference). — H1: Attachment loss is spread differently in the two groups (one group tends to have higher values).</li>
+<li>H0: The average (mean) attachment loss is the same in both groups. — H1: The average (mean) attachment loss is different.</li>
+<li>H0: Smoking does not cause attachment loss. — H1: Smoking causes attachment loss.</li>
+</ul>
+<div class="poll-explanation">
+<p>The null hypothesis (H0) always says “there is <strong>no difference</strong>”; the alternative hypothesis (H1) describes the difference we are looking for – here in either direction. The Mann–Whitney U test does not use the raw values but puts all people in <strong>order</strong> (ranks) and compares the groups’ positions. So its hypotheses are about whether one group tends to have higher values (the median), not about the average (mean). And because the data were collected at one point in time (cross-sectional), the test can only show an association, never a cause.</p>
+</div>
+</div>
 <p><strong>Conduct the Mann–Whitney U test.</strong></p>
 <div class="spss-workflow">
   <div class="spss-workflow-header">
@@ -398,7 +423,7 @@ Exercise results
 <p>Asymp. Sig. (2-tailed) is &lt; .001, so we <strong>reject H0</strong>. The former/current smokers have the higher mean rank, so they tend to have more attachment loss. The test works with <strong>ranks</strong>, not with the raw values, so it says nothing about the means. And the data are cross-sectional: they show an association, not a cause.</p>
 </div>
 </div>
-<details class="result-panel presenter-only" data-reveal-with="p4-e2-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e2-results">
 <summary>
 Exercise results
 </summary>
@@ -415,7 +440,18 @@ Exercise results
 <h2 class="anchored" data-anchor-id="exercise-3-frequency-tests">Exercise 3: Frequency Tests</h2>
 <p>The Chi-square (χ²) four-field test is used, in its simplest form, to examine the independence of two binary (yes/no) variables. (It is therefore sometimes also referred to as the Chi-square test of independence.)</p>
 <p>In epidemiology, this test is applicable to numerous research questions, such as: “Is there an association between the presence of periodontitis (yes/no) and diabetes (yes/no)?”</p>
-<p>Under the null hypothesis, the relevant outcomes are independent of each other, whereas the alternative hypothesis states that a dependency exists.</p>
+<div id="p4-e3-hyp" class="poll" data-correct="1">
+<p>Which pair of hypotheses fits the chi-square test for this question?</p>
+<ul>
+<li>H0: Periodontitis and diabetes are not related – knowing whether someone has diabetes tells us nothing about their chance of having periodontitis. — H1: Periodontitis and diabetes are related – people with diabetes have a different chance of having periodontitis than people without.</li>
+<li>H0: Periodontitis and diabetes are related. — H1: Periodontitis and diabetes are not related.</li>
+<li>H0: Diabetes does not cause periodontitis. — H1: Diabetes causes periodontitis.</li>
+<li>H0: In our sample, the counts we observe are exactly the counts we would expect. — H1: In our sample, the observed counts differ from the expected counts.</li>
+</ul>
+<div class="poll-explanation">
+<p>The null hypothesis (H0) always says “there is <strong>no relationship</strong>”: the two variables are <em>independent</em> of each other. The alternative hypothesis (H1) says a relationship (<em>association</em>) exists. Hypotheses are statements about the <strong>population</strong>, not about our sample – in a sample, observed and expected counts will almost never be exactly equal, just by chance. And because the data were collected at one point in time, the test can show an association, but not a cause.</p>
+</div>
+</div>
 <p><strong>Conduct a Chi-square (χ²) test to address the question stated above.</strong></p>
 <div class="spss-workflow">
   <div class="spss-workflow-header">
@@ -471,7 +507,7 @@ Exercise results
 <p>p &lt; .001, so we <strong>reject H0</strong> of independence. Among diabetics, 199 people have periodontitis, but only 114.5 would be expected if the two were independent. χ² grows with the sample size, so it does not tell you how <em>strong</em> the association is – use the OR or RR for that (Practical 2: OR = 2.19). The data are cross-sectional, so the test shows an association, not a cause.</p>
 </div>
 </div>
-<details class="result-panel presenter-only" data-reveal-with="p4-e3-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e3-results">
 <summary>
 Exercise results
 </summary>
@@ -778,7 +814,12 @@ Exercise results
     const m = f.mistakes.findIndex(m => near(m.value));
     return m >= 0 ? m + 1 : f.mistakes.length + 1;
   }
-  const allIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+  const pollIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+  // Result panels whose data-reveal-with names no poll on the page get their own presenter
+  // button ("Reveal exercise results"); that id is stored like a poll (revealed flag only).
+  const panelIds = [...new Set(Array.from(document.querySelectorAll(".presenter-only[data-reveal-with]"))
+    .map(el => el.dataset.revealWith))].filter(id => !pollIds().includes(id));
+  const allIds = () => pollIds().concat(panelIds);
 
   const configured = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
   if (!configured) {
@@ -1589,6 +1630,22 @@ Exercise results
     document.querySelectorAll(".presenter-only[data-reveal-with]").forEach(el => {
       const isRev = practiceMode || !!(byId[el.dataset.revealWith] || {}).revealed;
       el.classList.toggle("poll-unlocked", isRev);
+      if (!panelIds.includes(el.dataset.revealWith)) return;
+      // Own reveal button, shown to the presenter only
+      let bar = el.previousElementSibling;
+      if (!bar || !bar.classList.contains("result-reveal-bar")) {
+        bar = document.createElement("div");
+        bar.className = "result-reveal-bar poll-controls";
+        el.parentNode.insertBefore(bar, el);
+      }
+      const showBar = teacher && !previewAsStudent && !practiceMode;
+      bar.hidden = !showBar;
+      bar.innerHTML = "";
+      if (showBar) {
+        const revealed = !!(byId[el.dataset.revealWith] || {}).revealed;
+        bar.appendChild(button(revealed ? "Hide exercise results" : "Reveal exercise results",
+          () => rpc("set_revealed", { p_poll: el.dataset.revealWith, p_revealed: !revealed })));
+      }
     });
 
     drawPresenterDock();

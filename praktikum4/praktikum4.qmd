@@ -68,6 +68,21 @@ You want to test whether the mean BMI in the NHANES sample differs significantly
 
 For simplicity, use the mean normal weight BMI value of 21.7 as the comparison point.
 
+::: {.poll #p4-e1-hyp correct="3"}
+Which pair of hypotheses fits this research question?
+
+- H0: The mean BMI in the population is different from 21.7. — H1: The mean BMI in the population is equal to 21.7.
+- H0: The mean BMI in our NHANES sample is exactly 21.7. — H1: The mean BMI in our NHANES sample is not 21.7.
+- H0: The mean BMI in the population is equal to 21.7 (no difference). — H1: The mean BMI in the population is different from 21.7 (higher or lower).
+- H0: The mean BMI in the population is 21.7 or lower. — H1: The mean BMI in the population is higher than 21.7.
+
+::: poll-explanation
+The null hypothesis (H0) always says "there is **no difference**"; the alternative hypothesis (H1) describes the difference we are looking for. Hypotheses are statements about the **population** (all people the sample represents), not about our sample – we already know the sample mean, so there is nothing to test about it. Our question is whether BMI *differs* from 21.7, in either direction, so H1 says "higher **or** lower" (two-sided). Testing only "higher" (one-sided) would only be justified if we had decided on that direction before looking at the data.
+
+In mathematical notation (μ = population mean): H0: μ = 21.7, H1: μ ≠ 21.7.
+:::
+:::
+
 **1.1 Exercise**
 
 **Conduct a one-sample t-test**
@@ -132,7 +147,7 @@ The two-sided p-value is < .001 and the 95 % CI of the difference does not inclu
 :::
 :::
 
-<details class="result-panel presenter-only" data-reveal-with="p4-e1-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e1-results">
 
 <summary>Exercise results</summary>
 
@@ -168,9 +183,22 @@ Why do you report the confidence interval in addition to the p-value?
 
 You aim to determine whether the mean attachment loss differs between non-smokers and smokers (former or current).
 
-In Exercise 1, you examined the distribution of the variable `cal_mean` and found that it is not normally distributed.
+In the previous practical (Practical 3, Exercise 2), you examined the distribution of the variable `cal_mean` and found that it is not normally distributed.
 
 For small sample sizes (e.g., n \< 25), you therefore decide either to transform the variable or to use the Mann--Whitney U test. The latter compares the medians of two groups.
+
+::: {.poll #p4-e2-hyp correct="2"}
+Which pair of hypotheses fits the Mann–Whitney U test for this question?
+
+- H0: Smokers have more attachment loss than never smokers. — H1: There is no difference between the groups.
+- H0: Attachment loss is spread the same way in never smokers and in former/current smokers (same median, no difference). — H1: Attachment loss is spread differently in the two groups (one group tends to have higher values).
+- H0: The average (mean) attachment loss is the same in both groups. — H1: The average (mean) attachment loss is different.
+- H0: Smoking does not cause attachment loss. — H1: Smoking causes attachment loss.
+
+::: poll-explanation
+The null hypothesis (H0) always says "there is **no difference**"; the alternative hypothesis (H1) describes the difference we are looking for – here in either direction. The Mann–Whitney U test does not use the raw values but puts all people in **order** (ranks) and compares the groups' positions. So its hypotheses are about whether one group tends to have higher values (the median), not about the average (mean). And because the data were collected at one point in time (cross-sectional), the test can only show an association, never a cause.
+:::
+:::
 
 **Conduct the Mann--Whitney U test.**
 
@@ -237,7 +265,7 @@ Asymp. Sig. (2-tailed) is < .001, so we **reject H0**. The former/current smoker
 :::
 :::
 
-<details class="result-panel presenter-only" data-reveal-with="p4-e2-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e2-results">
 
 <summary>Exercise results</summary>
 
@@ -259,7 +287,18 @@ The Chi-square (χ²) four-field test is used, in its simplest form, to examine 
 
 In epidemiology, this test is applicable to numerous research questions, such as: "Is there an association between the presence of periodontitis (yes/no) and diabetes (yes/no)?"
 
-Under the null hypothesis, the relevant outcomes are independent of each other, whereas the alternative hypothesis states that a dependency exists.
+::: {.poll #p4-e3-hyp correct="1"}
+Which pair of hypotheses fits the chi-square test for this question?
+
+- H0: Periodontitis and diabetes are not related – knowing whether someone has diabetes tells us nothing about their chance of having periodontitis. — H1: Periodontitis and diabetes are related – people with diabetes have a different chance of having periodontitis than people without.
+- H0: Periodontitis and diabetes are related. — H1: Periodontitis and diabetes are not related.
+- H0: Diabetes does not cause periodontitis. — H1: Diabetes causes periodontitis.
+- H0: In our sample, the counts we observe are exactly the counts we would expect. — H1: In our sample, the observed counts differ from the expected counts.
+
+::: poll-explanation
+The null hypothesis (H0) always says "there is **no relationship**": the two variables are *independent* of each other. The alternative hypothesis (H1) says a relationship (*association*) exists. Hypotheses are statements about the **population**, not about our sample – in a sample, observed and expected counts will almost never be exactly equal, just by chance. And because the data were collected at one point in time, the test can show an association, but not a cause.
+:::
+:::
 
 **Conduct a Chi-square (χ²) test to address the question stated above.**
 
@@ -322,7 +361,7 @@ p < .001, so we **reject H0** of independence. Among diabetics, 199 people have 
 :::
 :::
 
-<details class="result-panel presenter-only" data-reveal-with="p4-e3-h0">
+<details class="result-panel presenter-only" data-reveal-with="p4-e3-results">
 
 <summary>Exercise results</summary>
 

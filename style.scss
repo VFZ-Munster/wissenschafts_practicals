@@ -2504,8 +2504,11 @@ div.poll-table {
 }
 
 // Presenter-only content (shown after a teacher logs in, or to everyone once the poll
-// named in data-reveal-with is revealed; see utilities/poll.html)
-html:not(.poll-teacher) .presenter-only:not(.poll-unlocked) {
+// named in data-reveal-with is revealed; see utilities/poll.html).
+// Panels with data-reveal-with stay hidden for the presenter too (the screen may be
+// projected) until that poll is revealed or the practical is in practice mode.
+html:not(.poll-teacher) .presenter-only:not(.poll-unlocked),
+.presenter-only[data-reveal-with]:not(.poll-unlocked) {
   display: none !important;
 }
 
@@ -4560,4 +4563,44 @@ html.theme-light .sd-hover .sd-hover-plot {
   background: #ffffff;
   color: #334155;
   .sd-dot circle { fill: #2563eb; }
+}
+
+// Presenter button above a result panel that has its own reveal id (utilities/poll.html)
+.result-reveal-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1.25rem 0 -0.75rem;
+
+  .poll-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 0.5px solid rgba(204, 255, 0, 0.45);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $neon;
+      border-color: $neon;
+      color: #000000;
+    }
+  }
+
+  &[hidden] { display: none; }
+}
+
+html.theme-light .result-reveal-bar .poll-control {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+
+  &:hover {
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
+  }
 }
