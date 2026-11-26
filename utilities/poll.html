@@ -235,7 +235,12 @@
     const m = f.mistakes.findIndex(m => near(m.value));
     return m >= 0 ? m + 1 : f.mistakes.length + 1;
   }
-  const allIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+  const pollIds = () => polls.map(p => p.id).concat(...tables.map(tableIds), ...calcs.map(calcIds));
+  // Result panels whose data-reveal-with names no poll on the page get their own presenter
+  // button ("Reveal exercise results"); that id is stored like a poll (revealed flag only).
+  const panelIds = [...new Set(Array.from(document.querySelectorAll(".presenter-only[data-reveal-with]"))
+    .map(el => el.dataset.revealWith))].filter(id => !pollIds().includes(id));
+  const allIds = () => pollIds().concat(panelIds);
 
   const configured = SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
   if (!configured) {
@@ -1046,6 +1051,22 @@
     document.querySelectorAll(".presenter-only[data-reveal-with]").forEach(el => {
       const isRev = practiceMode || !!(byId[el.dataset.revealWith] || {}).revealed;
       el.classList.toggle("poll-unlocked", isRev);
+      if (!panelIds.includes(el.dataset.revealWith)) return;
+      // Own reveal button, shown to the presenter only
+      let bar = el.previousElementSibling;
+      if (!bar || !bar.classList.contains("result-reveal-bar")) {
+        bar = document.createElement("div");
+        bar.className = "result-reveal-bar poll-controls";
+        el.parentNode.insertBefore(bar, el);
+      }
+      const showBar = teacher && !previewAsStudent && !practiceMode;
+      bar.hidden = !showBar;
+      bar.innerHTML = "";
+      if (showBar) {
+        const revealed = !!(byId[el.dataset.revealWith] || {}).revealed;
+        bar.appendChild(button(revealed ? "Hide exercise results" : "Reveal exercise results",
+          () => rpc("set_revealed", { p_poll: el.dataset.revealWith, p_revealed: !revealed })));
+      }
     });
 
     drawPresenterDock();
